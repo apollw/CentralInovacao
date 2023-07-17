@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.MainPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="LightGray">
+
+    <StackLayout VerticalOptions = "Center"
+                         Spacing         = "20"
+                         Padding         = "15">
+        
+        <Frame CornerRadius      = "25"
+               HasShadow         = "True"
+               HorizontalOptions = "Center"
+               BackgroundColor   = "#FC9150"
+               >
+            
+            <Grid RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Entry  x:Name           = "_entryNome"
+                        FontSize         = "20"
+                        Placeholder      = "Usuário"
+                        PlaceholderColor = "LightGray"
+                        BackgroundColor  = "White"
+                        Grid.Row         = "1"
+                        />
+                <Entry  x:Name           ="_entrySenha"
+                        FontSize         = "20"
+                        Placeholder      = "Senha"
+                        PlaceholderColor = "LightGray"
+                        BackgroundColor  = "White"
+                        Grid.Row="2"
+                        />
+                <Button x:Name           = "_btn_Login"
+                        Text             = "Fazer Login"
+                        FontSize         = "20"
+                        Clicked          = "Btn_Login"
+                        Grid.Row         = "3"/>
+
+            </Grid>
+
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
