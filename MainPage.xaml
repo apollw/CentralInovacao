@@ -6,47 +6,79 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="LightGray">
 
-    <StackLayout VerticalOptions = "Center"
-                         Spacing         = "20"
-                         Padding         = "15">
-        
-        <Frame CornerRadius      = "25"
-               HasShadow         = "True"
-               HorizontalOptions = "Center"
-               BackgroundColor   = "#FC9150"
-               >
-            
-            <Grid RowSpacing="15">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="325"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row        = "0"
+                WidthRequest    = "300"
+                HeightRequest   = "85"
+                VerticalOptions = "End"
+                StrokeShape     = "RoundRectangle 50 50 0 0"
+                BackgroundColor = "Green"            
+                >
+            <Border.Shadow>
+                <Shadow Brush   = "black"
+                        Opacity = ".9"/>
+            </Border.Shadow>
+            <Label Text              = "CENTRAL DE INOVAÇÃO"
+                   FontSize          = "18"
+                   FontAttributes    = "Bold"
+                   HorizontalOptions = "Center"
+                   VerticalOptions   = "Center"
+                   TextColor         = "White"
+                   />
+        </Border>
+        <Border Grid.Row        = "1"
+                VerticalOptions = "Start"
+                WidthRequest    = "300"
+                HeightRequest   = "220"
+                BackgroundColor = "WhiteSmoke"
+                StrokeShape     = "RoundRectangle 0 0 50 50"
+                >
+            <Border.Shadow>
+                <Shadow Brush   = "black"
+                        Opacity = ".4"/>
+            </Border.Shadow>
+            <Grid RowSpacing = "5"
+                  Padding    = "15">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-
-                <Entry  x:Name           = "_entryNome"
-                        FontSize         = "20"
+                <Entry  x:Name           = "_entryNome"                        
+                        FontSize         = "15"                        
                         Placeholder      = "Usuário"
-                        PlaceholderColor = "LightGray"
+                        PlaceholderColor = "Gray"
                         BackgroundColor  = "White"
-                        Grid.Row         = "1"
+                        Grid.Row         = "0"
+                        HeightRequest    = "40"
+                        WidthRequest     = "250"
                         />
-                <Entry  x:Name           ="_entrySenha"
-                        FontSize         = "20"
+                <Entry  x:Name           = "_entrySenha"
+                        FontSize         = "15"
                         Placeholder      = "Senha"
-                        PlaceholderColor = "LightGray"
+                        PlaceholderColor = "Gray"
                         BackgroundColor  = "White"
-                        Grid.Row="2"
+                        IsPassword       = "True"
+                        Grid.Row         = "1"
+                        HeightRequest    = "40"
+                        WidthRequest     = "250" 
                         />
                 <Button x:Name           = "_btn_Login"
-                        Text             = "Fazer Login"
-                        FontSize         = "20"
+                        Text             = "Login"                      
+                        FontSize         = "18"
+                        FontAttributes   = "Bold"
+                        BackgroundColor  = "LightGreen"
                         Clicked          = "Btn_Login"
-                        Grid.Row         = "3"/>
-
-            </Grid>
-
-        </Frame>
-    </StackLayout>
+                        Grid.Row         = "2"
+                        HeightRequest    = "50"
+                        WidthRequest     = "250"/>
+            </Grid>            
+        </Border>
+    </Grid>     
 
 </ContentPage>
+

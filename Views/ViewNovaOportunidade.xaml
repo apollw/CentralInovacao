@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Views.ViewNovaOportunidade"
+             Title="Nova Oportunidade"
+             Shell.NavBarIsVisible="False">
+
+
+    <ScrollView>
+        <StackLayout   Spacing="10">
+            <Label     Text                     = "Adicionar Oportunidade de Inovação"
+                       TextColor                = "White"
+                       FontSize                 = "Medium"
+                       FontAttributes           = "Bold"
+                       HorizontalTextAlignment  = "Center"
+                       VerticalTextAlignment    = "Center"
+                       BackgroundColor          = "Green"
+                       VerticalOptions          = "Start"
+                       HeightRequest            = "100"/>
+            <Label     Text                     = "Nome da Solução"                       
+                       FontAttributes           = "Bold"
+                       Padding                  = "5"/>
+            <Entry     FontSize                 = "Medium"
+                       WidthRequest             = "400"
+                       VerticalTextAlignment    = "Start"
+                       BackgroundColor          = "LightGray"/>
+            <Label     Text                     = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil: (*)"
+                       FontAttributes           = "Bold"
+                       Padding                  = "5"/>
+            <Editor    x:Name                   = "_editor1"
+                       WidthRequest             = "400"
+                       HeightRequest            = "150"
+                       VerticalTextAlignment    = "Start"
+                       BackgroundColor          = "LightGray"
+                       TextChanged              = "OnEditorTextChanged1"
+                       Completed                = "OnEditorCompleted"/>
+            <Label     Text                     = "Descreva um breve resumo de como essa solução pode impactar NEGATIVAMENTE o Ceape Brasil: (*)"
+                       FontAttributes           = "Bold"
+                       Padding                  = "5"/>
+            <Editor    x:Name                   = "_editor2"
+                       WidthRequest             = "400"
+                       HeightRequest            = "150"
+                       BackgroundColor          = "LightGray"
+                       TextChanged              = "OnEditorTextChanged2"
+                       Completed                = "OnEditorCompleted"/>
+            <Label     Text                     = "Selecione os setores impactados por essa solução: (*)"
+                       FontAttributes           = "Bold"
+                       Padding                  = "5"/>
+
+            <Grid RowDefinitions    = "*,*,*,*,*"
+                  ColumnDefinitions = "300,*"
+                  HeightRequest     = "175"
+                  Padding="10">
+                <Label  Grid.Row = "0"
+                        HorizontalOptions="Start"
+                        Text     = "Tecnologia da Informação -  Inovação"/>
+                <Label  Grid.Row = "1"   
+                        Text     = "Análise de Crédito"/>
+                <Label  Grid.Row = "2"   
+                        Text     = "Setor 1"/>
+                <Label  Grid.Row = "3"   
+                        Text     = "Setor 1"/>
+                <Label  Grid.Row = "4"   
+                        Text     = "Setor 1"/>
+
+                <CheckBox Grid.Row          = "0"
+                          Grid.Column       = "1"
+                          HorizontalOptions ="End"/>
+                <CheckBox Grid.Row          = "1"
+                          Grid.Column       = "1"
+                          HorizontalOptions ="End"/>
+                <CheckBox Grid.Row          = "2"
+                          Grid.Column       = "1"
+                          HorizontalOptions ="End"/>
+                <CheckBox Grid.Row          = "3"
+                          Grid.Column       = "1"
+                          HorizontalOptions ="End"/>
+                <CheckBox Grid.Row          = "4"
+                          Grid.Column       = "1"
+                          HorizontalOptions ="End"/>
+            </Grid>
+
+            <Button       Text            = "Salvar"
+                          Margin          = "10"
+                          BackgroundColor = "Green"/>
+
+
+        </StackLayout>
+    </ScrollView>
+    
+</ContentPage>

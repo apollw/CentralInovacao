@@ -50,6 +50,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\banner_1.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Folder Include="Models\" />
 	  <Folder Include="ViewModels\" />
 	</ItemGroup>
@@ -58,19 +62,34 @@
 	  <Compile Update="MainPage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ViewFirstPage.xaml.cs">
-	    <DependentUpon>ViewFirstPage.xaml</DependentUpon>
+	  <Compile Update="Views\ViewInicio.xaml.cs">
+	    <DependentUpon>ViewInicio.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ViewSecondPage.xaml.cs">
-	    <DependentUpon>ViewSecondPage.xaml</DependentUpon>
+	  <Compile Update="Views\ViewInteracoes.xaml.cs">
+	    <DependentUpon>ViewInteracoes.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\ViewFirstPage.xaml">
+	  <MauiXaml Update="Views\ViewChamado.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewSecondPage.xaml">
+	  <MauiXaml Update="Views\ViewInicio.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewInteracoes.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewMeusProjetos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewMinhasOportunidades.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewRankingGeral.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

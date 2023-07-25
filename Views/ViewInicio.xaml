@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Views.ViewInicio"
+             Title="Central de Ideias"
+             BackgroundColor="LightGray"
+             >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text    = "Logout" 
+                     Clicked = "Btn_Logout"/>        
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <!-- GRID GERAL-->
+        <!--<Grid Margin     = "15"
+              RowSpacing = "10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="480"/>
+                <RowDefinition Height="125"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>-->
+
+        <!-- GRID GERAL - Forma Alternativa-->
+        <Grid Margin            = "15"
+              RowSpacing        = "10"
+              RowDefinitions    = "480,125,150,*">           
+
+                <!-- GRID INTERIOR - LINHA 1-->
+            <Grid Grid.Row        = "0"
+                  BackgroundColor = "White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="130"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="85"/>
+                    <RowDefinition Height="85"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row        = "0"
+                       Grid.ColumnSpan = "3"
+                       BackgroundColor = "Green"
+                       VerticalOptions = "Start"
+                       HeightRequest   = "100"/>
+
+                <Border Grid.Row           = "0"
+                        Grid.Column        = "1"
+                        Margin             = "15"
+                        HorizontalOptions  = "Center"
+                        VerticalOptions    = "Start"
+                        HeightRequest      = "135"
+                        WidthRequest       = "150"
+                        StrokeShape        = "RoundRectangle 50">
+                    <Image Source          = "dotnet_bot.svg"
+                           BackgroundColor = "White"/>
+                </Border>
+                <Label  Text                    = "Leanderson Silva"
+                        FontSize                = "15"
+                        FontAttributes          = "Bold"
+                        Grid.Row                = "1"
+                        Grid.Column             = "1"
+                        Margin                  = "15"
+                        WidthRequest            = "300"
+                        HorizontalTextAlignment = "Center"
+                        HorizontalOptions       = "Center"
+                        VerticalOptions         = "Start"/>                
+                <Border Grid.Row          = "1"
+                        Grid.Column       = "0"
+                        Margin            = "15"
+                        HorizontalOptions = "Start"
+                        VerticalOptions   = "End"
+                        HeightRequest     = "50"
+                        WidthRequest      = "100"
+                        StrokeShape       = "RoundRectangle 50">                    
+                    <Label Text              = "1º"
+                           HorizontalOptions = "Center"
+                           VerticalOptions   = "Center"/>
+                </Border>                
+                <Border Grid.Row          = "1"
+                        Grid.Column       = "1"
+                        Margin            = "15"
+                        HorizontalOptions = "Center"
+                        VerticalOptions   = "End"
+                        HeightRequest     = "50"
+                        WidthRequest      = "100"
+                        StrokeShape       = "RoundRectangle 50">                    
+                    <Label Text              = "10"
+                           HorizontalOptions = "Center"
+                           VerticalOptions   = "Center"/>
+                </Border>                
+                <Border Grid.Row          = "1"
+                        Grid.Column       = "2"
+                        Margin            = "15"
+                        HorizontalOptions = "End"
+                        VerticalOptions   = "End"
+                        HeightRequest     = "50"
+                        WidthRequest      = "100"
+                        StrokeShape       = "RoundRectangle 50">                    
+                    <Label Text              = "15"
+                           HorizontalOptions = "Center"
+                           VerticalOptions   = "Center"/>                    
+                </Border>
+                <Label  Grid.Row          = "2"
+                        Grid.Column       = "0"                        
+                        Text              = "Ranking"
+                        HorizontalOptions = "Center"/>
+                <Label  Grid.Row          = "2"
+                        Grid.Column       = "1"
+                        Text              = "Projetos"
+                        HorizontalOptions = "Center"/>
+                <Label  Grid.Row          = "2"
+                        Grid.Column       = "2"
+                        Text              = "Oportunidades"
+                        HorizontalOptions = "Center"/>
+                <Button Grid.Row          = "3"
+                        Grid.ColumnSpan   = "3"
+                        Text              = "Meus Projetos"
+                        TextColor         = "Green"
+                        FontSize          = "18"
+                        FontAttributes    = "Bold"
+                        Margin            = "10"
+                        BorderColor       = "Green"
+                        BorderWidth       = "2"
+                        BackgroundColor   = "White"
+                        HorizontalOptions = "Fill"
+                        Clicked           = "Btn_MeusProjetos"/>
+                <Button Grid.Row          = "4"
+                        Grid.Column       = "0"                        
+                        Margin            = "10"
+                        WidthRequest      = "175"
+                        HorizontalOptions = "Start"
+                        Text              = "Oportunidades"
+                        TextColor         = "Green"
+                        BorderColor       = "Green"
+                        FontSize          = "18"
+                        FontAttributes    = "Bold"
+                        BorderWidth       = "2"
+                        BackgroundColor   = "White"
+                        Clicked           = "Btn_MinhasOp"/>
+                <Button Grid.Row          = "4"
+                        Grid.Column       = "2"                        
+                        Margin            = "10"
+                        WidthRequest      = "175"
+                        HorizontalOptions = "End"                        
+                        Text              = "Ranking Geral"
+                        TextColor         = "Green"
+                        BorderColor       = "Green"
+                        FontSize          = "18"
+                        FontAttributes    = "Bold"
+                        BorderWidth       = "2"
+                        BackgroundColor   = "White"
+                        Clicked           = "Btn_RankingGeral"/>
+            </Grid>
+            
+            <!-- GRID INTERIOR - LINHA 2-->
+                <Grid Grid.Row        = "1"                      
+                      BackgroundColor = "White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height = "50"/>
+                        <RowDefinition Height = "50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row           = "0"
+                           Grid.ColumnSpan    = "3"
+                           Text               = "Top CEAPE Inovadores"
+                           TextColor          = "DarkGreen"
+                           FontAttributes     = "Bold"
+                           FontSize           = "18"                       
+                           HorizontalOptions  = "Center"/>
+                    <Border Grid.Row          = "1"
+                            Grid.Column       = "0"
+                            HorizontalOptions = "Center"
+                            VerticalOptions   = "End"
+                            HeightRequest     = "50"
+                            WidthRequest      = "100"
+                            StrokeShape       = "RoundRectangle 50">
+                        <Label Text              = "Danilo"
+                               HorizontalOptions = "Center"
+                               VerticalOptions   = "Center"/>
+                    </Border>
+                    <Border Grid.Row          = "1"
+                            Grid.Column       = "1"
+                            HorizontalOptions = "Center"
+                            VerticalOptions   = "End"
+                            HeightRequest     = "50"
+                            WidthRequest      = "100"
+                            StrokeShape       = "RoundRectangle 50">
+                        <Label Text              = "Leanderson"
+                               HorizontalOptions = "Center"
+                               VerticalOptions   = "Center"/>
+                    </Border>
+                    <Border Grid.Row          = "1"
+                            Grid.Column       = "2"
+                            HorizontalOptions = "Center"
+                            VerticalOptions   = "End"
+                            HeightRequest     = "50"
+                            WidthRequest      = "100"
+                            StrokeShape       = "RoundRectangle 50">
+                        <Label Text              = "Edem"
+                               HorizontalOptions = "Center"
+                               VerticalOptions   = "Center"/>
+                    </Border>
+                </Grid>
+
+            <!-- GRID INTERIOR - LINHA 3-->
+            <Grid Grid.Row        = "2"
+                  BackgroundColor = "White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Label Text              = "Cursos da Gestão de Inovação"
+                       TextColor         = "DarkGreen"
+                       Grid.Row          = "0"
+                       Grid.Column       = "1"
+                       FontAttributes    = "Bold"
+                       FontSize          = "18"
+                       VerticalOptions   = "Center"
+                       HorizontalOptions = "Center"/>
+                <Image Grid.Row = "1"                       
+                       Source   = "banner_1.png"
+                       Aspect   = "Fill">
+                    <!-- Adicione o gesto TapGestureRecognizer para a imagem -->
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <!-- GRID INTERIOR - LINHA 4-->
+            <Grid Grid.Row = "3"
+                  Margin   = "15"
+                  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Text              = "Nova Oportunidade"
+                        FontSize          = "12"
+                        FontAttributes    = "Bold"
+                        Grid.Column       = "0"
+                        HeightRequest     = "75"
+                        WidthRequest      = "150"
+                        HorizontalOptions = "Start"
+                        BackgroundColor   = "LightSeaGreen"
+                        Clicked           = "Btn_NovaOp"/>
+                <Button Text              = "Abrir Chamado" 
+                        FontSize          = "12"
+                        FontAttributes    = "Bold"
+                        Grid.Column       = "1"
+                        HeightRequest     = "75"
+                        WidthRequest      = "150"
+                        HorizontalOptions = "End"
+                        BackgroundColor   = "Green"
+                        Clicked           = "Btn_Chamado"/>
+            </Grid>
+        </Grid>     
+    </ScrollView>
+    
+</ContentPage>

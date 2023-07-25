@@ -11,10 +11,25 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Views\ViewFirstPage.xaml">
+    <MauiXaml Update="Views\ViewChamado.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewSecondPage.xaml">
+    <MauiXaml Update="Views\ViewInicio.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ViewInteracoes.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ViewMeusProjetos.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ViewMinhasOportunidades.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ViewRankingGeral.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

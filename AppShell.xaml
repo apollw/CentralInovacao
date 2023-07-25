@@ -6,7 +6,9 @@
     xmlns:local="clr-namespace:CentralInovacao"
     xmlns:views="clr-namespace:CentralInovacao.Views"
     Shell.FlyoutBehavior="Flyout"
-    Shell.TabBarIsVisible="False">
+    Shell.TabBarIsVisible="False"
+    Shell.BackgroundColor="Green"
+    >
 
     <ShellItem    Title               = "CEAPE Inovação"
                   Route               = "MainPage"
@@ -15,14 +17,20 @@
     </ShellItem>
 
     <FlyoutItem FlyoutDisplayOptions  = "AsMultipleItems">
-        <ShellContent Title           = "Página Principal"
-                      ContentTemplate = "{DataTemplate views:ViewFirstPage}"
-                      Route           = "ViewFirstPage"/>
-        <ShellContent Title           = "Página Dois"
-                      ContentTemplate = "{DataTemplate views:ViewSecondPage}"
-                      Route           = "ViewSecondPage"/>
+        <ShellContent Title           = "Central de Ideias"
+                      ContentTemplate = "{DataTemplate views:ViewInicio}"
+                      Route           = "ViewInicio"/>
+        <ShellContent Title           = "Meus Projetos"
+                      ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
+                      Route           = "ViewMeusProjetos"/>
+        <ShellContent Title           = "Minhas Oportunidades"
+                      ContentTemplate = "{DataTemplate views:ViewMinhasOportunidades}"
+                      Route           = "ViewMinhasOportunidades"/>
+        <ShellContent Title           = "Últimas Interações"
+                      ContentTemplate = "{DataTemplate views:ViewInteracoes}"
+                      Route           = "ViewInteracoes"/> 
     </FlyoutItem>
-    
+
     
 
 </Shell>
