@@ -2,9 +2,9 @@ namespace CentralInovacao.Views;
 
 public partial class ViewInicio : ContentPage
 {
-	public ViewInicio()
-	{
-		InitializeComponent();
+    public ViewInicio()
+    {
+        InitializeComponent();
     }
     private async void Btn_Logout(object sender, EventArgs e)
     {

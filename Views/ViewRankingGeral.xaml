@@ -4,23 +4,11 @@
              x:Class="CentralInovacao.Views.ViewRankingGeral"
              Title="Ranking Geral">
 
-    <Grid RowDefinitions="*,*,*,*">
-        <Label  Grid.Row="0"
-                Text="Primeiro Lugar"
-                FontSize="Large"
-                HorizontalOptions="Center" />
-        <Label  Grid.Row="1"
-                Text="Segundo Lugar"
-                FontSize="Large"
-                HorizontalOptions="Center" />
-        <Label  Grid.Row="2"
-                Text="Terceiro Lugar"
-                FontSize="Large"
-                HorizontalOptions="Center" />
-        <Label  Grid.Row="3"
-                Text="Quarto Lugar"
-                FontSize="Large"
-                HorizontalOptions="Center" />
+    <Grid RowDefinitions    = "*,*"
+          ColumnDefinitions = "*,*"
+          Margin            = "15">
+        
+
     </Grid>
 
 </ContentPage>

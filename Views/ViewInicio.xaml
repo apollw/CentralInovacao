@@ -25,9 +25,9 @@
         <!-- GRID GERAL - Forma Alternativa-->
         <Grid Margin            = "15"
               RowSpacing        = "10"
-              RowDefinitions    = "480,125,150,*">           
+              RowDefinitions    = "480,125,185,*">           
 
-                <!-- GRID INTERIOR - LINHA 1-->
+            <!-- GRID INTERIOR - LINHA 1-->
             <Grid Grid.Row        = "0"
                   BackgroundColor = "White">
                 <Grid.RowDefinitions>
@@ -64,8 +64,7 @@
                         FontSize                = "15"
                         FontAttributes          = "Bold"
                         Grid.Row                = "1"
-                        Grid.Column             = "1"
-                        Margin                  = "15"
+                        Grid.Column             = "1"                        
                         WidthRequest            = "300"
                         HorizontalTextAlignment = "Center"
                         HorizontalOptions       = "Center"
@@ -118,6 +117,7 @@
                         Grid.Column       = "2"
                         Text              = "Oportunidades"
                         HorizontalOptions = "Center"/>
+                
                 <Button Grid.Row          = "3"
                         Grid.ColumnSpan   = "3"
                         Text              = "Meus Projetos"
@@ -219,27 +219,35 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Text              = "Cursos da Gestão de Inovação"
-                       TextColor         = "DarkGreen"
-                       Grid.Row          = "0"
+                <Label Grid.Row          = "0"
                        Grid.Column       = "1"
+                       Text              = "Cursos da Gestão de Inovação"
+                       TextColor         = "DarkGreen"                       
                        FontAttributes    = "Bold"
                        FontSize          = "18"
                        VerticalOptions   = "Center"
                        HorizontalOptions = "Center"/>
-                <Image Grid.Row = "1"                       
-                       Source   = "banner_1.png"
-                       Aspect   = "Fill">
-                    <!-- Adicione o gesto TapGestureRecognizer para a imagem -->
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnImageTapped" />
-                    </Image.GestureRecognizers>
-                </Image>
+                <Border Grid.Row="1"
+                        StrokeShape       = "RoundRectangle 20">
+                    <Image Source   = "banner_1.png"
+                           Aspect   = "Fill">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       Text="Acesse a Academia CEAPE e confira o Módulo"
+                       FontSize="15"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"/>
             </Grid>
             <!-- GRID INTERIOR - LINHA 4-->
             <Grid Grid.Row = "3"
-                  Margin   = "15"
+                  Margin   = "5"
                   >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -263,7 +271,7 @@
                         HorizontalOptions = "End"
                         BackgroundColor   = "Green"
                         Clicked           = "Btn_Chamado"/>
-            </Grid>
+            </Grid>            
         </Grid>     
     </ScrollView>
     
