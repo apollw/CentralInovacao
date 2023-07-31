@@ -4,16 +4,16 @@
              x:Class="CentralInovacao.Views.ViewMinhasOportunidades"
              Title="Minhas Oportunidades">
 
-    <Grid RowDefinitions = "50,*"
-          BackgroundColor="LightYellow">
-        <Label Grid.Row                = "0"
+    <Grid RowDefinitions = "25,*"
+          BackgroundColor="WhiteSmoke">
+        <!--<Label Grid.Row            = "0"
                Text                    = "Oportunidades"
                TextColor               = "White"
                FontSize                = "Medium"
                FontAttributes          = "Bold"
                BackgroundColor         = "Green"
                VerticalTextAlignment   = "Center"
-               HorizontalTextAlignment = "Center"/>
+               HorizontalTextAlignment = "Center"/>-->
 
         <Grid Grid.Row        = "1"
               RowDefinitions  = "200,200,200,200"
@@ -130,62 +130,6 @@
             </Border>
 
             <Border Grid.Row        = "2"
-                    Margin          = "15"
-                    StrokeShape     = "RoundRectangle 25 0 0 25"
-                    StrokeThickness = "4"
-                    HeightRequest   = "185"
-                    >
-                <Grid RowDefinitions="30,30,30,30,30"
-                      ColumnDefinitions="*,*"
-                      Padding="10">
-                    <!--COLUNA 1-->
-                    <Label  Grid.Row                = "0"
-                            Grid.ColumnSpan         = "2"
-                            Text                    = "Oportunidade 1"
-                            FontSize                = "15"
-                            FontAttributes          = "Bold"
-                            BackgroundColor         = "LightGreen"
-                            HorizontalTextAlignment = "Center"/>
-                    <Label  Grid.Row                = "1"
-                            Text                    = "Responsável:"
-                            FontAttributes          = "Bold"
-                            HorizontalTextAlignment = "Start"/>
-                    <Label  Grid.Row                = "2"
-                            Text                    = "Situação Atual:"
-                            FontAttributes          = "Bold"
-                            HorizontalTextAlignment = "Start"/>
-                    <Label  Grid.Row                = "3"
-                            Text                    = "Tempo do Projeto:"
-                            FontAttributes          = "Bold"
-                            HorizontalTextAlignment = "Start"/>
-                    <Button Grid.Row                = "4"
-                            Grid.ColumnSpan         = "2"
-                            Text                    = "Abrir"
-                            TextColor               = "Black"
-                            BorderColor             = "Green"
-                            BorderWidth             = "1"
-                            BackgroundColor         = "White"
-                            HorizontalOptions       = "Center"
-                            HeightRequest           = "45"
-                            WidthRequest            = "85"/>
-                    <!--COLUNA 2-->
-                    <Label  Grid.Row                = "1"
-                            Grid.Column             = "1"
-                            Text                    = "Edem Fernando"                            
-                            HorizontalTextAlignment = "End"/>
-                    <Label  Grid.Row                = "2"
-                            Grid.Column             = "1"
-                            Text                    = "Declinado"
-                            HorizontalTextAlignment = "End"/>
-                    <Label  Grid.Row                = "3"
-                            Grid.Column             = "1"
-                            Text                    = "15 dias"
-                            HorizontalTextAlignment = "End"/>
-                </Grid>
-
-            </Border>
-
-            <Border Grid.Row        = "3"
                     Margin          = "15"
                     StrokeShape     = "RoundRectangle 25 0 0 25"
                     StrokeThickness = "4"

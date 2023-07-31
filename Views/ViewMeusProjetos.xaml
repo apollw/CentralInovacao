@@ -3,24 +3,140 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Views.ViewMeusProjetos"
              Title="Meus Projetos">
-    
-    <Grid RowDefinitions="*,*,*,*">
-        <Label  Grid.Row="0"
-                Text="Projeto 1"
-                FontSize="Large"
-                HorizontalOptions="Center" />
-        <Label  Grid.Row="1"
-                Text="Projeto 2"
-                FontSize="Large"
-                HorizontalOptions="Center" />
-        <Label  Grid.Row="2"
-                Text="Projeto 3"
-                FontSize="Large"
-                HorizontalOptions="Center" />
-        <Label  Grid.Row="3"
-                Text="Projeto 4"
-                FontSize="Large"
-                HorizontalOptions="Center" />        
-    </Grid>
-    
+
+        <Grid RowDefinitions  = "25,*"
+              BackgroundColor = "WhiteSmoke">
+            <!--<Label Grid.Row        = "0"
+               Text                    = "Projetos"
+               TextColor               = "White"
+               FontSize                = "Medium"
+               FontAttributes          = "Bold"
+               BackgroundColor         = "Green"
+               VerticalTextAlignment   = "Center"
+               HorizontalTextAlignment = "Center"/>-->
+
+        <Label Grid.Row                = "0"
+               Text                    = "Projetos em Andamento"
+               FontAttributes          = "Bold"
+               HorizontalTextAlignment = "Center"
+               VerticalTextAlignment   = "Center"/>
+
+        <Grid Grid.Row        = "1"
+              RowDefinitions  = "200,200,200,200"
+              BackgroundColor = "WhiteSmoke">
+
+                <Border Grid.Row        = "0"
+                        Margin          = "15"
+                        StrokeShape     = "RoundRectangle 25 0 0 25"
+                        StrokeThickness = "4"
+                        HeightRequest   = "185">
+                    <Grid RowDefinitions    = "30,30,30,30,30"
+                          ColumnDefinitions = "*,*"
+                          Padding           = "10">
+                        <!--COLUNA 1-->
+                        <Label  Grid.Row                = "0"
+                                Grid.ColumnSpan         = "2"
+                                Text                    = "Projeto 1"
+                                FontSize                = "15"
+                                FontAttributes          = "Bold"
+                                BackgroundColor         = "LightGreen"
+                                HorizontalTextAlignment = "Center"/>
+                        <Label  Grid.Row                = "1"
+                                Text                    = "Responsável:"
+                                FontAttributes          = "Bold"
+                                HorizontalTextAlignment = "Start"/>
+                        <Label  Grid.Row                = "2"
+                                Text                    = "Situação Atual:"
+                                FontAttributes          = "Bold"
+                                HorizontalTextAlignment = "Start"/>
+                        <Label  Grid.Row                = "3"
+                                Text                    = "Tempo do Projeto:"
+                                FontAttributes          = "Bold"
+                                HorizontalTextAlignment = "Start"/>
+                        <Button Grid.Row                = "4"
+                                Grid.ColumnSpan         = "2"
+                                Text                    = "Abrir"
+                                TextColor               = "Black"
+                                BorderColor             = "Green"
+                                BorderWidth             = "1"
+                                BackgroundColor         = "White"
+                                HorizontalOptions       = "Center"
+                                HeightRequest           = "45"
+                                WidthRequest            = "85"/>
+                        <!--COLUNA 2-->
+                        <Label  Grid.Row                = "1"
+                                Grid.Column             = "1"
+                                Text                    = "Leanderson"                            
+                                HorizontalTextAlignment = "End"/>
+                        <Label  Grid.Row                = "2"
+                                Grid.Column             = "1"
+                                Text                    = "50%"                            
+                                HorizontalTextAlignment = "End"/>
+                        <Label  Grid.Row                = "3"
+                                Grid.Column             = "1"
+                                Text                    = "45 Dias"                            
+                                HorizontalTextAlignment = "End"/>
+                </Grid>
+                </Border>
+
+                <Border Grid.Row        = "1"
+                    Margin          = "15"
+                    StrokeShape     = "RoundRectangle 25 0 0 25"
+                    StrokeThickness = "4"
+                    HeightRequest   = "185"
+                    >
+                    <Grid RowDefinitions="30,30,30,30,30"
+                      ColumnDefinitions="*,*"
+                      Padding="10">
+                        <!--COLUNA 1-->
+                        <Label  Grid.Row                = "0"
+                            Grid.ColumnSpan         = "2"
+                            Text                    = "Projeto 2"
+                            FontSize                = "15"
+                            FontAttributes          = "Bold"
+                            BackgroundColor         = "LightGreen"
+                            HorizontalTextAlignment = "Center"/>
+                        <Label  Grid.Row                = "1"
+                            Text                    = "Responsável:"
+                            FontAttributes          = "Bold"
+                            HorizontalTextAlignment = "Start"/>
+                        <Label  Grid.Row                = "2"
+                            Text                    = "Situação Atual:"
+                            FontAttributes          = "Bold"
+                            HorizontalTextAlignment = "Start"/>
+                        <Label  Grid.Row                = "3"
+                            Text                    = "Tempo do Projeto:"
+                            FontAttributes          = "Bold"
+                            HorizontalTextAlignment = "Start"/>
+                        <Button Grid.Row                = "4"
+                            Grid.ColumnSpan         = "2"
+                            Text                    = "Abrir"
+                            TextColor               = "Black"
+                            BorderColor             = "Green"
+                            BorderWidth             = "1"
+                            BackgroundColor         = "White"
+                            HorizontalOptions       = "Center"
+                            HeightRequest           = "45"
+                            WidthRequest            = "85"/>
+                        <!--COLUNA 2-->
+                        <Label  Grid.Row                = "1"
+                                Grid.Column             = "1"
+                                Text                    = "Edem Fernando"                            
+                                HorizontalTextAlignment = "End"/>
+                        <Label  Grid.Row                = "2"
+                                Grid.Column             = "1"
+                                Text                    = "25%"                            
+                                HorizontalTextAlignment = "End"/>
+                        <Label  Grid.Row                = "3"
+                                Grid.Column             = "1"
+                                Text                    = "90 Dias"                            
+                                HorizontalTextAlignment = "End"/>
+                </Grid>
+                </Border>
+
+            </Grid>
+
+        </Grid>
+
+
 </ContentPage>

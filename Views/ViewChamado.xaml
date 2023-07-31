@@ -2,11 +2,65 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Views.ViewChamado"
-             Title="ViewChamado">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Chamado para Inovação">
+
+    <StackLayout   Spacing="3">
+        <Label     Text                     = "Setor de Origem:"                       
+                   FontAttributes           = "Bold"
+                   Padding                  = "5"/>
+        <Picker    Title                    = "Selecione um Setor"
+                   BackgroundColor          = "White"
+                   WidthRequest             = "400"
+                   HeightRequest            = "40"/>
+        <Label     Text                     = "Título do Pedido:"                       
+                   FontAttributes           = "Bold"
+                   Padding                  = "5"/>
+        <Entry     FontSize                 = "Medium"
+                   WidthRequest             = "400"
+                   HeightRequest            = "40"
+                   VerticalTextAlignment    = "Start"
+                   BackgroundColor          = "White"/>
+        <BoxView   BackgroundColor          = "Black"
+                   HeightRequest            = "1"
+                   WidthRequest             = "400"/>        
+        <Label     Text                     = "Requisitante:"                       
+                   FontAttributes           = "Bold"
+                   Padding                  = "5"/>
+        <Entry     FontSize                 = "Medium"
+                   WidthRequest             = "400"
+                   HeightRequest            = "45"
+                   VerticalTextAlignment    = "Start"
+                   BackgroundColor          = "White"/>
+        <BoxView   BackgroundColor          = "Black"
+                   HeightRequest            = "1"
+                   WidthRequest             = "400"/>
+        <Label     Text                     = "Prazo estipulado para entrega:"
+                   FontAttributes           = "Bold"
+                   Padding                  = "5"/>
+        <Entry     FontSize                 = "Medium"
+                   WidthRequest             = "400"
+                   HeightRequest            = "45"
+                   VerticalTextAlignment    = "Start"
+                   BackgroundColor          = "White"/>
+        <BoxView   BackgroundColor          = "Black"
+                   HeightRequest            = "1"
+                   WidthRequest             = "400"/>
+        <Label     Text                     = "Descrição do pedido:"
+                   FontAttributes           = "Bold"
+                   Padding                  = "5"/>
+        <Editor    x:Name                   = "_editor1"
+                   WidthRequest             = "400"
+                   HeightRequest            = "150"
+                   VerticalTextAlignment    = "Start"
+                   BackgroundColor          = "White"
+                   TextChanged              = "OnEditorTextChanged1"
+                   Completed                = "OnEditorCompleted"/>
+        <BoxView   BackgroundColor          = "Black"
+                   HeightRequest            = "1"
+                   WidthRequest             = "400"/>
+        <Button       Text            = "Solicitar"
+                      Margin          = "10"
+                      BackgroundColor = "Green"/>
+
+        </StackLayout>
 </ContentPage>

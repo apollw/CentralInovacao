@@ -4,11 +4,24 @@
              x:Class="CentralInovacao.Views.ViewRankingGeral"
              Title="Ranking Geral">
 
-    <Grid RowDefinitions    = "*,*"
-          ColumnDefinitions = "*,*"
-          Margin            = "15">
-        
+    <Grid RowDefinitions = "35,*">
+        <Label Grid.Row                = "0"
+               Text                    = "Ranking Geral"
+               FontSize                = "Large"
+               FontAttributes          = "Bold"
+               HorizontalTextAlignment = "Center"
+               BackgroundColor         = "WhiteSmoke"/>
+        <ListView Grid.Row        = "1"
+                  x:Name          = "myListView"
+                  BackgroundColor = "White">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text      = "{Binding}"
+                              TextColor = "Black"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-    </Grid>
-
+    </Grid>    
+    
 </ContentPage>

@@ -2,9 +2,54 @@ namespace CentralInovacao.Views;
 
 public partial class ViewInicio : ContentPage
 {
+    private List<InteractionItem> lastInteractions;
+
+    public List<InteractionItem> LastInteractions
+    {
+        get => lastInteractions;
+        set
+        {
+            lastInteractions = value;
+            OnPropertyChanged();
+        }
+    }
+
+    [Obsolete]
     public ViewInicio()
     {
         InitializeComponent();
+
+        // Exemplo de dados
+        LastInteractions = new List<InteractionItem>
+            {
+                new InteractionItem { Title = "Edem Fernando", Description = "Alterou a foto de perfil" },
+                new InteractionItem { Title = "Danilo Ferreira", Description = "Adicionou uma nova oportunidade" },
+                new InteractionItem { Title = "Bruce Dickson", Description = "Iniciou um projeto" },
+                new InteractionItem { Title = "Fernando Gregório", Description = "Finalizou um projeto" },
+                new InteractionItem { Title = "Arthur Carvalho", Description = "Subiu no Ranking Geral" }
+            };
+
+        // Inicia um timer para atualizar automaticamente os itens do CarouselView
+        Device.StartTimer(TimeSpan.FromSeconds(5), () =>
+        {
+            // Roda os itens automaticamente
+            RotateItems();
+
+            // Retorna true para continuar a execução do timer
+            return true;
+        });
+    }
+    // Método para rotacionar os itens do CarouselView
+    private void RotateItems()
+    {
+        // Remove o primeiro item e adiciona no final da lista
+        var firstItem = LastInteractions[0];
+        LastInteractions.RemoveAt(0);
+        LastInteractions.Add(firstItem);
+
+        // Atualiza o BindingContext para atualizar o CarouselView
+        carouselView.BindingContext = null;
+        carouselView.BindingContext = this;
     }
     private async void Btn_Logout(object sender, EventArgs e)
     {
@@ -40,4 +85,11 @@ public partial class ViewInicio : ContentPage
         // Abra o link do site no navegador
         await Launcher.OpenAsync(new Uri(websiteUrl));
     }
+}
+
+// Classe para representar os dados da "última interação"
+public class InteractionItem
+{
+    public string Title { get; set; }
+    public string Description { get; set; }
 }
