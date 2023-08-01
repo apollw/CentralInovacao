@@ -48,19 +48,19 @@
         <Label     Text                     = "Descrição do pedido:"
                    FontAttributes           = "Bold"
                    Padding                  = "5"/>
-        <Editor    x:Name                   = "_editor1"
+        <Editor    x:Name                   = "_editor"
                    WidthRequest             = "400"
                    HeightRequest            = "150"
                    VerticalTextAlignment    = "Start"
                    BackgroundColor          = "White"
-                   TextChanged              = "OnEditorTextChanged1"
+                   TextChanged              = "OnEditorTextChanged"
                    Completed                = "OnEditorCompleted"/>
         <BoxView   BackgroundColor          = "Black"
                    HeightRequest            = "1"
                    WidthRequest             = "400"/>
-        <Button       Text            = "Solicitar"
-                      Margin          = "10"
-                      BackgroundColor = "Green"/>
+        <Button    Text                     = "Solicitar"
+                   Margin                   = "10"
+                   BackgroundColor          = "Green"/>
 
         </StackLayout>
 </ContentPage>

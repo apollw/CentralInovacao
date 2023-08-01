@@ -6,11 +6,11 @@ public partial class ViewChamado : ContentPage
 	{
 		InitializeComponent();
 	}
-    void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
+    void OnEditorTextChanged(object sender, TextChangedEventArgs e)
     {
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
-        string myText = _editor1.Text;
+        string myText = _editor.Text;
     }
     void OnEditorCompleted(object sender, EventArgs e)
     {

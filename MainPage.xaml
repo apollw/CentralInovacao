@@ -4,7 +4,7 @@
              x:Class="CentralInovacao.MainPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="LightGray">
+             BackgroundColor="White">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -41,6 +41,7 @@
                 <Shadow Brush   = "black"
                         Opacity = ".4"/>
             </Border.Shadow>
+
             <Grid RowSpacing = "5"
                   Padding    = "15">
                 <Grid.RowDefinitions>
@@ -68,7 +69,8 @@
                         WidthRequest     = "250" 
                         />
                 <Button x:Name           = "_btn_Login"
-                        Text             = "Login"                      
+                        Text             = "Login"
+                        CornerRadius     = "25"
                         FontSize         = "18"
                         FontAttributes   = "Bold"
                         BackgroundColor  = "LightGreen"

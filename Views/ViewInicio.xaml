@@ -25,7 +25,7 @@
         <!-- GRID GERAL - Forma Alternativa-->
         <Grid Margin            = "15"
               RowSpacing        = "10"
-              RowDefinitions    = "480,225,125,*,*">           
+              RowDefinitions    = "480,225,125,*,*">
 
             <!-- GRID INTERIOR - LINHA 1-->
             <Grid Grid.Row        = "0"
@@ -43,12 +43,6 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row        = "0"
-                       Grid.ColumnSpan = "3"
-                       BackgroundColor = "Green"
-                       VerticalOptions = "Start"
-                       HeightRequest   = "100"/>
-
                 <Border Grid.Row           = "0"
                         Grid.Column        = "1"
                         Margin             = "15"                        
@@ -57,9 +51,15 @@
                         HeightRequest      = "135"
                         WidthRequest       = "150"
                         StrokeShape        = "RoundRectangle 50">
-                    <Image Source          = "foto_perfil"
-                           BackgroundColor = "#90DFAA"/>
+                    <Image x:Name          = "_fotoPerfil"
+                           Source          = "foto_perfil"
+                           BackgroundColor = "#90DFAA">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnProfileImageTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Border>
+                
                 <Label  Text                    = "Leanderson Silva"
                         FontSize                = "15"
                         FontAttributes          = "Bold"
@@ -117,45 +117,77 @@
                         Grid.Column       = "2"
                         Text              = "Oportunidades"
                         HorizontalOptions = "Center"/>
-                
+
                 <Button Grid.Row          = "3"
                         Grid.ColumnSpan   = "3"
                         Text              = "Meus Projetos"
-                        TextColor         = "Green"
+                        TextColor         = "DarkGreen"
                         FontSize          = "18"
                         FontAttributes    = "Bold"
                         Margin            = "10"
-                        BorderColor       = "Green"
+                        BorderColor       = "LightGreen"
                         BorderWidth       = "2"
                         BackgroundColor   = "White"
                         HorizontalOptions = "Fill"
-                        Clicked           = "Btn_MeusProjetos"/>
+                        Clicked           = "Btn_MeusProjetos">
+                    
+                    <Button.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.5" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
                 <Button Grid.Row          = "4"
                         Grid.Column       = "0"                        
                         Margin            = "10"
                         WidthRequest      = "175"
                         HorizontalOptions = "Start"
                         Text              = "Oportunidades"
-                        TextColor         = "Green"
-                        BorderColor       = "Green"
+                        TextColor         = "DarkGreen"
+                        BorderColor       = "LightGreen"
                         FontSize          = "18"
                         FontAttributes    = "Bold"
                         BorderWidth       = "2"
                         BackgroundColor   = "White"
-                        Clicked           = "Btn_MinhasOp"/>
+                        Clicked           = "Btn_MinhasOp">
+                    <Button.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.5" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
                 <Button Grid.Row          = "4"
                         Grid.Column       = "2"                        
                         Margin            = "10"
                         WidthRequest      = "175"
                         HorizontalOptions = "End"                        
                         Text              = "Ranking Geral"
-                        TextColor         = "Green"
-                        BorderColor       = "Green"
+                        TextColor         = "DarkGreen"
+                        BorderColor       = "LightGreen"
                         FontSize          = "18"
                         FontAttributes    = "Bold"
                         BorderWidth       = "2"
                         BackgroundColor   = "White"
-                        Clicked           = "Btn_RankingGeral"/>
+                        Clicked           = "Btn_RankingGeral">
+                    <Button.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.5" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>
 
             <!-- GRID INTERIOR - LINHA 2-->            
@@ -172,6 +204,16 @@
                         WidthRequest       = "350"
                         StrokeShape        = "RoundRectangle 0 0 25 25"
                         StrokeThickness    = "2">
+                    
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.25" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>                   
+                    
                     <Label  Grid.ColumnSpan    = "2"
                             Text               = "Últimas Interações"
                             TextColor          = "DarkGreen"
@@ -189,15 +231,17 @@
                         StrokeShape        = "RoundRectangle 50">
                     <Image Source          = "user"
                            BackgroundColor = "WhiteSmoke"/>
+                    
                 </Border>
-                
-                <CarouselView Grid.Row         = "1"
-                              Grid.Column      = "1"                              
-                              x:Name           = "carouselView" 
-                              ItemsSource      = "{Binding LastInteractions}"
-                              IsScrollAnimated = "True"
-                              BackgroundColor  = "White"
-                              IsBounceEnabled  = "True">
+
+                <CarouselView  Grid.Row         = "1"
+                               Grid.Column      = "1"
+                               x:Name           = "carouselView"
+                               ItemsSource      = "{Binding LastInteractions}"
+                               IsScrollAnimated = "True"
+                               BackgroundColor  = "White"
+                               IsBounceEnabled  = "True"
+                               VerticalOptions  = "End">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Grid RowDefinitions="35,*">
@@ -238,6 +282,14 @@
                             WidthRequest       = "350"
                             StrokeShape        = "RoundRectangle 0 0 25 25"
                             StrokeThickness    = "2">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.25" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
                     <Label  Grid.Row           = "0"
                             Grid.ColumnSpan    = "3"
                             Text               = "Top CEAPE Inovadores"
@@ -298,6 +350,14 @@
                             WidthRequest       = "350"
                             StrokeShape        = "RoundRectangle 0 0 25 25"
                             StrokeThickness    = "2">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.25" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Border.Background>
                     <Label  Grid.Row           = "0"
                             Grid.ColumnSpan    = "3"
                             Text               = "Cursos da Gestão de Inovação"
@@ -331,6 +391,9 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Text              = "Nova Oportunidade"
+                        TextColor         = "Black"
+                        BorderColor       = "Gray"
+                        BorderWidth       = "1"
                         FontSize          = "12"
                         FontAttributes    = "Bold"
                         Grid.Column       = "0"
@@ -338,8 +401,21 @@
                         WidthRequest      = "150"
                         HorizontalOptions = "Start"
                         BackgroundColor   = "LightSeaGreen"
-                        Clicked           = "Btn_NovaOp"/>
-                <Button Text              = "Abrir Chamado" 
+                        Clicked           = "Btn_NovaOp">
+                    <Button.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.15" />
+                            <GradientStop Color  = "Gray"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Text              = "Abrir Chamado"
+                        TextColor         = "Black"
+                        BorderColor       = "LightGreen"
+                        BorderWidth       = "1"
                         FontSize          = "12"
                         FontAttributes    = "Bold"
                         Grid.Column       = "1"
@@ -347,7 +423,17 @@
                         WidthRequest      = "150"
                         HorizontalOptions = "End"
                         BackgroundColor   = "Green"
-                        Clicked           = "Btn_Chamado"/>
+                        Clicked           = "Btn_Chamado">
+                    <Button.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.15" />
+                            <GradientStop Color  = "Green"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>            
         </Grid>     
     </ScrollView>

@@ -51,6 +51,32 @@ public partial class ViewInicio : ContentPage
         carouselView.BindingContext = null;
         carouselView.BindingContext = this;
     }
+    private async void OnProfileImageTapped(object sender, EventArgs e)
+    {
+        // Abre a galeria para selecionar uma imagem
+        var result = await MediaPicker.PickPhotoAsync();
+
+        if (result != null)
+        {
+            // Lê a imagem selecionada e converte em bytes
+            using (var stream = await result.OpenReadAsync())
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    stream.CopyTo(ms);
+                    byte[] imageBytes = ms.ToArray();
+
+                    // Salva a imagem em algum armazenamento, como o banco de dados ou um serviço de armazenamento em nuvem
+
+                    // Exemplo: Atualiza a imagem exibida na tela
+                    _fotoPerfil.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+                }
+            }
+        }
+    }
+
+    /*BOTÕES*/
+
     private async void Btn_Logout(object sender, EventArgs e)
     {
         //Navegar para uma Página Específica
@@ -59,6 +85,23 @@ public partial class ViewInicio : ContentPage
     }
     private async void Btn_MeusProjetos(object sender, EventArgs e)
     {
+        var button = (Button)sender;
+
+        // Define a escala inicial do botão
+        button.Scale = 1;
+
+        // Cria a animação de escalonamento
+        var scaleAnimation = new Animation(v => button.Scale = v, 1, 0.8);
+
+        // Define a duração da animação (em milissegundos)
+        int animationDuration = 150;
+
+        // Define a duração da animação (em milissegundos)
+        scaleAnimation.Commit(button, "PressingButtonAnimation", length: 250, easing: Easing.SinOut, finished: (v, c) => button.Scale = 1);
+
+        // Aguarda um breve intervalo para a animação ser exibida
+        await Task.Delay(animationDuration/ 2);
+
         await Navigation.PushModalAsync(new ViewMeusProjetos());
     }
     private async void Btn_MinhasOp(object sender, EventArgs e)

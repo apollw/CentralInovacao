@@ -69,9 +69,6 @@
 	  <Compile Update="Views\ViewInicio.xaml.cs">
 	    <DependentUpon>ViewInicio.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ViewInteracoes.xaml.cs">
-	    <DependentUpon>ViewInteracoes.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -81,9 +78,6 @@
 	  <MauiXaml Update="Views\ViewInicio.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewInteracoes.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewMeusProjetos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -91,6 +85,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewProjeto.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewRankingGeral.xaml">

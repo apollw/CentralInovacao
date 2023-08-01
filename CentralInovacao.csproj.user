@@ -17,9 +17,6 @@
     <MauiXaml Update="Views\ViewInicio.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewInteracoes.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
     <MauiXaml Update="Views\ViewMeusProjetos.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -27,6 +24,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ViewProjeto.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\ViewRankingGeral.xaml">

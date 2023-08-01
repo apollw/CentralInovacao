@@ -19,6 +19,7 @@
               RowDefinitions  = "200,200,200,200"
               BackgroundColor = "WhiteSmoke">
             
+            
             <Border Grid.Row        = "0"
                     Margin          = "15"
                     StrokeShape     = "RoundRectangle 25 0 0 25"
@@ -28,6 +29,16 @@
                 <Grid RowDefinitions="30,30,30,30,30"
                       ColumnDefinitions="*,*"
                       Padding="10">
+                    <Grid.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.45" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
+
                     <!--COLUNA 1-->
                     <Label  Grid.Row                = "0"
                             Grid.ColumnSpan         = "2"
@@ -83,6 +94,16 @@
                 <Grid RowDefinitions="30,30,30,30,30"
                       ColumnDefinitions="*,*"
                       Padding="10">
+
+                    <Grid.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.45" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <!--COLUNA 1-->
                     <Label  Grid.Row                = "0"
                             Grid.ColumnSpan         = "2"
@@ -138,6 +159,16 @@
                 <Grid RowDefinitions="30,30,30,30,30"
                       ColumnDefinitions="*,*"
                       Padding="10">
+
+                    <Grid.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.45" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <!--COLUNA 1-->
                     <Label  Grid.Row                = "0"
                             Grid.ColumnSpan         = "2"

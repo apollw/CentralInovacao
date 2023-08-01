@@ -30,18 +30,27 @@
                         StrokeShape     = "RoundRectangle 25 0 0 25"
                         StrokeThickness = "4"
                         HeightRequest   = "185">
-                    <Grid RowDefinitions    = "30,30,30,30,30"
+                <Grid RowDefinitions    = "30,30,30,30,30"
                           ColumnDefinitions = "*,*"
                           Padding           = "10">
-                        <!--COLUNA 1-->
-                        <Label  Grid.Row                = "0"
-                                Grid.ColumnSpan         = "2"
-                                Text                    = "Projeto 1"
-                                FontSize                = "15"
-                                FontAttributes          = "Bold"
-                                BackgroundColor         = "LightGreen"
-                                HorizontalTextAlignment = "Center"/>
-                        <Label  Grid.Row                = "1"
+                    <Grid.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.45" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <!--COLUNA 1-->
+                    <Label  Grid.Row                = "0"
+                            Grid.ColumnSpan         = "2"
+                            Text                    = "Projeto 1"
+                            FontSize                = "15"
+                            FontAttributes          = "Bold"
+                            BackgroundColor         = "LightGreen"
+                            HorizontalTextAlignment = "Center"/>
+                    <Label  Grid.Row                = "1"
                                 Text                    = "Responsável:"
                                 FontAttributes          = "Bold"
                                 HorizontalTextAlignment = "Start"/>
@@ -88,7 +97,16 @@
                     <Grid RowDefinitions="30,30,30,30,30"
                       ColumnDefinitions="*,*"
                       Padding="10">
-                        <!--COLUNA 1-->
+                    <Grid.Background>
+                        <!-- StartPoint defaults to (0,0) -->
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.45" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <!--COLUNA 1-->
                         <Label  Grid.Row                = "0"
                             Grid.ColumnSpan         = "2"
                             Text                    = "Projeto 2"
