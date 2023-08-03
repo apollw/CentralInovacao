@@ -4,16 +4,47 @@
              x:Class="CentralInovacao.Views.ViewRankingGeral"
              Title="Ranking Geral">
 
-    <Grid RowDefinitions = "35,*">
+    <Grid RowDefinitions    = "35,35,*"
+          ColumnDefinitions = "85,*,*">
+        
         <Label Grid.Row                = "0"
+               Grid.ColumnSpan         = "3"
                Text                    = "Ranking Geral"
                FontSize                = "Large"
                FontAttributes          = "Bold"
                HorizontalTextAlignment = "Center"
                BackgroundColor         = "WhiteSmoke"/>
-        <ListView Grid.Row        = "1"
-                  x:Name          = "myListView"
-                  BackgroundColor = "White">
+
+        <Label Grid.Row                = "1"
+               Grid.Column             = "0"
+               Text                    = "Posição"
+               FontSize                = "Medium"
+               FontAttributes          = "Bold"
+               HorizontalTextAlignment = "Center"
+               BackgroundColor         = "WhiteSmoke"/>
+
+        <Label Grid.Row                = "1"
+               Grid.Column             = "1"
+               Text                    = "Nome"
+               FontSize                = "Medium"
+               FontAttributes          = "Bold"
+               HorizontalTextAlignment = "Center"
+               BackgroundColor         = "WhiteSmoke"/>
+
+        <Label Grid.Row                = "1"
+               Grid.Column             = "2"
+               Text                    = "Projetos"
+               FontSize                = "Medium"
+               FontAttributes          = "Bold"
+               HorizontalTextAlignment = "Center"
+               BackgroundColor         = "WhiteSmoke"/>
+
+        <ListView Grid.Row        = "2"
+                  Grid.Column      ="1"
+                  Grid.ColumnSpan = "2"
+                  x:Name          = "_myListView"
+                  BackgroundColor = "White"
+                  HorizontalOptions="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text      = "{Binding}"

@@ -52,9 +52,10 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\banner_1.png" />
 	  <None Remove="Resources\Images\foto_perfil.png" />
-	  <None Remove="Resources\Images\knowledge.png" />
-	  <None Remove="Resources\Images\lightbulb.png" />
-	  <None Remove="Resources\Images\project.png" />
+	  <None Remove="Resources\Images\shellicon_idea.png" />
+	  <None Remove="Resources\Images\shellicon_inovation.png" />
+	  <None Remove="Resources\Images\shellicon_project.png" />
+	  <None Remove="Resources\Images\shellicon_rank.png" />
 	</ItemGroup>
 
 	<ItemGroup>

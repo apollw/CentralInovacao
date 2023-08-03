@@ -18,17 +18,21 @@
 
     <FlyoutItem FlyoutDisplayOptions  = "AsMultipleItems">
         <ShellContent Title           = "Central de Ideias"
-                      FlyoutIcon      = "lightbulb"
+                      FlyoutIcon      = "shellicon_idea"
                       ContentTemplate = "{DataTemplate views:ViewInicio}"
                       Route           = "ViewInicio"/>
         <ShellContent Title           = "Meus Projetos"
-                      FlyoutIcon      = "project"
+                      FlyoutIcon      = "shellicon_project"
                       ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
                       Route           = "ViewMeusProjetos"/>
         <ShellContent Title           = "Minhas Oportunidades"
-                      FlyoutIcon      = "knowledge"
+                      FlyoutIcon      = "shellicon_inovation"
                       ContentTemplate = "{DataTemplate views:ViewMinhasOportunidades}"
                       Route           = "ViewMinhasOportunidades"/>
+        <ShellContent Title           = "Ranking Geral"
+                      FlyoutIcon      = "shellicon_rank"
+                      ContentTemplate = "{DataTemplate views:ViewRankingGeral}"
+                      Route           = "ViewRankingGeral"/>
     </FlyoutItem>    
 
 </Shell>

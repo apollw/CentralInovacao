@@ -2,9 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Views.ViewChamado"
-             Title="Chamado para Inovação">
+             Title="Chamado para Inovação"
+             Shell.NavBarIsVisible="False">
 
-    <StackLayout   Spacing="3">
+    <StackLayout Spacing="3">
+        <Label     Text                     = "Chamado para Inovação"
+                   TextColor                = "White"
+                   FontSize                 = "Medium"
+                   FontAttributes           = "Bold"
+                   HorizontalTextAlignment  = "Center"
+                   VerticalTextAlignment    = "Center"
+                   BackgroundColor          = "Green"
+                   VerticalOptions          = "Start"
+                   HeightRequest            = "50"/>
         <Label     Text                     = "Setor de Origem:"                       
                    FontAttributes           = "Bold"
                    Padding                  = "5"/>

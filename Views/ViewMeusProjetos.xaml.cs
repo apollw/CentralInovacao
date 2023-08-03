@@ -6,4 +6,10 @@ public partial class ViewMeusProjetos : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void Btn_AbrirProjeto(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ViewProjeto());
+        //await Shell.Current.GoToAsync($"{nameof(ViewProjeto)}");
+    }
 }

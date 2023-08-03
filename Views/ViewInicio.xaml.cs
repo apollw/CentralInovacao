@@ -76,6 +76,15 @@ public partial class ViewInicio : ContentPage
     }
 
     /*BOTÕES*/
+    public void Btn_Animation(Button button)
+    {
+        // Define a escala inicial do botão
+        button.Scale = 1;
+        // Cria a animação de escalonamento
+        var scaleAnimation = new Animation(v => button.Scale = v, 1, 0.8);
+        // Define a duração da animação (em milissegundos)
+        scaleAnimation.Commit(button, "PressingButtonAnimation", length: 250, easing: Easing.SinOut, finished: (v, c) => button.Scale = 1);
+    }
 
     private async void Btn_Logout(object sender, EventArgs e)
     {
@@ -86,43 +95,64 @@ public partial class ViewInicio : ContentPage
     private async void Btn_MeusProjetos(object sender, EventArgs e)
     {
         var button = (Button)sender;
+        int animationDuration = 100;
 
-        // Define a escala inicial do botão
-        button.Scale = 1;
-
-        // Cria a animação de escalonamento
-        var scaleAnimation = new Animation(v => button.Scale = v, 1, 0.8);
-
-        // Define a duração da animação (em milissegundos)
-        int animationDuration = 150;
-
-        // Define a duração da animação (em milissegundos)
-        scaleAnimation.Commit(button, "PressingButtonAnimation", length: 250, easing: Easing.SinOut, finished: (v, c) => button.Scale = 1);
-
-        // Aguarda um breve intervalo para a animação ser exibida
+        Btn_Animation(button);
         await Task.Delay(animationDuration/ 2);
 
-        await Navigation.PushModalAsync(new ViewMeusProjetos());
+        //await Navigation.PushModalAsync(new ViewMeusProjetos());
+        //await Shell.Current.GoToAsync($"{nameof(ViewMeusProjetos)}");
+        await Shell.Current.GoToAsync($"//{nameof(ViewMeusProjetos)}");
     }
     private async void Btn_MinhasOp(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new ViewMinhasOportunidades());
+        var button = (Button)sender;
+        int animationDuration = 100;
+
+        Btn_Animation(button);
+        await Task.Delay(animationDuration / 2);
+
+        //await Navigation.PushModalAsync(new ViewMinhasOportunidades());
+        //await Shell.Current.GoToAsync($"{nameof(ViewMinhasOportunidades)}");
+        await Shell.Current.GoToAsync($"//{nameof(ViewMinhasOportunidades)}");
     }
     private async void Btn_RankingGeral(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new ViewRankingGeral());
+        var button = (Button)sender;
+        int animationDuration = 100;
+
+        Btn_Animation(button);
+        await Task.Delay(animationDuration / 2);
+
+        //await Navigation.PushModalAsync(new ViewRankingGeral());
+        //await Shell.Current.GoToAsync($"{nameof(ViewRankingGeral)}");
+        await Shell.Current.GoToAsync($"//{nameof(ViewRankingGeral)}");
     }
     private async void Btn_NovaOp(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ViewNovaOportunidade());
+        var button = (Button)sender;
+        int animationDuration = 100;
+
+        Btn_Animation(button);
+        await Task.Delay(animationDuration / 2);
+
+        //await Navigation.PushAsync(new ViewNovaOportunidade());
+        await Shell.Current.GoToAsync($"{nameof(ViewNovaOportunidade)}");
     }
     private async void Btn_Chamado(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ViewChamado());
+        var button = (Button)sender;
+        int animationDuration = 100;
+
+        Btn_Animation(button);
+        await Task.Delay(animationDuration / 2);
+
+        //await Navigation.PushAsync(new ViewChamado());
+        await Shell.Current.GoToAsync($"{nameof(ViewChamado)}");
     }
     private async void OnImageTapped(object sender, EventArgs e)
     {
-        // URL do site que você deseja abrir
+        // URL do site
         string websiteUrl = "https://academia.ceapebrasil.org.br/university/";
 
         // Abra o link do site no navegador
