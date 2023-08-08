@@ -98,7 +98,7 @@ public partial class ViewInicio : ContentPage
         int animationDuration = 100;
 
         Btn_Animation(button);
-        await Task.Delay(animationDuration/ 2);
+        await Task.Delay(animationDuration/2);
 
         //await Navigation.PushModalAsync(new ViewMeusProjetos());
         //await Shell.Current.GoToAsync($"{nameof(ViewMeusProjetos)}");

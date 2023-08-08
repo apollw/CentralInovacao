@@ -29,7 +29,7 @@
                    WidthRequest             = "400"
                    HeightRequest            = "40"
                    VerticalTextAlignment    = "Start"
-                   BackgroundColor          = "White"/>
+                   BackgroundColor          = "WhiteSmoke"/>
         <BoxView   BackgroundColor          = "Black"
                    HeightRequest            = "1"
                    WidthRequest             = "400"/>        
@@ -40,7 +40,7 @@
                    WidthRequest             = "400"
                    HeightRequest            = "45"
                    VerticalTextAlignment    = "Start"
-                   BackgroundColor          = "White"/>
+                   BackgroundColor          = "WhiteSmoke"/>
         <BoxView   BackgroundColor          = "Black"
                    HeightRequest            = "1"
                    WidthRequest             = "400"/>
@@ -51,7 +51,7 @@
                    WidthRequest             = "400"
                    HeightRequest            = "45"
                    VerticalTextAlignment    = "Start"
-                   BackgroundColor          = "White"/>
+                   BackgroundColor          = "WhiteSmoke"/>
         <BoxView   BackgroundColor          = "Black"
                    HeightRequest            = "1"
                    WidthRequest             = "400"/>
@@ -62,7 +62,7 @@
                    WidthRequest             = "400"
                    HeightRequest            = "150"
                    VerticalTextAlignment    = "Start"
-                   BackgroundColor          = "White"
+                   BackgroundColor          = "WhiteSmoke"
                    TextChanged              = "OnEditorTextChanged"
                    Completed                = "OnEditorCompleted"/>
         <BoxView   BackgroundColor          = "Black"

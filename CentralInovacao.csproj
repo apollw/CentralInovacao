@@ -52,15 +52,15 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\banner_1.png" />
 	  <None Remove="Resources\Images\foto_perfil.png" />
+	  <None Remove="Resources\Images\imgbutton_analysis.png" />
+	  <None Remove="Resources\Images\imgbutton_group.png" />
+	  <None Remove="Resources\Images\imgbutton_planning.png" />
+	  <None Remove="Resources\Images\imgbutton_project.png" />
+	  <None Remove="Resources\Images\imgbutton_request.png" />
 	  <None Remove="Resources\Images\shellicon_idea.png" />
 	  <None Remove="Resources\Images\shellicon_inovation.png" />
 	  <None Remove="Resources\Images\shellicon_project.png" />
 	  <None Remove="Resources\Images\shellicon_rank.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -74,6 +74,21 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\ViewChamado.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewEsteiraAcompanhamento.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewEsteiraBriefing.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewEsteiraPlanejamento.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewEsteiraSolicitacao.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewEsteiraSquad.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewInicio.xaml">

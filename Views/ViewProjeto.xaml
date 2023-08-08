@@ -1,9 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CentralInovacao.Views.ViewProjeto"
-             Title="Projeto">
-    
-    
+             xmlns:local="clr-namespace:CentralInovacao.Models"
+             x:Class="CentralInovacao.Views.ViewProjeto"             
+             Title="Projeto em Andamento">
+
+    <Grid RowDefinitions="600,*"
+          BackgroundColor="WhiteSmoke">
+            <CarouselView Grid.Row          = "0"
+                          x:Name            = "_carouselView"
+                          IndicatorView     = "_indicatorView"
+                          BackgroundColor   = "WhiteSmoke"
+                          HorizontalOptions = "CenterAndExpand"
+                          VerticalOptions   = "End">              
+
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type local:CarouselProjeto}">
+                        <local:CarouselProjeto Source="imgbutton_request"  Text="Solicitação"/>
+                        <local:CarouselProjeto Source="imgbutton_analysis" Text="Análise e Briefing"/>
+                        <local:CarouselProjeto Source="imgbutton_group"    Text="Definição de Squad"/>
+                        <local:CarouselProjeto Source="imgbutton_planning" Text="Planejamento"/>
+                        <local:CarouselProjeto Source="imgbutton_project"  Text="Acompanhamento" />
+                    </x:Array>
+                </CarouselView.ItemsSource>
+
+                <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView>
+                                <StackLayout VerticalOptions="Center">
+                            <ImageButton     Source        = "{Binding Source}"
+                                             HeightRequest = "250">
+                                <ImageButton.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ButtonClickedCommand}"
+                                                          CommandParameter="{Binding Source}" />
+                                </ImageButton.GestureRecognizers>
+                            </ImageButton>
+                            <Label         Text                = "{Binding Text}"
+                                           FontSize            = "30"
+                                           TextColor           = "DarkGreen"
+                                           HorizontalOptions   = "CenterAndExpand"/>
+                                </StackLayout>
+                        </ContentView>
+                        </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+        <IndicatorView Grid.Row="1"
+                       Margin="10"
+                       IndicatorSize="20"
+                       x:Name="_indicatorView"
+                       IndicatorColor="LightGray" 
+                       SelectedIndicatorColor="Green" 
+                       IndicatorsShape="Circle" 
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       ItemsSource="{Binding Source={x:Reference _carouselView}, Path=ItemsSource}"/>
+    </Grid>   
 
 </ContentPage>
+
+
+
