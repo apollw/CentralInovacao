@@ -25,13 +25,13 @@
         <!-- GRID GERAL - Forma Alternativa-->
         <Grid Margin            = "15"
               RowSpacing        = "10"
-              RowDefinitions    = "480,225,125,*,*">
+              RowDefinitions    = "500,200,125,*,*">
 
             <!-- GRID INTERIOR - LINHA 1-->
             <Grid Grid.Row        = "0"
                   BackgroundColor = "White">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="175"/>
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="85"/>
@@ -52,7 +52,7 @@
                         WidthRequest       = "150"
                         StrokeShape        = "RoundRectangle 50">
                     <Image x:Name          = "_fotoPerfil"
-                           Source          = "foto_perfil"
+                           Source          = "foto_perfil.png"
                            BackgroundColor = "#90DFAA">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnProfileImageTapped" />
@@ -192,7 +192,7 @@
 
             <!-- GRID INTERIOR - LINHA 2-->            
             <Grid Grid.Row          = "1"
-                  RowDefinitions    = "50,*,*"
+                  RowDefinitions    = "50,*"
                   ColumnDefinitions = "*,*"
                   BackgroundColor   = "White">
                 
@@ -225,11 +225,11 @@
                 <Border Grid.Row           = "1"
                         Grid.Column        = "0"
                         HorizontalOptions  = "Center"
-                        VerticalOptions    = "Start"
+                        VerticalOptions    = "StartAndExpand"
                         HeightRequest      = "125"
                         WidthRequest       = "145"
                         StrokeShape        = "RoundRectangle 50">
-                    <Image Source          = "user"
+                    <Image Source          = "foto_perfil.png"
                            BackgroundColor = "WhiteSmoke"/>
                     
                 </Border>
@@ -239,9 +239,10 @@
                                x:Name           = "carouselView"
                                ItemsSource      = "{Binding LastInteractions}"
                                IsScrollAnimated = "True"
+                               IndicatorView    ="_indicatorView"
                                BackgroundColor  = "White"
                                IsBounceEnabled  = "True"
-                               VerticalOptions  = "End">
+                               VerticalOptions  = "StartAndExpand">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
                             <Grid RowDefinitions="35,*">
@@ -259,6 +260,13 @@
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
+                <IndicatorView Grid.Row="1"
+                               Grid.Column="1"                               
+                               x:Name="_indicatorView"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               IndicatorColor="WhiteSmoke"
+                               SelectedIndicatorColor="Green"/>
             </Grid>           
 
             <!-- GRID INTERIOR - LINHA 3-->

@@ -6,15 +6,7 @@
 
     <ScrollView>
         <StackLayout Spacing="3">
-            <Label     Text                     = "Chamado para Inovação"
-                   TextColor                = "White"
-                   FontSize                 = "Medium"
-                   FontAttributes           = "Bold"
-                   HorizontalTextAlignment  = "Center"
-                   VerticalTextAlignment    = "Center"
-                   BackgroundColor          = "Green"
-                   VerticalOptions          = "Start"
-                   HeightRequest            = "50"/>
+
             <Label     Text                     = "Colaborador(*)"                       
                    FontAttributes           = "Bold"
                    Padding                  = "5"/>
@@ -155,12 +147,7 @@
             <Button       Text            = "Salvar"
                           Margin          = "10"
                           BackgroundColor = "Green"/>
-
         </StackLayout>
-
-
-    </ScrollView>
-
-    
+    </ScrollView>    
 
 </ContentPage>

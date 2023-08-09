@@ -1,62 +1,65 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CentralInovacao.Models"
              x:Class="CentralInovacao.Views.ViewProjeto"             
              Title="Projeto em Andamento">
 
-    <Grid RowDefinitions="600,*"
-          BackgroundColor="WhiteSmoke">
-            <CarouselView Grid.Row          = "0"
-                          x:Name            = "_carouselView"
-                          IndicatorView     = "_indicatorView"
-                          BackgroundColor   = "WhiteSmoke"
-                          HorizontalOptions = "CenterAndExpand"
-                          VerticalOptions   = "End">              
+    <ScrollView>
+        <StackLayout Padding="20" >
+            
+            <Border HorizontalOptions  = "Center"
+                    VerticalOptions    = "Start"
+                    HeightRequest      = "180"
+                    WidthRequest       = "180"
+                    Margin             = "15"
+                    StrokeShape        = "RoundRectangle 25">
+                <ImageButton Source="imgbutton_request.png"  HeightRequest="150" Clicked="Btn_Solicitacao"/>
+            </Border>            
+            <Label  Text="Solicitação" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
-                <CarouselView.ItemsSource>
-                    <x:Array Type="{x:Type local:CarouselProjeto}">
-                        <local:CarouselProjeto Source="imgbutton_request"  Text="Solicitação"/>
-                        <local:CarouselProjeto Source="imgbutton_analysis" Text="Análise e Briefing"/>
-                        <local:CarouselProjeto Source="imgbutton_group"    Text="Definição de Squad"/>
-                        <local:CarouselProjeto Source="imgbutton_planning" Text="Planejamento"/>
-                        <local:CarouselProjeto Source="imgbutton_project"  Text="Acompanhamento" />
-                    </x:Array>
-                </CarouselView.ItemsSource>
+            <Border HorizontalOptions  = "Center"
+                    VerticalOptions    = "Start"
+                    HeightRequest      = "180"
+                    WidthRequest       = "180"
+                    Margin             = "15"
+                    StrokeShape        = "RoundRectangle 25">
+                <ImageButton Source="imgbutton_analysis.png" HeightRequest="150"/>
+            </Border>
+            <Label  Text="Análise e Briefing" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
-                <CarouselView.ItemTemplate>
-                        <DataTemplate>
-                            <ContentView>
-                                <StackLayout VerticalOptions="Center">
-                            <ImageButton     Source        = "{Binding Source}"
-                                             HeightRequest = "250">
-                                <ImageButton.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding ButtonClickedCommand}"
-                                                          CommandParameter="{Binding Source}" />
-                                </ImageButton.GestureRecognizers>
-                            </ImageButton>
-                            <Label         Text                = "{Binding Text}"
-                                           FontSize            = "30"
-                                           TextColor           = "DarkGreen"
-                                           HorizontalOptions   = "CenterAndExpand"/>
-                                </StackLayout>
-                        </ContentView>
-                        </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
+            <Border HorizontalOptions  = "Center"
+                    VerticalOptions    = "Start"
+                    HeightRequest      = "180"
+                    WidthRequest       = "180"
+                    Margin             = "15"
+                    StrokeShape        = "RoundRectangle 25">
+                <ImageButton Source="imgbutton_group.png"    HeightRequest="150"/>
+            </Border>
+            <Label  Text="Definição do Squad" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
-        <IndicatorView Grid.Row="1"
-                       Margin="10"
-                       IndicatorSize="20"
-                       x:Name="_indicatorView"
-                       IndicatorColor="LightGray" 
-                       SelectedIndicatorColor="Green" 
-                       IndicatorsShape="Circle" 
-                       VerticalOptions="StartAndExpand"
-                       HorizontalOptions="CenterAndExpand"
-                       ItemsSource="{Binding Source={x:Reference _carouselView}, Path=ItemsSource}"/>
-    </Grid>   
+            <Border HorizontalOptions  = "Center"
+                    VerticalOptions    = "Start"
+                    HeightRequest      = "180"
+                    WidthRequest       = "180"
+                    Margin             = "15"
+                    StrokeShape        = "RoundRectangle 25">
+                <ImageButton Source="imgbutton_planning.png" HeightRequest="150"/>
+            </Border>
+            <Label Text="Planejamento" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
+            <Border HorizontalOptions  = "Center"
+                    VerticalOptions    = "Start"
+                    HeightRequest      = "180"
+                    WidthRequest       = "180"
+                    Margin             = "15"
+                    StrokeShape        = "RoundRectangle 25">
+                <ImageButton Source="imgbutton_project.png"  HeightRequest="150"/>
+            </Border>
+            <Label Text="Acompanhamento" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
+            
+        </StackLayout>        
+    </ScrollView>
+    
 </ContentPage>
 
 

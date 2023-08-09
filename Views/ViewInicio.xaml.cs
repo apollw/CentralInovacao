@@ -3,7 +3,6 @@ namespace CentralInovacao.Views;
 public partial class ViewInicio : ContentPage
 {
     private List<InteractionItem> lastInteractions;
-
     public List<InteractionItem> LastInteractions
     {
         get => lastInteractions;
@@ -14,10 +13,10 @@ public partial class ViewInicio : ContentPage
         }
     }
 
-    [Obsolete]
     public ViewInicio()
     {
         InitializeComponent();
+        BindingContext = this;
 
         // Exemplo de dados
         LastInteractions = new List<InteractionItem>
@@ -28,29 +27,8 @@ public partial class ViewInicio : ContentPage
                 new InteractionItem { Title = "Fernando Gregório", Description = "Finalizou um projeto" },
                 new InteractionItem { Title = "Arthur Carvalho", Description = "Subiu no Ranking Geral" }
             };
-
-        // Inicia um timer para atualizar automaticamente os itens do CarouselView
-        Device.StartTimer(TimeSpan.FromSeconds(5), () =>
-        {
-            // Roda os itens automaticamente
-            RotateItems();
-
-            // Retorna true para continuar a execução do timer
-            return true;
-        });
     }
-    // Método para rotacionar os itens do CarouselView
-    private void RotateItems()
-    {
-        // Remove o primeiro item e adiciona no final da lista
-        var firstItem = LastInteractions[0];
-        LastInteractions.RemoveAt(0);
-        LastInteractions.Add(firstItem);
 
-        // Atualiza o BindingContext para atualizar o CarouselView
-        carouselView.BindingContext = null;
-        carouselView.BindingContext = this;
-    }
     private async void OnProfileImageTapped(object sender, EventArgs e)
     {
         // Abre a galeria para selecionar uma imagem
@@ -74,7 +52,6 @@ public partial class ViewInicio : ContentPage
             }
         }
     }
-
     /*BOTÕES*/
     public void Btn_Animation(Button button)
     {
@@ -85,7 +62,6 @@ public partial class ViewInicio : ContentPage
         // Define a duração da animação (em milissegundos)
         scaleAnimation.Commit(button, "PressingButtonAnimation", length: 250, easing: Easing.SinOut, finished: (v, c) => button.Scale = 1);
     }
-
     private async void Btn_Logout(object sender, EventArgs e)
     {
         //Navegar para uma Página Específica
@@ -101,8 +77,8 @@ public partial class ViewInicio : ContentPage
         await Task.Delay(animationDuration/2);
 
         //await Navigation.PushModalAsync(new ViewMeusProjetos());
-        //await Shell.Current.GoToAsync($"{nameof(ViewMeusProjetos)}");
-        await Shell.Current.GoToAsync($"//{nameof(ViewMeusProjetos)}");
+        //await Navigation.PushAsync(new ViewMeusProjetos());
+        await Shell.Current.GoToAsync($"/{nameof(ViewMeusProjetos)}");
     }
     private async void Btn_MinhasOp(object sender, EventArgs e)
     {
@@ -113,8 +89,8 @@ public partial class ViewInicio : ContentPage
         await Task.Delay(animationDuration / 2);
 
         //await Navigation.PushModalAsync(new ViewMinhasOportunidades());
-        //await Shell.Current.GoToAsync($"{nameof(ViewMinhasOportunidades)}");
-        await Shell.Current.GoToAsync($"//{nameof(ViewMinhasOportunidades)}");
+        await Shell.Current.GoToAsync($"{nameof(ViewMinhasOportunidades)}");
+        //await Shell.Current.GoToAsync($"//{nameof(ViewMinhasOportunidades)}");
     }
     private async void Btn_RankingGeral(object sender, EventArgs e)
     {
@@ -125,8 +101,8 @@ public partial class ViewInicio : ContentPage
         await Task.Delay(animationDuration / 2);
 
         //await Navigation.PushModalAsync(new ViewRankingGeral());
-        //await Shell.Current.GoToAsync($"{nameof(ViewRankingGeral)}");
-        await Shell.Current.GoToAsync($"//{nameof(ViewRankingGeral)}");
+        await Shell.Current.GoToAsync($"{nameof(ViewRankingGeral)}");
+        //await Shell.Current.GoToAsync($"//{nameof(ViewRankingGeral)}");
     }
     private async void Btn_NovaOp(object sender, EventArgs e)
     {

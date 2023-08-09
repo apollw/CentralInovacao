@@ -6,7 +6,7 @@
 
         <Grid RowDefinitions  = "25,*"
               BackgroundColor = "WhiteSmoke"
-              Padding="10">
+              Padding         = "10">
             
         <Label Grid.Row                = "0"
                Text                    = "Projetos em Andamento"
@@ -15,7 +15,7 @@
                VerticalTextAlignment   = "Center"/>
 
         <Grid Grid.Row        = "1"
-              RowDefinitions  = "200,200,200,200"
+              RowDefinitions  = "250,250,250,250"
               BackgroundColor = "WhiteSmoke">
 
                 <Border Grid.Row        = "0"

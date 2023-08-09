@@ -16,12 +16,17 @@
         <ShellContent ContentTemplate = "{DataTemplate local:MainPage}"/>
     </ShellItem>
 
+    <ShellContent     Title           = "Meus Projetos"
+                      ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
+                      IsVisible       = "False"
+                      Route           = "ViewMeusProjetos"/>
+
     <FlyoutItem FlyoutDisplayOptions  = "AsMultipleItems">
         <ShellContent Title           = "Central de Ideias"
-                      FlyoutIcon      = "shellicon_idea"
+                      FlyoutIcon      = "shellicon_idea"                      
                       ContentTemplate = "{DataTemplate views:ViewInicio}"
                       Route           = "ViewInicio"/>
-        <ShellContent Title           = "Meus Projetos"
+        <!--<ShellContent Title           = "Meus Projetos"
                       FlyoutIcon      = "shellicon_project"
                       ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
                       Route           = "ViewMeusProjetos"/>
@@ -32,7 +37,7 @@
         <ShellContent Title           = "Ranking Geral"
                       FlyoutIcon      = "shellicon_rank"
                       ContentTemplate = "{DataTemplate views:ViewRankingGeral}"
-                      Route           = "ViewRankingGeral"/>
+                      Route           = "ViewRankingGeral"/>-->
     </FlyoutItem>    
 
 </Shell>

@@ -18,10 +18,28 @@
         <Label     Text                     = "Setor de Origem:"                       
                    FontAttributes           = "Bold"
                    Padding                  = "5"/>
-        <Picker    Title                    = "Selecione um Setor"
-                   BackgroundColor          = "White"
-                   WidthRequest             = "400"
-                   HeightRequest            = "40"/>
+        <Picker    Title            = "Selecione um Setor"
+                   BackgroundColor  = "White"
+                   WidthRequest     = "400"
+                   HeightRequest    = "40">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Administrativo</x:String>
+                    <x:String>Análise de Crédito</x:String>
+                    <x:String>Auditoria</x:String>
+                    <x:String>Contabilidade</x:String>
+                    <x:String>Creli</x:String>
+                    <x:String>Financeiro</x:String>
+                    <x:String>Gestão de Pessoas</x:String>
+                    <x:String>Infraestrutura Civil</x:String>
+                    <x:String>Inovação</x:String>
+                    <x:String>Recebimentos</x:String>
+                    <x:String>Seguros</x:String>
+                    <x:String>Tecnologia da Informação</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
         <Label     Text                     = "Título do Pedido:"                       
                    FontAttributes           = "Bold"
                    Padding                  = "5"/>
