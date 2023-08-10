@@ -57,6 +57,10 @@
 	  <None Remove="Resources\Images\imgbutton_planning.png" />
 	  <None Remove="Resources\Images\imgbutton_project.png" />
 	  <None Remove="Resources\Images\imgbutton_request.png" />
+	  <None Remove="Resources\Images\img_medalha1.png" />
+	  <None Remove="Resources\Images\img_medalha2.png" />
+	  <None Remove="Resources\Images\img_medalha3.png" />
+	  <None Remove="Resources\Images\shellheader_ceape.png" />
 	  <None Remove="Resources\Images\shellicon_idea.png" />
 	  <None Remove="Resources\Images\shellicon_inovation.png" />
 	  <None Remove="Resources\Images\shellicon_project.png" />

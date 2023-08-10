@@ -33,9 +33,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="175"/>
                     <RowDefinition Height="100"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="85"/>
-                    <RowDefinition Height="85"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -68,7 +68,8 @@
                         WidthRequest            = "300"
                         HorizontalTextAlignment = "Center"
                         HorizontalOptions       = "Center"
-                        VerticalOptions         = "Start"/>                
+                        VerticalOptions         = "Start"/>    
+                
                 <Border Grid.Row          = "1"
                         Grid.Column       = "0"
                         Margin            = "15"
@@ -118,7 +119,35 @@
                         Text              = "Oportunidades"
                         HorizontalOptions = "Center"/>
 
-                <Button Grid.Row          = "3"
+                <Label Grid.Row                = "3"
+                       Grid.ColumnSpan         = "3"
+                       Text                    = "Minhas Medalhas"
+                       FontAttributes          = "Bold"
+                       HorizontalTextAlignment = "Center"
+                       />
+
+                <ScrollView Grid.Row        = "4"
+                            Grid.ColumnSpan = "3"
+                            Orientation     = "Horizontal">
+                    <HorizontalStackLayout HorizontalOptions = "Center"
+                                           Spacing           = "15">
+                        <Image Source = "img_medalha1.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha2.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha3.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha1.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha1.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha2.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha3.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha1.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha1.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha2.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha3.png" WidthRequest="50"/>
+                        <Image Source = "img_medalha1.png" WidthRequest="50"/>
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+
+                <!--<Button Grid.Row          = "3"
                         Grid.ColumnSpan   = "3"
                         Text              = "Meus Projetos"
                         TextColor         = "DarkGreen"
@@ -132,7 +161,7 @@
                         Clicked           = "Btn_MeusProjetos">
                     
                     <Button.Background>
-                        <!-- StartPoint defaults to (0,0) -->
+                        --><!-- StartPoint defaults to (0,0) --><!--
                         <LinearGradientBrush EndPoint ="0,1">
                             <GradientStop Color  = "White"
                                           Offset = "0.5" />
@@ -140,9 +169,9 @@
                                           Offset = "1.0" />
                         </LinearGradientBrush>
                     </Button.Background>
-                </Button>
+                </Button>-->
 
-                <Button Grid.Row          = "4"
+                <!--<Button Grid.Row          = "4"
                         Grid.Column       = "0"                        
                         Margin            = "10"
                         WidthRequest      = "175"
@@ -156,7 +185,7 @@
                         BackgroundColor   = "White"
                         Clicked           = "Btn_MinhasOp">
                     <Button.Background>
-                        <!-- StartPoint defaults to (0,0) -->
+                        --><!-- StartPoint defaults to (0,0) --><!--
                         <LinearGradientBrush EndPoint ="0,1">
                             <GradientStop Color  = "White"
                                           Offset = "0.5" />
@@ -164,8 +193,9 @@
                                           Offset = "1.0" />
                         </LinearGradientBrush>
                     </Button.Background>
-                </Button>
-                <Button Grid.Row          = "4"
+                </Button>-->
+                
+                <!--<Button Grid.Row          = "4"
                         Grid.Column       = "2"                        
                         Margin            = "10"
                         WidthRequest      = "175"
@@ -179,7 +209,7 @@
                         BackgroundColor   = "White"
                         Clicked           = "Btn_RankingGeral">
                     <Button.Background>
-                        <!-- StartPoint defaults to (0,0) -->
+                        --><!-- StartPoint defaults to (0,0) --><!--
                         <LinearGradientBrush EndPoint ="0,1">
                             <GradientStop Color  = "White"
                                           Offset = "0.5" />
@@ -187,7 +217,8 @@
                                           Offset = "1.0" />
                         </LinearGradientBrush>
                     </Button.Background>
-                </Button>
+                </Button>-->
+                
             </Grid>
 
             <!-- GRID INTERIOR - LINHA 2-->            

@@ -142,12 +142,57 @@
                           Color             = "Green"/>
             </Grid>
 
-            <Button       Text            = "Salvar"
-                          Margin          = "10"
-                          BackgroundColor = "Green"/>
+            <Grid ColumnDefinitions="*,*">
+                <Button Grid.Column="0"
+                        Text              = "Salvar"
+                        TextColor         = "DarkGreen"
+                        FontSize          = "15"
+                        FontAttributes    = "Bold"
+                        Margin            = "10"
+                        BorderColor       = "Green"
+                        BorderWidth       = "2"
+                        BackgroundColor   = "White"
+                        HorizontalOptions = "CenterAndExpand"
+                        WidthRequest      = "150"
+                        Clicked           = "Button_Clicked">
+
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.5" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button Grid.Column="1"
+                        Text              = "Enviar para Análise"
+                        TextColor         = "DarkGreen"
+                        FontSize          = "15"
+                        FontAttributes    = "Bold"
+                        Margin            = "10"
+                        BorderColor       = "Green"
+                        BorderWidth       = "2"
+                        BackgroundColor   = "White"
+                        HorizontalOptions = "CenterAndExpand"
+                        WidthRequest      = "175"
+                        Clicked           = "Button_Clicked_1">
+
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint ="0,1">
+                            <GradientStop Color  = "White"
+                                          Offset = "0.5" />
+                            <GradientStop Color  = "LightGreen"
+                                          Offset = "1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
 
 
-        </StackLayout>
+        </StackLayout>   
     </ScrollView>
     
 </ContentPage>

@@ -5,7 +5,7 @@
              Title="Projeto em Andamento">
 
     <ScrollView>
-        <StackLayout Padding="20" >
+        <VerticalStackLayout Padding="20" >
             
             <Border HorizontalOptions  = "Center"
                     VerticalOptions    = "Start"
@@ -23,7 +23,7 @@
                     WidthRequest       = "180"
                     Margin             = "15"
                     StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_analysis.png" HeightRequest="150"/>
+                <ImageButton Source="imgbutton_analysis.png" HeightRequest="150" Clicked="Btn_AnaliseBriefing"/>
             </Border>
             <Label  Text="Análise e Briefing" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
@@ -33,7 +33,7 @@
                     WidthRequest       = "180"
                     Margin             = "15"
                     StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_group.png"    HeightRequest="150"/>
+                <ImageButton Source="imgbutton_group.png"    HeightRequest="150" Clicked="Btn_Squad"/>
             </Border>
             <Label  Text="Definição do Squad" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
@@ -43,7 +43,7 @@
                     WidthRequest       = "180"
                     Margin             = "15"
                     StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_planning.png" HeightRequest="150"/>
+                <ImageButton Source="imgbutton_planning.png" HeightRequest="150" Clicked="Btn_Planejamento"/>
             </Border>
             <Label Text="Planejamento" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
@@ -53,11 +53,11 @@
                     WidthRequest       = "180"
                     Margin             = "15"
                     StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_project.png"  HeightRequest="150"/>
+                <ImageButton Source="imgbutton_project.png"  HeightRequest="150" Clicked="Btn_Acompanhamento"/>
             </Border>
             <Label Text="Acompanhamento" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
             
-        </StackLayout>        
+        </VerticalStackLayout>        
     </ScrollView>
     
 </ContentPage>

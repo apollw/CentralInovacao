@@ -25,4 +25,13 @@ public partial class ViewNovaOportunidade : ContentPage
         string text    = ((Editor)sender).Text;
     }
 
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("", "Oportunidade Salva", "Fechar");
+    }
+
+    private async void Button_Clicked_1(object sender, EventArgs e)
+    {
+        await DisplayAlert("", "Oportunidade Registrada", "Fechar");
+    }
 }

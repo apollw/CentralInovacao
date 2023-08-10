@@ -10,34 +10,46 @@
     Shell.BackgroundColor="Green"
     >
 
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor = "#242B40" 
+                     Padding         = "10">
+            <Image   Source          = "shellheader_ceape.png" 
+                     HeightRequest   = "85"/>
+            <Label Text                    = "Central de Inovação"
+                   TextColor               = "White"
+                   FontAttributes          = "Bold"
+                   HorizontalTextAlignment = "Center"/>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
     <ShellItem    Title               = "CEAPE Inovação"
                   Route               = "MainPage"
                   FlyoutItemIsVisible = "False">
         <ShellContent ContentTemplate = "{DataTemplate local:MainPage}"/>
     </ShellItem>
-
+    
     <ShellContent     Title           = "Meus Projetos"
                       ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
                       IsVisible       = "False"
-                      Route           = "ViewMeusProjetos"/>
-
+                      Route           = "ViewMeusProjetos"/>    
+    
     <FlyoutItem FlyoutDisplayOptions  = "AsMultipleItems">
         <ShellContent Title           = "Central de Ideias"
-                      FlyoutIcon      = "shellicon_idea"                      
+                      FlyoutIcon      = "shellicon_idea.png"                      
                       ContentTemplate = "{DataTemplate views:ViewInicio}"
                       Route           = "ViewInicio"/>
-        <!--<ShellContent Title           = "Meus Projetos"
-                      FlyoutIcon      = "shellicon_project"
+        <ShellContent Title           = "Meus Projetos"
+                      FlyoutIcon      = "shellicon_project.png"
                       ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
                       Route           = "ViewMeusProjetos"/>
         <ShellContent Title           = "Minhas Oportunidades"
-                      FlyoutIcon      = "shellicon_inovation"
+                      FlyoutIcon      = "shellicon_inovation.png"
                       ContentTemplate = "{DataTemplate views:ViewMinhasOportunidades}"
                       Route           = "ViewMinhasOportunidades"/>
         <ShellContent Title           = "Ranking Geral"
-                      FlyoutIcon      = "shellicon_rank"
+                      FlyoutIcon      = "shellicon_rank.png"
                       ContentTemplate = "{DataTemplate views:ViewRankingGeral}"
-                      Route           = "ViewRankingGeral"/>-->
+                      Route           = "ViewRankingGeral"/>        
     </FlyoutItem>    
 
 </Shell>

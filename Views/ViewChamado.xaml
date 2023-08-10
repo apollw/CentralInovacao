@@ -88,7 +88,8 @@
                    WidthRequest             = "400"/>
         <Button    Text                     = "Solicitar"
                    Margin                   = "10"
-                   BackgroundColor          = "Green"/>
+                   BackgroundColor          = "Green"
+                   Clicked                  = "Btn_Chamado"/>
 
         </StackLayout>
 </ContentPage>
