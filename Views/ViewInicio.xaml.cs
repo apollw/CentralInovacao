@@ -27,6 +27,15 @@ public partial class ViewInicio : ContentPage
                 new InteractionItem { Title = "Fernando Gregório", Description = "Finalizou um projeto" },
                 new InteractionItem { Title = "Arthur Carvalho", Description = "Subiu no Ranking Geral" }
             };
+
+        List<string> imagens = new List<string>
+        {
+            "img_medalha1.png",
+            "img_medalha2.png",
+            "img_medalha3.png"
+        };
+
+        _carouselView.ItemsSource = imagens;
     }
 
     private async void OnProfileImageTapped(object sender, EventArgs e)
@@ -47,13 +56,13 @@ public partial class ViewInicio : ContentPage
                     // Salva a imagem em algum armazenamento, como o banco de dados ou um serviço de armazenamento em nuvem
 
                     // Exemplo: Atualiza a imagem exibida na tela
-                    _fotoPerfil.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+                    //_fotoPerfil.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
                 }
             }
         }
     }
     /*BOTÕES*/
-    public void Btn_Animation(Button button)
+    public void Btn_Animation(ImageButton button)
     {
         // Define a escala inicial do botão
         button.Scale = 1;
@@ -67,57 +76,21 @@ public partial class ViewInicio : ContentPage
         //Navegar para uma Página Específica
         // Os dois "//" servem para fazer navegação de rota absoluta
         await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-    }
-    private async void Btn_MeusProjetos(object sender, EventArgs e)
-    {
-        var button = (Button)sender;
-        int animationDuration = 100;
+    }    
+    //private async void Btn_NovaOp(object sender, EventArgs e)
+    //{
+    //    var button = (ImageButton)sender;
+    //    int animationDuration = 100;
 
-        Btn_Animation(button);
-        await Task.Delay(animationDuration/2);
+    //    Btn_Animation(button);
+    //    await Task.Delay(animationDuration / 2);
 
-        //await Navigation.PushModalAsync(new ViewMeusProjetos());
-        //await Navigation.PushAsync(new ViewMeusProjetos());
-        await Shell.Current.GoToAsync($"/{nameof(ViewMeusProjetos)}");
-    }
-    private async void Btn_MinhasOp(object sender, EventArgs e)
-    {
-        var button = (Button)sender;
-        int animationDuration = 100;
-
-        Btn_Animation(button);
-        await Task.Delay(animationDuration / 2);
-
-        //await Navigation.PushModalAsync(new ViewMinhasOportunidades());
-        await Shell.Current.GoToAsync($"{nameof(ViewMinhasOportunidades)}");
-        //await Shell.Current.GoToAsync($"//{nameof(ViewMinhasOportunidades)}");
-    }
-    private async void Btn_RankingGeral(object sender, EventArgs e)
-    {
-        var button = (Button)sender;
-        int animationDuration = 100;
-
-        Btn_Animation(button);
-        await Task.Delay(animationDuration / 2);
-
-        //await Navigation.PushModalAsync(new ViewRankingGeral());
-        await Shell.Current.GoToAsync($"{nameof(ViewRankingGeral)}");
-        //await Shell.Current.GoToAsync($"//{nameof(ViewRankingGeral)}");
-    }
-    private async void Btn_NovaOp(object sender, EventArgs e)
-    {
-        var button = (Button)sender;
-        int animationDuration = 100;
-
-        Btn_Animation(button);
-        await Task.Delay(animationDuration / 2);
-
-        //await Navigation.PushAsync(new ViewNovaOportunidade());
-        await Shell.Current.GoToAsync($"{nameof(ViewNovaOportunidade)}");
-    }
+    //    //await Navigation.PushAsync(new ViewNovaOportunidade());
+    //    await Shell.Current.GoToAsync($"{nameof(ViewNovaOportunidade)}");
+    //}
     private async void Btn_Chamado(object sender, EventArgs e)
     {
-        var button = (Button)sender;
+        var button = (ImageButton)sender;
         int animationDuration = 100;
 
         Btn_Animation(button);

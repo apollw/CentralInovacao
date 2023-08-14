@@ -13,11 +13,7 @@
             <Label Grid.Column = "1"
                    Text        = "Função no Projeto"/>
             <Label Grid.Column = "2"
-                   Text        = "Parecer Superior"/>
-
-            <StackLayout Grid.Row="1">
-                <Label Text="OI"/>
-            </StackLayout>            
+                   Text        = "Parecer Superior"/>       
         </Grid>         
         
     </ScrollView>

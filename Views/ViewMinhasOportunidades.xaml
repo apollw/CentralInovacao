@@ -4,40 +4,34 @@
              x:Class="CentralInovacao.Views.ViewMinhasOportunidades"
              Title="Minhas Oportunidades">
 
-    <Grid RowDefinitions = "25,*"
-          BackgroundColor="WhiteSmoke">
-        
-        <Grid Grid.Row        = "1"
-              RowDefinitions  = "200,200,200,200"
-              BackgroundColor = "WhiteSmoke">            
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text    = "Logout" 
+                     Clicked = "Btn_Logout"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions  = "*,60"
+          BackgroundColor = "WhiteSmoke">            
             
-            <Border Grid.Row        = "0"
-                    Margin          = "15"
-                    StrokeShape     = "RoundRectangle 25 25 25 25"
-                    StrokeThickness = "4"
-                    HeightRequest   = "185"
-                    >
+          <Border Grid.Row        = "0"
+                  Margin          = "15"
+                  StrokeShape     = "RoundRectangle 25 25 25 25"
+                  StrokeThickness = "4"
+                  VerticalOptions = "Start"
+                  HeightRequest   = "185">
+              
                 <Grid RowDefinitions="30,30,30,30,30"
                       ColumnDefinitions="*,*"
                       Padding="10">
-                    <Grid.Background>
-                        <!-- StartPoint defaults to (0,0) -->
-                        <LinearGradientBrush EndPoint ="0,1">
-                            <GradientStop Color  = "White"
-                                          Offset = "0.45" />
-                            <GradientStop Color  = "LightGreen"
-                                          Offset = "1.0" />
-                        </LinearGradientBrush>
-                    </Grid.Background>
 
                     <!--COLUNA 1-->
                     <Border Grid.Row            = "0"
                             Grid.ColumnSpan     = "2"
                             StrokeShape         = "RoundRectangle 25 25 25 25">
                         <Label Text                    = "Oportunidade 1"
+                               TextColor               = "White"
                                FontSize                = "15"
                                FontAttributes          = "Bold"
-                               BackgroundColor         = "LightGreen"
+                               BackgroundColor         = "Green"
                                HorizontalTextAlignment = "Center"/>
                     </Border>
                     <Label  Grid.Row                = "1"
@@ -78,6 +72,29 @@
                 </Grid>
             </Border>
 
+            <Grid Grid.Row = "1"
+                  Margin   = "5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <BoxView Grid.ColumnSpan="2"
+                         Color="Gray"
+                         HeightRequest="1"
+                         VerticalOptions="CenterAndExpand"/>
+
+                <ImageButton Source            = "img_addbtn3.png"
+                             BackgroundColor   = "White"
+                             HorizontalOptions = "CenterAndExpand"
+                             Grid.ColumnSpan   = "2"
+                             BorderWidth       = "1"
+                             Clicked           = "Btn_NovaOp"
+                             Grid.Row          = "2"
+                             HeightRequest     = "50"
+                             WidthRequest      = "50"/>
+
+            </Grid>
         </Grid>
-    </Grid>
+        
 </ContentPage>

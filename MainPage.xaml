@@ -4,7 +4,7 @@
              x:Class="CentralInovacao.MainPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="White">
+             BackgroundColor="LightGray">
 
     <Grid>
         <Grid.RowDefinitions>

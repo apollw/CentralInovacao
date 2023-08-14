@@ -4,18 +4,14 @@
              x:Class="CentralInovacao.Views.ViewMeusProjetos"
              Title="Meus Projetos">
 
-        <Grid RowDefinitions  = "25,*"
-              BackgroundColor = "WhiteSmoke"
-              Padding         = "10">
-            
-        <Label Grid.Row                = "0"
-               Text                    = "Projetos em Andamento"
-               FontAttributes          = "Bold"
-               HorizontalTextAlignment = "Center"
-               VerticalTextAlignment   = "Center"/>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text    = "Logout" 
+                     Clicked = "Btn_Logout"/>
+    </ContentPage.ToolbarItems>
 
-        <Grid Grid.Row        = "1"
-              RowDefinitions  = "250,250,250,250"
+    <Grid BackgroundColor = "WhiteSmoke">
+
+        <Grid RowDefinitions  = "250,250,250,250"
               BackgroundColor = "WhiteSmoke">
 
                 <Border Grid.Row        = "0"
@@ -26,28 +22,20 @@
                 <Grid RowDefinitions    = "30,30,30,30,30"
                           ColumnDefinitions = "*,*"
                           Padding           = "10">
-                    <Grid.Background>
-                        <!-- StartPoint defaults to (0,0) -->
-                        <LinearGradientBrush EndPoint ="0,1">
-                            <GradientStop Color  = "White"
-                                          Offset = "0.45" />
-                            <GradientStop Color  = "LightGreen"
-                                          Offset = "1.0" />
-                        </LinearGradientBrush>
-                    </Grid.Background>
                     
                     <!--COLUNA 1-->
-                    <Border Grid.Row            = "0"
-                            Grid.ColumnSpan     = "2"
-                            StrokeShape         = "RoundRectangle 25 25 25 25">
+                    <Border Grid.Row        = "0"
+                            Grid.ColumnSpan = "2"
+                            StrokeShape     = "RoundRectangle 25 25 25 25">
                         <Label Text                    = "Projeto 1"
+                               TextColor               = "White"
                                FontSize                = "15"
                                FontAttributes          = "Bold"
-                               BackgroundColor         = "LightGreen"
+                               BackgroundColor         = "Green"
                                HorizontalTextAlignment = "Center"/>
                     </Border>
                     
-                    <Label  Grid.Row                = "1"
+                    <Label      Grid.Row                = "1"
                                 Text                    = "Responsável:"
                                 FontAttributes          = "Bold"
                                 HorizontalTextAlignment = "Start"/>
@@ -85,7 +73,7 @@
                                 HorizontalTextAlignment = "End"/>
                 </Grid>
                 </Border>
-            </Grid>
         </Grid>
+    </Grid>
 
 </ContentPage>

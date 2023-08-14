@@ -5,7 +5,7 @@
              Title="Projeto em Andamento">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" >
+        <VerticalStackLayout>
             
             <Border HorizontalOptions  = "Center"
                     VerticalOptions    = "Start"
@@ -17,6 +17,9 @@
             </Border>            
             <Label  Text="Solicitação" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
+            <BoxView Color="Gray"
+                     HeightRequest="1"/>
+
             <Border HorizontalOptions  = "Center"
                     VerticalOptions    = "Start"
                     HeightRequest      = "180"
@@ -26,6 +29,9 @@
                 <ImageButton Source="imgbutton_analysis.png" HeightRequest="150" Clicked="Btn_AnaliseBriefing"/>
             </Border>
             <Label  Text="Análise e Briefing" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
+
+            <BoxView Color="Gray"
+                     HeightRequest="1"/>
 
             <Border HorizontalOptions  = "Center"
                     VerticalOptions    = "Start"
@@ -37,6 +43,9 @@
             </Border>
             <Label  Text="Definição do Squad" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
+            <BoxView Color="Gray"
+                     HeightRequest="1"/>
+
             <Border HorizontalOptions  = "Center"
                     VerticalOptions    = "Start"
                     HeightRequest      = "180"
@@ -47,6 +56,9 @@
             </Border>
             <Label Text="Planejamento" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
 
+            <BoxView Color="Gray"
+                     HeightRequest="1"/>
+
             <Border HorizontalOptions  = "Center"
                     VerticalOptions    = "Start"
                     HeightRequest      = "180"
@@ -56,7 +68,9 @@
                 <ImageButton Source="imgbutton_project.png"  HeightRequest="150" Clicked="Btn_Acompanhamento"/>
             </Border>
             <Label Text="Acompanhamento" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
-            
+
+            <BoxView Color="Gray"
+                     HeightRequest="1"/>
         </VerticalStackLayout>        
     </ScrollView>
     

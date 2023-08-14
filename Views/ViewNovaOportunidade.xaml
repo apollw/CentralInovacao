@@ -91,59 +91,59 @@
                 <CheckBox Grid.Row          = "0"
                           Grid.Column       = "1"
                           HorizontalOptions = "End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "1"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "2"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "3"
                           Grid.Column       = "1"
                           HorizontalOptions = "End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "4"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "5"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "6"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "7"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "8"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "9"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "10"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "11"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
                 <CheckBox Grid.Row          = "12"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "Gray"/>
             </Grid>
 
             <Grid ColumnDefinitions="*,*">
-                <Button Grid.Column="0"
+                <!--<Button 
                         Text              = "Salvar"
                         TextColor         = "DarkGreen"
                         FontSize          = "15"
@@ -154,7 +154,7 @@
                         BackgroundColor   = "White"
                         HorizontalOptions = "CenterAndExpand"
                         WidthRequest      = "150"
-                        Clicked           = "Button_Clicked">
+                        >
 
                     <Button.Background>
                         <LinearGradientBrush EndPoint ="0,1">
@@ -164,20 +164,36 @@
                                           Offset = "1.0" />
                         </LinearGradientBrush>
                     </Button.Background>
-                </Button>
+                </Button>-->
+                
+                <Button    
+                   Grid.Column      = "0"
+                   Margin           = "10"
+                   Text             = "Salvar"
+                   TextColor        = "Black"
+                   BorderColor      = "Gray"
+                   BorderWidth      = "1"
+                   FontSize         = "12"
+                   FontAttributes   = "Bold"
+                   BackgroundColor  = "White"
+                   Clicked          = "Button_Clicked"
+                   Grid.Row         = "2"
+                   HeightRequest    = "50"
+                   WidthRequest     = "150"/>
 
-                <Button Grid.Column="1"
-                        Text              = "Enviar para Análise"
-                        TextColor         = "DarkGreen"
-                        FontSize          = "15"
-                        FontAttributes    = "Bold"
-                        Margin            = "10"
-                        BorderColor       = "Green"
-                        BorderWidth       = "2"
-                        BackgroundColor   = "White"
-                        HorizontalOptions = "CenterAndExpand"
-                        WidthRequest      = "175"
-                        Clicked           = "Button_Clicked_1">
+                <!--<Button 
+                   Grid.Column       ="1"
+                   Text              = "Enviar para Análise"
+                   TextColor         = "DarkGreen"
+                   FontSize          = "15"
+                   FontAttributes    = "Bold"
+                   Margin            = "10"
+                   BorderColor       = "Green"
+                   BorderWidth       = "2"
+                   BackgroundColor   = "White"
+                   HorizontalOptions = "CenterAndExpand"
+                   WidthRequest      = "175"
+                   Clicked           = "Button_Clicked_1">
 
                     <Button.Background>
                         <LinearGradientBrush EndPoint ="0,1">
@@ -187,7 +203,21 @@
                                           Offset = "1.0" />
                         </LinearGradientBrush>
                     </Button.Background>
-                </Button>
+                </Button>-->
+                <Button    
+                   Grid.Column      = "1"
+                   Margin           = "10"
+                   Text             = "Enviar para Análise"
+                   TextColor        = "Black"
+                   BorderColor      = "Gray"
+                   BorderWidth      = "1"
+                   FontSize         = "12"
+                   FontAttributes   = "Bold"
+                   BackgroundColor  = "White"
+                   Clicked          = "Button_Clicked_1"
+                   Grid.Row         = "2"
+                   HeightRequest    = "50"
+                   WidthRequest     = "150"/>
 
             </Grid>
 

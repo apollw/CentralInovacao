@@ -32,6 +32,34 @@ public partial class ViewRankingGeral : ContentPage
 
         // Vincula a coleção à ListView
         _myListView.ItemsSource = itemList;
+
+        var itemList2 = new List<string>
+               {
+                   "7",
+                   "6",
+                   "6",
+                   "5",
+                   "4",
+                   "4",
+                   "3",
+                   "3",
+                   "3",
+                   "2",
+                   "2",
+                   "2",
+                   "1",
+                   "1",
+                   "1",
+                   "1",
+                   "1"
+               };
+
+        // Vincula a coleção à ListView
+        _myListView1.ItemsSource = itemList2;
+    }
+    private async void Btn_Logout(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
     }
 
 }

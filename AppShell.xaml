@@ -8,7 +8,16 @@
     Shell.FlyoutBehavior="Flyout"
     Shell.TabBarIsVisible="False"
     Shell.BackgroundColor="Green"
-    >
+    Shell.FlyoutBackdrop="White"
+    Shell.TitleColor="White">
+
+    <!--Shell.FlyoutBehavior="Flyout"
+    Shell.TabBarIsVisible="False"
+    Shell.BackgroundColor="Green"-->
+
+    <!--Shell.TabBarBackgroundColor="LightGray"
+    Shell.TabBarUnselectedColor="Gray"
+    Shell.TabBarTitleColor="Green"-->
 
     <Shell.FlyoutHeader>
         <StackLayout BackgroundColor = "#242B40" 
@@ -26,13 +35,8 @@
                   Route               = "MainPage"
                   FlyoutItemIsVisible = "False">
         <ShellContent ContentTemplate = "{DataTemplate local:MainPage}"/>
-    </ShellItem>
-    
-    <ShellContent     Title           = "Meus Projetos"
-                      ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
-                      IsVisible       = "False"
-                      Route           = "ViewMeusProjetos"/>    
-    
+    </ShellItem>  
+
     <FlyoutItem FlyoutDisplayOptions  = "AsMultipleItems">
         <ShellContent Title           = "Central de Ideias"
                       FlyoutIcon      = "shellicon_idea.png"                      
@@ -49,7 +53,30 @@
         <ShellContent Title           = "Ranking Geral"
                       FlyoutIcon      = "shellicon_rank.png"
                       ContentTemplate = "{DataTemplate views:ViewRankingGeral}"
-                      Route           = "ViewRankingGeral"/>        
-    </FlyoutItem>    
+                      Route           = "ViewRankingGeral"/>
+    </FlyoutItem>
+
+    <!--<TabBar>
+        <Tab Title="Home"
+             Icon="shellicon_idea.png">
+            <ShellContent ContentTemplate = "{DataTemplate views:ViewInicio}"
+             Route="ViewInicio"/>
+        </Tab>
+        <Tab Title="Projetos"
+             Icon="shellicon_project.png">
+            <ShellContent ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
+             Route="ViewMeusProjetos"/>
+        </Tab>
+        <Tab Title="Oportunidades"
+             Icon="shellicon_inovation.png">
+            <ShellContent ContentTemplate = "{DataTemplate views:ViewMinhasOportunidades}"
+             Route="ViewMinhasOportunidades"/>
+        </Tab>
+        <Tab Title="Ranking"
+             Icon="shellicon_rank.png">
+            <ShellContent ContentTemplate = "{DataTemplate views:ViewRankingGeral}"
+             Route="ViewRankingGeral"/>
+        </Tab>
+    </TabBar>-->
 
 </Shell>
