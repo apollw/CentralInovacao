@@ -50,6 +50,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Models\**" />
+	  <AndroidResource Remove="ViewModels\**" />
+	  <Compile Remove="Models\**" />
+	  <Compile Remove="ViewModels\**" />
+	  <EmbeddedResource Remove="Models\**" />
+	  <EmbeddedResource Remove="ViewModels\**" />
+	  <MauiCss Remove="Models\**" />
+	  <MauiCss Remove="ViewModels\**" />
+	  <MauiXaml Remove="Models\**" />
+	  <MauiXaml Remove="ViewModels\**" />
+	  <None Remove="Models\**" />
+	  <None Remove="ViewModels\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\banner.png" />
 	  <None Remove="Resources\Images\foto_perfil.png" />
 	  <None Remove="Resources\Images\imgbutton_analysis.png" />
@@ -72,6 +87,10 @@
 	  <None Remove="Resources\Images\shellicon_project.png" />
 	  <None Remove="Resources\Images\shellicon_rank.png" />
 	  <None Remove="Resources\Images\sign.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microcharts.Maui" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -120,11 +139,6 @@
 	  <MauiXaml Update="Views\ViewRankingGeral.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\" />
-	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 </Project>

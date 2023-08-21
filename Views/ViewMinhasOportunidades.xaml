@@ -9,90 +9,90 @@
                      Clicked = "Btn_Logout"/>
     </ContentPage.ToolbarItems>
 
-    <Grid RowDefinitions  = "*,60"
-          BackgroundColor = "WhiteSmoke">            
-            
-          <Border Grid.Row        = "0"
-                  Margin          = "15"
-                  StrokeShape     = "RoundRectangle 25 25 25 25"
-                  StrokeThickness = "4"
-                  VerticalOptions = "Start"
-                  HeightRequest   = "185">
-              
-                <Grid RowDefinitions="30,30,30,30,30"
-                      ColumnDefinitions="*,*"
-                      Padding="10">
+    <Grid RowDefinitions  = "*,100"
+          BackgroundColor = "WhiteSmoke">
+
+            <Border 
+              Margin          = "15"
+              StrokeShape     = "RoundRectangle 25 25 25 25"
+              StrokeThickness = "4"
+              VerticalOptions = "Start"
+              HeightRequest   = "185">
+
+                <Grid RowDefinitions    = "30,30,30,30,30"
+                      ColumnDefinitions = "*,*"
+                      Padding           = "10">
 
                     <!--COLUNA 1-->
                     <Border Grid.Row            = "0"
                             Grid.ColumnSpan     = "2"
                             StrokeShape         = "RoundRectangle 25 25 25 25">
-                        <Label Text                    = "Oportunidade 1"
-                               TextColor               = "White"
-                               FontSize                = "15"
-                               FontAttributes          = "Bold"
-                               BackgroundColor         = "Green"
-                               HorizontalTextAlignment = "Center"/>
+                        <Label 
+                           Text                = "Oportunidade 1"
+                           TextColor           = "White"
+                           FontSize            = "15"
+                           FontAttributes      = "Bold"
+                           BackgroundColor     = "Green"
+                           HorizontalTextAlignment = "Center"/>
                     </Border>
-                    <Label  Grid.Row                = "1"
-                            Text                    = "Responsável:"
-                            FontAttributes          = "Bold"
-                            HorizontalTextAlignment = "Start"/>
+                    <Label  Grid.Row            = "1"
+                        Text                    = "Responsável:"
+                        FontAttributes          = "Bold"
+                        HorizontalTextAlignment = "Start"/>
                     <Label  Grid.Row                = "2"
-                            Text                    = "Situação Atual:"
-                            FontAttributes          = "Bold"
-                            HorizontalTextAlignment = "Start"/>
+                        Text                    = "Situação Atual:"
+                        FontAttributes          = "Bold"
+                        HorizontalTextAlignment = "Start"/>
                     <Label  Grid.Row                = "3"
-                            Text                    = "Tempo do Projeto:"
-                            FontAttributes          = "Bold"
-                            HorizontalTextAlignment = "Start"/>
+                        Text                    = "Tempo do Projeto:"
+                        FontAttributes          = "Bold"
+                        HorizontalTextAlignment = "Start"/>
                     <Button Grid.Row                = "4"
-                            Grid.ColumnSpan         = "2"
-                            Text                    = "Abrir"
-                            TextColor               = "Black"
-                            BorderColor             = "Green"
-                            BorderWidth             = "1"
-                            BackgroundColor         = "White"
-                            HorizontalOptions       = "Center"
-                            HeightRequest           = "45"
-                            WidthRequest            = "85"/>
+                        Grid.ColumnSpan         = "2"
+                        Text                    = "Abrir"
+                        TextColor               = "Black"
+                        BorderColor             = "Green"
+                        BorderWidth             = "1"
+                        BackgroundColor         = "White"
+                        HorizontalOptions       = "Center"
+                        HeightRequest           = "45"
+                        WidthRequest            = "85"/>
                     <!--COLUNA 2-->
                     <Label  Grid.Row                = "1"
-                            Grid.Column             = "1"
-                            Text                    = "Edem Fernando"                            
-                            HorizontalTextAlignment = "End"/>
+                        Grid.Column             = "1"
+                        Text                    = "Edem Fernando"                            
+                        HorizontalTextAlignment = "End"/>
                     <Label  Grid.Row                = "2"
-                            Grid.Column             = "1"
-                            Text                    = "Declinado"
-                            HorizontalTextAlignment = "End"/>
+                        Grid.Column             = "1"
+                        Text                    = "Declinado"
+                        HorizontalTextAlignment = "End"/>
                     <Label  Grid.Row                = "3"
-                            Grid.Column             = "1"
-                            Text                    = "15 dias"
-                            HorizontalTextAlignment = "End"/>                    
+                        Grid.Column             = "1"
+                        Text                    = "15 dias"
+                        HorizontalTextAlignment = "End"/>
                 </Grid>
-            </Border>
+            </Border>            
 
-            <Grid Grid.Row = "1"
-                  Margin   = "5">
+            <Grid Grid.Row = "1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <BoxView Grid.ColumnSpan="2"
-                         Color="Gray"
-                         HeightRequest="1"
-                         VerticalOptions="CenterAndExpand"/>
+                     Color="Gray"
+                     HeightRequest="1"
+                     VerticalOptions="CenterAndExpand"/>
 
-                <ImageButton Source            = "img_addbtn3.png"
-                             BackgroundColor   = "White"
-                             HorizontalOptions = "CenterAndExpand"
-                             Grid.ColumnSpan   = "2"
-                             BorderWidth       = "1"
-                             Clicked           = "Btn_NovaOp"
-                             Grid.Row          = "2"
-                             HeightRequest     = "50"
-                             WidthRequest      = "50"/>
+                <ImageButton Source            = "img_addbtn1.png"
+                         BackgroundColor   = "WhiteSmoke"
+                         HorizontalOptions = "CenterAndExpand"
+                         Grid.ColumnSpan   = "2"
+                         BorderWidth       = "1"
+                         Clicked           = "Btn_NovaOp"
+                         Grid.Row          = "2"
+                         HeightRequest     = "75"
+                         WidthRequest      = "75"/>
 
             </Grid>
         </Grid>

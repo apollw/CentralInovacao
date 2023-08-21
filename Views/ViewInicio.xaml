@@ -118,14 +118,32 @@
                 <BoxView Grid.Row="3"
                          Grid.ColumnSpan="3"
                          Color="Gray"
+                         VerticalOptions="Start"
                          HeightRequest="1"/>
 
-                <Label Grid.Row                = "3"
+                <!--<Label Grid.Row                = "3"
                        Grid.ColumnSpan         = "3"
                        Text                    = "Minhas Medalhas"
                        FontAttributes          = "Bold"
                        HorizontalTextAlignment = "Center"
-                       />
+                       />-->
+                <Border Grid.Row           = "3"
+                        Grid.ColumnSpan    = "3"                       
+                        HorizontalOptions  = "Center"
+                        VerticalOptions    = "Start"
+                        HeightRequest      = "35"
+                        WidthRequest       = "350"
+                        StrokeShape        = "RoundRectangle 0 0 25 25"
+                        BackgroundColor    = "WhiteSmoke"
+                        StrokeThickness    = "2">
+
+                    <Label  Grid.ColumnSpan    = "2"
+                            Text               = "Minhas Medalhas"
+                            TextColor          = "Green"
+                            FontAttributes     = "Bold"
+                            FontSize           = "18"                       
+                            HorizontalOptions  = "Center"/>
+                </Border>
 
                 <CarouselView Grid.Row="4"
                               Grid.ColumnSpan="3"
@@ -320,8 +338,9 @@
                             HorizontalOptions  = "Center"/>
                 </Border>
                 <Border Grid.Row="1"
+                        WidthRequest="375"
                         StrokeShape       = "RoundRectangle 20">
-                    <Image Source   = "banner_1.png"
+                    <Image Source   = "banner.png"
                            Aspect   = "Fill">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnImageTapped" />
@@ -350,15 +369,15 @@
                          VerticalOptions="CenterAndExpand"/>
 
                 <ImageButton 
-                    Source            ="img_addbtn3.png"
+                    Source            ="img_addbtn1.png"
                     BackgroundColor   = "White"
                     HorizontalOptions ="CenterAndExpand"
                     Grid.ColumnSpan   = "2"
                     BorderWidth       = "1"
                     Clicked           = "Btn_Chamado"
                     Grid.Row          = "2"
-                    HeightRequest     = "50"
-                    WidthRequest      = "50"/>
+                    HeightRequest     = "75"
+                    WidthRequest      = "75"/>
 
             </Grid>            
         </Grid>     

@@ -1,14 +1,112 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="CentralInovacao.Views.ViewEsteiraAcompanhamento"
              Title="Esteira de Acompanhamento">
 
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView Margin="10">
+        <VerticalStackLayout Spacing="10">
+            
+            <Border StrokeShape="RoundRectangle 50 50 50 50"
+                    WidthRequest="325">
+                <Label Text                   ="Quadro Geral"
+                       FontSize               ="25"
+                       FontAttributes         ="Bold"
+                       HorizontalTextAlignment="Center"/>
+            </Border>
+            
+            <Grid ColumnDefinitions="*,*,*,*">
+                <Border Grid.Column    ="0"
+                        HeightRequest  ="115"
+                        StrokeThickness="2"
+                        StrokeShape    ="Rectangle">
+                    <StackLayout VerticalOptions="Start">
+                        <Label Text                   ="12"
+                               FontSize               ="40"
+                               FontAttributes         ="Bold"
+                               TextColor              ="Black"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text                   ="Tarefas"
+                               FontSize               ="15"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>                    
+                </Border>
+                <Border Grid.Column    ="1"
+                        HeightRequest  ="115"
+                        StrokeThickness="2"
+                        StrokeShape    ="Rectangle">
+                    <StackLayout VerticalOptions="Start">
+                        <Label Text                   ="5"
+                               FontSize               ="40"
+                               FontAttributes         ="Bold"
+                               TextColor              ="Green"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text                   ="Tarefas Finalizadas"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                    </Border>
+                <Border Grid.Column    ="2"
+                        HeightRequest  ="115"
+                        StrokeThickness="2"
+                        StrokeShape    ="Rectangle">
+                    <StackLayout VerticalOptions="Start">
+                        <Label Text                   ="7"
+                               FontSize               ="40"
+                               FontAttributes         ="Bold"
+                               TextColor              ="Red"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text                   ="Tarefas Pendentes"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                    </Border>
+                <Border Grid.Column    ="3"
+                        HeightRequest  ="115"
+                        StrokeThickness="2"
+                        StrokeShape    ="Rectangle">
+                    <StackLayout VerticalOptions="Center">
+                        <Label Text                   ="58,33%"
+                               FontSize               ="25"
+                               TextColor              ="Black"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text                   ="Percentual de Conclusão"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>                    
+                </Border>
+            </Grid>
+
+            <Border StrokeShape="RoundRectangle 50 50 50 50"
+                    WidthRequest="325">
+                <Label Text                   ="Desempenho dos Envolvidos"
+                       FontSize               ="20"
+                       FontAttributes         ="Bold"
+                       HorizontalTextAlignment="Center"/>
+            </Border>
+
+            <!--É necessário definir um tamanho para cada Chart para renderizar na tela-->
+            <micro:ChartView x:Name = "_chartView" HeightRequest="500"/>
+
+            <Border StrokeShape="RoundRectangle 50 50 50 50"
+                    WidthRequest="325">
+                <Label Text                   ="Performance do Projeto"
+                       FontSize               ="20"
+                       FontAttributes         ="Bold"
+                       HorizontalTextAlignment="Center"/>
+            </Border>
+
+            <micro:ChartView x:Name = "_chartView1" HeightRequest="200"/>
+
+            <Border StrokeShape="RoundRectangle 50 50 50 50"
+                    WidthRequest="325">
+                <Label Text                   ="Participação dos Setores"
+                       FontSize               ="20"
+                       FontAttributes         ="Bold"
+                       HorizontalTextAlignment="Center"/>
+            </Border>
+
+            <micro:ChartView x:Name = "_chartView2" HeightRequest="200"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
     
 </ContentPage>
