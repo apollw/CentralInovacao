@@ -4,31 +4,8 @@
              x:Class="CentralInovacao.Views.ViewEsteiraSquad"
              Title="Definição da Squad">
 
-    <ScrollView>
-        
-        <Grid ColumnDefinitions="*,*,*,*">
-            <Border Grid.Row        = "0"
-                    Grid.ColumnSpan = "4"
-                    BackgroundColor = "WhiteSmoke"
-                    HeightRequest   = "50"
-                    VerticalOptions = "Start"
-                    Margin          = "10"
-                    StrokeThickness = "2"
-                    StrokeShape="RoundRectangle 20 20 20 20">                
-                
-                <Grid ColumnDefinitions = "*,*,*">
-                    <Label Grid.Column  = "0"
-                           Text         = "Colaborador"
-                           HorizontalTextAlignment="Center"/>
-                    <Label Grid.Column  = "1"
-                           Text         = "Função no Projeto"
-                           HorizontalTextAlignment="Center"/>
-                    <Label Grid.Column  = "2"
-                           Text         = "Parecer Superior"
-                           HorizontalTextAlignment="Center"/>
-                </Grid>
-            </Border>
-        </Grid>         
+    <ScrollView>       
         
     </ScrollView>
+    
 </ContentPage>

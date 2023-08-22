@@ -65,8 +65,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\banner.png" />
-	  <None Remove="Resources\Images\foto_perfil.png" />
 	  <None Remove="Resources\Images\imgbutton_analysis.png" />
 	  <None Remove="Resources\Images\imgbutton_group.png" />
 	  <None Remove="Resources\Images\imgbutton_planning.png" />
@@ -77,16 +75,18 @@
 	  <None Remove="Resources\Images\img_addbtn3.png" />
 	  <None Remove="Resources\Images\img_addbtn4.png" />
 	  <None Remove="Resources\Images\img_addbtn5.png" />
+	  <None Remove="Resources\Images\img_addbtn6.png" />
+	  <None Remove="Resources\Images\img_banner.png" />
+	  <None Remove="Resources\Images\img_fotoperfil.png" />
 	  <None Remove="Resources\Images\img_medalha1.png" />
 	  <None Remove="Resources\Images\img_medalha2.png" />
 	  <None Remove="Resources\Images\img_medalha3.png" />
-	  <None Remove="Resources\Images\money.png" />
+	  <None Remove="Resources\Images\img_threepoints.png" />
 	  <None Remove="Resources\Images\shellheader_ceape.png" />
 	  <None Remove="Resources\Images\shellicon_idea.png" />
 	  <None Remove="Resources\Images\shellicon_inovation.png" />
 	  <None Remove="Resources\Images\shellicon_project.png" />
 	  <None Remove="Resources\Images\shellicon_rank.png" />
-	  <None Remove="Resources\Images\sign.png" />
 	</ItemGroup>
 
 	<ItemGroup>
