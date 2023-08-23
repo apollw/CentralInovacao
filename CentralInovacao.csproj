@@ -65,6 +65,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\action_log.png" />
+	  <None Remove="Resources\Images\administrator.png" />
+	  <None Remove="Resources\Images\align_left.png" />
+	  <None Remove="Resources\Images\application_form_edit.png" />
+	  <None Remove="Resources\Images\award_star_bronze_1.png" />
+	  <None Remove="Resources\Images\award_star_bronze_2.png" />
+	  <None Remove="Resources\Images\award_star_bronze_3.png" />
+	  <None Remove="Resources\Images\award_star_gold_2.png" />
+	  <None Remove="Resources\Images\award_star_gold_3.png" />
+	  <None Remove="Resources\Images\award_star_silver_1.png" />
+	  <None Remove="Resources\Images\award_star_silver_2.png" />
+	  <None Remove="Resources\Images\award_star_silver_3.png" />
+	  <None Remove="Resources\Images\barchart.png" />
+	  <None Remove="Resources\Images\bin.png" />
+	  <None Remove="Resources\Images\bin_closed.png" />
+	  <None Remove="Resources\Images\bin_empty.png" />
+	  <None Remove="Resources\Images\clock.png" />
 	  <None Remove="Resources\Images\imgbutton_analysis.png" />
 	  <None Remove="Resources\Images\imgbutton_group.png" />
 	  <None Remove="Resources\Images\imgbutton_planning.png" />

@@ -5,96 +5,111 @@
              Title="Minhas Oportunidades">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text    = "Logout" 
-                     Clicked = "Btn_Logout"/>
+        <ToolbarItem Text   ="Logout" 
+                     Clicked="Btn_Logout"/>
     </ContentPage.ToolbarItems>
 
-    <Grid RowDefinitions  = "*,100"
-          BackgroundColor = "WhiteSmoke">
+    <!--ESTILOS UTILIZADOS-->
+    <ContentPage.Resources>
+        <Style TargetType="Border">
+        
+        </Style>
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions ="*,100"
+          BackgroundColor="WhiteSmoke">
 
-            <Border 
-              Margin          = "15"
-              StrokeShape     = "RoundRectangle 25 25 25 25"
-              StrokeThickness = "4"
-              VerticalOptions = "Start"
-              HeightRequest   = "185">
+        <!--CARD DE OPORTUNIDADES-->
+        <Border Grid.Row       ="0"
+                Margin         ="10,25,10,0"
+                StrokeShape    ="RoundRectangle 8"
+                StrokeThickness="2"
+                VerticalOptions="Start"
+                HeightRequest  ="275">
+            
+            <Grid RowDefinitions   ="65,30,30,30,30"
+                  ColumnDefinitions="1*,5*,4*"
+                  Padding          ="15"
+                  RowSpacing="10"
+                  >
 
-                <Grid RowDefinitions    = "30,30,30,30,30"
-                      ColumnDefinitions = "*,*"
-                      Padding           = "10">
+                <Label Grid.Row               ="0"
+                       Grid.ColumnSpan        ="3"
+                       Text                   ="Oportunidade 1"
+                       TextColor              ="Black"
+                       FontSize               ="18"
+                       FontAttributes         ="Bold"
+                       Margin                 ="0,10"
+                       HorizontalTextAlignment= "Center"/>
 
-                    <!--COLUNA 1-->
-                    <Border Grid.Row            = "0"
-                            Grid.ColumnSpan     = "2"
-                            StrokeShape         = "RoundRectangle 25 25 25 25">
-                        <Label 
-                           Text                = "Oportunidade 1"
-                           TextColor           = "White"
-                           FontSize            = "15"
-                           FontAttributes      = "Bold"
-                           BackgroundColor     = "Green"
-                           HorizontalTextAlignment = "Center"/>
-                    </Border>
-                    <Label  Grid.Row            = "1"
-                        Text                    = "Responsável:"
-                        FontAttributes          = "Bold"
-                        HorizontalTextAlignment = "Start"/>
-                    <Label  Grid.Row                = "2"
-                        Text                    = "Situação Atual:"
-                        FontAttributes          = "Bold"
-                        HorizontalTextAlignment = "Start"/>
-                    <Label  Grid.Row                = "3"
-                        Text                    = "Tempo do Projeto:"
-                        FontAttributes          = "Bold"
-                        HorizontalTextAlignment = "Start"/>
-                    <Button Grid.Row                = "4"
-                        Grid.ColumnSpan         = "2"
-                        Text                    = "Abrir"
-                        TextColor               = "Black"
-                        BorderColor             = "Green"
-                        BorderWidth             = "1"
-                        BackgroundColor         = "White"
-                        HorizontalOptions       = "Center"
-                        HeightRequest           = "45"
-                        WidthRequest            = "85"/>
-                    <!--COLUNA 2-->
-                    <Label  Grid.Row                = "1"
-                        Grid.Column             = "1"
-                        Text                    = "Edem Fernando"                            
-                        HorizontalTextAlignment = "End"/>
-                    <Label  Grid.Row                = "2"
-                        Grid.Column             = "1"
-                        Text                    = "Declinado"
-                        HorizontalTextAlignment = "End"/>
-                    <Label  Grid.Row                = "3"
-                        Grid.Column             = "1"
-                        Text                    = "15 dias"
-                        HorizontalTextAlignment = "End"/>
-                </Grid>
-            </Border>            
-
-            <Grid Grid.Row = "1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <BoxView Grid.ColumnSpan="2"
-                     Color="Gray"
-                     HeightRequest="1"
-                     VerticalOptions="CenterAndExpand"/>
-
-                <ImageButton Source            = "img_addbtn1.png"
-                         BackgroundColor   = "WhiteSmoke"
-                         HorizontalOptions = "CenterAndExpand"
-                         Grid.ColumnSpan   = "2"
-                         BorderWidth       = "1"
-                         Clicked           = "Btn_NovaOp"
-                         Grid.Row          = "2"
-                         HeightRequest     = "75"
-                         WidthRequest      = "75"/>
-
+                <!--COLUNA 1-->
+                <Image Grid.Row         ="1"
+                       Grid.Column      ="0"
+                       Source           ="administrator.png"
+                       HorizontalOptions="Start"/>
+                <Image Grid.Row         ="2"
+                       Grid.Column      ="0"
+                       Source           ="barchart.png"
+                       HorizontalOptions="Start"/>
+                <Image Grid.Row         ="3"
+                       Grid.Column      ="0"
+                       Source           ="clock.png"
+                       HorizontalOptions="Start"/>
+                <!--COLUNA 2-->
+                <Label Grid.Row               ="1"
+                       Grid.Column            ="1"
+                       Text                   ="Responsável:"
+                       FontAttributes         ="Bold"
+                       HorizontalTextAlignment="Start"/>
+                <Label Grid.Row               ="2"
+                       Grid.Column            ="1"
+                       Text                   ="Situação Atual:"
+                       FontAttributes         ="Bold"
+                       HorizontalTextAlignment="Start"/>
+                <Label Grid.Row               = "3"
+                       Grid.Column            ="1"
+                       Text                   ="Tempo do Projeto:"
+                       FontAttributes         ="Bold"
+                       HorizontalTextAlignment="Start"/>
+                <!--COLUNA 3-->
+                <Label Grid.Row               = "1"
+                       Grid.Column            = "2"
+                       Text                   = "Edem Fernando"                            
+                       HorizontalTextAlignment= "End"/>
+                <Label Grid.Row               = "2"
+                       Grid.Column            = "2"
+                       Text                   = "Declinado"
+                       HorizontalTextAlignment= "End"/>
+                <Label Grid.Row               = "3"
+                       Grid.Column            = "2"
+                       Text                   = "15 dias"
+                       HorizontalTextAlignment= "End"/>
+                <Button Grid.Row         ="4"
+                        Grid.Column      ="2"
+                        Text             ="Abrir"
+                        TextColor        ="Black"
+                        FontSize         ="12"
+                        BorderColor      ="Green"
+                        BorderWidth      ="1"
+                        BackgroundColor  ="White"
+                        HorizontalOptions="End"
+                        HeightRequest    ="35"
+                        WidthRequest     ="85"/>    
             </Grid>
-        </Grid>
+        </Border>        
+        
+        <AbsoluteLayout Grid.Row="1"
+                        HorizontalOptions="End"
+                        Margin="0,0,15,0">
+            <ImageButton Source           ="img_addbtn6.png"
+                         HorizontalOptions="CenterAndExpand"
+                         Grid.ColumnSpan  ="2"
+                         Clicked          ="Btn_NovaOp"
+                         Grid.Row         ="2"
+                         HeightRequest    ="75"
+                         WidthRequest     ="75"/>
+        </AbsoluteLayout>
+
+    </Grid>
         
 </ContentPage>
