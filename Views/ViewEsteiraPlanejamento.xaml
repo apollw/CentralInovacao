@@ -4,108 +4,185 @@
              x:Class="CentralInovacao.Views.ViewEsteiraPlanejamento"
              Title="Esteira de Planejamento">
 
-    <StackLayout VerticalOptions="Center">        
-            <ScrollView Orientation="Horizontal" HorizontalOptions="Center" HorizontalScrollBarVisibility="Always">                
-                <HorizontalStackLayout Spacing="35" Margin="30">
-                    
-                    <!--CARD DE BACKLOG-->
-                    
-                    <Border HeightRequest="650" WidthRequest="350" StrokeShape="RoundRectangle 50" StrokeThickness="5" BackgroundColor="WhiteSmoke">
-                        <Border.Shadow>
-                        <Shadow Brush  ="Black"
-                                Offset ="8,5"
-                                Radius ="5"
-                                Opacity="0.8" />
-                    </Border.Shadow>
-                    <Grid RowDefinitions="10*,90*"
-                          ColumnDefinitions="50*,35*,15*"
-                          Margin="10">
-                        <Label Grid.Row="0" Grid.Column="0" Text="Backlog" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <ImageButton Grid.Row="0" Grid.Column="1" Source="img_addbtn3.png" HeightRequest="45" WidthRequest="35" HorizontalOptions="End"/>
-                        <Image Grid.Row="0" Grid.Column="2" Source="img_threepoints.png" HeightRequest="45" WidthRequest="35" HorizontalOptions="End"/>
+    <ContentPage.Resources>
+        <!--BORDA EXTERNA-->
+        <Style TargetType="Border" x:Key="bordaExterna">
+            <Setter Property="HeightRequest"   Value="650"/>
+            <Setter Property="WidthRequest"    Value="350"/>
+            <Setter Property="StrokeShape"     Value="RoundRectangle 10"/>
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="BackgroundColor" Value="WhiteSmoke"/>
+        </Style>
+        <!--LABEL CABEÇALHO-->
+        <Style TargetType="Label" x:Key="labelCabecalho">
+            <Setter Property="Grid.Row"          Value="0"/>
+            <Setter Property="Grid.Column"       Value="0"/>
+            <Setter Property="FontSize"          Value="20"/>
+            <Setter Property="FontAttributes"    Value="Bold"/>
+            <Setter Property="VerticalOptions"   Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        <!--IMAGEBUTTON 1 - CABEÇALHO-->
+        <Style TargetType="ImageButton" x:Key="imgButton1Cabecalho">
+            <Setter Property="Grid.Row"          Value="0"/>
+            <Setter Property="Grid.Column"       Value="1"/>
+            <Setter Property="Source"            Value="img_addbtn3.png"/>
+            <Setter Property="HeightRequest"     Value="45"/>
+            <Setter Property="WidthRequest"      Value="35"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+        <!--IMAGEBUTTON 2 - CABEÇALHO-->
+        <Style TargetType="ImageButton" x:Key="imgButton2Cabecalho">
+            <Setter Property="Grid.Row"          Value="0"/>
+            <Setter Property="Grid.Column"       Value="2"/>
+            <Setter Property="Source"            Value="img_threepoints.png"/>
+            <Setter Property="HeightRequest"     Value="45"/>
+            <Setter Property="WidthRequest"      Value="35"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+    </ContentPage.Resources>    
 
-                        <CollectionView Grid.Row="1" Grid.ColumnSpan="3" x:Name="_collectionView" BackgroundColor="LightBlue" ItemsSource="{Binding Items}">
+    <StackLayout VerticalOptions="Center">
+        <ScrollView Orientation="Horizontal" HorizontalOptions="Center" HorizontalScrollBarVisibility="Never">                
+            <HorizontalStackLayout Spacing="35" Margin="30">
+            
+            <!--CARD DE BACKLOG-->
+            <Border Style="{StaticResource bordaExterna}">
+                <!--LINHA UM - TÍTULO E BOTÕES-->
+                <Grid RowDefinitions   ="10*,90*"
+                      ColumnDefinitions="50*,35*,15*"
+                      Margin           ="10">
+                    <Label Text="Backlog" Style="{StaticResource labelCabecalho}"/>
+                    <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
+                    <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
+                    
+                    <!--LINHA 2 - COLEÇÃO DE ITENS-->
+                    <CollectionView Grid.Row       ="1"
+                                    Grid.ColumnSpan="3"
+                                    x:Name         ="_collectionView"
+                                    BackgroundColor="White"
+                                    ItemsSource    ="{Binding Items}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border HeightRequest  ="200" 
+                                        Margin         ="15,15,15,15"
+                                        BackgroundColor="WhiteSmoke">
+                                    <Grid RowDefinitions="20*,50*,30*" 
+                                          Padding       ="10">
+                                        <Label Grid.Row         ="0" 
+                                               Text             ="{Binding .}"
+                                               FontSize         ="15"
+                                               FontAttributes   ="Bold"
+                                               HorizontalOptions="Center"/>
+                                        <Label Grid.Row         ="1" 
+                                               Text             ="25/06/2023 8:50:26"
+                                               FontSize         ="15"
+                                               HorizontalOptions="Start"/> 
+                                        <Image Source           ="dotnet_bot.png"
+                                               Grid.Row         ="2"
+                                               HeightRequest    ="60"
+                                               WidthRequest     ="60" 
+                                               HorizontalOptions="End"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Border>
+                    
+            <!--CARD DE ANDAMENTO-->
+            <Border Style="{StaticResource bordaExterna}">
+                <!--LINHA UM - TÍTULO E BOTÕES-->
+                <Grid RowDefinitions   ="10*,90*"
+                      ColumnDefinitions="50*,35*,15*"
+                      Margin           ="10">
+                        <Label Text="Em Execução" Style="{StaticResource labelCabecalho}"/>
+                        <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
+                        <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
+
+                        <!--LINHA 2 - COLEÇÃO DE ITENS-->
+                        <CollectionView Grid.Row       ="1"
+                                        Grid.ColumnSpan="3"
+                                        x:Name         ="_collectionView1"
+                                        BackgroundColor="White"
+                                        ItemsSource    ="{Binding Items}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border HeightRequest="200" Margin="15,15,15,15">
-                                        <Grid RowDefinitions="6*,4*" Padding="10">
-                                            <Label Grid.Row="0" Text="{Binding .}" HorizontalOptions="Center"/>
-                                            <BoxView Grid.Row="1" Color="Red" CornerRadius="60"  HeightRequest="60" WidthRequest="60" HorizontalOptions="End"/>
+                                    <Border HeightRequest  ="200" 
+                                            Margin         ="15,15,15,15"
+                                            BackgroundColor="WhiteSmoke">
+                                        <Grid RowDefinitions="20*,50*,30*" 
+                                              Padding       ="10">
+                                            <Label Grid.Row         ="0" 
+                                                   Text             ="{Binding .}"
+                                                   FontSize         ="15"
+                                                   FontAttributes   ="Bold"
+                                                   HorizontalOptions="Center"/>
+                                            <Label Grid.Row         ="1"
+                                                   Text             ="25/06/2023 8:50:26"
+                                                   FontSize         ="15"
+                                                   HorizontalOptions="Start"/>
+                                            <Image Source           ="dotnet_bot.png"
+                                                   Grid.Row         ="2"
+                                                   HeightRequest    ="60"
+                                                   WidthRequest     ="60" 
+                                                   HorizontalOptions="End"/>
                                         </Grid>
                                     </Border>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-
-                    </Grid>
-                    </Border>
-                    
-                <!--CARD DE ANDAMENTO-->    
-
-                <Border HeightRequest="650" WidthRequest="350" StrokeShape="RoundRectangle 50" StrokeThickness="5" BackgroundColor="WhiteSmoke">
-                    <Border.Shadow>
-                        <Shadow Brush  ="Black"
-                                Offset ="8,5"
-                                Radius ="5"
-                                Opacity="0.8" />
-                    </Border.Shadow>
-                    <Grid RowDefinitions="10*,90*"
-                          ColumnDefinitions="50*,35*,15*"
-                          Margin="10">  
-                        <Label Grid.Row="0" Grid.Column="0" Text="Em Execução" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <ImageButton Grid.Row="0" Grid.Column="1" Source="img_addbtn3.png" HeightRequest="45" WidthRequest="35" HorizontalOptions="End"/>
-                        <Image Grid.Row="0" Grid.Column="2" Source="img_threepoints.png" HeightRequest="45" WidthRequest="35" HorizontalOptions="End"/>
-
-                        <CollectionView Grid.Row="1" Grid.ColumnSpan="3" x:Name="_collectionView1" BackgroundColor="LightBlue" ItemsSource="{Binding Items}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Border HeightRequest="200" Margin="15,15,15,15">
-                                        <Grid RowDefinitions="6*,4*" Padding="10">
-                                            <Label Grid.Row="0" Text="{Binding .}" HorizontalOptions="Center"/>
-                                            <BoxView Grid.Row="1" Color="Red" CornerRadius="60"  HeightRequest="60" WidthRequest="60" HorizontalOptions="End"/>
-                                        </Grid>
-                                    </Border>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-
                     </Grid>
                 </Border>
-                    
-                <!--CARD DE FINALIZADO-->
 
-                <Border HeightRequest="650" WidthRequest="350" StrokeShape="RoundRectangle 50" StrokeThickness="5" BackgroundColor="WhiteSmoke">
-                    <Border.Shadow>
-                        <Shadow Brush  ="Black"
-                                Offset ="8,5"
-                                Radius ="5"
-                                Opacity="0.8" />
-                    </Border.Shadow>
-                    <Grid RowDefinitions="10*,90*"
-                          ColumnDefinitions="50*,35*,15*"
-                          Margin="10">
-                        <Label Grid.Row="0" Grid.Column="0" Text="Finalizadas" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
-                        <ImageButton Grid.Row="0" Grid.Column="1" Source="img_addbtn3.png" HeightRequest="45" WidthRequest="35" HorizontalOptions="End"/>
-                        <Image Grid.Row="0" Grid.Column="2" Source="img_threepoints.png" HeightRequest="45" WidthRequest="35" HorizontalOptions="End"/>
+                <!--CARD DE ANDAMENTO-->
+            <Border Style="{StaticResource bordaExterna}">
+                <!--LINHA UM - TÍTULO E BOTÕES-->
+                <Grid RowDefinitions   ="10*,90*"
+                      ColumnDefinitions="50*,35*,15*"
+                      Margin           ="10">
+                      <Label Text="Finalizados" Style="{StaticResource labelCabecalho}"/>
+                      <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
+                      <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
 
-                        <CollectionView Grid.Row="1" Grid.ColumnSpan="3" x:Name="_collectionView2" BackgroundColor="LightBlue" ItemsSource="{Binding Items}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Border HeightRequest="200" Margin="15,15,15,15">
-                                        <Grid RowDefinitions="6*,4*" Padding="10">
-                                            <Label Grid.Row="0" Text="{Binding .}" HorizontalOptions="Center"/>
-                                            <BoxView Grid.Row="1" Color="Red" CornerRadius="60"  HeightRequest="60" WidthRequest="60" HorizontalOptions="End"/>
+                <!--LINHA 2 - COLEÇÃO DE ITENS-->
+                <CollectionView Grid.Row       ="1"
+                                Grid.ColumnSpan="3"
+                                x:Name         ="_collectionView2"
+                                BackgroundColor="White"
+                                ItemsSource    ="{Binding Items}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                                    <Border HeightRequest  ="200" 
+                                            Margin         ="15,15,15,15"
+                                            BackgroundColor="WhiteSmoke">
+                                        <Grid RowDefinitions="20*,50*,30*"
+                                              Padding       ="10">
+                                            <Label Grid.Row         ="0" 
+                                                   Text             ="{Binding .}"
+                                                   FontSize         ="15"
+                                                   FontAttributes   ="Bold"
+                                                   HorizontalOptions="Center"/>
+                                            <Label Grid.Row         ="1"
+                                                   Text             ="25/06/2023 8:50:26"
+                                                   FontSize         ="15"
+                                                   HorizontalOptions="Start"/>
+                                            <Image Source           ="dotnet_bot.png"
+                                                   Grid.Row         ="2"
+                                                   HeightRequest    ="60"
+                                                   WidthRequest     ="60" 
+                                                   HorizontalOptions="End"/>
                                         </Grid>
                                     </Border>
                                 </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </Grid>
-                </Border>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                </Grid>
+            </Border>
 
-            </HorizontalStackLayout>               
-                
-            </ScrollView>        
+    </HorizontalStackLayout>
+        </ScrollView>        
     </StackLayout>  
         
 </ContentPage>

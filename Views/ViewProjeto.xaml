@@ -25,47 +25,51 @@
             <Setter Property="HeightRequest" Value="85"/>
         </Style>
     </ContentPage.Resources>
-    
-    <FlexLayout Wrap          ="Wrap"
+
+    <StackLayout>
+        <Image Source="img_banner.png" HeightRequest="100"/>
+
+        <FlexLayout Wrap          ="Wrap"
                 JustifyContent="Center">
-        <!--BOTÃO DE SOLICITAÇÃO-->
-        <Border>
-            <StackLayout Margin="5">
-                <ImageButton Source       ="imgbutton_request.png"
+            <!--BOTÃO DE SOLICITAÇÃO-->
+            <Border>
+                <StackLayout Margin="5">
+                    <ImageButton Source       ="imgbutton_request.png"
                              Clicked      ="Btn_Solicitacao"/>
-                <Label Text="Solicitação"/>
-            </StackLayout>            
-        </Border>
-        <!--BOTÃO DE ANÁLISE-->
-        <Border>
-            <StackLayout Margin="5">
-                <ImageButton Source="imgbutton_analysis.png"  Clicked="Btn_AnaliseBriefing"/>
-                <Label Text="Análise"/>
-            </StackLayout>            
-        </Border>
-        <!--BOTÃO DE SQUAD-->
-        <Border>
-            <StackLayout Margin="5">
-                <ImageButton Source="imgbutton_group.png"  Clicked="Btn_Squad"/>
-                <Label Text="Grupo"/>
-            </StackLayout>
-        </Border>
-        <!--BOTÃO DE PLANEJAMENTO-->
-        <Border>
-            <StackLayout Margin="5">
-                <ImageButton Source="imgbutton_planning.png" Clicked="Btn_Planejamento"/>
-                <Label Text="Planejamento"/>
-            </StackLayout>
-        </Border>
-        <!--BOTÃO DE ACOMPANHAMENTO-->
-        <Border>
-            <StackLayout Margin="5">
-                <ImageButton Source="imgbutton_project.png" Clicked="Btn_Acompanhamento"/>
-                <Label Text="Acompanhamento"/>
-            </StackLayout>
+                    <Label Text="Solicitação"/>
+                </StackLayout>
             </Border>
-    </FlexLayout>
-    
+            <!--BOTÃO DE ANÁLISE-->
+            <Border>
+                <StackLayout Margin="5">
+                    <ImageButton Source="imgbutton_analysis.png"  Clicked="Btn_AnaliseBriefing"/>
+                    <Label Text="Análise"/>
+                </StackLayout>
+            </Border>
+            <!--BOTÃO DE SQUAD-->
+            <Border>
+                <StackLayout Margin="5">
+                    <ImageButton Source="imgbutton_group.png"  Clicked="Btn_Squad"/>
+                    <Label Text="Grupo"/>
+                </StackLayout>
+            </Border>
+            <!--BOTÃO DE PLANEJAMENTO-->
+            <Border>
+                <StackLayout Margin="5">
+                    <ImageButton Source="imgbutton_planning.png" Clicked="Btn_Planejamento"/>
+                    <Label Text="Planejamento"/>
+                </StackLayout>
+            </Border>
+            <!--BOTÃO DE ACOMPANHAMENTO-->
+            <Border>
+                <StackLayout Margin="5">
+                    <ImageButton Source="imgbutton_project.png" Clicked="Btn_Acompanhamento"/>
+                    <Label Text="Acompanhamento"/>
+                </StackLayout>
+            </Border>
+        </FlexLayout>
+    </StackLayout>  
+
 </ContentPage>
 
 
