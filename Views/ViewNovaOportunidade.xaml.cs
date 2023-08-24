@@ -33,5 +33,6 @@ public partial class ViewNovaOportunidade : ContentPage
     private async void Button_Clicked_1(object sender, EventArgs e)
     {
         await DisplayAlert("", "Oportunidade Registrada", "Fechar");
+        await Shell.Current.GoToAsync("..");
     }
 }

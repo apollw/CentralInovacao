@@ -104,6 +104,7 @@
 	  <None Remove="Resources\Images\shellicon_inovation.png" />
 	  <None Remove="Resources\Images\shellicon_project.png" />
 	  <None Remove="Resources\Images\shellicon_rank.png" />
+	  <None Remove="Resources\Images\shellicon_request.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -120,6 +121,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\Cards.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewChamado.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

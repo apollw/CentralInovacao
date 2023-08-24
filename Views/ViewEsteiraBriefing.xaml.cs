@@ -16,4 +16,14 @@ public partial class ViewEsteiraBriefing : ContentPage
     {
         string text = ((Editor)sender).Text;
     }
+
+    private async void Button_Declinar(object sender, EventArgs e)
+    {
+        await DisplayAlert("", "Proposta Declinada", "Fechar");
+    }
+
+    private async void Button_EnviarSquad(object sender, EventArgs e)
+    {
+        await DisplayAlert("", "Enviada para Definição de Squad", "Fechar");
+    }
 }

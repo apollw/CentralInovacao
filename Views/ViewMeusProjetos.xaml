@@ -9,71 +9,79 @@
                      Clicked = "Btn_Logout"/>
     </ContentPage.ToolbarItems>
 
-    <Grid BackgroundColor = "WhiteSmoke">
+    <ContentPage.Resources>
+        <!--ESTILO DA GRID INTERNA À CARD-BORDER-->
+        <Style TargetType="Grid" x:Key="insideGridStyle">
+            <Setter Property="RowDefinitions"    Value="65,30,30,30,30"/>
+            <Setter Property="ColumnDefinitions" Value="1*,5*,4*"/>
+            <Setter Property="Padding"           Value="15"/>
+            <Setter Property="RowSpacing"        Value="10"/>
+        </Style>
+        <!--ESTILO DAS LABELS INTERNAS-->
+        <Style TargetType="Label" x:Key="insideLabelStyle">
+            <Setter Property="FontAttributes"          Value="Bold"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        </Style>
+    </ContentPage.Resources>
 
-        <Grid RowDefinitions  = "250,250,250,250"
-              BackgroundColor = "WhiteSmoke">
-
-                <Border Grid.Row        = "0"
-                        Margin          = "15"
-                        StrokeShape     = "RoundRectangle 25 25 25 25"
-                        StrokeThickness = "4"
-                        HeightRequest   = "185">
-                <Grid RowDefinitions    = "30,30,30,30,30"
-                          ColumnDefinitions = "*,*"
-                          Padding           = "10">
-                    
-                    <!--COLUNA 1-->
-                    <Border Grid.Row        = "0"
-                            Grid.ColumnSpan = "2"
-                            StrokeShape     = "RoundRectangle 25 25 25 25">
-                        <Label Text                    = "Projeto 1"
-                               TextColor               = "White"
-                               FontSize                = "15"
-                               FontAttributes          = "Bold"
-                               BackgroundColor         = "Green"
-                               HorizontalTextAlignment = "Center"/>
-                    </Border>
-                    
-                    <Label      Grid.Row                = "1"
-                                Text                    = "Responsável:"
-                                FontAttributes          = "Bold"
-                                HorizontalTextAlignment = "Start"/>
-                        <Label  Grid.Row                = "2"
-                                Text                    = "Situação Atual:"
-                                FontAttributes          = "Bold"
-                                HorizontalTextAlignment = "Start"/>
-                        <Label  Grid.Row                = "3"
-                                Text                    = "Tempo do Projeto:"
-                                FontAttributes          = "Bold"
-                                HorizontalTextAlignment = "Start"/>
-                        <Button Grid.Row                = "4"
-                                Grid.ColumnSpan         = "2"
-                                Text                    = "Abrir"
-                                TextColor               = "Black"
-                                BorderColor             = "Green"
-                                BorderWidth             = "1"
-                                BackgroundColor         = "White"
-                                HorizontalOptions       = "Center"
-                                HeightRequest           = "45"
-                                WidthRequest            = "85"
-                                Clicked                 = "Btn_AbrirProjeto"/>
-                        <!--COLUNA 2-->
-                        <Label  Grid.Row                = "1"
-                                Grid.Column             = "1"
-                                Text                    = "Leanderson"                            
-                                HorizontalTextAlignment = "End"/>
-                        <Label  Grid.Row                = "2"
-                                Grid.Column             = "1"
-                                Text                    = "50%"                            
-                                HorizontalTextAlignment = "End"/>
-                        <Label  Grid.Row                = "3"
-                                Grid.Column             = "1"
-                                Text                    = "45 Dias"                            
-                                HorizontalTextAlignment = "End"/>
-                </Grid>
-                </Border>
-        </Grid>
+    <Grid BackgroundColor="WhiteSmoke">
+        <Border Style="{StaticResource borderCardStyle}">
+            <Grid Style="{StaticResource insideGridStyle}">
+            <!--COLUNA 1-->
+            <Label Grid.Row               ="0"
+                   Grid.ColumnSpan        ="3"
+                   Text                   ="Projeto 1"
+                   TextColor              ="Black"
+                   FontSize               ="18"
+                   FontAttributes         ="Bold"
+                   Margin                 ="0,10"
+                   HorizontalTextAlignment= "Center"/>
+                <!--COLUNA 1-->
+                <Image Grid.Row         ="1"
+                       Grid.Column      ="0"
+                       Source           ="administrator.png"
+                       HorizontalOptions="Start"/>
+                <Image Grid.Row         ="2"
+                       Grid.Column      ="0"
+                       Source           ="barchart.png"
+                       HorizontalOptions="Start"/>
+                <Image Grid.Row         ="3"
+                       Grid.Column      ="0"
+                       Source           ="clock.png"
+                       HorizontalOptions="Start"/>
+                <!--COLUNA 2-->
+                <Label Grid.Row   ="1"
+                       Grid.Column="1"
+                       Text       ="Responsável:"
+                       Style      ="{StaticResource insideLabelStyle}"/>
+                <Label Grid.Row   ="2"
+                       Grid.Column="1"
+                       Text       ="Situação Atual:"
+                       Style      ="{StaticResource insideLabelStyle}"/>
+                <Label Grid.Row   = "3"
+                       Grid.Column="1"
+                       Text       ="Tempo do Projeto:"
+                       Style      ="{StaticResource insideLabelStyle}"/>
+                <!--COLUNA 3-->
+                <Label Grid.Row               ="1"
+                       Grid.Column            ="2"
+                       Text                   ="Edem Fernando"                            
+                       HorizontalTextAlignment="End"/>
+                <Label Grid.Row               ="2"
+                       Grid.Column            ="2"
+                       Text                   ="Declinado"
+                       HorizontalTextAlignment="End"/>
+                <Label Grid.Row               ="3"
+                       Grid.Column            ="2"
+                       Text                   ="15 dias"
+                       HorizontalTextAlignment="End"/>
+                <Button Grid.Row   ="4"
+                        Grid.Column="2"
+                        Text       ="Abrir"
+                        Style      ="{StaticResource smallButtonStyle}"
+                        Clicked    ="Btn_AbrirProjeto"/>
+            </Grid>
+        </Border>
     </Grid>
 
 </ContentPage>

@@ -10,144 +10,132 @@
                      Clicked = "Btn_Logout"/>        
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Resources>
+        <!--CONTAINER DA LABEL DE TÍTULO-->
+        <Style TargetType="Border" x:Key="borderContainer">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions"   Value="Start"/>
+            <Setter Property="HeightRequest"     Value="35"/>
+            <Setter Property="WidthRequest"      Value="350"/>
+            <Setter Property="BackgroundColor"   Value="WhiteSmoke"/>
+            <Setter Property="StrokeShape"       Value="RoundRectangle 0 0 25 25"/>
+            <Setter Property="StrokeThickness"   Value="2"/>
+        </Style>
+        <!--LABEL DO CONTAINER-->
+        <Style TargetType="Label" x:Key="labelContainer">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="TextColor"         Value="DarkGreen"/>
+            <Setter Property="FontAttributes"    Value="Bold"/>
+            <Setter Property="FontSize"          Value="18"/>
+        </Style>
+    </ContentPage.Resources>
+
     <ScrollView>
         <!-- GRID GERAL-->
         <Grid RowDefinitions = "475,200,125,*,65">
                 <!-- GRID INTERIOR - LINHA 1-->
-                <Grid Grid.Row    = "0"
-                  BackgroundColor = "White">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="250"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Border Grid.Row           = "0"
-                        Grid.ColumnSpan    = "3"                       
-                        HorizontalOptions  = "Center"
-                        VerticalOptions    = "Start"
-                        HeightRequest      = "35"
-                        WidthRequest       = "350"
-                        BackgroundColor    = "WhiteSmoke"
-                        StrokeShape        = "RoundRectangle 0 0 25 25"
-                        StrokeThickness    = "2">
-
-                        <Label  Grid.Row           = "0"
-                            Grid.ColumnSpan    = "3"
-                            Text               = "Bem-Vindo Leanderson"
-                            TextColor          = "Green"
-                            FontAttributes     = "Bold"
-                            FontSize           = "18"                       
-                            HorizontalOptions  = "Center"/>
+                <Grid Grid.Row         ="0"
+                      RowDefinitions   ="50,250,50,50,50"
+                      ColumnDefinitions="*,*,*"
+                      BackgroundColor  ="White">                    
+                    <Border Grid.Row       ="0"
+                            Grid.ColumnSpan="3"
+                            Style="{StaticResource borderContainer}">                        
+                        <Label Grid.Row       ="0"
+                               Grid.ColumnSpan="3"
+                               Text           ="Bem-Vindo Leanderson"
+                               Style          ="{StaticResource labelContainer}"/>
                     </Border>
 
-                    <Border Grid.Row           = "1"
-                        Grid.Column        = "1"
-                        Margin             = "15"                        
-                        HorizontalOptions  = "Center"
-                        VerticalOptions    = "Start"
-                        HeightRequest      = "150"
-                        WidthRequest       = "150"
-                        StrokeShape        = "RoundRectangle 50">
-                        <Image x:Name          = "_fotoPerfil"
-                           Source          = "foto_perfil.png"
-                           BackgroundColor = "#90DFAA">
+                    <Border Grid.Row         ="1"
+                            Grid.Column      ="1"
+                            Margin           ="15"                        
+                            HorizontalOptions="Center"
+                            VerticalOptions  ="Start"
+                            HeightRequest    ="150"
+                            WidthRequest     ="150"
+                            StrokeShape      ="RoundRectangle 50">
+                        <Image x:Name     ="_fotoPerfil"
+                           Source         ="img_fotoperfil.png"
+                           BackgroundColor="#90DFAA">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnProfileImageTapped" />
                             </Image.GestureRecognizers>
                         </Image>
                     </Border>
 
-                    <Border Grid.Row          = "1"
-                        Grid.Column       = "0"
-                        Margin            = "15"
-                        HorizontalOptions = "Start"
-                        VerticalOptions   = "End"
-                        HeightRequest     = "50"
-                        WidthRequest      = "100"
-                        StrokeShape       = "RoundRectangle 50">
-                        <Label Text              = "1º"
-                           HorizontalOptions = "Center"
-                           VerticalOptions   = "Center"/>
+                    <Border Grid.Row         ="1"
+                            Grid.Column      ="0"
+                            Margin           ="15"
+                            HorizontalOptions="Start"
+                            VerticalOptions  ="End"
+                            HeightRequest    ="50"
+                            WidthRequest     ="100"
+                            StrokeShape      ="RoundRectangle 50">
+                        <Label Text             ="1º"
+                               HorizontalOptions="Center"
+                               VerticalOptions  ="Center"/>
                     </Border>
-                    <Border Grid.Row          = "1"
-                        Grid.Column       = "1"
-                        Margin            = "15"
-                        HorizontalOptions = "Center"
-                        VerticalOptions   = "End"
-                        HeightRequest     = "50"
-                        WidthRequest      = "100"
-                        StrokeShape       = "RoundRectangle 50">
-                        <Label Text              = "10"
-                           HorizontalOptions = "Center"
-                           VerticalOptions   = "Center"/>
+                    <Border Grid.Row         ="1"
+                            Grid.Column      ="1"
+                            Margin           ="15"
+                            HorizontalOptions="Center"
+                            VerticalOptions  ="End"
+                            HeightRequest    ="50"
+                            WidthRequest     ="100"
+                            StrokeShape      ="RoundRectangle 50">
+                        <Label Text             ="10"
+                               HorizontalOptions="Center"
+                               VerticalOptions  ="Center"/>
                     </Border>
-                    <Border Grid.Row          = "1"
-                        Grid.Column       = "2"
-                        Margin            = "15"
-                        HorizontalOptions = "End"
-                        VerticalOptions   = "End"
-                        HeightRequest     = "50"
-                        WidthRequest      = "100"
-                        StrokeShape       = "RoundRectangle 50">
-                        <Label Text          = "15"
-                           HorizontalOptions = "Center"
-                           VerticalOptions   = "Center"/>
+                    <Border Grid.Row         ="1"
+                            Grid.Column      ="2"
+                            Margin           ="15"
+                            HorizontalOptions="End"
+                            VerticalOptions  ="End"
+                            HeightRequest    ="50"
+                            WidthRequest     ="100"
+                            StrokeShape      ="RoundRectangle 50">
+                        <Label Text          ="15"
+                               HorizontalOptions="Center"
+                               VerticalOptions  ="Center"/>
                     </Border>
-                    <Label  Grid.Row          = "2"
-                        Grid.Column       = "0"                        
-                        Text              = "Ranking"
-                        HorizontalOptions = "Center"/>
-                    <Label  Grid.Row          = "2"
-                        Grid.Column       = "1"
-                        Text              = "Projetos"
-                        HorizontalOptions = "Center"/>
-                    <Label  Grid.Row          = "2"
-                        Grid.Column       = "2"
-                        Text              = "Oportunidades"
-                        HorizontalOptions = "Center"/>
+                    <Label Grid.Row         ="2"
+                           Grid.Column      ="0"                        
+                           Text             ="Ranking"
+                           HorizontalOptions="Center"/>
+                    <Label Grid.Row         ="2"
+                           Grid.Column      ="1"
+                           Text             ="Projetos"
+                           HorizontalOptions="Center"/>
+                    <Label Grid.Row         ="2"
+                           Grid.Column      ="2"
+                           Text             ="Oportunidades"
+                           HorizontalOptions="Center"/>
 
-                    <BoxView Grid.Row="3"
-                         Grid.ColumnSpan="3"
-                         Color="Gray"
-                         VerticalOptions="Start"
-                         HeightRequest="1"/>
+                    <BoxView Grid.Row       ="3"
+                             Grid.ColumnSpan="3"
+                             Color          ="Gray"
+                             VerticalOptions="Start"
+                             HeightRequest  ="1"/>
 
-                    <Label Grid.Row                = "3"
-                       Grid.ColumnSpan         = "3"
-                       Text                    = "Minhas Medalhas"
-                       FontAttributes          = "Bold"
-                       HorizontalTextAlignment = "Center"
-                       />
-                    <Border Grid.Row           = "3"
-                        Grid.ColumnSpan    = "3"                       
-                        HorizontalOptions  = "Center"
-                        VerticalOptions    = "Start"
-                        HeightRequest      = "35"
-                        WidthRequest       = "350"
-                        StrokeShape        = "RoundRectangle 0 0 25 25"
-                        BackgroundColor    = "WhiteSmoke"
-                        StrokeThickness    = "2">
-
-                        <Label  Grid.ColumnSpan    = "2"
-                            Text               = "Minhas Medalhas"
-                            TextColor          = "Green"
-                            FontAttributes     = "Bold"
-                            FontSize           = "18"                       
-                            HorizontalOptions  = "Center"/>
+                    <Label Grid.Row               ="3"
+                           Grid.ColumnSpan        ="3"
+                           Text                   ="Minhas Medalhas"
+                           FontAttributes         ="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    <Border Grid.Row       ="3"
+                            Grid.ColumnSpan="3"
+                            Style          ="{StaticResource borderContainer}">
+                        <Label Grid.ColumnSpan="2"
+                               Text           ="Minhas Medalhas"
+                               Style          ="{StaticResource labelContainer}"/>
                     </Border>
 
-                    <CarouselView Grid.Row="4"
-                              Grid.ColumnSpan="3"
-                              x:Name="_carouselView"
-                              HorizontalOptions="Center">
+                    <CarouselView Grid.Row         ="4"
+                                  Grid.ColumnSpan  ="3"
+                                  x:Name           ="_carouselView"
+                                  HorizontalOptions="Center">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <Image Source="{Binding}"/>
@@ -157,155 +145,128 @@
                 </Grid>
 
                 <!-- GRID INTERIOR - LINHA 2-->
-                <Grid Grid.Row      = "1"
-                  RowDefinitions    = "50,*"
-                  ColumnDefinitions = "*,*"
-                  BackgroundColor   = "White">
+                <Grid Grid.Row         ="1"
+                      RowDefinitions   ="50,*"
+                      ColumnDefinitions="*,*"
+                      BackgroundColor  ="White">
 
-                    <BoxView Grid.Row="0"
-                         Grid.ColumnSpan="3"
-                         Color="Gray"
-                         HeightRequest="1"
-                         VerticalOptions="Start"/>
+                    <BoxView Grid.Row       ="0"
+                             Grid.ColumnSpan="3"
+                             Color          ="Gray"
+                             HeightRequest  ="1"
+                             VerticalOptions="Start"/>
 
-                    <Border Grid.Row         ="0"
-                            Grid.ColumnSpan  ="2"                       
-                            HorizontalOptions="Center"
-                            VerticalOptions  ="Start"
-                            HeightRequest    ="35"
-                            WidthRequest     ="350"
-                            StrokeShape      ="RoundRectangle 0 0 25 25"
-                            BackgroundColor  ="WhiteSmoke"
-                            StrokeThickness  ="2">
-
-                        <Label  Grid.ColumnSpan    = "2"
-                            Text               = "Últimas Interações"
-                            TextColor          = "Green"
-                            FontAttributes     = "Bold"
-                            FontSize           = "18"                       
-                            HorizontalOptions  = "Center"/>
+                    <Border Grid.Row       ="0"
+                            Grid.ColumnSpan="2"
+                            Style          ="{StaticResource borderContainer}">
+                        <Label Grid.ColumnSpan="2"
+                               Text           ="Últimas Interações"
+                               Style          ="{StaticResource labelContainer}"/>
                     </Border>
 
-                    <Image Grid.Row          = "1"
-                       Grid.Column       = "0"
-                       HorizontalOptions = "Center"
-                       VerticalOptions   = "StartAndExpand"
-                       HeightRequest     = "125"
-                       WidthRequest      = "145"
-                       Source            = "foto_perfil.png"
-                       BackgroundColor   = "White"/>
+                    <Image Grid.Row         ="1"
+                           Grid.Column      ="0"
+                           HorizontalOptions="Center"
+                           VerticalOptions  ="StartAndExpand"
+                           HeightRequest    ="125"
+                           WidthRequest     ="145"
+                           Source           ="img_fotoperfil.png"
+                           BackgroundColor  ="White"/>
 
-                    <CarouselView  Grid.Row         = "1"
-                               Grid.Column      = "1"
-                               x:Name           = "carouselView"
-                               ItemsSource      = "{Binding LastInteractions}"
-                               IsScrollAnimated = "True"
-                               IndicatorView    ="_indicatorView"
-                               BackgroundColor  = "White"
-                               IsBounceEnabled  = "True"
-                               VerticalOptions  = "StartAndExpand">
+                    <CarouselView Grid.Row        ="1"
+                                  Grid.Column     ="1"
+                                  x:Name          ="carouselView"
+                                  ItemsSource     ="{Binding LastInteractions}"
+                                  IsScrollAnimated="True"
+                                  IndicatorView   ="_indicatorView"
+                                  BackgroundColor ="White"
+                                  IsBounceEnabled ="True"
+                                  VerticalOptions ="StartAndExpand">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <Grid RowDefinitions="35,*">
-                                    <Label Grid.Row                = "0"
-                                       Text                    = "{Binding Title}"
-                                       FontSize                = "15"
-                                       FontAttributes          = "Bold"
-                                       HorizontalOptions       = "Center"
-                                       VerticalOptions         = "Start"/>
-                                    <Label Grid.Row                = "1"
-                                       Text                    = "{Binding Description}"
-                                       HorizontalOptions       = "Center"
-                                       VerticalOptions         = "Start"/>
+                                    <Label Grid.Row         ="0"
+                                           Text             ="{Binding Title}"
+                                           FontSize         ="15"
+                                           FontAttributes   ="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions  ="Start"/>
+                                    <Label Grid.Row         ="1"
+                                           Text             ="{Binding Description}"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions  ="Start"/>
                                 </Grid>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
                     </CarouselView>
-                    <IndicatorView Grid.Row="1"
-                               Grid.Column="1"                               
-                               x:Name="_indicatorView"
-                               HorizontalOptions="CenterAndExpand"
-                               VerticalOptions="CenterAndExpand"
-                               IndicatorColor="WhiteSmoke"
-                               SelectedIndicatorColor="Gray"/>
+                    <IndicatorView Grid.Row              ="1"
+                                   Grid.Column           ="1"                               
+                                   x:Name                ="_indicatorView"
+                                   HorizontalOptions     ="CenterAndExpand"
+                                   VerticalOptions       ="CenterAndExpand"
+                                   IndicatorColor        ="WhiteSmoke"
+                                   SelectedIndicatorColor="Gray"/>
                 </Grid>
 
                 <!-- GRID INTERIOR - LINHA 3-->
-                <Grid Grid.Row        = "2"                      
-                      BackgroundColor = "White">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height = "50"/>
-                        <RowDefinition Height = "50"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
+                <Grid Grid.Row         ="2"
+                      RowDefinitions   ="50,50"
+                      ColumnDefinitions="*,*,*"
+                      BackgroundColor  ="White">
+                    
+                    <BoxView Grid.Row       ="0"
+                             Grid.ColumnSpan="3"
+                             Color          ="Gray"
+                             HeightRequest  ="1"
+                             VerticalOptions="Start"/>
 
-                    <BoxView Grid.Row="0"
-                         Grid.ColumnSpan="3"
-                         Color="Gray"
-                         HeightRequest="1"
-                         VerticalOptions="Start"/>
-
-                    <Border Grid.Row           = "0"
-                        Grid.ColumnSpan    = "3"                       
-                        HorizontalOptions  = "Center"
-                        VerticalOptions    = "Start"
-                        HeightRequest      = "35"
-                        WidthRequest       = "350"
-                        BackgroundColor    = "WhiteSmoke"
-                        StrokeShape        = "RoundRectangle 0 0 25 25"
-                        StrokeThickness    = "2">
-
-                        <Label  Grid.Row           = "0"
-                            Grid.ColumnSpan    = "3"
-                            Text               = "Top CEAPE Inovadores"
-                            TextColor          = "Green"
-                            FontAttributes     = "Bold"
-                            FontSize           = "18"                       
-                            HorizontalOptions  = "Center"/>
+                    <Border Grid.Row       ="0"
+                            Grid.ColumnSpan="3"                       
+                            Style          ="{StaticResource borderContainer}">
+                        <Label Grid.Row       ="0"
+                               Grid.ColumnSpan="3"
+                               Text           ="Top CEAPE Inovadores"
+                               Style          ="{StaticResource labelContainer}"/>
                     </Border>
 
-                    <Border Grid.Row          = "1"
-                            Grid.Column       = "0"
-                            HorizontalOptions = "Center"
-                            VerticalOptions   = "End"
-                            HeightRequest     = "50"
-                            WidthRequest      = "100"
-                            StrokeShape       = "RoundRectangle 50">
-                        <Label Text              = "Danilo"
-                               HorizontalOptions = "Center"
-                               VerticalOptions   = "Center"/>
+                    <Border Grid.Row         ="1"
+                            Grid.Column      ="0"
+                            HorizontalOptions="Center"
+                            VerticalOptions  ="End"
+                            HeightRequest    ="50"
+                            WidthRequest     ="100"
+                            StrokeShape      ="RoundRectangle 50">
+                        <Label Text             ="Danilo"
+                               HorizontalOptions="Center"
+                               VerticalOptions  ="Center"/>
                     </Border>
-                    <Border Grid.Row          = "1"
-                            Grid.Column       = "1"
-                            HorizontalOptions = "Center"
-                            VerticalOptions   = "End"
-                            HeightRequest     = "50"
-                            WidthRequest      = "100"
-                            StrokeShape       = "RoundRectangle 50">
-                        <Label Text              = "Leanderson"
-                               HorizontalOptions = "Center"
-                               VerticalOptions   = "Center"/>
+                    <Border Grid.Row         ="1"
+                            Grid.Column      ="1"
+                            HorizontalOptions="Center"
+                            VerticalOptions  ="End"
+                            HeightRequest    ="50"
+                            WidthRequest     ="100"
+                            StrokeShape      ="RoundRectangle 50">
+                        <Label Text             ="Leanderson"
+                               HorizontalOptions="Center"
+                               VerticalOptions  ="Center"/>
                     </Border>
-                    <Border Grid.Row          = "1"
-                            Grid.Column       = "2"
-                            HorizontalOptions = "Center"
-                            VerticalOptions   = "End"
-                            HeightRequest     = "50"
-                            WidthRequest      = "100"
-                            StrokeShape       = "RoundRectangle 50">
-                        <Label Text              = "Edem"
-                               HorizontalOptions = "Center"
-                               VerticalOptions   = "Center"/>
+                    <Border Grid.Row         ="1"
+                            Grid.Column      ="2"
+                            HorizontalOptions="Center"
+                            VerticalOptions  ="End"
+                            HeightRequest    ="50"
+                            WidthRequest     ="100"
+                            StrokeShape      ="RoundRectangle 50">
+                        <Label Text             ="Edem"
+                               HorizontalOptions="Center"
+                               VerticalOptions  ="Center"/>
                     </Border>
                 </Grid>
 
                 <!-- GRID INTERIOR - LINHA 4-->
-                <Grid Grid.Row        = "3"
-                  BackgroundColor = "White">
+                <Grid Grid.Row       ="3"
+                      BackgroundColor="White">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="100"/>
@@ -318,28 +279,18 @@
                          HeightRequest="1"
                          VerticalOptions="Start"/>
 
-                    <Border Grid.Row           = "0"
-                            Grid.ColumnSpan    = "3"                       
-                            HorizontalOptions  = "Center"
-                            VerticalOptions    = "Start"
-                            HeightRequest      = "35"
-                            WidthRequest       = "350"
-                            BackgroundColor    = "WhiteSmoke"
-                            StrokeShape        = "RoundRectangle 0 0 25 25"
-                            StrokeThickness    = "2">
-
-                        <Label  Grid.Row           = "0"
-                            Grid.ColumnSpan    = "3"
-                            Text               = "Cursos da Gestão de Inovação"
-                            TextColor          = "Green"
-                            FontAttributes     = "Bold"
-                            FontSize           = "18"                       
-                            HorizontalOptions  = "Center"/>
+                    <Border Grid.Row       ="0"
+                            Grid.ColumnSpan="3"                       
+                            Style          ="{StaticResource borderContainer}">
+                        <Label  Grid.Row   ="0"
+                            Grid.ColumnSpan="3"
+                            Text           ="Cursos da Gestão de Inovação"
+                            Style          ="{StaticResource labelContainer}"/>
                     </Border>
                     <Border Grid.Row="1"
                         WidthRequest="375"
                         StrokeShape       = "RoundRectangle 20">
-                        <Image Source   = "banner.png"
+                        <Image Source   = "img_banner.png"
                            Aspect   = "Fill">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnImageTapped" />
@@ -355,17 +306,6 @@
                 </Grid>
 
             </Grid>
-        </ScrollView>
-        
-        <!--BOTÃO DE CHAMADO PARA INOVAÇÃO-->
-        <!--<Grid Grid.Row ="1">
-            <ImageButton Margin           ="0,0,25,55"
-                         HeightRequest    ="55"
-                         WidthRequest     ="55"
-                         Source           ="img_addbtn6.png"
-                         HorizontalOptions="End"
-                         Clicked          ="Btn_Chamado"/>
-        </Grid>-->
-                
-    
+        </ScrollView>    
+
 </ContentPage>

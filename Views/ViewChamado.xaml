@@ -2,11 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Views.ViewChamado"
-             Title="Chamado para Inovação"
-             Shell.NavBarIsVisible="False">
+             Title="Chamado para Inovação">
 
     <StackLayout Spacing="3">
-        <Label     Text                     = "Chamado para Inovação"
+        <!--<Label     Text                     = "Chamado para Inovação"
                    TextColor                = "White"
                    FontSize                 = "Medium"
                    FontAttributes           = "Bold"
@@ -14,7 +13,7 @@
                    VerticalTextAlignment    = "Center"
                    BackgroundColor          = "Green"
                    VerticalOptions          = "Start"
-                   HeightRequest            = "50"/>
+                   HeightRequest            = "50"/>-->
         <Label     Text                     = "Setor de Origem:"                       
                    FontAttributes           = "Bold"
                    Padding                  = "5"/>
@@ -88,18 +87,13 @@
         <BoxView   BackgroundColor          = "Black"
                    HeightRequest            = "1"
                    WidthRequest             = "400"/>
-        <Button    Margin           = "10"
-                   Text             = "Solicitar"
-                   TextColor        = "White"
-                   BorderColor      = "Gray"
-                   BorderWidth      = "1"
-                   FontSize         = "12"
-                   FontAttributes   = "Bold"
-                   BackgroundColor  = "Green"
-                   Clicked          = "Btn_Chamado"
-                   Grid.Row         = "2"
-                   HeightRequest    = "50"
-                   WidthRequest     = "150"/>
-
+        <Button Text           = "Solicitar"
+                BackgroundColor="LightGreen"
+                TextColor      ="White"
+                CornerRadius   ="25"
+                FontSize       ="18"
+                FontAttributes ="Bold"
+                Clicked        = "Btn_Chamado"
+                Margin         = "10"/>
         </StackLayout>
 </ContentPage>

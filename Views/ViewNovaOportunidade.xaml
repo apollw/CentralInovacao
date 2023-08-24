@@ -5,223 +5,132 @@
              Title="Nova Oportunidade"
              Shell.NavBarIsVisible="False">
 
+    <ContentPage.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="HorizontalOptions" Value="End"/>
+            <Setter Property="Color" Value="Green"/>
+        </Style>
+    </ContentPage.Resources>
+
     <ScrollView>
-        <StackLayout   Spacing="5">
-            <Label     Text                     = "Adicionar Oportunidade de Inovação"
-                       TextColor                = "White"
-                       FontSize                 = "Medium"
-                       FontAttributes           = "Bold"
-                       HorizontalTextAlignment  = "Center"
-                       VerticalTextAlignment    = "Center"
-                       BackgroundColor          = "Green"
-                       VerticalOptions          = "Start"
-                       HeightRequest            = "50"/>
-            <Label     Text                     = "Campos Obrigatórios (*)"                      
-                       Padding                  = "5"/>
-            <Label     Text                     = "Nome da Solução (*)"                       
-                       FontAttributes           = "Bold"
-                       Padding                  = "5"/>
-            <Entry     FontSize                 = "Medium"
-                       WidthRequest             = "400"
-                       VerticalTextAlignment    = "Start"
-                       BackgroundColor          = "WhiteSmoke"/>
-            <BoxView   BackgroundColor          = "Black"
-                       HeightRequest            = "1"
-                       WidthRequest             = "400"/>
-            <Label     Text                     = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil: (*)"
-                       FontAttributes           = "Bold"
-                       Padding                  = "5"/>
-            <Editor    x:Name                   = "_editor1"
-                       WidthRequest             = "400"
-                       HeightRequest            = "100"
-                       VerticalTextAlignment    = "Start"
-                       BackgroundColor          = "WhiteSmoke"
-                       TextChanged              = "OnEditorTextChanged1"
-                       Completed                = "OnEditorCompleted"/>
-            <BoxView   BackgroundColor          = "Black"
-                       HeightRequest            = "1"
-                       WidthRequest             = "400"/>
-            <Label     Text                     = "Descreva um breve resumo de como essa solução pode impactar NEGATIVAMENTE o Ceape Brasil: (*)"
-                       FontAttributes           = "Bold"
-                       Padding                  = "5"/>
-            <Editor    x:Name                   = "_editor2"
-                       WidthRequest             = "400"
-                       HeightRequest            = "100"
-                       BackgroundColor          = "WhiteSmoke"
-                       TextChanged              = "OnEditorTextChanged2"
-                       Completed                = "OnEditorCompleted"/>
-            <BoxView   BackgroundColor          = "Black"
-                       HeightRequest            = "1"
-                       WidthRequest             = "400"/>
-            <Label     Text                     = "Selecione os setores impactados por essa solução: (*)"
-                       FontAttributes           = "Bold"
-                       Padding                  = "5"/>
+        <StackLayout Spacing="5">
+            <Label Text                   ="Adicionar Oportunidade de Inovação"
+                   TextColor              ="White"
+                   FontSize               ="Medium"
+                   FontAttributes         ="Bold"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment  ="Center"
+                   BackgroundColor        ="Green"
+                   VerticalOptions        ="Start"
+                   HeightRequest          ="50"/>
+            <Label Text                   ="Campos Obrigatórios (*)"                      
+                   Padding                ="5"/>
+            <Label Text                   ="Nome da Solução (*)"                       
+                   FontAttributes         ="Bold"
+                   Padding                ="5"/>
+            <Entry FontSize               ="Medium"
+                   WidthRequest           ="400"
+                   VerticalTextAlignment  ="Start"
+                   BackgroundColor        ="WhiteSmoke"/>
+            <BoxView   BackgroundColor    ="Black"
+                       HeightRequest      ="1"
+                       WidthRequest       ="400"/>
+            <Label     Text               ="Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil: (*)"
+                       FontAttributes     ="Bold"
+                       Padding            ="5"/>
+            <Editor    x:Name               ="_editor1"
+                       WidthRequest         ="400"
+                       HeightRequest        ="100"
+                       VerticalTextAlignment="Start"
+                       BackgroundColor      ="WhiteSmoke"
+                       TextChanged          ="OnEditorTextChanged1"
+                       Completed            ="OnEditorCompleted"/>
+            <BoxView   BackgroundColor="Black"
+                       HeightRequest  ="1"
+                       WidthRequest   ="400"/>
+            <Label     Text           ="Descreva um breve resumo de como essa solução pode impactar NEGATIVAMENTE o Ceape Brasil: (*)"
+                       FontAttributes ="Bold"
+                       Padding        ="5"/>
+            <Editor    x:Name         ="_editor2"
+                       WidthRequest   ="400"
+                       HeightRequest  ="100"
+                       BackgroundColor="WhiteSmoke"
+                       TextChanged    ="OnEditorTextChanged2"
+                       Completed      ="OnEditorCompleted"/>
+            <BoxView   BackgroundColor="Black"
+                       HeightRequest  ="1"
+                       WidthRequest   ="400"/>
+            <Label     Text           ="Selecione os setores impactados por essa solução: (*)"
+                       FontAttributes ="Bold"
+                       Padding        ="5"/>
 
-            <Grid RowDefinitions    = "*,*,*,*,*,*,*,*,*,*,*,*,*"
-                  ColumnDefinitions = "300,*"
-                  HeightRequest     = "350"
-                  Padding           = "10">
-                <Label  Grid.Row = "0"                        
-                        Text     = "Administrativo"/>
-                <Label  Grid.Row = "1"   
-                        Text     = "Análise de Crédito"/>
-                <Label  Grid.Row = "2"   
-                        Text     = "Auditoria"/>
-                <Label  Grid.Row = "3"   
-                        Text     = "Contabilidade"/>
-                <Label  Grid.Row = "4"   
-                        Text     = "Creli"/>
-                <Label  Grid.Row = "5"   
-                        Text     = "Financeiro"/>
-                <Label  Grid.Row = "6"   
-                        Text     = "Gestão de Pessoas"/>
-                <Label  Grid.Row = "7"   
-                        Text     = "Infraestrutura Civil"/>
-                <Label  Grid.Row = "8"   
-                        Text     = "Inovação"/>
-                <Label  Grid.Row = "9"   
-                        Text     = "Recebimentos"/>
-                <Label  Grid.Row = "10"   
-                        Text     = "Renovação Automática"/>
-                <Label  Grid.Row = "11"   
-                        Text     = "Seguros"/>
-                <Label  Grid.Row = "12"   
-                        Text     = "Tecnologia da Informação"/>
+            <Grid RowDefinitions   ="*,*,*,*,*,*,*,*,*,*,*,*,*"
+                  ColumnDefinitions="300,*"
+                  HeightRequest    ="350"
+                  Padding          ="10">
+                <Label  Grid.Row="0"                        
+                        Text    ="Administrativo"/>
+                <Label  Grid.Row="1"   
+                        Text    ="Análise de Crédito"/>
+                <Label  Grid.Row="2"   
+                        Text    ="Auditoria"/>
+                <Label  Grid.Row="3"   
+                        Text    ="Contabilidade"/>
+                <Label  Grid.Row="4"   
+                        Text    ="Creli"/>
+                <Label  Grid.Row="5"   
+                        Text    ="Financeiro"/>
+                <Label  Grid.Row="6"   
+                        Text    ="Gestão de Pessoas"/>
+                <Label  Grid.Row="7"   
+                        Text    ="Infraestrutura Civil"/>
+                <Label  Grid.Row="8"   
+                        Text    ="Inovação"/>
+                <Label  Grid.Row="9"   
+                        Text    ="Recebimentos"/>
+                <Label  Grid.Row="10"   
+                        Text    ="Renovação Automática"/>
+                <Label  Grid.Row="11"   
+                        Text    ="Seguros"/>
+                <Label  Grid.Row="12"   
+                        Text    ="Tecnologia da Informação"/>
 
-                <CheckBox Grid.Row          = "0"
-                          Grid.Column       = "1"
-                          HorizontalOptions = "End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "1"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "2"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "3"
-                          Grid.Column       = "1"
-                          HorizontalOptions = "End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "4"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "5"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "6"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "7"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "8"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "9"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "10"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "11"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
-                <CheckBox Grid.Row          = "12"
-                          Grid.Column       = "1"
-                          HorizontalOptions ="End"
-                          Color             = "Gray"/>
+                <CheckBox Grid.Row   ="0"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="1"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="2"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="3"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="4"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="5"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="6"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="7"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="8"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="9"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="10"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="11"
+                          Grid.Column="1"/>
+                <CheckBox Grid.Row   ="12"
+                          Grid.Column="1"/>
             </Grid>
-
-            <Grid ColumnDefinitions="*,*">
-                <!--<Button 
-                        Text              = "Salvar"
-                        TextColor         = "DarkGreen"
-                        FontSize          = "15"
-                        FontAttributes    = "Bold"
-                        Margin            = "10"
-                        BorderColor       = "Green"
-                        BorderWidth       = "2"
-                        BackgroundColor   = "White"
-                        HorizontalOptions = "CenterAndExpand"
-                        WidthRequest      = "150"
-                        >
-
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint ="0,1">
-                            <GradientStop Color  = "White"
-                                          Offset = "0.5" />
-                            <GradientStop Color  = "LightGreen"
-                                          Offset = "1.0" />
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>-->
-                
-                <Button    
-                   Grid.Column      = "0"
-                   Margin           = "10"
-                   Text             = "Salvar"
-                   TextColor        = "Black"
-                   BorderColor      = "Gray"
-                   BorderWidth      = "1"
-                   FontSize         = "12"
-                   FontAttributes   = "Bold"
-                   BackgroundColor  = "White"
-                   Clicked          = "Button_Clicked"
-                   Grid.Row         = "2"
-                   HeightRequest    = "50"
-                   WidthRequest     = "150"/>
-
-                <!--<Button 
-                   Grid.Column       ="1"
-                   Text              = "Enviar para Análise"
-                   TextColor         = "DarkGreen"
-                   FontSize          = "15"
-                   FontAttributes    = "Bold"
-                   Margin            = "10"
-                   BorderColor       = "Green"
-                   BorderWidth       = "2"
-                   BackgroundColor   = "White"
-                   HorizontalOptions = "CenterAndExpand"
-                   WidthRequest      = "175"
-                   Clicked           = "Button_Clicked_1">
-
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint ="0,1">
-                            <GradientStop Color  = "White"
-                                          Offset = "0.5" />
-                            <GradientStop Color  = "LightGreen"
-                                          Offset = "1.0" />
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>-->
-                <Button    
-                   Grid.Column      = "1"
-                   Margin           = "10"
-                   Text             = "Enviar para Análise"
-                   TextColor        = "Black"
-                   BorderColor      = "Gray"
-                   BorderWidth      = "1"
-                   FontSize         = "12"
-                   FontAttributes   = "Bold"
-                   BackgroundColor  = "White"
-                   Clicked          = "Button_Clicked_1"
-                   Grid.Row         = "2"
-                   HeightRequest    = "50"
-                   WidthRequest     = "150"/>
-
-            </Grid>
-
-
+            
+            <Button Text           ="Enviar para Análise"
+                    BackgroundColor="LightGreen"
+                    TextColor      ="White"
+                    CornerRadius   ="25"
+                    FontSize       ="18"
+                    FontAttributes ="Bold"
+                    Clicked        ="Button_Clicked_1"
+                    Margin         ="10"/>
         </StackLayout>   
     </ScrollView>
     

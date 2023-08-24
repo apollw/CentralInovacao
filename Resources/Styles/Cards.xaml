@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--ESTILOS BORDA CARD-->
+    <Style TargetType="Border" x:Key="borderCardStyle">
+        <Setter Property="Margin"            Value="10,25,10,0"/>
+        <Setter Property="StrokeShape"       Value="RoundRectangle 8"/>
+        <Setter Property="HeightRequest"     Value="275"/>
+        <Setter Property="StrokeThickness"   Value="2"/>
+        <Setter Property="VerticalOptions"   Value="Start"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="smallButtonStyle">
+        <Setter Property="TextColor"         Value="Black"/>
+        <Setter Property="FontSize"          Value="12"/>
+        <Setter Property="BorderColor"       Value="Green"/>
+        <Setter Property="BorderWidth"       Value="1"/>
+        <Setter Property="BackgroundColor"   Value="White"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="HeightRequest"     Value="35"/>
+        <Setter Property="WidthRequest"      Value="85"/>
+    </Style>
+
+</ResourceDictionary>

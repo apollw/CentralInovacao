@@ -3,100 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Views.ViewProjeto"             
              Title="Projeto em Andamento">
-
-    <!--<Grid RowDefinitions="*,*,*,*,*"
-          ColumnDefinitions="*,*"
-          RowSpacing="350">
-
-        <StackLayout Grid.Row="0" Grid.Column="0">
-            --><!--<Border HorizontalOptions  = "Center"
-                    VerticalOptions    = "Start"
-                    HeightRequest      = "150"
-                    WidthRequest       = "150"
-                    Margin             = "15"
-                    StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_request.png"  HeightRequest="150" Clicked="Btn_Solicitacao"/>
-            </Border>--><!--
-            <ImageButton Source="imgbutton_request.png" 
-                         Clicked="Btn_Solicitacao"
-                         HorizontalOptions  = "Center"
-                         VerticalOptions    = "Center"
-                         HeightRequest      = "100"
-                         WidthRequest       = "100"
-                         Margin="30"/>
-            <Label Text="Solicitação" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
-        </StackLayout>
-
-    </Grid>-->
-        
-    <StackLayout>
-        <Border HorizontalOptions="Center"
-                VerticalOptions  ="Start"
-                HeightRequest    ="180"
-                WidthRequest     ="180"
-                Margin           ="15"
-                StrokeShape      ="RoundRectangle 25">
-            <ImageButton Source       ="imgbutton_request.png"
-                         HeightRequest="150"
-                         Clicked      ="Btn_Solicitacao"/>
-            </Border>            
-            <Label  Text="Solicitação" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
-
-            <BoxView Color="Gray"
-                     HeightRequest="1"/>
-
-            <Border HorizontalOptions  = "Center"
-                    VerticalOptions    = "Start"
-                    HeightRequest      = "180"
-                    WidthRequest       = "180"
-                    Margin             = "15"
-                    StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_analysis.png" HeightRequest="150" Clicked="Btn_AnaliseBriefing"/>
+    
+    <!--ESTILOS DA PÁGINA-->
+    <ContentPage.Resources>
+        <Style TargetType="Border">
+            <Setter Property="Margin"            Value="15"/>
+            <Setter Property="StrokeShape"       Value="RoundRectangle 25"/>
+            <Setter Property="HeightRequest"     Value="125"/>
+            <Setter Property="WidthRequest"      Value="140"/>
+            <Setter Property="VerticalOptions"   Value="Start"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        <!--ESTILO DA LABEL-->
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <!--ESTILO DO IMAGEBUTTON-->
+        <Style TargetType="ImageButton">
+            <Setter Property="HeightRequest" Value="85"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <FlexLayout Wrap          ="Wrap"
+                JustifyContent="Center">
+        <!--BOTÃO DE SOLICITAÇÃO-->
+        <Border>
+            <StackLayout Margin="5">
+                <ImageButton Source       ="imgbutton_request.png"
+                             Clicked      ="Btn_Solicitacao"/>
+                <Label Text="Solicitação"/>
+            </StackLayout>            
+        </Border>
+        <!--BOTÃO DE ANÁLISE-->
+        <Border>
+            <StackLayout Margin="5">
+                <ImageButton Source="imgbutton_analysis.png"  Clicked="Btn_AnaliseBriefing"/>
+                <Label Text="Análise"/>
+            </StackLayout>            
+        </Border>
+        <!--BOTÃO DE SQUAD-->
+        <Border>
+            <StackLayout Margin="5">
+                <ImageButton Source="imgbutton_group.png"  Clicked="Btn_Squad"/>
+                <Label Text="Grupo"/>
+            </StackLayout>
+        </Border>
+        <!--BOTÃO DE PLANEJAMENTO-->
+        <Border>
+            <StackLayout Margin="5">
+                <ImageButton Source="imgbutton_planning.png" Clicked="Btn_Planejamento"/>
+                <Label Text="Planejamento"/>
+            </StackLayout>
+        </Border>
+        <!--BOTÃO DE ACOMPANHAMENTO-->
+        <Border>
+            <StackLayout Margin="5">
+                <ImageButton Source="imgbutton_project.png" Clicked="Btn_Acompanhamento"/>
+                <Label Text="Acompanhamento"/>
+            </StackLayout>
             </Border>
-            <Label  Text="Análise e Briefing" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
-
-            <BoxView Color="Gray"
-                     HeightRequest="1"/>
-
-            <Border HorizontalOptions  = "Center"
-                    VerticalOptions    = "Start"
-                    HeightRequest      = "180"
-                    WidthRequest       = "180"
-                    Margin             = "15"
-                    StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_group.png"    HeightRequest="150" Clicked="Btn_Squad"/>
-            </Border>
-            <Label  Text="Definição do Squad" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
-
-            <BoxView Color="Gray"
-                     HeightRequest="1"/>
-
-            <Border HorizontalOptions  = "Center"
-                    VerticalOptions    = "Start"
-                    HeightRequest      = "180"
-                    WidthRequest       = "180"
-                    Margin             = "15"
-                    StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_planning.png" HeightRequest="150" Clicked="Btn_Planejamento"/>
-            </Border>
-            <Label Text="Planejamento" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
-
-            <BoxView Color="Gray"
-                     HeightRequest="1"/>
-
-            <Border HorizontalOptions  = "Center"
-                    VerticalOptions    = "Start"
-                    HeightRequest      = "180"
-                    WidthRequest       = "180"
-                    Margin             = "15"
-                    StrokeShape        = "RoundRectangle 25">
-                <ImageButton Source="imgbutton_project.png"  HeightRequest="150" Clicked="Btn_Acompanhamento"/>
-            </Border>
-            <Label Text="Acompanhamento" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="DarkGreen"/>
-
-            <BoxView Color="Gray"
-                     HeightRequest="1"/>
-        </StackLayout>        
+    </FlexLayout>
     
 </ContentPage>
 

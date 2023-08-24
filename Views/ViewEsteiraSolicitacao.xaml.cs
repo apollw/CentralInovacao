@@ -23,4 +23,9 @@ public partial class ViewEsteiraSolicitacao : ContentPage
     {
         string text = ((Editor)sender).Text;
     }
+
+    private async void Button_Solicitacao(object sender, EventArgs e)
+    {
+        await DisplayAlert("", "Solicitação Salva", "Fechar");
+    }
 }

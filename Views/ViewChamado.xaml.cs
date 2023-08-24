@@ -20,6 +20,6 @@ public partial class ViewChamado : ContentPage
     private async void Btn_Chamado(object sender, EventArgs e)
     {
         await DisplayAlert("", "Chamado Realizado", "Fechar");
-        await Shell.Current.GoToAsync("..");
+        //await Shell.Current.GoToAsync("..");
     }
 }

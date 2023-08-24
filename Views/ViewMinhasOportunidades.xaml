@@ -9,30 +9,25 @@
                      Clicked="Btn_Logout"/>
     </ContentPage.ToolbarItems>
 
-    <!--ESTILOS UTILIZADOS-->
     <ContentPage.Resources>
-        <Style TargetType="Border">
-        
+        <!--ESTILO DA GRID INTERNA À CARD-BORDER-->
+        <Style TargetType="Grid" x:Key="insideGridStyle">
+            <Setter Property="RowDefinitions"    Value="65,30,30,30,30"/>
+            <Setter Property="ColumnDefinitions" Value="1*,5*,4*"/>
+            <Setter Property="Padding"           Value="15"/>
+            <Setter Property="RowSpacing"        Value="10"/>
+        </Style>
+        <!--ESTILO DAS LABELS INTERNAS-->
+        <Style TargetType="Label" x:Key="insideLabelStyle">
+            <Setter Property="FontAttributes"          Value="Bold"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
         </Style>
     </ContentPage.Resources>
-    
-    <Grid RowDefinitions ="*,100"
-          BackgroundColor="WhiteSmoke">
 
+    <Grid RowDefinitions="80*,20*">
         <!--CARD DE OPORTUNIDADES-->
-        <Border Grid.Row       ="0"
-                Margin         ="10,25,10,0"
-                StrokeShape    ="RoundRectangle 8"
-                StrokeThickness="2"
-                VerticalOptions="Start"
-                HeightRequest  ="275">
-            
-            <Grid RowDefinitions   ="65,30,30,30,30"
-                  ColumnDefinitions="1*,5*,4*"
-                  Padding          ="15"
-                  RowSpacing="10"
-                  >
-
+        <Border Grid.Row ="0" Style="{StaticResource borderCardStyle}">
+            <Grid Style="{StaticResource insideGridStyle}">
                 <Label Grid.Row               ="0"
                        Grid.ColumnSpan        ="3"
                        Text                   ="Oportunidade 1"
@@ -41,7 +36,6 @@
                        FontAttributes         ="Bold"
                        Margin                 ="0,10"
                        HorizontalTextAlignment= "Center"/>
-
                 <!--COLUNA 1-->
                 <Image Grid.Row         ="1"
                        Grid.Column      ="0"
@@ -56,60 +50,46 @@
                        Source           ="clock.png"
                        HorizontalOptions="Start"/>
                 <!--COLUNA 2-->
-                <Label Grid.Row               ="1"
-                       Grid.Column            ="1"
-                       Text                   ="Responsável:"
-                       FontAttributes         ="Bold"
-                       HorizontalTextAlignment="Start"/>
-                <Label Grid.Row               ="2"
-                       Grid.Column            ="1"
-                       Text                   ="Situação Atual:"
-                       FontAttributes         ="Bold"
-                       HorizontalTextAlignment="Start"/>
-                <Label Grid.Row               = "3"
-                       Grid.Column            ="1"
-                       Text                   ="Tempo do Projeto:"
-                       FontAttributes         ="Bold"
-                       HorizontalTextAlignment="Start"/>
+                <Label Grid.Row   ="1"
+                       Grid.Column="1"
+                       Text       ="Responsável:"
+                       Style      ="{StaticResource insideLabelStyle}"/>
+                <Label Grid.Row   ="2"
+                       Grid.Column="1"
+                       Text       ="Situação Atual:"
+                       Style      ="{StaticResource insideLabelStyle}"/>
+                <Label Grid.Row   = "3"
+                       Grid.Column="1"
+                       Text       ="Tempo do Projeto:"
+                       Style      ="{StaticResource insideLabelStyle}"/>
                 <!--COLUNA 3-->
-                <Label Grid.Row               = "1"
-                       Grid.Column            = "2"
-                       Text                   = "Edem Fernando"                            
-                       HorizontalTextAlignment= "End"/>
-                <Label Grid.Row               = "2"
-                       Grid.Column            = "2"
-                       Text                   = "Declinado"
-                       HorizontalTextAlignment= "End"/>
-                <Label Grid.Row               = "3"
-                       Grid.Column            = "2"
-                       Text                   = "15 dias"
-                       HorizontalTextAlignment= "End"/>
-                <Button Grid.Row         ="4"
-                        Grid.Column      ="2"
-                        Text             ="Abrir"
-                        TextColor        ="Black"
-                        FontSize         ="12"
-                        BorderColor      ="Green"
-                        BorderWidth      ="1"
-                        BackgroundColor  ="White"
-                        HorizontalOptions="End"
-                        HeightRequest    ="35"
-                        WidthRequest     ="85"/>    
+                <Label Grid.Row               ="1"
+                       Grid.Column            ="2"
+                       Text                   ="Edem Fernando"                            
+                       HorizontalTextAlignment="End"/>
+                <Label Grid.Row               ="2"
+                       Grid.Column            ="2"
+                       Text                   ="Declinado"
+                       HorizontalTextAlignment="End"/>
+                <Label Grid.Row               ="3"
+                       Grid.Column            ="2"
+                       Text                   ="15 dias"
+                       HorizontalTextAlignment="End"/>
+                <Button Grid.Row   ="4"
+                        Grid.Column="2"
+                        Text       ="Abrir"
+                        Style      ="{StaticResource smallButtonStyle}"/>
             </Grid>
-        </Border>        
-        
-        <AbsoluteLayout Grid.Row="1"
-                        HorizontalOptions="End"
-                        Margin="0,0,15,0">
-            <ImageButton Source           ="img_addbtn6.png"
-                         HorizontalOptions="CenterAndExpand"
-                         Grid.ColumnSpan  ="2"
-                         Clicked          ="Btn_NovaOp"
-                         Grid.Row         ="2"
-                         HeightRequest    ="75"
-                         WidthRequest     ="75"/>
-        </AbsoluteLayout>
+        </Border>
 
+        <ImageButton Source           ="img_addbtn6.png"
+                     Grid.Row         ="1"
+                     Grid.ColumnSpan  ="2"
+                     Margin           ="0,0,15,0"
+                     Clicked          ="Btn_NovaOp"
+                     HeightRequest    ="75"
+                     WidthRequest     ="75"
+                     HorizontalOptions="End"/> 
     </Grid>
-        
+    
 </ContentPage>
