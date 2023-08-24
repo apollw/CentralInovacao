@@ -16,6 +16,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ViewInicio), typeof(ViewInicio));        
         Routing.RegisterRoute(nameof(ViewRankingGeral), typeof(ViewRankingGeral));
         Routing.RegisterRoute(nameof(ViewMeusProjetos), typeof(ViewMeusProjetos));
+        Routing.RegisterRoute(nameof(ViewMinhasRequisicoes), typeof(ViewMinhasRequisicoes));
         Routing.RegisterRoute(nameof(ViewMinhasOportunidades), typeof(ViewMinhasOportunidades));
 
         Routing.RegisterRoute(nameof(ViewEsteiraSquad), typeof(ViewEsteiraSquad));

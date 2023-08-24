@@ -38,6 +38,9 @@
     <MauiXaml Update="Views\ViewMinhasOportunidades.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\ViewMinhasRequisicoes.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

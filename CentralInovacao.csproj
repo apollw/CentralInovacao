@@ -118,6 +118,9 @@
 	  <Compile Update="Views\ViewInicio.xaml.cs">
 	    <DependentUpon>ViewInicio.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\ViewMinhasRequisicoes.xaml.cs">
+	    <DependentUpon>ViewMinhasRequisicoes.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -149,6 +152,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewMinhasOportunidades.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewMinhasRequisicoes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewNovaOportunidade.xaml">

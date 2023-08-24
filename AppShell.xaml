@@ -44,8 +44,8 @@
                       Route          ="ViewInicio"/>
         <ShellContent Title          ="Minhas Requisições"
                       FlyoutIcon     ="shellicon_request.png"                      
-                      ContentTemplate="{DataTemplate views:ViewChamado}"
-                      Route          ="ViewChamado"/>
+                      ContentTemplate="{DataTemplate views:ViewMinhasRequisicoes}"
+                      Route          ="ViewMinhasRequisicoes"/>
         <ShellContent Title          ="Meus Projetos"
                       FlyoutIcon     ="shellicon_project.png"
                       ContentTemplate="{DataTemplate views:ViewMeusProjetos}"
