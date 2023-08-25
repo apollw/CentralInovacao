@@ -3,84 +3,104 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.MainPage"
              Shell.FlyoutBehavior="Disabled"
-             Shell.NavBarIsVisible="False"
-             BackgroundColor="LightGray">
+             Shell.NavBarIsVisible="False">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="325"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Border Grid.Row        = "0"
-                WidthRequest    = "370"
-                HeightRequest   = "85"
-                VerticalOptions = "End"
-                StrokeShape     = "RoundRectangle 50 50 0 0"
-                BackgroundColor = "Green"            
-                >
-            <Border.Shadow>
-                <Shadow Brush   = "black"
-                        Opacity = ".9"/>
-            </Border.Shadow>
-            <Label Text              = "CENTRAL DE INOVAÇÃO"
-                   FontSize          = "18"
-                   FontAttributes    = "Bold"
-                   HorizontalOptions = "Center"
-                   VerticalOptions   = "Center"
-                   TextColor         = "White"
-                   />
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="FloralWhite" Offset="0.0"/>
+            <GradientStop Color="LightGreen"   Offset="1.0"/>
+            
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <StackLayout VerticalOptions="Center" 
+                 Margin="10">
+        <StackLayout>
+            <Border HeightRequest  ="75"
+                    StrokeShape    ="RoundRectangle 25 25 0 0"
+                    BackgroundColor="SeaGreen">
+                <Label Text             ="CEAPE Inovação"
+                       TextColor        ="White"
+                       FontSize         ="25"
+                       FontAttributes   ="Bold"
+                       HorizontalOptions="Center"
+                       VerticalOptions  ="Center">                    
+                </Label>
+            </Border>
+         </StackLayout>
+        <Border HeightRequest  ="225"
+                VerticalOptions="Start"
+                BackgroundColor="WhiteSmoke"
+                StrokeShape    ="RoundRectangle 0 0 25 25"
+                StrokeThickness="1">
+            <Grid RowDefinitions   ="*,*,*"
+                  ColumnDefinitions="1*,9*"
+                  Margin           ="10">
+                <!--COLUNA 1-->
+                <Image Grid.Row         ="0"
+                       Grid.Column      ="0"
+                       Source           ="user.png"
+                       HorizontalOptions="Start"/>
+                <Image Grid.Row         ="1"
+                       Grid.Column      ="0"
+                       Source           ="key.png"
+                       HorizontalOptions="Start"/>
+                <!--COLUNA 2-->
+                <Entry Grid.Row        ="0"
+                       Grid.Column     ="1"
+                       x:Name          ="_entryNome"                        
+                       FontSize        ="15"                        
+                       Placeholder     ="Usuário"
+                       PlaceholderColor="Gray"
+                       BackgroundColor ="White"
+                       HeightRequest   ="40"/>
+                <Entry Grid.Row        ="1"
+                       Grid.Column     ="1"
+                       x:Name          ="_entrySenha"
+                       FontSize        ="15"
+                       Placeholder     ="Senha"
+                       PlaceholderColor="Gray"
+                       BackgroundColor ="White"
+                       IsPassword      ="True"
+                       HeightRequest   ="40"/>
+                <Button Grid.Row       ="2"
+                        Grid.ColumnSpan="2"
+                        x:Name         ="_btn_Login"
+                        Text           ="Login"
+                        CornerRadius   ="25"
+                        FontSize       ="18"
+                        FontAttributes ="Bold"
+                        BackgroundColor="LightGreen"
+                        Clicked        ="Btn_Login"
+                        HeightRequest  ="50"/>
+            </Grid>
+            <!--<StackLayout Spacing="25"
+                         Margin="10,25,25,10">-->               
+                <!--<Entry x:Name          ="_entryNome"                        
+                       FontSize        ="15"                        
+                       Placeholder     ="Usuário"
+                       PlaceholderColor="Gray"
+                       BackgroundColor ="White"
+                       Grid.Row        ="0"
+                       HeightRequest   ="40"/>
+                <Entry x:Name          ="_entrySenha"
+                       FontSize        ="15"
+                       Placeholder     ="Senha"
+                       PlaceholderColor="Gray"
+                       BackgroundColor ="White"
+                       IsPassword      ="True"
+                       HeightRequest   ="40"/>
+                <Button x:Name         ="_btn_Login"
+                        Text           ="Login"
+                        CornerRadius   ="25"
+                        FontSize       ="18"
+                        FontAttributes ="Bold"
+                        BackgroundColor="LightGreen"
+                        Clicked        ="Btn_Login"
+                        HeightRequest  ="50"/>-->
+            <!--</StackLayout>-->                
         </Border>
-        <Border Grid.Row        = "1"
-                VerticalOptions = "Start"
-                WidthRequest    = "370"
-                HeightRequest   = "220"
-                BackgroundColor = "WhiteSmoke"
-                StrokeShape     = "RoundRectangle 0 0 50 50"
-                >
-            <Border.Shadow>
-                <Shadow Brush   = "black"
-                        Opacity = ".4"/>
-            </Border.Shadow>
-
-            <Grid RowSpacing = "5"
-                  Padding    = "15">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                <Entry  x:Name           = "_entryNome"                        
-                        FontSize         = "15"                        
-                        Placeholder      = "Usuário"
-                        PlaceholderColor = "Gray"
-                        BackgroundColor  = "White"
-                        Grid.Row         = "0"
-                        HeightRequest    = "40"
-                        WidthRequest     = "325"
-                        />
-                <Entry  x:Name           = "_entrySenha"
-                        FontSize         = "15"
-                        Placeholder      = "Senha"
-                        PlaceholderColor = "Gray"
-                        BackgroundColor  = "White"
-                        IsPassword       = "True"
-                        Grid.Row         = "1"
-                        HeightRequest    = "40"
-                        WidthRequest     = "325" 
-                        />
-                <Button x:Name           = "_btn_Login"
-                        Text             = "Login"
-                        CornerRadius     = "25"
-                        FontSize         = "18"
-                        FontAttributes   = "Bold"
-                        BackgroundColor  = "LightGreen"
-                        Clicked          = "Btn_Login"
-                        Grid.Row         = "2"
-                        HeightRequest    = "50"
-                        WidthRequest     = "325"/>
-            </Grid>            
-        </Border>
-    </Grid>     
-
+    </StackLayout>
+        
 </ContentPage>
 

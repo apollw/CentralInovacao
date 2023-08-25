@@ -26,16 +26,13 @@
         </Style>
     </ContentPage.Resources>
 
-    <StackLayout>
-        <Image Source="img_banner.png" HeightRequest="100"/>
-
-        <FlexLayout Wrap          ="Wrap"
+    <FlexLayout Wrap          ="Wrap"
                 JustifyContent="Center">
-            <!--BOTÃO DE SOLICITAÇÃO-->
+        <!--BOTÃO DE SOLICITAÇÃO-->
             <Border>
                 <StackLayout Margin="5">
-                    <ImageButton Source       ="imgbutton_request.png"
-                             Clicked      ="Btn_Solicitacao"/>
+                    <ImageButton Source   ="imgbutton_request.png"
+                                 Clicked  ="Btn_Solicitacao"/>
                     <Label Text="Solicitação"/>
                 </StackLayout>
             </Border>
@@ -67,8 +64,7 @@
                     <Label Text="Acompanhamento"/>
                 </StackLayout>
             </Border>
-        </FlexLayout>
-    </StackLayout>  
+    </FlexLayout>
 
 </ContentPage>
 
