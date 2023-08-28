@@ -14,6 +14,9 @@
     <MauiXaml Update="Views\ViewChamado.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\ViewDeclinio.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\ViewEsteiraAcompanhamento.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -32,6 +35,9 @@
     <MauiXaml Update="Views\ViewInicio.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\ViewLogin.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\ViewMeusProjetos.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -42,6 +48,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\ViewPontuacao.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\ViewProjeto.xaml">

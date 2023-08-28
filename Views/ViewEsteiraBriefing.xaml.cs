@@ -19,7 +19,8 @@ public partial class ViewEsteiraBriefing : ContentPage
 
     private async void Button_Declinar(object sender, EventArgs e)
     {
-        await DisplayAlert("", "Proposta Declinada", "Fechar");
+        //await DisplayAlert("", "Proposta Declinada", "Fechar");
+          await Navigation.PushModalAsync(new ViewDeclinio()); 
     }
 
     private async void Button_EnviarSquad(object sender, EventArgs e)

@@ -101,12 +101,14 @@
 	  <None Remove="Resources\Images\img_medalha3.png" />
 	  <None Remove="Resources\Images\img_threepoints.png" />
 	  <None Remove="Resources\Images\key.png" />
+	  <None Remove="Resources\Images\logo_ceape.png" />
 	  <None Remove="Resources\Images\shellheader_ceape.png" />
 	  <None Remove="Resources\Images\shellicon_idea.png" />
 	  <None Remove="Resources\Images\shellicon_inovation.png" />
 	  <None Remove="Resources\Images\shellicon_project.png" />
 	  <None Remove="Resources\Images\shellicon_rank.png" />
 	  <None Remove="Resources\Images\shellicon_request.png" />
+	  <None Remove="Resources\Images\shellicon_score.png" />
 	  <None Remove="Resources\Images\user.png" />
 	</ItemGroup>
 
@@ -133,6 +135,9 @@
 	  <MauiXaml Update="Views\ViewChamado.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewDeclinio.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewEsteiraAcompanhamento.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -151,6 +156,9 @@
 	  <MauiXaml Update="Views\ViewInicio.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewLogin.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewMeusProjetos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -161,6 +169,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewPontuacao.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ViewProjeto.xaml">

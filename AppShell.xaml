@@ -7,7 +7,7 @@
     xmlns:views="clr-namespace:CentralInovacao.Views"
     Shell.FlyoutBehavior="Flyout"
     Shell.TabBarIsVisible="False"
-    Shell.BackgroundColor="Green"
+    Shell.BackgroundColor="ForestGreen"
     Shell.FlyoutBackdrop="White"
     Shell.TitleColor="White">
 
@@ -20,14 +20,15 @@
     Shell.TabBarTitleColor="Green"-->
 
     <Shell.FlyoutHeader>
-        <StackLayout BackgroundColor="#242B40" 
+        <!--BackgroundColor="#242B40"-->
+        <StackLayout BackgroundColor="WhiteSmoke" 
                      Padding        ="10">
-            <Image   Source         ="shellheader_ceape.png" 
+            <Image   Source         ="logo_ceape.png" 
                      HeightRequest  ="85"/>
-            <Label Text                   ="Central de Inovação"
+            <!--<Label Text                   ="Central de Inovação"
                    TextColor              ="White"
                    FontAttributes         ="Bold"
-                   HorizontalTextAlignment="Center"/>
+                   HorizontalTextAlignment="Center"/>-->
         </StackLayout>
     </Shell.FlyoutHeader>
 
@@ -38,7 +39,7 @@
     </ShellItem>  
 
     <FlyoutItem FlyoutDisplayOptions ="AsMultipleItems">
-        <ShellContent Title          ="Central de Ideias"
+        <ShellContent Title          ="Central de Ideias"                      
                       FlyoutIcon     ="shellicon_idea.png"                      
                       ContentTemplate="{DataTemplate views:ViewInicio}"
                       Route          ="ViewInicio"/>
@@ -58,6 +59,10 @@
                       FlyoutIcon     ="shellicon_rank.png"
                       ContentTemplate="{DataTemplate views:ViewRankingGeral}"
                       Route          ="ViewRankingGeral"/>
+        <ShellContent Title          ="Sobre a Pontuação"
+                      FlyoutIcon     ="shellicon_score.png"
+                      ContentTemplate="{DataTemplate views:ViewPontuacao}"
+                      Route          ="ViewPontuacao"/>
     </FlyoutItem>
 
     <!--<TabBar>

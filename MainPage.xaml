@@ -13,93 +13,23 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <StackLayout VerticalOptions="Center" 
-                 Margin="10">
-        <StackLayout>
-            <Border HeightRequest  ="75"
-                    StrokeShape    ="RoundRectangle 25 25 0 0"
-                    BackgroundColor="SeaGreen">
-                <Label Text             ="CEAPE Inovação"
-                       TextColor        ="White"
-                       FontSize         ="25"
-                       FontAttributes   ="Bold"
-                       HorizontalOptions="Center"
-                       VerticalOptions  ="Center">                    
-                </Label>
-            </Border>
-         </StackLayout>
-        <Border HeightRequest  ="225"
-                VerticalOptions="Start"
-                BackgroundColor="WhiteSmoke"
-                StrokeShape    ="RoundRectangle 0 0 25 25"
-                StrokeThickness="1">
-            <Grid RowDefinitions   ="*,*,*"
-                  ColumnDefinitions="1*,9*"
-                  Margin           ="10">
-                <!--COLUNA 1-->
-                <Image Grid.Row         ="0"
-                       Grid.Column      ="0"
-                       Source           ="user.png"
-                       HorizontalOptions="Start"/>
-                <Image Grid.Row         ="1"
-                       Grid.Column      ="0"
-                       Source           ="key.png"
-                       HorizontalOptions="Start"/>
-                <!--COLUNA 2-->
-                <Entry Grid.Row        ="0"
-                       Grid.Column     ="1"
-                       x:Name          ="_entryNome"                        
-                       FontSize        ="15"                        
-                       Placeholder     ="Usuário"
-                       PlaceholderColor="Gray"
-                       BackgroundColor ="White"
-                       HeightRequest   ="40"/>
-                <Entry Grid.Row        ="1"
-                       Grid.Column     ="1"
-                       x:Name          ="_entrySenha"
-                       FontSize        ="15"
-                       Placeholder     ="Senha"
-                       PlaceholderColor="Gray"
-                       BackgroundColor ="White"
-                       IsPassword      ="True"
-                       HeightRequest   ="40"/>
-                <Button Grid.Row       ="2"
-                        Grid.ColumnSpan="2"
-                        x:Name         ="_btn_Login"
-                        Text           ="Login"
-                        CornerRadius   ="25"
-                        FontSize       ="18"
-                        FontAttributes ="Bold"
-                        BackgroundColor="LightGreen"
-                        Clicked        ="Btn_Login"
-                        HeightRequest  ="50"/>
-            </Grid>
-            <!--<StackLayout Spacing="25"
-                         Margin="10,25,25,10">-->               
-                <!--<Entry x:Name          ="_entryNome"                        
-                       FontSize        ="15"                        
-                       Placeholder     ="Usuário"
-                       PlaceholderColor="Gray"
-                       BackgroundColor ="White"
-                       Grid.Row        ="0"
-                       HeightRequest   ="40"/>
-                <Entry x:Name          ="_entrySenha"
-                       FontSize        ="15"
-                       Placeholder     ="Senha"
-                       PlaceholderColor="Gray"
-                       BackgroundColor ="White"
-                       IsPassword      ="True"
-                       HeightRequest   ="40"/>
-                <Button x:Name         ="_btn_Login"
-                        Text           ="Login"
-                        CornerRadius   ="25"
-                        FontSize       ="18"
-                        FontAttributes ="Bold"
-                        BackgroundColor="LightGreen"
-                        Clicked        ="Btn_Login"
-                        HeightRequest  ="50"/>-->
-            <!--</StackLayout>-->                
-        </Border>
+    <StackLayout Spacing        ="10"
+                 VerticalOptions="Center">
+        <Image Source           ="logo_ceape.png"
+               HeightRequest    ="65"
+               HorizontalOptions="Center"/>
+        <BoxView Color        ="Green"
+                 HeightRequest="1"/>
+
+        <Label  Text             ="Clique para fazer Login"
+                TextColor        ="Black"
+                FontSize         ="18"
+                HorizontalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Btn_Login"
+                                      NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+        </Label>        
     </StackLayout>
         
 </ContentPage>

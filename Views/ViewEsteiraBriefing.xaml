@@ -30,8 +30,10 @@
                      Completed             = "OnEditorCompleted"/>
             <Button Text           ="Declinar Proposta"
                     Margin         ="10"
-                    BackgroundColor="Red"
-                    TextColor      ="White"
+                    BackgroundColor="White"
+                    TextColor      ="Red"
+                    BorderColor    ="Red"
+                    BorderWidth    ="1"
                     CornerRadius   ="25"
                     FontSize       ="18"
                     FontAttributes ="Bold"

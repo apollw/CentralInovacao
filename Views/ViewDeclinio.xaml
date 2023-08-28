@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Views.ViewDeclinio"
+             Title="Declinar Proposta">
+    
+    <StackLayout VerticalOptions="Start"
+                 Spacing        ="10"
+                 Margin         ="10">
+        <Label Text="Campos Obrigatórios (*)"
+               FontSize="15"/>
+        <Label Text="Selecione os motivos para declinar o projeto: (*)"
+               FontSize="18"
+               FontAttributes="Bold"/>
+        <Grid RowDefinitions   ="*,*,*,*"
+              ColumnDefinitions="8*,2*">
+            
+            <!--COLUNA 1-->
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Text="Não é financeiramente viável"
+                   FontSize="14"
+                   HorizontalTextAlignment="Start"/>
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   Text="Não é tecnicamente possível"
+                   FontSize="14"
+                   HorizontalTextAlignment="Start"/>
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   FontSize="14"
+                   Text="Não é possível alocar recursos humanos"
+                   HorizontalTextAlignment="Start"/>
+            <Label Grid.Row="3"
+                   Grid.Column="0"
+                   Text="Sem disponibilidade para o projeto"
+                   HorizontalTextAlignment="Start"/>
+            <!--COLUNA 2-->
+            <CheckBox Grid.Row="0"
+                      Grid.Column="1"
+                      Color="Green"
+                      HorizontalOptions="End"/>
+            <CheckBox Grid.Row="1"
+                      Grid.Column="1"
+                      Color="Green"
+                      HorizontalOptions="End"/>
+            <CheckBox Grid.Row="2"
+                      Grid.Column="1"
+                      Color="Green"
+                      HorizontalOptions="End"/>
+            <CheckBox Grid.Row="3"
+                      Grid.Column="1"
+                      Color="Green"
+                      HorizontalOptions="End"/>
+        </Grid>
+        <Label Text          ="Feedback para o solicitante da solução: (*)"
+               FontSize      ="18"
+               FontAttributes="Bold"/>
+        <Entry FontSize             ="Medium"
+               HeightRequest        ="200"
+               BackgroundColor      ="WhiteSmoke"
+               VerticalTextAlignment="Start"/>
+        <Button Text           ="Declinar Proposta"
+                Margin         ="10"
+                BackgroundColor="Red"
+                TextColor      ="White"
+                CornerRadius   ="25"
+                FontSize       ="18"
+                FontAttributes ="Bold"
+                Clicked        ="Btn_Declinada"/>        
+        
+    </StackLayout>
+    
+</ContentPage>
