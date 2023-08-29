@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Views.ViewLogin"
              Title="Entrar no Sistema"
-             BackgroundColor="LightGreen">   
+             BackgroundColor="WhiteSmoke">   
     
     <ScrollView>
         <StackLayout Margin         ="5"
+                     Spacing        ="10"
                      VerticalOptions="Center">
 
             <Grid ColumnDefinitions="9*,1*">
@@ -15,13 +16,14 @@
                        FontSize        ="15"
                        CharacterSpacing="5"
                        Placeholder     ="Usuário"
-                       PlaceholderColor="Green"
-                       BackgroundColor ="LightGreen"
+                       PlaceholderColor="Gray"
+                       BackgroundColor ="White"
                        HeightRequest   ="55"/>
                 <Image Grid.Column     ="1"
-                       Source          ="user.png"/>
+                       Source          ="user.png"
+                       BackgroundColor="White"/>
             </Grid>
-            <BoxView Color        ="White"
+            <BoxView Color        ="Green"
                      HeightRequest="0.5"/>
             <Grid ColumnDefinitions="9*,1*">
                 <Entry Grid.Column     ="0"
@@ -29,14 +31,15 @@
                        FontSize        ="15"
                        CharacterSpacing="5"                   
                        Placeholder     ="Senha"
-                       PlaceholderColor="Green"
-                       BackgroundColor ="LightGreen"               
+                       PlaceholderColor="Gray"
+                       BackgroundColor ="White"               
                        HeightRequest   ="55"
                        IsPassword      ="True"/>
                 <Image Grid.Column     ="1"
-                       Source          ="key.png"/>
+                       Source          ="key.png"
+                       BackgroundColor="White"/>
             </Grid>
-            <BoxView Color        ="White"
+            <BoxView Color        ="Green"
                      HeightRequest="0.5"/>
             <Button x:Name         ="_btn_Login"
                     Text           ="Entrar"
