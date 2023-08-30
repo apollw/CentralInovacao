@@ -21,7 +21,7 @@
 
     <Shell.FlyoutHeader>
         <!--BackgroundColor="#242B40"-->
-        <StackLayout BackgroundColor="WhiteSmoke" 
+        <StackLayout BackgroundColor="Green" 
                      Padding        ="10">
             <Image   Source         ="logo_ceape.png" 
                      HeightRequest  ="85"/>

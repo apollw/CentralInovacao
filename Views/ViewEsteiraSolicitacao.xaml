@@ -148,7 +148,6 @@
                     Margin         ="10"
                     BackgroundColor="LightGreen"
                     TextColor      ="White"
-                    CornerRadius   ="25"
                     FontSize       ="18"
                     FontAttributes ="Bold"
                     Clicked        ="Button_Solicitacao"/>

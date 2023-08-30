@@ -90,7 +90,6 @@
         <Button Text           = "Solicitar"
                 BackgroundColor="LightGreen"
                 TextColor      ="White"
-                CornerRadius   ="25"
                 FontSize       ="18"
                 FontAttributes ="Bold"
                 Clicked        = "Btn_Chamado"

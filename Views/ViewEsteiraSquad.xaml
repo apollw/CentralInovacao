@@ -89,6 +89,7 @@
                 Clicked          ="Btn_AddColaborador"
                 HeightRequest    ="75"
                 WidthRequest     ="150"
+                CornerRadius     ="0"
                 BackgroundColor  ="White"
                 HorizontalOptions="Start"/>
 
@@ -100,7 +101,8 @@
                 Margin           ="0,0,15,0"
                 HeightRequest    ="75"
                 WidthRequest     ="150"
-                BackgroundColor  ="Green"
+                CornerRadius     ="0"
+                BackgroundColor  ="LightGreen"
                 HorizontalOptions="End"/>  
     </Grid>
 

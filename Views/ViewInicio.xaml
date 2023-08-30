@@ -32,25 +32,26 @@
         <Style TargetType="BoxView">
             <Setter Property="VerticalOptions" Value="Start"/>
             <Setter Property="Color"           Value="Gray"/>
-            <Setter Property="HeightRequest"   Value="1"/>
+            <Setter Property="HeightRequest"   Value="0.5"/>
         </Style>
     </ContentPage.Resources>
 
     <ScrollView>
-        <StackLayout Spacing="20">            
+        <StackLayout Spacing="20">
             <Grid RowDefinitions   ="50,250,50,50,50"
                   ColumnDefinitions="*,*,*"
-                  BackgroundColor  ="White">                
-                <Border Grid.Row       ="0"
+                  BackgroundColor  ="White">
+                <!--<Border Grid.Row       ="0"
                         Grid.ColumnSpan="3"
-                        Style          ="{StaticResource borderContainer}">
-                    <Label Grid.Row       ="0"
+                        Style          ="{StaticResource borderContainer}">-->
+                <Label Grid.Row       ="0"
                            Grid.ColumnSpan="3"
-                           Text           ="Bem-Vindo Leanderson"
+                           Text           ="Bem-Vindo, Leanderson!"
+                           FontSize       ="20"
                            Style          ="{StaticResource labelContainer}"/>
-                </Border>
+                <!--</Border>-->
 
-                <Border Grid.Row         ="1"
+                <!--<Border Grid.Row         ="1"
                         Grid.Column      ="1"
                         Margin           ="15"                        
                         HorizontalOptions="Center"
@@ -65,7 +66,20 @@
                             <TapGestureRecognizer Tapped="OnProfileImageTapped" />
                         </Image.GestureRecognizers>
                     </Image>
-                </Border>
+                </Border>-->
+
+                <Image Grid.Row         ="1"
+                       Grid.Column      ="1"
+                       HorizontalOptions="Center"
+                       VerticalOptions  ="StartAndExpand"
+                       HeightRequest    ="150"
+                       WidthRequest     ="150"
+                       Source           ="img_fotoperfil.png"
+                       BackgroundColor  ="White">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfileImageTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
 
                 <Border Grid.Row         ="1"
                         Grid.Column      ="0"
@@ -116,21 +130,17 @@
                        Text             ="Oportunidades"
                        HorizontalOptions="Center"/>
 
-                <BoxView Grid.Row       ="3"
-                         Grid.ColumnSpan="3"/>
+                <!--<BoxView Grid.Row       ="3"
+                         Grid.ColumnSpan="3"/>-->
+
+                <!--<Border Grid.Row       ="3"
+                        Grid.ColumnSpan="3"
+                        Style          ="{StaticResource borderContainer}">-->
 
                 <Label Grid.Row               ="3"
-                       Grid.ColumnSpan        ="3"
-                       Text                   ="Minhas Medalhas"
-                       FontAttributes         ="Bold"
-                       HorizontalTextAlignment="Center"/>
-                <Border Grid.Row       ="3"
-                        Grid.ColumnSpan="3"
-                        Style          ="{StaticResource borderContainer}">
-                    <Label Grid.ColumnSpan="2"
-                           Text           ="Minhas Medalhas"
-                           Style          ="{StaticResource labelContainer}"/>
-                </Border>
+                       Grid.ColumnSpan        ="3"                           
+                       Text           ="Minhas Medalhas"
+                       Style          ="{StaticResource labelContainer}"/>
 
                 <CarouselView Grid.Row         ="4"
                               Grid.ColumnSpan  ="3"
@@ -150,16 +160,16 @@
                   ColumnDefinitions="*,*"
                   BackgroundColor  ="White">
 
-                <BoxView Grid.Row       ="0"
-                         Grid.ColumnSpan="3"/>
+                <!--<BoxView Grid.Row       ="0"
+                         Grid.ColumnSpan="3"/>-->
 
-                <Border Grid.Row       ="0"
+                <!--<Border Grid.Row       ="0"
                         Grid.ColumnSpan="2"
-                        Style          ="{StaticResource borderContainer}">
-                    <Label Grid.ColumnSpan="2"
+                        Style          ="{StaticResource borderContainer}">-->
+                <Label Grid.ColumnSpan="2"
                            Text           ="Últimas Interações"
                            Style          ="{StaticResource labelContainer}"/>
-                </Border>
+                <!--</Border>-->
 
                 <Image Grid.Row         ="1"
                        Grid.Column      ="0"
@@ -211,17 +221,17 @@
                   ColumnDefinitions="*,*,*"
                   BackgroundColor  ="White">
 
-                <BoxView Grid.Row       ="0"
-                         Grid.ColumnSpan="3"/>
+                <!--<BoxView Grid.Row       ="0"
+                         Grid.ColumnSpan="3"/>-->
 
-                <Border Grid.Row       ="0"
+                <!--<Border Grid.Row       ="0"
                         Grid.ColumnSpan="3"                       
-                        Style          ="{StaticResource borderContainer}">
-                    <Label Grid.Row       ="0"
+                        Style          ="{StaticResource borderContainer}">-->
+                <Label Grid.Row       ="0"
                            Grid.ColumnSpan="3"
                            Text           ="Top CEAPE Inovadores"
                            Style          ="{StaticResource labelContainer}"/>
-                </Border>
+                <!--</Border>-->
 
                 <Border Grid.Row         ="1"
                         Grid.Column      ="0"
@@ -242,16 +252,16 @@
                         WidthRequest     ="100"
                         StrokeShape      ="RoundRectangle 50">
                     <Label Text             ="Leanderson"
-                               HorizontalOptions="Center"
-                               VerticalOptions  ="Center"/>
+                           HorizontalOptions="Center"
+                           VerticalOptions  ="Center"/>
                 </Border>
                 <Border Grid.Row         ="1"
-                            Grid.Column      ="2"
-                            HorizontalOptions="Center"
-                            VerticalOptions  ="End"
-                            HeightRequest    ="50"
-                            WidthRequest     ="100"
-                            StrokeShape      ="RoundRectangle 50">
+                        Grid.Column      ="2"
+                        HorizontalOptions="Center"
+                        VerticalOptions  ="End"
+                        HeightRequest    ="50"
+                        WidthRequest     ="100"
+                        StrokeShape      ="RoundRectangle 50">
                     <Label Text             ="Edem"
                                HorizontalOptions="Center"
                                VerticalOptions  ="Center"/>
@@ -263,16 +273,17 @@
                   RowDefinitions ="50,100,*"
                   Margin         ="0,0,0,25"
                   BackgroundColor="White">
-                <BoxView Grid.Row       ="0"
-                         Grid.ColumnSpan="3"/>
-                <Border Grid.Row       ="0"
+
+                <!--<BoxView Grid.Row       ="0"
+                         Grid.ColumnSpan="3"/>-->
+                <!--<Border Grid.Row       ="0"
                         Grid.ColumnSpan="3"                       
-                        Style          ="{StaticResource borderContainer}">
-                    <Label Grid.Row       ="0"
+                        Style          ="{StaticResource borderContainer}">-->
+                <Label Grid.Row       ="0"
                            Grid.ColumnSpan="3"
                            Text           ="Cursos da Gestão de Inovação"
                            Style          ="{StaticResource labelContainer}"/>
-                </Border>
+                <!--</Border>-->
                 <Border Grid.Row    ="1"
                         WidthRequest="375"
                         StrokeShape ="RoundRectangle 20">
@@ -285,12 +296,12 @@
                 </Border>
                 <Label Grid.Row               ="2"
                        Grid.Column            ="1"
-                       Text                   ="Acesse a Academia CEAPE e confira o Módulo"
-                       FontSize               ="15"
+                       Text                   ="Clique para acessar a Academia CEAPE e confira o Módulo"
+                       FontSize               ="12"
                        FontAttributes         ="Bold"
                        HorizontalTextAlignment="Center"/>
             </Grid>
         </StackLayout>
-    </ScrollView>    
+    </ScrollView>
 
 </ContentPage>

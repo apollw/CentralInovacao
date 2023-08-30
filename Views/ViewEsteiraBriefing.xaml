@@ -34,17 +34,17 @@
                     TextColor      ="Red"
                     BorderColor    ="Red"
                     BorderWidth    ="1"
-                    CornerRadius   ="25"
                     FontSize       ="18"
                     FontAttributes ="Bold"
+                    CornerRadius   ="0"
                     Clicked        ="Button_Declinar"/>
             <Button Text           = "Enviar para Definição de Squad"
                     Margin         = "10"
                     BackgroundColor="LightGreen"
                     TextColor      ="White"
-                    CornerRadius   ="25"
                     FontSize       ="18"
                     FontAttributes ="Bold"
+                    CornerRadius   ="0"
                     Clicked        ="Button_EnviarSquad"/>
         </StackLayout>
     </ScrollView>

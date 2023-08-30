@@ -21,7 +21,7 @@
         <BoxView Color        ="Green"
                  HeightRequest="1"/>
 
-        <Label  Text             ="Clique para fazer Login"
+        <Label  Text             ="Clique aqui  para fazer Login"
                 TextColor        ="Black"
                 FontSize         ="18"
                 HorizontalOptions="Center">
