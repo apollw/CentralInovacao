@@ -7,7 +7,7 @@
     xmlns:views="clr-namespace:CentralInovacao.Views"
     Shell.FlyoutBehavior="Flyout"
     Shell.TabBarIsVisible="False"
-    Shell.BackgroundColor="ForestGreen"
+    Shell.BackgroundColor="#14d1ca"
     Shell.FlyoutBackdrop="White"
     Shell.TitleColor="White">
 
@@ -21,14 +21,10 @@
 
     <Shell.FlyoutHeader>
         <!--BackgroundColor="#242B40"-->
-        <StackLayout BackgroundColor="Green" 
+        <StackLayout BackgroundColor="#14d1ca" 
                      Padding        ="10">
-            <Image   Source         ="logo_ceape.png" 
-                     HeightRequest  ="85"/>
-            <!--<Label Text                   ="Central de Inovação"
-                   TextColor              ="White"
-                   FontAttributes         ="Bold"
-                   HorizontalTextAlignment="Center"/>-->
+            <Image   Source         ="img_ceape.png"
+                     HeightRequest  ="200"/>
         </StackLayout>
     </Shell.FlyoutHeader>
 

@@ -8,7 +8,7 @@
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
             <GradientStop Color="FloralWhite" Offset="0.0"/>
-            <GradientStop Color="LightGreen"   Offset="1.0"/>
+            <GradientStop Color="#14d1ca"   Offset="1.0"/>
             
         </LinearGradientBrush>
     </ContentPage.Background>
@@ -18,17 +18,23 @@
         <Image Source           ="logo_ceape.png"
                HeightRequest    ="65"
                HorizontalOptions="Center"/>
-        <BoxView Color        ="Green"
+        <BoxView Color        ="DarkCyan"
                  HeightRequest="1"/>
 
-        <Label  Text             ="Clique aqui  para fazer Login"
-                TextColor        ="Black"
-                FontSize         ="18"
+        <Label  Text             ="Entrar"
+                TextColor        ="White"
+                FontSize         ="20"
                 HorizontalOptions="Center">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="Btn_Login"
                                       NumberOfTapsRequired="1" />
             </Label.GestureRecognizers>
+            <Label.Shadow>
+                <Shadow Brush  ="black"
+                        Offset ="10,10"
+                        Radius ="20"
+                        Opacity="0.5"/>
+            </Label.Shadow>
         </Label>        
     </StackLayout>
         

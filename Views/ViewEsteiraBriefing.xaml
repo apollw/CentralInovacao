@@ -28,6 +28,20 @@
                      BackgroundColor       = "WhiteSmoke"
                      TextChanged           = "OnEditorTextChanged1"
                      Completed             = "OnEditorCompleted"/>
+            <Button Text           = "Enviar para Definição de Squad"
+                    Margin         = "10"
+                    BackgroundColor="#14d1ca"
+                    TextColor      ="White"
+                    FontSize       ="18"
+                    FontAttributes ="Bold"
+                    Clicked        ="Button_EnviarSquad">
+                <Button.Shadow>
+                    <Shadow Brush  ="black"
+                            Offset ="10,10"
+                            Radius ="10"
+                            Opacity="0.5"/>
+                </Button.Shadow>
+            </Button>
             <Button Text           ="Declinar Proposta"
                     Margin         ="10"
                     BackgroundColor="White"
@@ -36,16 +50,15 @@
                     BorderWidth    ="1"
                     FontSize       ="18"
                     FontAttributes ="Bold"
-                    CornerRadius   ="0"
-                    Clicked        ="Button_Declinar"/>
-            <Button Text           = "Enviar para Definição de Squad"
-                    Margin         = "10"
-                    BackgroundColor="LightGreen"
-                    TextColor      ="White"
-                    FontSize       ="18"
-                    FontAttributes ="Bold"
-                    CornerRadius   ="0"
-                    Clicked        ="Button_EnviarSquad"/>
+                    Clicked        ="Button_Declinar">
+                <Button.Shadow>
+                    <Shadow Brush  ="black"
+                            Offset ="10,10"
+                            Radius ="10"
+                            Opacity="0.5"/>
+                </Button.Shadow>
+            </Button>
+
         </StackLayout>
     </ScrollView>
 

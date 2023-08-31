@@ -8,7 +8,7 @@
     <ContentPage.Resources>
         <Style TargetType="CheckBox">
             <Setter Property="HorizontalOptions" Value="End"/>
-            <Setter Property="Color" Value="Green"/>
+            <Setter Property="Color" Value="#14d1ca"/>
         </Style>
     </ContentPage.Resources>
 
@@ -20,7 +20,7 @@
                    FontAttributes         ="Bold"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment  ="Center"
-                   BackgroundColor        ="Green"
+                   BackgroundColor        ="#14d1ca"
                    VerticalOptions        ="Start"
                    HeightRequest          ="50"/>
             <Label Text                   ="Campos Obrigatórios (*)"                      
@@ -122,15 +122,21 @@
                 <CheckBox Grid.Row   ="12"
                           Grid.Column="1"/>
             </Grid>
-            
+
             <Button Text           ="Enviar para Análise"
-                    BackgroundColor="LightGreen"
+                    BackgroundColor="#14d1ca"
                     TextColor      ="White"
-                    CornerRadius   ="25"
                     FontSize       ="18"
                     FontAttributes ="Bold"
                     Clicked        ="Button_Clicked_1"
-                    Margin         ="10"/>
+                    Margin         ="10">
+                <Button.Shadow>
+                    <Shadow Brush  ="black"
+                            Offset ="10,10"
+                            Radius ="10"
+                            Opacity="0.5"/>
+                </Button.Shadow>
+            </Button>
         </StackLayout>   
     </ScrollView>
     

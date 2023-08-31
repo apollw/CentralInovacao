@@ -93,65 +93,72 @@
                 <CheckBox Grid.Row          = "0"
                           Grid.Column       = "1"
                           HorizontalOptions = "End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "1"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "2"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "3"
                           Grid.Column       = "1"
                           HorizontalOptions = "End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "4"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "5"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "6"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "7"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "8"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "9"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "10"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "11"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
                 <CheckBox Grid.Row          = "12"
                           Grid.Column       = "1"
                           HorizontalOptions ="End"
-                          Color             = "Green"/>
+                          Color             = "#14d1ca"/>
             </Grid>
 
             <Button Text           ="Salvar"
                     Margin         ="10"
-                    BackgroundColor="LightGreen"
+                    BackgroundColor="#14d1ca"
                     TextColor      ="White"
                     FontSize       ="18"
                     FontAttributes ="Bold"
-                    Clicked        ="Button_Solicitacao"/>
-            
+                    Clicked        ="Button_Solicitacao">
+                <Button.Shadow>
+                    <Shadow Brush  ="black"
+                            Offset ="10,10"
+                            Radius ="10"
+                            Opacity="0.5"/>
+                </Button.Shadow>
+            </Button>
+
         </StackLayout>
     </ScrollView>    
 

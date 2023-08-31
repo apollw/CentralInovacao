@@ -11,7 +11,7 @@
             <Setter Property="WidthRequest"    Value="350"/>
             <Setter Property="StrokeShape"     Value="RoundRectangle 10"/>
             <Setter Property="StrokeThickness" Value="2"/>
-            <Setter Property="BackgroundColor" Value="WhiteSmoke"/>
+            <Setter Property="BackgroundColor" Value="White"/>
         </Style>
         <!--LABEL CABEÇALHO-->
         <Style TargetType="Label" x:Key="labelCabecalho">
@@ -47,7 +47,7 @@
             <HorizontalStackLayout Spacing="35" Margin="30">
             
             <!--CARD DE BACKLOG-->
-            <Border Style="{StaticResource bordaExterna}">
+            <Border Style="{StaticResource bordaExterna}">                
                 <!--LINHA UM - TÍTULO E BOTÕES-->
                 <Grid RowDefinitions   ="10*,90*"
                       ColumnDefinitions="50*,35*,15*"
@@ -65,9 +65,15 @@
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Border HeightRequest  ="200" 
-                                        Margin         ="15,15,15,15"
+                                        Margin         ="15"
                                         BackgroundColor="WhiteSmoke">
-                                    <Grid RowDefinitions="20*,50*,30*" 
+                                        <Border.Shadow>
+                                            <Shadow Brush  ="black"
+                                                    Offset ="20,20"
+                                                    Radius ="15"
+                                                    Opacity="0.5"/>
+                                        </Border.Shadow>
+                                        <Grid RowDefinitions="20*,50*,30*" 
                                           Padding       ="10">
                                         <Label Grid.Row         ="0" 
                                                Text             ="{Binding .}"
@@ -77,8 +83,8 @@
                                         <Label Grid.Row         ="1" 
                                                Text             ="25/06/2023 8:50:26"
                                                FontSize         ="15"
-                                               HorizontalOptions="Start"/> 
-                                        <Image Source           ="dotnet_bot.png"
+                                               HorizontalOptions="Start"/>
+                                        <Image Source           ="img_fotoperfil.png"
                                                Grid.Row         ="2"
                                                HeightRequest    ="60"
                                                WidthRequest     ="60" 
@@ -112,6 +118,12 @@
                                     <Border HeightRequest  ="200" 
                                             Margin         ="15,15,15,15"
                                             BackgroundColor="WhiteSmoke">
+                                        <Border.Shadow>
+                                            <Shadow Brush  ="black"
+                                                    Offset ="20,20"
+                                                    Radius ="15"
+                                                    Opacity="0.5"/>
+                                        </Border.Shadow>
                                         <Grid RowDefinitions="20*,50*,30*" 
                                               Padding       ="10">
                                             <Label Grid.Row         ="0" 
@@ -123,7 +135,7 @@
                                                    Text             ="25/06/2023 8:50:26"
                                                    FontSize         ="15"
                                                    HorizontalOptions="Start"/>
-                                            <Image Source           ="dotnet_bot.png"
+                                            <Image Source           ="img_fotoperfil.png"
                                                    Grid.Row         ="2"
                                                    HeightRequest    ="60"
                                                    WidthRequest     ="60" 
@@ -157,6 +169,12 @@
                                     <Border HeightRequest  ="200" 
                                             Margin         ="15,15,15,15"
                                             BackgroundColor="WhiteSmoke">
+                                        <Border.Shadow>
+                                            <Shadow Brush  ="black"
+                                                    Offset ="20,20"
+                                                    Radius ="15"
+                                                    Opacity="0.5"/>
+                                        </Border.Shadow>
                                         <Grid RowDefinitions="20*,50*,30*"
                                               Padding       ="10">
                                             <Label Grid.Row         ="0" 
@@ -168,7 +186,7 @@
                                                    Text             ="25/06/2023 8:50:26"
                                                    FontSize         ="15"
                                                    HorizontalOptions="Start"/>
-                                            <Image Source           ="dotnet_bot.png"
+                                            <Image Source           ="img_fotoperfil.png"
                                                    Grid.Row         ="2"
                                                    HeightRequest    ="60"
                                                    WidthRequest     ="60" 
@@ -181,7 +199,7 @@
                 </Grid>
             </Border>
 
-    </HorizontalStackLayout>
+            </HorizontalStackLayout>
         </ScrollView>        
     </StackLayout>  
         

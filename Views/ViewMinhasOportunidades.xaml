@@ -27,6 +27,12 @@
     <Grid RowDefinitions="80*,20*">
         <!--CARD DE OPORTUNIDADES-->
         <Border Grid.Row ="0" Style="{StaticResource borderCardStyle}">
+            <Border.Shadow>
+                <Shadow Brush  ="black"
+                        Offset ="10,10"
+                        Radius ="20"
+                        Opacity="0.5"/>
+            </Border.Shadow>
             <Grid Style="{StaticResource insideGridStyle}">
                 <Label Grid.Row               ="0"
                        Grid.ColumnSpan        ="3"
@@ -82,7 +88,7 @@
             </Grid>
         </Border>
 
-        <ImageButton Source           ="img_addbtn6.png"
+        <ImageButton Source           ="img_addbtn5.png"
                      Grid.Row         ="1"
                      Grid.ColumnSpan  ="2"
                      Margin           ="0,0,15,0"

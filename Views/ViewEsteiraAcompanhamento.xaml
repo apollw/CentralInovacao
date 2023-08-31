@@ -8,15 +8,13 @@
     <ScrollView Margin="10">
         <VerticalStackLayout Spacing="10">
             
-            <Border StrokeShape="RoundRectangle 50 50 50 50"
-                    WidthRequest="325">
-                <Label Text                   ="Quadro Geral"
-                       FontSize               ="25"
-                       FontAttributes         ="Bold"
-                       HorizontalTextAlignment="Center"/>
-            </Border>
+            <Label Text                   ="Quadro Geral"
+                   TextColor              ="DarkCyan"
+                   FontSize               ="25"
+                   FontAttributes         ="Bold"
+                   HorizontalTextAlignment="Center"/>
             
-            <Grid ColumnDefinitions="*,*,*,*">
+            <!--<Grid ColumnDefinitions="*,*,*,*">
                 <Border Grid.Column    ="0"
                         HeightRequest  ="115"
                         StrokeThickness="2"
@@ -73,37 +71,31 @@
                                HorizontalTextAlignment="Center"/>
                     </StackLayout>                    
                 </Border>
-            </Grid>
+            </Grid>-->
 
-            <Border StrokeShape="RoundRectangle 50 50 50 50"
-                    WidthRequest="325">
-                <Label Text                   ="Desempenho dos Envolvidos"
-                       FontSize               ="20"
-                       FontAttributes         ="Bold"
-                       HorizontalTextAlignment="Center"/>
-            </Border>
+            <Label Text                   ="Desempenho dos Envolvidos"
+                   FontSize               ="20"
+                   FontAttributes         ="Bold"
+                   HorizontalTextAlignment="Center"/>
+            <BoxView HeightRequest="1" Color="DarkCyan"/>
 
             <!--É necessário definir um tamanho para cada Chart para renderizar na tela-->
-            <micro:ChartView x:Name = "_chartView" HeightRequest="500"/>
+            <micro:ChartView x:Name = "_chartView" HeightRequest="300"/>
 
-            <Border StrokeShape="RoundRectangle 50 50 50 50"
-                    WidthRequest="325">
-                <Label Text                   ="Performance do Projeto"
-                       FontSize               ="20"
-                       FontAttributes         ="Bold"
-                       HorizontalTextAlignment="Center"/>
-            </Border>
+            <Label Text                   ="Performance do Projeto"
+                   FontSize               ="20"
+                   FontAttributes         ="Bold"
+                   HorizontalTextAlignment="Center"/>
+            <BoxView HeightRequest="1" Color="DarkCyan"/>
 
             <micro:ChartView x:Name = "_chartView1" HeightRequest="200"/>
-
-            <Border StrokeShape="RoundRectangle 50 50 50 50"
-                    WidthRequest="325">
-                <Label Text                   ="Participação dos Setores"
-                       FontSize               ="20"
-                       FontAttributes         ="Bold"
-                       HorizontalTextAlignment="Center"/>
-            </Border>
-
+            
+             <Label Text                   ="Participação dos Setores"
+                    FontSize               ="20"
+                    FontAttributes         ="Bold"
+                    HorizontalTextAlignment="Center"/>
+            <BoxView HeightRequest="1" Color="DarkCyan"/>
+                
             <micro:ChartView x:Name = "_chartView2" HeightRequest="200"/>
             
         </VerticalStackLayout>

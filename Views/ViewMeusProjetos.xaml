@@ -26,6 +26,12 @@
 
     <Grid BackgroundColor="WhiteSmoke">
         <Border Style="{StaticResource borderCardStyle}">
+            <Border.Shadow>
+                <Shadow Brush  ="black"
+                        Offset ="10,10"
+                        Radius ="20"
+                        Opacity="0.5"/>
+            </Border.Shadow>
             <Grid Style="{StaticResource insideGridStyle}">
             <!--COLUNA 1-->
             <Label Grid.Row               ="0"

@@ -3,53 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Views.ViewLogin"
              Title="Entrar no Sistema"
-             BackgroundColor="Green">   
+             BackgroundColor="White">   
     
     <ScrollView>
-        <StackLayout Margin         ="5"
-                     Spacing        ="10"
-                     VerticalOptions="Center">
-
-            <Grid ColumnDefinitions="9*,1*">
-                <Entry Grid.Column     ="0"
-                       x:Name          ="_entryNome"                        
+        <Grid RowDefinitions="*,*">
+            <Image Grid.Row="0"
+                   Source="img_ceape.png"
+                   Aspect="AspectFill"/>
+            <StackLayout Grid.Row="1"
+                         Spacing ="10"
+                         Margin  ="10">
+                <Entry x:Name               ="_entryNome"                        
+                       FontSize             ="15"
+                       CharacterSpacing     ="2"
+                       Placeholder          ="Usuário"
+                       PlaceholderColor     ="Gray"
+                       HeightRequest        ="55"
+                       BackgroundColor      ="WhiteSmoke"
+                       VerticalTextAlignment="End">
+                    <Entry.Shadow>
+                        <Shadow Brush  ="black"
+                                Offset ="0,5"
+                                Radius ="2"
+                                Opacity="0.2"/>
+                    </Entry.Shadow>
+                </Entry>
+                <Entry x:Name          ="_entrySenha"                        
                        FontSize        ="15"
-                       CharacterSpacing="5"
-                       Placeholder     ="Usuário"
-                       PlaceholderColor="Gray"
-                       BackgroundColor ="WhiteSmoke"
-                       HeightRequest   ="55"/>
-                <Image Grid.Column     ="1"
-                       Source          ="user.png"
-                       HeightRequest   ="55"
-                       BackgroundColor="WhiteSmoke"/>
-            </Grid>
-            <!--<BoxView Color        ="White"
-                     HeightRequest="0.5"/>-->
-            <Grid ColumnDefinitions="9*,1*">                
-                <Entry Grid.Column     ="0"
-                       x:Name          ="_entrySenha"                        
-                       FontSize        ="15"
-                       CharacterSpacing="5"                   
+                       CharacterSpacing="2"                   
                        Placeholder     ="Senha"
                        PlaceholderColor="Gray"
                        BackgroundColor ="WhiteSmoke"               
                        HeightRequest   ="55"
-                       IsPassword      ="True"/>
-                <Image Grid.Column     ="1"
-                       Source          ="key.png"
-                       HeightRequest   ="55"
-                       BackgroundColor="WhiteSmoke"/>
-            </Grid>
-            <!--<BoxView Color        ="White"
-                     HeightRequest="0.5"/>-->
-            <Button x:Name         ="_btn_Login"
-                    Text           ="Entrar"
-                    CornerRadius   ="25"
-                    FontSize       ="20"
-                    BackgroundColor="LightGreen"
-                    Clicked        ="Btn_Login"/>
-        </StackLayout>
+                       IsPassword      ="True">
+                    <Entry.Shadow>
+                        <Shadow Brush  ="black"
+                                Offset ="0,5"
+                                Radius ="2"
+                                Opacity="0.2"/>
+                    </Entry.Shadow>
+                </Entry>
+
+                <Button x:Name         ="_btn_Login"
+                        Text           ="Entrar"
+                        FontSize       ="20"
+                        BackgroundColor="#14d1ca"
+                        Clicked        ="Btn_Login"/>
+                <Button x:Name         ="_btn_Senha"
+                        Text           ="Esqueci a Senha"
+                        TextColor      ="#14d1ca"
+                        FontSize       ="20"
+                        BorderColor    ="#14d1ca"
+                        BorderWidth    ="1"
+                        BackgroundColor="White"
+                        Clicked        ="Btn_Login"/>
+            </StackLayout>
+        </Grid>
     </ScrollView>
     
 </ContentPage>

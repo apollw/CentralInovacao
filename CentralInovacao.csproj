@@ -95,6 +95,7 @@
 	  <None Remove="Resources\Images\img_addbtn5.png" />
 	  <None Remove="Resources\Images\img_addbtn6.png" />
 	  <None Remove="Resources\Images\img_banner.png" />
+	  <None Remove="Resources\Images\img_ceape.png" />
 	  <None Remove="Resources\Images\img_fotoperfil.png" />
 	  <None Remove="Resources\Images\img_medalha1.png" />
 	  <None Remove="Resources\Images\img_medalha2.png" />

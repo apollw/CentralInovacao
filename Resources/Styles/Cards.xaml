@@ -16,7 +16,7 @@
     <Style TargetType="Button" x:Key="smallButtonStyle">
         <Setter Property="TextColor"         Value="Black"/>
         <Setter Property="FontSize"          Value="12"/>
-        <Setter Property="BorderColor"       Value="Green"/>
+        <Setter Property="BorderColor"       Value="#14d1ca"/>
         <Setter Property="BorderWidth"       Value="1"/>
         <Setter Property="BackgroundColor"   Value="White"/>
         <Setter Property="HorizontalOptions" Value="End"/>

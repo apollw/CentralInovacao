@@ -5,22 +5,13 @@
              Title="Chamado para Inovação">
 
     <StackLayout Spacing="3">
-        <!--<Label     Text                     = "Chamado para Inovação"
-                   TextColor                = "White"
-                   FontSize                 = "Medium"
-                   FontAttributes           = "Bold"
-                   HorizontalTextAlignment  = "Center"
-                   VerticalTextAlignment    = "Center"
-                   BackgroundColor          = "Green"
-                   VerticalOptions          = "Start"
-                   HeightRequest            = "50"/>-->
-        <Label     Text                     = "Setor de Origem:"                       
-                   FontAttributes           = "Bold"
-                   Padding                  = "5"/>
-        <Picker    Title            = "Selecione um Setor"
-                   BackgroundColor  = "WhiteSmoke"
-                   WidthRequest     = "400"
-                   HeightRequest    = "40"
+        <Label     Text           ="Setor de Origem:"                       
+                   FontAttributes ="Bold"
+                   Padding        ="5"/>
+        <Picker    Title          ="Selecione um Setor"
+                   BackgroundColor="WhiteSmoke"
+                   WidthRequest   ="400"
+                   HeightRequest  ="40"
                    HorizontalTextAlignment="Center">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
@@ -88,11 +79,18 @@
                    HeightRequest            = "1"
                    WidthRequest             = "400"/>
         <Button Text           = "Solicitar"
-                BackgroundColor="LightGreen"
+                BackgroundColor="#14d1ca"
                 TextColor      ="White"
                 FontSize       ="18"
                 FontAttributes ="Bold"
                 Clicked        = "Btn_Chamado"
-                Margin         = "10"/>
-        </StackLayout>
+                Margin         = "10">
+            <Button.Shadow>
+                <Shadow Brush  ="black"
+                        Offset ="10,10"
+                        Radius ="10"
+                        Opacity="0.5"/>
+            </Button.Shadow>
+        </Button>
+    </StackLayout>
 </ContentPage>
