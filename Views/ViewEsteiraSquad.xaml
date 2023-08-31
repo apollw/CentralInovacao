@@ -90,14 +90,7 @@
                 HeightRequest    ="75"
                 WidthRequest     ="150"
                 BackgroundColor  ="White"
-                HorizontalOptions="Start">
-            <Button.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="10"
-                        Opacity="0.5"/>
-            </Button.Shadow>
-        </Button>
+                HorizontalOptions="Start"/>
 
         <Button Grid.Row         ="1"
                 Grid.Column      ="1"
@@ -108,14 +101,8 @@
                 HeightRequest    ="75"
                 WidthRequest     ="150"
                 BackgroundColor  ="#14d1ca"
-                HorizontalOptions="End">
-            <Button.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="10"
-                        Opacity="0.5"/>
-            </Button.Shadow>
-        </Button>
+                HorizontalOptions="End"/>       
+
     </Grid>
 
 </ContentPage>

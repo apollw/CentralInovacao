@@ -64,7 +64,6 @@
                 Margin         ="10"
                 BackgroundColor="Red"
                 TextColor      ="White"
-                CornerRadius   ="25"
                 FontSize       ="18"
                 FontAttributes ="Bold"
                 Clicked        ="Btn_Declinada"/>        

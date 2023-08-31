@@ -84,13 +84,7 @@
                 FontSize       ="18"
                 FontAttributes ="Bold"
                 Clicked        = "Btn_Chamado"
-                Margin         = "10">
-            <Button.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="10"
-                        Opacity="0.5"/>
-            </Button.Shadow>
-        </Button>
+                Margin         = "10"/>
+
     </StackLayout>
 </ContentPage>

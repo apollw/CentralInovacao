@@ -7,7 +7,7 @@
     <ScrollView>
         <StackLayout Spacing="3">
 
-            <Label     Text                     = "Colaborador(*)"                       
+            <Label Text                     = "Colaborador(*)"                       
                    FontAttributes           = "Bold"
                    Padding                  = "5"/>
             <Entry     FontSize                 = "Medium"
@@ -150,14 +150,7 @@
                     TextColor      ="White"
                     FontSize       ="18"
                     FontAttributes ="Bold"
-                    Clicked        ="Button_Solicitacao">
-                <Button.Shadow>
-                    <Shadow Brush  ="black"
-                            Offset ="10,10"
-                            Radius ="10"
-                            Opacity="0.5"/>
-                </Button.Shadow>
-            </Button>
+                    Clicked        ="Button_Solicitacao"/>
 
         </StackLayout>
     </ScrollView>    
