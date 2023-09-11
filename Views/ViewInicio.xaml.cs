@@ -56,7 +56,7 @@ public partial class ViewInicio : ContentPage
                     // Salva a imagem em algum armazenamento, como o banco de dados ou um serviço de armazenamento em nuvem
 
                     // Exemplo: Atualiza a imagem exibida na tela
-                    //_fotoPerfil.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+                    _fotoPerfil.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
                 }
             }
         }

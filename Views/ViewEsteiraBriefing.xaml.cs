@@ -26,5 +26,6 @@ public partial class ViewEsteiraBriefing : ContentPage
     private async void Button_EnviarSquad(object sender, EventArgs e)
     {
         await DisplayAlert("", "Enviada para Definição de Squad", "Fechar");
+        await Shell.Current.GoToAsync("..");
     }
 }

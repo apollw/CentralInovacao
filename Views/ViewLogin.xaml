@@ -6,7 +6,7 @@
              BackgroundColor="White">   
     
     <ScrollView>
-        <Grid RowDefinitions="*,*">
+        <Grid RowDefinitions="5*,5*">
             <Image Grid.Row="0"
                    Source="img_ceape.png"
                    Aspect="AspectFill"/>
@@ -15,12 +15,17 @@
                          Margin  ="10">
                 <Entry x:Name               ="_entryNome"                        
                        FontSize             ="15"
+                       MaxLength            ="50"
                        CharacterSpacing     ="2"
                        Placeholder          ="Usuário"
                        PlaceholderColor     ="Gray"
                        HeightRequest        ="55"
                        BackgroundColor      ="WhiteSmoke"
-                       VerticalTextAlignment="End">
+                       VerticalTextAlignment="End"
+                       ClearButtonVisibility="WhileEditing"
+                       Keyboard             ="Default"
+                       Focused              ="_entryNome_Focused"
+                       ReturnType           ="Done">
                     <Entry.Shadow>
                         <Shadow Brush  ="black"
                                 Offset ="0,5"
@@ -28,14 +33,17 @@
                                 Opacity="0.2"/>
                     </Entry.Shadow>
                 </Entry>
-                <Entry x:Name          ="_entrySenha"                        
-                       FontSize        ="15"
-                       CharacterSpacing="2"                   
-                       Placeholder     ="Senha"
-                       PlaceholderColor="Gray"
-                       BackgroundColor ="WhiteSmoke"               
-                       HeightRequest   ="55"
-                       IsPassword      ="True">
+                <Entry x:Name                ="_entrySenha"                        
+                       FontSize              ="15"
+                       CharacterSpacing      ="2"                   
+                       Placeholder           ="Senha"
+                       PlaceholderColor      ="Gray"
+                       BackgroundColor       ="WhiteSmoke"               
+                       HeightRequest         ="55"
+                       IsPassword            ="True"
+                       ClearButtonVisibility = "WhileEditing"
+                       Focused               = "_entrySenha_Focused"
+                       ReturnType            = "Done">
                     <Entry.Shadow>
                         <Shadow Brush  ="black"
                                 Offset ="0,5"

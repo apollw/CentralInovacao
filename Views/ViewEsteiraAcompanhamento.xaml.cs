@@ -9,40 +9,40 @@ public partial class ViewEsteiraAcompanhamento : ContentPage
     //Fonte de Dados Hard-Coded
     ChartEntry[] entries = new[]
     {
-        new ChartEntry(212)
+        new ChartEntry(200)
         {
             Label= "Leanderson",
-            ValueLabel = "112",
+            ValueLabel = "20",
             Color=SKColor.Parse("#2c3e50")
         },
-        new ChartEntry(248)
+        new ChartEntry(250)
         {
             Label= "Edem",
-            ValueLabel = "648",
+            ValueLabel = "25",
             Color=SKColor.Parse("#77d065")
         },
-        new ChartEntry(128)
+        new ChartEntry(370)
         {
             Label= "Danilo",
-            ValueLabel = "428",
+            ValueLabel = "37",
             Color=SKColor.Parse("#b455b6")
         },
-        new ChartEntry(514)
+        new ChartEntry(180)
         {
             Label= "Bruce",
-            ValueLabel = "214",
+            ValueLabel = "18",
             Color=SKColor.Parse("#3498db")
         }
     };
     ChartEntry[] entries2 = new[]
 {
-        new ChartEntry(212)
+        new ChartEntry(10)
         {
             Label= "Finalizadas",
             ValueLabel = "10",
             Color=SKColor.Parse("#2c3e50")
         },
-        new ChartEntry(248)
+        new ChartEntry(13)
         {
             Label= "Pendentes",
             ValueLabel = "13",

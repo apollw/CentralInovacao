@@ -52,7 +52,8 @@
                     <Label Text           ="Bem-Vindo(a), Leanderson!"
                            FontSize       ="20"
                            Style          ="{StaticResource labelContainer}"/>
-                    <Image HorizontalOptions="Center"
+                    <Image x:Name           ="_fotoPerfil"
+                           HorizontalOptions="Center"
                            VerticalOptions  ="StartAndExpand"
                            HeightRequest    ="150"
                            WidthRequest     ="150"
@@ -191,9 +192,9 @@
                     </Grid>
                 </VerticalStackLayout>
             </Border>
-            
+           
             <!--QUARTO CONTÊINER-->
-            <Border BackgroundColor="#14d1ca" Style="{StaticResource borderGeral}">
+            <!--<Border BackgroundColor="#14d1ca" Style="{StaticResource borderGeral}">
                 <Border.Shadow>
                     <Shadow Brush  ="black"
                             Offset ="10,10"
@@ -237,7 +238,7 @@
                         </Border>
                     </Grid>
                 </VerticalStackLayout>
-            </Border>
+            </Border>-->
             
             <!--QUINTO CONTÊINER-->
             <Border Style="{StaticResource borderGeral}">

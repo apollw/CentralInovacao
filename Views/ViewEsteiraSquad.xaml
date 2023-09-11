@@ -70,10 +70,7 @@
                        Grid.Column            ="2"
                        Text                   ="Ok"
                        HorizontalTextAlignment="End"/>
-                <Button Grid.Row   ="4"
-                        Grid.Column="2"
-                        Text       ="Abrir"
-                        Style      ="{StaticResource smallButtonStyle}"/>
+
             </Grid>
         </Border>
 

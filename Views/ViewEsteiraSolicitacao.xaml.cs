@@ -27,5 +27,6 @@ public partial class ViewEsteiraSolicitacao : ContentPage
     private async void Button_Solicitacao(object sender, EventArgs e)
     {
         await DisplayAlert("", "Solicitação Salva", "Fechar");
+        await Shell.Current.GoToAsync("..");
     }
 }
