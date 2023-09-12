@@ -9,54 +9,9 @@
                      Clicked = "Btn_Logout"/>
     </ContentPage.ToolbarItems>
 
-    <StackLayout>
-        <Border BackgroundColor="White" Style="{StaticResource borderGeral}" Margin="15">
-                <VerticalStackLayout Spacing="10" Margin="10">
-                <Label Text                       ="Top Inovadores"
-                           TextColor              ="Black"
-                           FontSize               ="20"
-                           FontAttributes         ="Bold"
-                           Style                  ="{StaticResource labelContainer}"
-                           HorizontalTextAlignment="Center"/>
-                <Grid ColumnDefinitions="*,*,*">
-                        <Border Grid.Column      ="0"
-                                HorizontalOptions="Center"
-                                VerticalOptions  ="End"
-                                HeightRequest    ="50"
-                                WidthRequest     ="100"
-                                StrokeShape      ="RoundRectangle 50">
-                            <Label Text             ="Danilo"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions  ="Center"/>
-                        </Border>
-                        <Border Grid.Column      ="1"
-                                HorizontalOptions="Center"
-                                VerticalOptions  ="End"
-                                HeightRequest    ="50"
-                                WidthRequest     ="100"
-                                StrokeShape      ="RoundRectangle 50">
-                            <Label Text             ="Leanderson"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions  ="Center"/>
-                        </Border>
-                        <Border Grid.Column      ="2"
-                                HorizontalOptions="Center"
-                                VerticalOptions  ="End"
-                                HeightRequest    ="50"
-                                WidthRequest     ="100"
-                                StrokeShape      ="RoundRectangle 50">
-                            <Label Text             ="Edem"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions  ="Center"/>
-                        </Border>
-                    </Grid>
-                </VerticalStackLayout>
-        </Border>
-
-        <Grid RowDefinitions    = "35,*"
-          ColumnDefinitions = "*,*">
-
-            <Label Grid.Row="0"
+    <Grid RowDefinitions   ="35,*"
+          ColumnDefinitions="*,*">
+        <Label Grid.Row="0"
                Grid.Column="0"
                Text                    = "Nome"
                FontSize                = "Medium"
@@ -64,7 +19,7 @@
                HorizontalTextAlignment = "Center"
                BackgroundColor         = "White"/>
 
-            <Label Grid.Row                = "0"
+        <Label Grid.Row                = "0"
                Grid.Column             = "1"
                Text                    = "Projetos"
                FontSize                = "Medium"
@@ -72,38 +27,37 @@
                HorizontalTextAlignment = "Center"
                BackgroundColor         = "White"/>
 
-            <BoxView Grid.Row="0"
-                 Grid.ColumnSpan="2"
-                 Color="Gray"
-                 HeightRequest="1"
-                 VerticalOptions="End"/>
+        <BoxView Grid.Row="0"
+                     Grid.ColumnSpan="2"
+                     Color="Gray"
+                    HeightRequest="1"
+                    VerticalOptions="End"/>
 
             <ListView Grid.Row        = "2"
-                  Grid.Column      ="0"
-                  x:Name          = "_myListView"
-                  BackgroundColor = "White">
+                      Grid.Column      ="0"
+                      x:Name          = "_myListView"
+                      BackgroundColor = "White">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text      = "{Binding}"
-                              TextColor = "Black"/>
+                                  TextColor = "Black"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+        </ListView>
 
-            <ListView Grid.Row          = "2"
-                  Grid.Column       = "1"
-                  x:Name            = "_myListView1"
-                  BackgroundColor   = "White"
-                  HorizontalOptions = "End">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text      = "{Binding}"
+        <ListView   Grid.Row          = "2"
+                Grid.Column       = "1"
+                x:Name            = "_myListView1"
+                BackgroundColor   = "White"
+                HorizontalOptions = "End">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text      = "{Binding}"
                               TextColor = "Black"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        </Grid>
-    </StackLayout>
+    </Grid>
     
 </ContentPage>
