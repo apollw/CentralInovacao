@@ -50,17 +50,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <AndroidResource Remove="Models\**" />
 	  <AndroidResource Remove="ViewModels\**" />
-	  <Compile Remove="Models\**" />
 	  <Compile Remove="ViewModels\**" />
-	  <EmbeddedResource Remove="Models\**" />
 	  <EmbeddedResource Remove="ViewModels\**" />
-	  <MauiCss Remove="Models\**" />
 	  <MauiCss Remove="ViewModels\**" />
-	  <MauiXaml Remove="Models\**" />
 	  <MauiXaml Remove="ViewModels\**" />
-	  <None Remove="Models\**" />
 	  <None Remove="ViewModels\**" />
 	</ItemGroup>
 
@@ -114,7 +108,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 	  <PackageReference Include="Microcharts.Maui" Version="1.0.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
