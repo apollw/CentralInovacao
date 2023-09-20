@@ -55,7 +55,7 @@
                        FontAttributes ="Bold"
                        Padding        ="5"/>
 
-            <Grid RowDefinitions   ="*,*,*,*,*,*,*,*,*,*,*,*,*"
+            <!--<Grid RowDefinitions   ="*,*,*,*,*,*,*,*,*,*,*,*,*"
                   ColumnDefinitions="300,*"
                   HeightRequest    ="350"
                   Padding          ="10">
@@ -86,40 +86,79 @@
                 <Label  Grid.Row="12"   
                         Text    ="Tecnologia da Informação"/>
 
-                <CheckBox Grid.Row   ="0"
-                          Grid.Column="1"/>
-                <CheckBox Grid.Row   ="1"
-                          Grid.Column="1"/>
+                <CheckBox Grid.Row      ="0"
+                          Grid.Column   ="1"/>
+                <CheckBox Grid.Row      ="1"
+                          Grid.Column   ="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="2"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="3"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="4"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="5"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="6"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="7"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="8"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="9"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="10"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="11"
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
                 <CheckBox Grid.Row   ="12"
-                          Grid.Column="1"/>
-            </Grid>
+                          Grid.Column="1"
+                          CheckedChanged="OnCheckBoxCheckedChanged"/>
+            </Grid>-->
+
+            <CollectionView x:Name     ="_collectionView" 
+                            ItemsSource="{Binding Setores}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing       ="0"
+                              RowDefinitions   ="10,Auto,10,0.5"
+                              ColumnDefinitions="33*,33*,33*"
+                              VerticalOptions  ="FillAndExpand">
+                            <Label Text       ="{Binding Nome}"
+                                   Grid.Row   ="1"
+                                   Grid.Column="0"/>
+                            <CheckBox x:Name            = "_checkBox"
+                                      IsChecked         = "{Binding Status, Mode=TwoWay}"
+                                      CheckedChanged    = "OnCheckBoxCheckedChanged" 
+                                      Color             = "Green" 
+                                      Grid.Row          = "1" 
+                                      Grid.Column       = "3" 
+                                      HorizontalOptions = "End"/>
+                            <BoxView  BackgroundColor   = "Black"
+                                          Grid.Row          = "3"
+                                          Grid.Column       = "0"
+                                          Grid.ColumnSpan   = "3"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <Button Text           ="Enviar para Análise"
                     BackgroundColor="#14d1ca"
                     TextColor      ="White"
                     FontSize       ="18"
                     FontAttributes ="Bold"
-                    Clicked        ="Button_Clicked_1"
+                    Clicked        ="Btn_SalvarOportunidade"
                     Margin         ="10"/>
         </StackLayout>   
     </ScrollView>

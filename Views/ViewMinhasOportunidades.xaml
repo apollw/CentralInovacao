@@ -36,7 +36,7 @@
             <Grid Style="{StaticResource insideGridStyle}">
                 <Label Grid.Row               ="0"
                        Grid.ColumnSpan        ="3"
-                       Text                   ="Oportunidade 1"
+                       Text                   ="nada"
                        TextColor              ="Black"
                        FontSize               ="18"
                        FontAttributes         ="Bold"

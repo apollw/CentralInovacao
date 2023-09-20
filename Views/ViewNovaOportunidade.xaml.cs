@@ -6,12 +6,15 @@ namespace CentralInovacao.Views;
 
 public partial class ViewNovaOportunidade : ContentPage
 {
-    ViewModelOportunidade ViewModelOportunidade = new ViewModelOportunidade();
+    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
     ModelOportunidade ModelOportunidade = new ModelOportunidade();
-	public ViewNovaOportunidade()
+
+    
+    public ViewNovaOportunidade()
 	{
 		InitializeComponent();
-        BindingContext = ViewModelOportunidade;
+        BindingContext = VMOportunidade;
+        
 	}
     void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
     {
@@ -30,20 +33,25 @@ public partial class ViewNovaOportunidade : ContentPage
         string text = ((Editor)sender).Text;
     }
 
-    private async void Button_Clicked(object sender, EventArgs e)
+    private async void Btn_SalvarOportunidade(object sender, EventArgs e)
     {
-        await DisplayAlert("", "Oportunidade Salva", "Fechar");
+        ModelOportunidade.TituloDaSolucao  =_entryTitulo.Text;
+        ModelOportunidade.AspectosPositivos=_editor1.Text;
+        ModelOportunidade.AspectosNegativos=_editor2.Text;
+
+        VMOportunidade.SalvarOportunidade(ModelOportunidade);
+
+        await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
+        await Shell.Current.GoToAsync("..");
     }
 
-    private async void Button_Clicked_1(object sender, EventArgs e)
+    public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        ModelOportunidade.TituloDaSolucao= _entryTitulo.Text;
-        ModelOportunidade.AspectosPositivos = _editor1.Text;
-        ModelOportunidade.AspectosNegativos = _editor2.Text;
+        var checkBox = sender as CheckBox;
 
-        ViewModelOportunidade.SalvarOportunidade(ModelOportunidade);
-
-        await DisplayAlert("", "Oportunidade Registrada", "Fechar");
-        await Shell.Current.GoToAsync("..");
+        if (checkBox.IsChecked)
+        {
+            var test = 1;
+        }
     }
 }

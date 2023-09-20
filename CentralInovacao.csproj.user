@@ -59,5 +59,8 @@
     <MauiXaml Update="Views\ViewRankingGeral.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\ViewSplashScreen.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
 </Project>
