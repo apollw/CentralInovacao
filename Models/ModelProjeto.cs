@@ -8,6 +8,8 @@ namespace CentralInovacao.Models
 {
     public class ModelProjeto
     {
-
+        private int                  _id;
+        private string               _titulo;
+        private ModelStatusDoProjeto _statusDoProjeto;
     }
 }

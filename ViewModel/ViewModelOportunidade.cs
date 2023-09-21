@@ -14,35 +14,46 @@ using System.Threading.Tasks;
 namespace CentralInovacao.ViewModel
 {
     public partial class ViewModelOportunidade : ObservableObject
-    {      
+    {
         [ObservableProperty]
         private ModelOportunidade _modelOportunidade;
+        [ObservableProperty]
+        private List<ModelOportunidade> _listaDeOportunidades;
+        [ObservableProperty]
+        private List<Setor> _setoresDisponiveis;
+        [ObservableProperty]
+        private ObservableCollection<Setor> _setoresSelecionados;
+
         public ViewModelOportunidade()
         {
            _modelOportunidade = new ModelOportunidade();
+           _listaDeOportunidades = new List<ModelOportunidade>();
+
+           //SetoresDisponiveis = Enum.GetValues(typeof(Setor)).Cast<Setor>().ToList();
+           //SetoresSelecionados = new ObservableCollection<Setor>();
         }
 
         public void SalvarOportunidade(ModelOportunidade modelOportunidade)
         {
-            //ModelOportunidade com "M" maiúsculo já é a propriedade gerada
-            //em ObservableProperty
-            ModelOportunidade = modelOportunidade;
-
-            //Salvar alterações no JSON Local
-            var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidade.json");
-            File.WriteAllText(filePath, JsonConvert.SerializeObject(ModelOportunidade));
-
-        }
-        public ModelOportunidade CarregarOportunidade()
-        {
-            var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidade.json");
+            var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                ModelOportunidade = JsonConvert.DeserializeObject<ModelOportunidade>(json);
+                ListaDeOportunidades = JsonConvert.DeserializeObject<List<ModelOportunidade>>(json);
             }
+            ListaDeOportunidades.Add(modelOportunidade);
+            File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
 
-            return ModelOportunidade;
+        }
+        public List<ModelOportunidade> CarregarOportunidades()
+        {
+            var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                ListaDeOportunidades = JsonConvert.DeserializeObject<List<ModelOportunidade>>(json);
+            }
+            return ListaDeOportunidades;
         }
     }
 }

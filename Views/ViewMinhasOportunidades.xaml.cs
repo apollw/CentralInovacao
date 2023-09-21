@@ -6,13 +6,13 @@ namespace CentralInovacao.Views;
 public partial class ViewMinhasOportunidades : ContentPage
 {
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    ModelOportunidade ModelOportunidade = new ModelOportunidade();
+    List<ModelOportunidade> ListaDeOportunidades = new List<ModelOportunidade>();
 	public ViewMinhasOportunidades()
 	{
 		InitializeComponent();
         BindingContext = VMOportunidade;
 
-        ModelOportunidade = VMOportunidade.CarregarOportunidade();
+        ListaDeOportunidades = VMOportunidade.CarregarOportunidades();
 	}
     private async void Btn_Logout(object sender, EventArgs e)
     {

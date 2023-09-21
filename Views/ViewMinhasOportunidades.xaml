@@ -24,70 +24,54 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="80*,20*">
-        <!--CARD DE OPORTUNIDADES-->
-        <Border Grid.Row ="0" Style="{StaticResource borderCardStyle}">
-            <Border.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="20"
-                        Opacity="0.5"/>
-            </Border.Shadow>
-            <Grid Style="{StaticResource insideGridStyle}">
-                <Label Grid.Row               ="0"
-                       Grid.ColumnSpan        ="3"
-                       Text                   ="nada"
-                       TextColor              ="Black"
-                       FontSize               ="18"
-                       FontAttributes         ="Bold"
-                       Margin                 ="0,10"
-                       HorizontalTextAlignment= "Center"/>
-                <!--COLUNA 1-->
-                <Image Grid.Row         ="1"
-                       Grid.Column      ="0"
-                       Source           ="administrator.png"
-                       HorizontalOptions="Start"/>
-                <Image Grid.Row         ="2"
-                       Grid.Column      ="0"
-                       Source           ="barchart.png"
-                       HorizontalOptions="Start"/>
-                <Image Grid.Row         ="3"
-                       Grid.Column      ="0"
-                       Source           ="clock.png"
-                       HorizontalOptions="Start"/>
-                <!--COLUNA 2-->
-                <Label Grid.Row   ="1"
-                       Grid.Column="1"
-                       Text       ="Responsável:"
-                       Style      ="{StaticResource insideLabelStyle}"/>
-                <Label Grid.Row   ="2"
-                       Grid.Column="1"
-                       Text       ="Situação Atual:"
-                       Style      ="{StaticResource insideLabelStyle}"/>
-                <Label Grid.Row   = "3"
-                       Grid.Column="1"
-                       Text       ="Tempo do Projeto:"
-                       Style      ="{StaticResource insideLabelStyle}"/>
-                <!--COLUNA 3-->
-                <Label Grid.Row               ="1"
-                       Grid.Column            ="2"
-                       Text                   ="Edem Fernando"                            
-                       HorizontalTextAlignment="End"/>
-                <Label Grid.Row               ="2"
-                       Grid.Column            ="2"
-                       Text                   ="Declinado"
-                       HorizontalTextAlignment="End"/>
-                <Label Grid.Row               ="3"
-                       Grid.Column            ="2"
-                       Text                   ="15 dias"
-                       HorizontalTextAlignment="End"/>
-                <Button Grid.Row   ="4"
-                        Grid.Column="2"
-                        Text       ="Editar"
-                        Style      ="{StaticResource smallButtonStyle}"/>
-            </Grid>
-        </Border>
-
+    <Grid RowDefinitions="8*,2*">
+        <CollectionView Grid.Row="0" ItemsSource="{Binding ListaDeOportunidades}">
+            <!-- Aqui você define o layout para cada item da coleção -->
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Grid.Row ="0" Style="{StaticResource borderCardStyle}">
+                        <Border.Shadow>
+                            <Shadow Brush  ="black"
+                                    Offset ="10,10"
+                                    Radius ="20"
+                                    Opacity="0.5"/>
+                        </Border.Shadow>
+                        <Grid Style="{StaticResource insideGridStyle}">
+                            <Label Grid.Row               ="0"
+                                   Grid.ColumnSpan        ="3"
+                                   Text                   ="{Binding TituloDaSolucao}"
+                                   TextColor              ="Black"
+                                   FontSize               ="18"
+                                   FontAttributes         ="Bold"
+                                   Margin                 ="0,10"
+                                   HorizontalTextAlignment= "Center"/>
+                            <!--COLUNA 1-->
+                            <!--VAZIA-->
+                            <!--COLUNA 2-->
+                            <Label Grid.Row   ="1"
+                                   Grid.Column="1"
+                                   Text       ="{Binding AspectosPositivos}"
+                                   Style      ="{StaticResource insideLabelStyle}"/>
+                            <Label Grid.Row   ="2"
+                                   Grid.Column="1"
+                                   Text       ="{Binding AspectosNegativos}"
+                                   Style      ="{StaticResource insideLabelStyle}"/>
+                            <Label Grid.Row   ="3"
+                                   Grid.Column="1"
+                                   Text       ="{Binding Setores}"
+                                   Style      ="{StaticResource insideLabelStyle}"/>
+                            <!--COLUNA 3-->
+                            <!--VAZIA-->
+                            <Button Grid.Row   ="4"
+                                    Grid.Column="2"
+                                    Text       ="Editar"
+                                    Style      ="{StaticResource smallButtonStyle}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
         <ImageButton Source           ="img_addbtn5.png"
                      Grid.Row         ="1"
                      Grid.ColumnSpan  ="2"
@@ -95,7 +79,8 @@
                      Clicked          ="Btn_NovaOp"
                      HeightRequest    ="75"
                      WidthRequest     ="75"
-                     HorizontalOptions="End"/> 
+                     HorizontalOptions="End"/>
+
     </Grid>
-    
+
 </ContentPage>

@@ -7,8 +7,7 @@ namespace CentralInovacao.Views;
 public partial class ViewNovaOportunidade : ContentPage
 {
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    ModelOportunidade ModelOportunidade = new ModelOportunidade();
-
+    ModelOportunidade ModelOportunidade = new ModelOportunidade();  
     
     public ViewNovaOportunidade()
 	{
@@ -18,19 +17,19 @@ public partial class ViewNovaOportunidade : ContentPage
 	}
     void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
     {
-        string oldText = e.OldTextValue;
-        string newText = e.NewTextValue;
-        string myText  = _editor1.Text;
+        string oldText=e.OldTextValue;
+        string newText=e.NewTextValue;
+        string myText =_editor1.Text;
     }
     void OnEditorTextChanged2(object sender, TextChangedEventArgs e)
     {
-        string oldText = e.OldTextValue;
-        string newText = e.NewTextValue;
-        string myText  = _editor2.Text;
+        string oldText=e.OldTextValue;
+        string newText=e.NewTextValue;
+        string myText =_editor2.Text;
     }
     void OnEditorCompleted(object sender, EventArgs e)
     {
-        string text = ((Editor)sender).Text;
+        string text=((Editor)sender).Text;
     }
 
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)
@@ -38,7 +37,7 @@ public partial class ViewNovaOportunidade : ContentPage
         ModelOportunidade.TituloDaSolucao  =_entryTitulo.Text;
         ModelOportunidade.AspectosPositivos=_editor1.Text;
         ModelOportunidade.AspectosNegativos=_editor2.Text;
-
+        
         VMOportunidade.SalvarOportunidade(ModelOportunidade);
 
         await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
@@ -52,6 +51,7 @@ public partial class ViewNovaOportunidade : ContentPage
         if (checkBox.IsChecked)
         {
             var test = 1;
+            var test2 = test;
         }
     }
 }
