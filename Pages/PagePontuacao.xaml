@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Pages.PagePontuacao"
+             Title="Sobre a Pontuação">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text    = "Logout" 
+                     Clicked = "Btn_Logout"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <!--ESTILO DA GRID INTERNA À CARD-BORDER-->
+        <Style TargetType="Grid" x:Key="insideGridStyle">
+            <Setter Property="RowDefinitions"    Value="65,30,30,30,30"/>
+            <Setter Property="ColumnDefinitions" Value="1*,5*,4*"/>
+            <Setter Property="Padding"           Value="15"/>
+            <Setter Property="RowSpacing"        Value="10"/>
+        </Style>
+        <!--ESTILO DAS LABELS INTERNAS-->
+        <Style TargetType="Label" x:Key="insideLabelStyle">
+            <Setter Property="FontAttributes"          Value="Bold"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <Label Text                   ="Como adquirir mais Pontos?"
+                   TextColor              ="Black"
+                   FontSize               ="18"
+                   FontAttributes         ="Bold"
+                   Margin                 ="0,10"
+                   HorizontalTextAlignment= "Start"/>
+            <Label Text="Exemplo 1"/>
+
+            <Label Text                   ="Como funcionam os Rankings?"
+                   TextColor              ="Black"
+                   FontSize               ="18"
+                   FontAttributes         ="Bold"
+                   Margin                 ="0,10"
+                   HorizontalTextAlignment="Start"/>
+            <Label Text="Exemplo 1"/>
+
+            <Label Text                   ="Como funciona o sistema de medalhas?"
+                   TextColor              ="Black"
+                   FontSize               ="18"
+                   FontAttributes         ="Bold"
+                   Margin                 ="0,10"
+                   HorizontalTextAlignment="Start"/>
+            <Label Text="Exemplo 1"/>
+            
+        </StackLayout>
+    </ScrollView>
+    
+</ContentPage>

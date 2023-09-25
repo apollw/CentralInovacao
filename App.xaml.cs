@@ -1,4 +1,4 @@
-﻿using CentralInovacao.Views;
+﻿using CentralInovacao.Pages;
 
 namespace CentralInovacao;
 

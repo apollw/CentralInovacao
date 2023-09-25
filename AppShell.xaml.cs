@@ -1,4 +1,4 @@
-﻿using CentralInovacao.Views;
+﻿using CentralInovacao.Pages;
 
 namespace CentralInovacao;
 
@@ -9,22 +9,20 @@ public partial class AppShell : Shell
 		InitializeComponent();
 
         //Registro de Rotas
-        Routing.RegisterRoute(nameof(ViewChamado), typeof(ViewChamado));
-        Routing.RegisterRoute(nameof(ViewProjeto), typeof(ViewProjeto));        
-        Routing.RegisterRoute(nameof(ViewNovaOportunidade), typeof(ViewNovaOportunidade));
+        Routing.RegisterRoute(nameof(PageProjeto)              , typeof(PageProjeto));        
+        Routing.RegisterRoute(nameof(PageNovaOportunidade)     , typeof(PageNovaOportunidade));
 
-        Routing.RegisterRoute(nameof(ViewInicio), typeof(ViewInicio));
-        Routing.RegisterRoute(nameof(ViewPontuacao), typeof(ViewPontuacao));
-        Routing.RegisterRoute(nameof(ViewRankingGeral), typeof(ViewRankingGeral));
-        Routing.RegisterRoute(nameof(ViewMeusProjetos), typeof(ViewMeusProjetos));
-        Routing.RegisterRoute(nameof(ViewMinhasRequisicoes), typeof(ViewMinhasRequisicoes));
-        Routing.RegisterRoute(nameof(ViewMinhasOportunidades), typeof(ViewMinhasOportunidades));
+        Routing.RegisterRoute(nameof(PageInicio)               , typeof(PageInicio));
+        Routing.RegisterRoute(nameof(PagePontuacao)            , typeof(PagePontuacao));
+        Routing.RegisterRoute(nameof(PageRankingGeral)         , typeof(PageRankingGeral));
+        Routing.RegisterRoute(nameof(PageMeusProjetos)         , typeof(PageMeusProjetos));
+        Routing.RegisterRoute(nameof(PageMinhasOportunidades)  , typeof(PageMinhasOportunidades));
 
-        Routing.RegisterRoute(nameof(ViewEsteiraSquad), typeof(ViewEsteiraSquad));
-        Routing.RegisterRoute(nameof(ViewEsteiraBriefing), typeof(ViewEsteiraBriefing));
-        Routing.RegisterRoute(nameof(ViewEsteiraSolicitacao), typeof(ViewEsteiraSolicitacao));
-        Routing.RegisterRoute(nameof(ViewEsteiraPlanejamento), typeof(ViewEsteiraPlanejamento));
-        Routing.RegisterRoute(nameof(ViewEsteiraAcompanhamento), typeof(ViewEsteiraAcompanhamento));
+        Routing.RegisterRoute(nameof(PageEsteiraSquad)         , typeof(PageEsteiraSquad));
+        Routing.RegisterRoute(nameof(PageEsteiraBriefing)      , typeof(PageEsteiraBriefing));
+        Routing.RegisterRoute(nameof(PageEsteiraSolicitacao)   , typeof(PageEsteiraSolicitacao));
+        Routing.RegisterRoute(nameof(PageEsteiraPlanejamento)  , typeof(PageEsteiraPlanejamento));
+        Routing.RegisterRoute(nameof(PageEsteiraAcompanhamento), typeof(PageEsteiraAcompanhamento));
 
 
     }

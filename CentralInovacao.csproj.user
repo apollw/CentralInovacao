@@ -11,55 +11,46 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Views\ViewChamado.xaml">
+    <MauiXaml Update="Pages\PageDeclinio.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewDeclinio.xaml">
+    <MauiXaml Update="Pages\PageEsteiraAcompanhamento.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewEsteiraAcompanhamento.xaml">
+    <MauiXaml Update="Pages\PageEsteiraBriefing.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewEsteiraBriefing.xaml">
+    <MauiXaml Update="Pages\PageEsteiraPlanejamento.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewEsteiraPlanejamento.xaml">
+    <MauiXaml Update="Pages\PageEsteiraSolicitacao.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewEsteiraSolicitacao.xaml">
+    <MauiXaml Update="Pages\PageEsteiraSquad.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewEsteiraSquad.xaml">
+    <MauiXaml Update="Pages\PageInicio.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewInicio.xaml">
+    <MauiXaml Update="Pages\PageLogin.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewLogin.xaml">
+    <MauiXaml Update="Pages\PageMeusProjetos.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewMeusProjetos.xaml">
+    <MauiXaml Update="Pages\PageMinhasOportunidades.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewMinhasOportunidades.xaml">
+    <MauiXaml Update="Pages\PageNovaOportunidade.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewMinhasRequisicoes.xaml">
+    <MauiXaml Update="Pages\PagePontuacao.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
+    <MauiXaml Update="Pages\PageProjeto.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ViewPontuacao.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Views\ViewProjeto.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Views\ViewRankingGeral.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Views\ViewSplashScreen.xaml">
+    <MauiXaml Update="Pages\PageRankingGeral.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

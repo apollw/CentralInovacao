@@ -4,12 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CentralInovacao"
-    xmlns:views="clr-namespace:CentralInovacao.Views"
-    Shell.FlyoutBehavior="Flyout"
+    xmlns:views="clr-namespace:CentralInovacao.Pages"
+    Shell.TitleColor="White"
+    Shell.FlyoutBehavior ="Flyout"
     Shell.TabBarIsVisible="False"
     Shell.BackgroundColor="#14d1ca"
-    Shell.FlyoutBackdrop="White"
-    Shell.TitleColor="White">
+    Shell.FlyoutBackdrop ="White">
 
     <!--Shell.FlyoutBehavior="Flyout"
     Shell.TabBarIsVisible="False"
@@ -37,28 +37,24 @@
     <FlyoutItem FlyoutDisplayOptions ="AsMultipleItems">
         <ShellContent Title          ="Central de Ideias"                      
                       FlyoutIcon     ="shellicon_idea.png"                      
-                      ContentTemplate="{DataTemplate views:ViewInicio}"
-                      Route          ="ViewInicio"/>
-        <!--<ShellContent Title          ="Minhas Requisições"
-                      FlyoutIcon     ="shellicon_request.png"                      
-                      ContentTemplate="{DataTemplate views:ViewMinhasRequisicoes}"
-                      Route          ="ViewMinhasRequisicoes"/>-->
+                      ContentTemplate="{DataTemplate views:PageInicio}"
+                      Route          ="PageInicio"/>
         <ShellContent Title          ="Minhas Oportunidades"
                       FlyoutIcon     ="shellicon_inovation.png"
-                      ContentTemplate="{DataTemplate views:ViewMinhasOportunidades}"
-                      Route          ="ViewMinhasOportunidades"/>
+                      ContentTemplate="{DataTemplate views:PageMinhasOportunidades}"
+                      Route          ="PageMinhasOportunidades"/>
         <ShellContent Title          ="Meus Projetos"
                       FlyoutIcon     ="shellicon_project.png"
-                      ContentTemplate="{DataTemplate views:ViewMeusProjetos}"
-                      Route          ="ViewMeusProjetos"/>
+                      ContentTemplate="{DataTemplate views:PageMeusProjetos}"
+                      Route          ="PageMeusProjetos"/>
         <ShellContent Title          ="Ranking Geral"
                       FlyoutIcon     ="shellicon_rank.png"
-                      ContentTemplate="{DataTemplate views:ViewRankingGeral}"
-                      Route          ="ViewRankingGeral"/>
+                      ContentTemplate="{DataTemplate views:PageRankingGeral}"
+                      Route          ="PageRankingGeral"/>
         <ShellContent Title          ="Sobre a Pontuação"
                       FlyoutIcon     ="shellicon_score.png"
-                      ContentTemplate="{DataTemplate views:ViewPontuacao}"
-                      Route          ="ViewPontuacao"/>
+                      ContentTemplate="{DataTemplate views:PagePontuacao}"
+                      Route          ="PagePontuacao"/>
     </FlyoutItem>
 
     <!--<TabBar>

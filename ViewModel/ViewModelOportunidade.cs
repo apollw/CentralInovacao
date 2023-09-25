@@ -1,5 +1,6 @@
 ﻿using CentralInovacao.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Maui.ApplicationModel.Communication;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,48 +11,42 @@ using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace CentralInovacao.ViewModel
 {
     public partial class ViewModelOportunidade : ObservableObject
     {
         [ObservableProperty]
-        private ModelOportunidade _modelOportunidade;
+        private Oportunidade _oportunidade;
         [ObservableProperty]
-        private List<ModelOportunidade> _listaDeOportunidades;
-        [ObservableProperty]
-        private List<Setor> _setoresDisponiveis;
-        [ObservableProperty]
-        private ObservableCollection<Setor> _setoresSelecionados;
+        private List<Oportunidade> _listaDeOportunidades;
 
         public ViewModelOportunidade()
         {
-           _modelOportunidade = new ModelOportunidade();
-           _listaDeOportunidades = new List<ModelOportunidade>();
-
-           //SetoresDisponiveis = Enum.GetValues(typeof(Setor)).Cast<Setor>().ToList();
-           //SetoresSelecionados = new ObservableCollection<Setor>();
+            _oportunidade         = new Oportunidade();
+            _listaDeOportunidades = new List<Oportunidade>();            
         }
 
-        public void SalvarOportunidade(ModelOportunidade modelOportunidade)
+        public void SalvarOportunidade(Oportunidade oportunidade)
         {
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                ListaDeOportunidades = JsonConvert.DeserializeObject<List<ModelOportunidade>>(json);
+                ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
             }
-            ListaDeOportunidades.Add(modelOportunidade);
+            ListaDeOportunidades.Add(oportunidade);
             File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
 
         }
-        public List<ModelOportunidade> CarregarOportunidades()
+        public List<Oportunidade> CarregarOportunidades()
         {
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                ListaDeOportunidades = JsonConvert.DeserializeObject<List<ModelOportunidade>>(json);
+                ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
             }
             return ListaDeOportunidades;
         }

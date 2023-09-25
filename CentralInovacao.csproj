@@ -123,11 +123,47 @@
 	  <Compile Update="MainPage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ViewInicio.xaml.cs">
-	    <DependentUpon>ViewInicio.xaml</DependentUpon>
+	  <Compile Update="Pages\PageDeclinio.xaml.cs">
+	    <DependentUpon>PageDeclinio.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ViewMinhasRequisicoes.xaml.cs">
-	    <DependentUpon>ViewMinhasRequisicoes.xaml</DependentUpon>
+	  <Compile Update="Pages\PageEsteiraAcompanhamento.xaml.cs">
+	    <DependentUpon>PageEsteiraAcompanhamento.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageEsteiraBriefing.xaml.cs">
+	    <DependentUpon>PageEsteiraBriefing.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageEsteiraPlanejamento.xaml.cs">
+	    <DependentUpon>PageEsteiraPlanejamento.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageEsteiraSolicitacao.xaml.cs">
+	    <DependentUpon>PageEsteiraSolicitacao.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageEsteiraSquad.xaml.cs">
+	    <DependentUpon>PageEsteiraSquad.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageInicio.xaml.cs">
+	    <DependentUpon>PageInicio.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageLogin.xaml.cs">
+	    <DependentUpon>PageLogin.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageMeusProjetos.xaml.cs">
+	    <DependentUpon>PageMeusProjetos.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageMinhasOportunidades.xaml.cs">
+	    <DependentUpon>PageMinhasOportunidades.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageNovaOportunidade.xaml.cs">
+	    <DependentUpon>PageNovaOportunidade.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PagePontuacao.xaml.cs">
+	    <DependentUpon>PagePontuacao.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageProjeto.xaml.cs">
+	    <DependentUpon>PageProjeto.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PageRankingGeral.xaml.cs">
+	    <DependentUpon>PageRankingGeral.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -135,57 +171,52 @@
 	  <MauiXaml Update="Resources\Styles\Cards.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewChamado.xaml">
+	  <MauiXaml Update="Pages\PageDeclinio.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewDeclinio.xaml">
+	  <MauiXaml Update="Pages\PageEsteiraAcompanhamento.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewEsteiraAcompanhamento.xaml">
+	  <MauiXaml Update="Pages\PageEsteiraBriefing.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewEsteiraBriefing.xaml">
+	  <MauiXaml Update="Pages\PageEsteiraPlanejamento.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewEsteiraPlanejamento.xaml">
+	  <MauiXaml Update="Pages\PageEsteiraSolicitacao.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewEsteiraSolicitacao.xaml">
+	  <MauiXaml Update="Pages\PageEsteiraSquad.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewEsteiraSquad.xaml">
+	  <MauiXaml Update="Pages\PageInicio.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewInicio.xaml">
+	  <MauiXaml Update="Pages\PageLogin.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewLogin.xaml">
+	  <MauiXaml Update="Pages\PageMeusProjetos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewMeusProjetos.xaml">
+	  <MauiXaml Update="Pages\PageMinhasOportunidades.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewMinhasOportunidades.xaml">
+	  <MauiXaml Update="Pages\PageNovaOportunidade.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewMinhasRequisicoes.xaml">
+	  <MauiXaml Update="Pages\PagePontuacao.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewNovaOportunidade.xaml">
+	  <MauiXaml Update="Pages\PageProjeto.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewPontuacao.xaml">
+	  <MauiXaml Update="Pages\PageRankingGeral.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewProjeto.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewRankingGeral.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\ViewSplashScreen.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Services\" />
 	</ItemGroup>
 	
 </Project>

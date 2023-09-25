@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Pages.PageEsteiraPlanejamento"
+             Title="Esteira de Planejamento">
+
+    <ContentPage.Resources>
+        <!--BORDA EXTERNA-->
+        <Style TargetType="Border" x:Key="bordaExterna">
+            <Setter Property="HeightRequest"   Value="650"/>
+            <Setter Property="WidthRequest"    Value="350"/>
+            <Setter Property="StrokeShape"     Value="RoundRectangle 10"/>
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+        </Style>
+        <!--LABEL CABEÇALHO-->
+        <Style TargetType="Label" x:Key="labelCabecalho">
+            <Setter Property="Grid.Row"          Value="0"/>
+            <Setter Property="Grid.Column"       Value="0"/>
+            <Setter Property="FontSize"          Value="20"/>
+            <Setter Property="FontAttributes"    Value="Bold"/>
+            <Setter Property="VerticalOptions"   Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        <!--IMAGEBUTTON 1 - CABEÇALHO-->
+        <Style TargetType="ImageButton" x:Key="imgButton1Cabecalho">
+            <Setter Property="Grid.Row"          Value="0"/>
+            <Setter Property="Grid.Column"       Value="1"/>
+            <Setter Property="Source"            Value="img_addbtn3.png"/>
+            <Setter Property="HeightRequest"     Value="45"/>
+            <Setter Property="WidthRequest"      Value="35"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+        <!--IMAGEBUTTON 2 - CABEÇALHO-->
+        <Style TargetType="ImageButton" x:Key="imgButton2Cabecalho">
+            <Setter Property="Grid.Row"          Value="0"/>
+            <Setter Property="Grid.Column"       Value="2"/>
+            <Setter Property="Source"            Value="img_threepoints.png"/>
+            <Setter Property="HeightRequest"     Value="45"/>
+            <Setter Property="WidthRequest"      Value="35"/>
+            <Setter Property="HorizontalOptions" Value="End"/>
+        </Style>
+    </ContentPage.Resources>    
+
+    <StackLayout VerticalOptions="Center">
+        <ScrollView Orientation="Horizontal" HorizontalOptions="Center" HorizontalScrollBarVisibility="Never">                
+            <HorizontalStackLayout Spacing="35" Margin="30">
+            
+            <!--CARD DE BACKLOG-->
+            <Border Style="{StaticResource bordaExterna}">                
+                <!--LINHA UM - TÍTULO E BOTÕES-->
+                <Grid RowDefinitions   ="10*,90*"
+                      ColumnDefinitions="50*,35*,15*"
+                      Margin           ="10">
+                    <Label Text="Backlog" Style="{StaticResource labelCabecalho}"/>
+                    <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
+                    <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
+                    
+                    <!--LINHA 2 - COLEÇÃO DE ITENS-->
+                    <CollectionView Grid.Row       ="1"
+                                    Grid.ColumnSpan="3"
+                                    x:Name         ="_collectionView"
+                                    BackgroundColor="White"
+                                    ItemsSource    ="{Binding Items}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border HeightRequest  ="200" 
+                                        Margin         ="15"
+                                        BackgroundColor="WhiteSmoke">
+                                        <Border.Shadow>
+                                            <Shadow Brush  ="black"
+                                                    Offset ="20,20"
+                                                    Radius ="15"
+                                                    Opacity="0.5"/>
+                                        </Border.Shadow>
+                                        <Grid RowDefinitions="20*,50*,30*" 
+                                          Padding       ="10">
+                                        <Label Grid.Row         ="0" 
+                                               Text             ="{Binding .}"
+                                               FontSize         ="15"
+                                               FontAttributes   ="Bold"
+                                               HorizontalOptions="Center"/>
+                                        <Label Grid.Row         ="1" 
+                                               Text             ="25/06/2023 8:50:26"
+                                               FontSize         ="15"
+                                               HorizontalOptions="Start"/>
+                                        <Image Source           ="img_fotoperfil.png"
+                                               Grid.Row         ="2"
+                                               HeightRequest    ="60"
+                                               WidthRequest     ="60" 
+                                               HorizontalOptions="End"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Border>
+                    
+            <!--CARD DE ANDAMENTO-->
+            <Border Style="{StaticResource bordaExterna}">
+                <!--LINHA UM - TÍTULO E BOTÕES-->
+                <Grid RowDefinitions   ="10*,90*"
+                      ColumnDefinitions="50*,35*,15*"
+                      Margin           ="10">
+                        <Label Text="Em Execução" Style="{StaticResource labelCabecalho}"/>
+                        <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
+                        <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
+
+                        <!--LINHA 2 - COLEÇÃO DE ITENS-->
+                        <CollectionView Grid.Row       ="1"
+                                        Grid.ColumnSpan="3"
+                                        x:Name         ="_collectionView1"
+                                        BackgroundColor="White"
+                                        ItemsSource    ="{Binding Items}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border HeightRequest  ="200" 
+                                            Margin         ="15,15,15,15"
+                                            BackgroundColor="WhiteSmoke">
+                                        <Border.Shadow>
+                                            <Shadow Brush  ="black"
+                                                    Offset ="20,20"
+                                                    Radius ="15"
+                                                    Opacity="0.5"/>
+                                        </Border.Shadow>
+                                        <Grid RowDefinitions="20*,50*,30*" 
+                                              Padding       ="10">
+                                            <Label Grid.Row         ="0" 
+                                                   Text             ="{Binding .}"
+                                                   FontSize         ="15"
+                                                   FontAttributes   ="Bold"
+                                                   HorizontalOptions="Center"/>
+                                            <Label Grid.Row         ="1"
+                                                   Text             ="25/06/2023 8:50:26"
+                                                   FontSize         ="15"
+                                                   HorizontalOptions="Start"/>
+                                            <Image Source           ="img_fotoperfil.png"
+                                                   Grid.Row         ="2"
+                                                   HeightRequest    ="60"
+                                                   WidthRequest     ="60" 
+                                                   HorizontalOptions="End"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </Grid>
+                </Border>
+
+                <!--CARD DE ANDAMENTO-->
+            <Border Style="{StaticResource bordaExterna}">
+                <!--LINHA UM - TÍTULO E BOTÕES-->
+                <Grid RowDefinitions   ="10*,90*"
+                      ColumnDefinitions="50*,35*,15*"
+                      Margin           ="10">
+                      <Label Text="Finalizados" Style="{StaticResource labelCabecalho}"/>
+                      <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
+                      <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
+
+                <!--LINHA 2 - COLEÇÃO DE ITENS-->
+                <CollectionView Grid.Row       ="1"
+                                Grid.ColumnSpan="3"
+                                x:Name         ="_collectionView2"
+                                BackgroundColor="White"
+                                ItemsSource    ="{Binding Items}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                                    <Border HeightRequest  ="200" 
+                                            Margin         ="15,15,15,15"
+                                            BackgroundColor="WhiteSmoke">
+                                        <Border.Shadow>
+                                            <Shadow Brush  ="black"
+                                                    Offset ="20,20"
+                                                    Radius ="15"
+                                                    Opacity="0.5"/>
+                                        </Border.Shadow>
+                                        <Grid RowDefinitions="20*,50*,30*"
+                                              Padding       ="10">
+                                            <Label Grid.Row         ="0" 
+                                                   Text             ="{Binding .}"
+                                                   FontSize         ="15"
+                                                   FontAttributes   ="Bold"
+                                                   HorizontalOptions="Center"/>
+                                            <Label Grid.Row         ="1"
+                                                   Text             ="25/06/2023 8:50:26"
+                                                   FontSize         ="15"
+                                                   HorizontalOptions="Start"/>
+                                            <Image Source           ="img_fotoperfil.png"
+                                                   Grid.Row         ="2"
+                                                   HeightRequest    ="60"
+                                                   WidthRequest     ="60" 
+                                                   HorizontalOptions="End"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                </Grid>
+            </Border>
+
+            </HorizontalStackLayout>
+        </ScrollView>        
+    </StackLayout>  
+        
+</ContentPage>
