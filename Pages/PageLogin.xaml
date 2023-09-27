@@ -63,8 +63,7 @@
                         FontSize       ="20"
                         BorderColor    ="#14d1ca"
                         BorderWidth    ="1"
-                        BackgroundColor="White"
-                        Clicked        ="Btn_Login"/>
+                        BackgroundColor="White"/>
             </StackLayout>
         </Grid>
     </ScrollView>

@@ -13,7 +13,6 @@
         <!--ESTILO DA GRID INTERNA À CARD-BORDER-->
         <Style TargetType="Grid" x:Key="insideGridStyle">
             <Setter Property="RowDefinitions"    Value="65,30,30,30,30"/>
-            <Setter Property="ColumnDefinitions" Value="1*,5*,4*"/>
             <Setter Property="Padding"           Value="15"/>
             <Setter Property="RowSpacing"        Value="10"/>
         </Style>
@@ -30,51 +29,29 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border Grid.Row ="0" Style="{StaticResource borderCardStyle}">
-                        <Border.Shadow>
-                            <Shadow Brush  ="black"
-                                    Offset ="10,10"
-                                    Radius ="20"
-                                    Opacity="0.5"/>
-                        </Border.Shadow>
                         <Grid Style="{StaticResource insideGridStyle}">
                             <Label Grid.Row               ="0"
-                                   Grid.ColumnSpan        ="3"
                                    Text                   ="{Binding TituloDaSolucao}"
-                                   TextColor              ="Black"
+                                   TextColor              ="DarkCyan"
                                    FontSize               ="18"
                                    FontAttributes         ="Bold"
                                    Margin                 ="0,10"
-                                   HorizontalTextAlignment= "Center"/>
-                            <!--COLUNA 1-->
-                            <Image Grid.Row         ="1"
-                                   Grid.Column      ="0"
-                                   Source           ="administrator.png"
-                                   HorizontalOptions="Start"/>
-                            <Image Grid.Row         ="2"
-                                   Grid.Column      ="0"
-                                   Source           ="barchart.png"
-                                   HorizontalOptions="Start"/>
-                            <Image Grid.Row         ="3"
-                                   Grid.Column      ="0"
-                                   Source           ="clock.png"
-                                   HorizontalOptions="Start"/>
-                            <!--COLUNA 2-->
+                                   HorizontalTextAlignment= "Center"/>                           
                             <Label Grid.Row   ="1"
-                                   Grid.Column="1"
-                                   Text       ="{Binding AspectosPositivos}"
+                                   Grid.Column="0"
+                                   Text       ="{Binding AspectosPositivos, StringFormat='Aspectos Positivos: {0}'}"
                                    Style      ="{StaticResource insideLabelStyle}"/>
                             <Label Grid.Row   ="2"
-                                   Grid.Column="1"
-                                   Text       ="{Binding AspectosNegativos}"
+                                   Grid.Column="0"
+                                   Text       ="{Binding AspectosNegativos, StringFormat='Aspectos Negativos: {0}'}"
                                    Style      ="{StaticResource insideLabelStyle}"/>
                             <Label Grid.Row   ="3"
-                                   Grid.Column="1"                                   
+                                   Grid.Column="0"                                   
                                    Style      ="{StaticResource insideLabelStyle}"/>
-                            <!--COLUNA 3-->
-                            <!--VAZIA-->
+                            <!--COLUNA 1-->
                             <Button Grid.Row   ="4"
-                                    Grid.Column="2"
                                     Text       ="Editar"
+                                    WidthRequest="150"
                                     Style      ="{StaticResource smallButtonStyle}"/>
                         </Grid>
                     </Border>

@@ -18,14 +18,14 @@ namespace CentralInovacao.ViewModel
     public partial class ViewModelOportunidade : ObservableObject
     {
         [ObservableProperty]
-        private Oportunidade _oportunidade;
+        private Oportunidade       _oportunidade;
         [ObservableProperty]
         private List<Oportunidade> _listaDeOportunidades;
 
         public ViewModelOportunidade()
         {
-            _oportunidade         = new Oportunidade();
-            _listaDeOportunidades = new List<Oportunidade>();            
+            Oportunidade         = new Oportunidade();
+            ListaDeOportunidades = new List<Oportunidade>();            
         }
 
         public void SalvarOportunidade(Oportunidade oportunidade)

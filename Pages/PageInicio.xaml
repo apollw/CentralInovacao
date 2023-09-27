@@ -49,7 +49,7 @@
                             Opacity="0.5"/>
                 </Border.Shadow>
                 <VerticalStackLayout BackgroundColor  ="White" Spacing="20">
-                    <Label Text           ="Bem-Vindo(a), Leanderson!"
+                    <Label Text           ="Bem-Vindo(a), Colaborador!"
                            FontSize       ="20"
                            Style          ="{StaticResource labelContainer}"/>
                     <Image x:Name           ="_fotoPerfil"
@@ -121,7 +121,7 @@
             </Border>
             
             <!--SEGUNDO CONTÊINER-->
-            <Border BackgroundColor="#14d1ca" Style="{StaticResource borderGeral}">
+            <Border Style="{StaticResource borderGeral}">
                 <Border.Shadow>
                     <Shadow Brush  ="black"
                             Offset ="10,10"
@@ -131,12 +131,11 @@
                 <VerticalStackLayout Spacing="10" Margin="10">
                     <Label Grid.Row       ="3"
                            Grid.ColumnSpan="3"                           
-                           Text           ="Minhas Medalhas"
-                           TextColor      ="White"
+                           Text           ="Minhas Medalhas"                           
                            Style          ="{StaticResource labelContainer}"/>
                     <CarouselView x:Name           ="_carouselView"
                                   HorizontalOptions="Center"
-                                  HeightRequest="100">
+                                  HeightRequest    ="100">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <Image Source="{Binding}"/>
@@ -147,7 +146,8 @@
             </Border>
             
             <!--TERCEIRO CONTÊINER-->
-            <Border Style="{StaticResource borderGeral}">
+            <Border Style="{StaticResource borderGeral}"
+                    HeightRequest="200">
                 <Border.Shadow>
                     <Shadow Brush  ="black"
                             Offset ="10,10"
@@ -157,15 +157,8 @@
                 <VerticalStackLayout Spacing="10" Margin="10">
                     <Label Text           ="Últimas Interações"
                            Style          ="{StaticResource labelContainer}"/>
-                    <Grid ColumnDefinitions="*,*">
-                        <Image Grid.Column      ="0"
-                               HorizontalOptions="Center"
-                               VerticalOptions  ="StartAndExpand"
-                               HeightRequest    ="100"
-                               WidthRequest     ="100"
-                               Source           ="img_fotoperfil.png"
-                               BackgroundColor  ="White"/>
-                        <CarouselView Grid.Column     ="1"
+                    <Grid ColumnDefinitions="*" HeightRequest="150" BackgroundColor="Yellow">
+                        <CarouselView Grid.Column     ="0"
                                       x:Name          ="carouselView"
                                       ItemsSource     ="{Binding LastInteractions}"
                                       IsScrollAnimated="True"              
@@ -174,17 +167,26 @@
                                       VerticalOptions ="StartAndExpand">
                             <CarouselView.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid RowDefinitions="35,*">
-                                        <Label Grid.Row         ="0"
-                                               Text             ="{Binding Title}"
-                                               FontSize         ="15"
-                                               FontAttributes   ="Bold"
+                                    <Grid RowDefinitions="2*,8*" ColumnDefinitions="*,*">
+                                        <Image Grid.Column      ="0"
                                                HorizontalOptions="Center"
-                                               VerticalOptions  ="Start"/>
+                                               VerticalOptions  ="StartAndExpand"
+                                               HeightRequest    ="100"
+                                               WidthRequest     ="100"
+                                               Source           ="img_fotoperfil.png"
+                                               BackgroundColor  ="White"/>
+                                        <Label Grid.Row               ="0"
+                                               Grid.Column            ="1"
+                                               Text                   ="{Binding Title}"
+                                               FontSize               ="15"
+                                               FontAttributes         ="Bold"
+                                               VerticalOptions        ="Start"
+                                               HorizontalTextAlignment="Center"/>
                                         <Label Grid.Row         ="1"
+                                               Grid.Column      ="1"
                                                Text             ="{Binding Description}"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions  ="Start"/>
+                                               VerticalOptions  ="Start"
+                                               HorizontalTextAlignment="Center"/>
                                     </Grid>
                                 </DataTemplate>
                             </CarouselView.ItemTemplate>
@@ -202,8 +204,8 @@
                             Opacity="0.5"/>
                 </Border.Shadow>
                 <VerticalStackLayout Spacing="10" Margin="10">
-                    <Label Text           ="Cursos da Gestão de Inovação"
-                           Style          ="{StaticResource labelContainer}"/>
+                    <Label Text         ="Cursos da Gestão de Inovação"
+                           Style        ="{StaticResource labelContainer}"/>
                     <Border StrokeShape ="RoundRectangle 20">
                         <Image Source   ="img_banner.png"
                                Aspect   ="AspectFill">
