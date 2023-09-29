@@ -9,16 +9,16 @@
         <Style TargetType="Border">
             <Setter Property="Margin"            Value="15"/>
             <Setter Property="StrokeShape"       Value="RoundRectangle 25"/>
-            <Setter Property="HeightRequest"     Value="125"/>
             <Setter Property="WidthRequest"      Value="140"/>
+            <Setter Property="HeightRequest"     Value="125"/>
             <Setter Property="VerticalOptions"   Value="Start"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
         </Style>
         <!--ESTILO DA LABEL-->
         <Style TargetType="Label">
-            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize"                Value="14"/>
+            <Setter Property="FontAttributes"          Value="Bold"/>
             <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="14"/>
         </Style>
         <!--ESTILO DO IMAGEBUTTON-->
         <Style TargetType="ImageButton">
@@ -26,89 +26,119 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="*,*,*,*"
+    <Grid RowDefinitions="*,*"
           ColumnDefinitions="*,*">
 
         <!--COLUNA 1-->
-        <Border Grid.Row="0" VerticalOptions="Center">
+        <Border 
+            Grid.Row        = "0" 
+            VerticalOptions = "Center">
             <Border.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="20"
-                        Opacity="0.5"/>
+                <Shadow 
+                    Brush   = "black"
+                    Offset  = "10,10"
+                    Radius  = "20"
+                    Opacity = "0.5"/>
             </Border.Shadow>            
-            <VerticalStackLayout Spacing="5" Margin="5">
-                <ImageButton Source  ="imgbutton_request.png"
-                             Clicked ="Btn_Solicitacao"/>
-                <Label Text                 ="Solicitação"  
-                       VerticalTextAlignment="End"/>
+            <VerticalStackLayout 
+                Spacing = "5" 
+                Margin  = "5">
+                <ImageButton 
+                    Source  = "imgbutton_request.png"
+                    Clicked = "Btn_Solicitacao"/>
+                <Label 
+                    Text                  = "Solicitação"  
+                    VerticalTextAlignment = "End"/>
             </VerticalStackLayout>            
         </Border>
-
-        <Border Grid.Row="1" VerticalOptions="Center">
+        <!--<Border 
+            Grid.Row        = "1" 
+            VerticalOptions = "Center">
             <Border.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="20"
-                        Opacity="0.5"/>
+                <Shadow 
+                    Brush   = "black"
+                    Offset  = "10,10"
+                    Radius  = "20"
+                    Opacity = "0.5"/>
             </Border.Shadow>
-            <VerticalStackLayout Spacing="5" Margin="5">
-                <ImageButton Source   ="imgbutton_analysis.png"  
-                             Clicked  ="Btn_AnaliseBriefing"/>
-                <Label Text                 ="Análise"
-                       VerticalTextAlignment="End"/>
+            <VerticalStackLayout 
+                Spacing = "5" 
+                Margin  = "5">
+                <ImageButton 
+                    Source  = "imgbutton_analysis.png"  
+                    Clicked = "Btn_AnaliseBriefing"/>
+                <Label 
+                    Text                  = "Análise"
+                    VerticalTextAlignment = "End"/>
             </VerticalStackLayout>            
-        </Border>
-
-        <Border Grid.Row="2" VerticalOptions="Center">
+        </Border>-->
+        <Border 
+            Grid.Row        = "1" 
+            VerticalOptions = "Center">
             <Border.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="20"
-                        Opacity="0.5"/>
+                <Shadow 
+                    Brush   = "black"
+                    Offset  = "10,10"
+                    Radius  = "20"
+                    Opacity = "0.5"/>
             </Border.Shadow>
-            <VerticalStackLayout Spacing="5" Margin="5">
-                <ImageButton Source  ="imgbutton_project.png" 
-                             Clicked ="Btn_Acompanhamento"/>
-                <Label Text                 ="Acompanhamento"
-                       FontSize             ="12"
-                       VerticalTextAlignment="End"/>
+            <VerticalStackLayout 
+                Spacing = "5" 
+                Margin  = "5">
+                <ImageButton 
+                    Source  = "imgbutton_project.png" 
+                    Clicked = "Btn_Acompanhamento"/>
+                <Label 
+                    Text                  = "Acompanhamento"
+                    FontSize              = "12"
+                    VerticalTextAlignment = "End"/>
             </VerticalStackLayout>
         </Border>        
 
         <!--COLUNA 2-->
-
-        <Border Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
+        <Border 
+            Grid.Row        = "0" 
+            Grid.Column     = "1" 
+            VerticalOptions = "Center">
             <Border.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="20"
-                        Opacity="0.5"/>
+                <Shadow 
+                    Brush   = "black"
+                    Offset  = "10,10"
+                    Radius  = "20"
+                    Opacity = "0.5"/>
             </Border.Shadow>
-            <VerticalStackLayout Spacing="5" Margin="5">
-                <ImageButton Source     ="imgbutton_group.png"
-                             Clicked    ="Btn_Squad"/>
-                <Label Text                 ="Grupo"
-                       VerticalTextAlignment="End"/>
+            <VerticalStackLayout 
+                Spacing = "5" 
+                Margin  = "5">
+                <ImageButton 
+                    Source  = "imgbutton_group.png"
+                    Clicked = "Btn_Squad"/>
+                <Label 
+                    Text                  = "Grupo"
+                    VerticalTextAlignment = "End"/>
             </VerticalStackLayout>
         </Border>
-
-        <Border Grid.Row="1" Grid.Column="1" VerticalOptions="Center">
+        <Border 
+            Grid.Row        = "1" 
+            Grid.Column     = "1" 
+            VerticalOptions = "Center">
             <Border.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="20"
-                        Opacity="0.5"/>
+                <Shadow 
+                    Brush   = "black"
+                    Offset  = "10,10"
+                    Radius  = "20"
+                    Opacity = "0.5"/>
             </Border.Shadow>
-            <VerticalStackLayout Spacing="5" Margin="5">
-                <ImageButton Source     ="imgbutton_planning.png" 
-                             Clicked="Btn_Planejamento"/>
-                <Label Text                 ="Planejamento"
-                       VerticalTextAlignment="End"/>
+            <VerticalStackLayout 
+                Spacing = "5" 
+                Margin  = "5">
+                <ImageButton 
+                    Source  = "imgbutton_planning.png" 
+                    Clicked = "Btn_Planejamento"/>
+                <Label 
+                    Text                  = "Planejamento"
+                    VerticalTextAlignment = "End"/>
             </VerticalStackLayout>
         </Border> 
     </Grid>
 </ContentPage>
-
-
-

@@ -8,7 +8,7 @@ namespace CentralInovacao.Models
 {
     public class StatusDoProjeto:Projeto
     {
-        private int               _idDoProjeto;
+        private int          _idDoProjeto;
         private List<Tarefa> _listaDeBacklog;
         private List<Tarefa> _listaEmExecucao;
         private List<Tarefa> _listaFinalizadas;

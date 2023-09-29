@@ -1,11 +1,23 @@
+using CentralInovacao.Models;
+using CentralInovacao.ViewModel;
+
 namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraBriefing : ContentPage
 {
-	public PageEsteiraBriefing()
+    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
+    Oportunidade Oportunidade = new Oportunidade();
+    public PageEsteiraBriefing()
 	{
 		InitializeComponent();
-	}
+        BindingContext = VMOportunidade;
+    }
+    public PageEsteiraBriefing(Oportunidade oportunidade)
+    {
+        InitializeComponent();
+        Oportunidade   = oportunidade;
+        BindingContext = VMOportunidade;
+    }
     void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
     {
         string oldText = e.OldTextValue;
@@ -19,13 +31,12 @@ public partial class PageEsteiraBriefing : ContentPage
 
     private async void Button_Declinar(object sender, EventArgs e)
     {
-        //await DisplayAlert("", "Proposta Declinada", "Fechar");
-          await Navigation.PushAsync(new PageDeclinio()); 
+        await Navigation.PushAsync(new PageDeclinio());
     }
 
     private async void Button_EnviarSquad(object sender, EventArgs e)
     {
         await DisplayAlert("", "Enviada para Definição de Squad", "Fechar");
-        await Shell.Current.GoToAsync("..");
+        await Navigation.PopAsync();
     }
 }

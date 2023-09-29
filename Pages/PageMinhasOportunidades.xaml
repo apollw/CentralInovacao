@@ -9,10 +9,11 @@
                      Clicked="Btn_Logout"/>
     </ContentPage.ToolbarItems>
 
+
     <ContentPage.Resources>
         <!--ESTILO DA GRID INTERNA À CARD-BORDER-->
         <Style TargetType="Grid" x:Key="insideGridStyle">
-            <Setter Property="RowDefinitions"    Value="65,30,30,30,30"/>
+            <Setter Property="RowDefinitions"    Value="65,30"/>
             <Setter Property="Padding"           Value="15"/>
             <Setter Property="RowSpacing"        Value="10"/>
         </Style>
@@ -23,51 +24,83 @@
         </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="8*,2*">
-        <CollectionView Grid.Row="0" ItemsSource="{Binding ListaDeOportunidades}">
-             <!--Aqui você define o layout para cada item da coleção--> 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Grid.Row ="0" Style="{StaticResource borderCardStyle}">
-                        <Grid Style="{StaticResource insideGridStyle}">
-                            <Label Grid.Row               ="0"
-                                   Text                   ="{Binding TituloDaSolucao}"
-                                   TextColor              ="DarkCyan"
-                                   FontSize               ="18"
-                                   FontAttributes         ="Bold"
-                                   Margin                 ="0,10"
-                                   HorizontalTextAlignment= "Center"/>                           
-                            <Label Grid.Row   ="1"
-                                   Grid.Column="0"
-                                   Text       ="{Binding AspectosPositivos, StringFormat='Aspectos Positivos: {0}'}"
-                                   Style      ="{StaticResource insideLabelStyle}"/>
-                            <Label Grid.Row   ="2"
-                                   Grid.Column="0"
-                                   Text       ="{Binding AspectosNegativos, StringFormat='Aspectos Negativos: {0}'}"
-                                   Style      ="{StaticResource insideLabelStyle}"/>
-                            <Label Grid.Row   ="3"
-                                   Grid.Column="0"                                   
-                                   Style      ="{StaticResource insideLabelStyle}"/>
-                            <!--COLUNA 1-->
-                            <Button Grid.Row   ="4"
-                                    Text       ="Editar"
-                                    WidthRequest="150"
-                                    Style      ="{StaticResource smallButtonStyle}"/>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+    <Grid RowDefinitions    = "85*,15*" 
+          ColumnDefinitions = "*,*">
+        <RefreshView 
+            Grid.Row        = "0"
+            Grid.ColumnSpan = "2" 
+            IsRefreshing    = "{Binding IsRefreshing, Mode=TwoWay}" 
+            Command         = "{Binding RefreshCommand}">
+            <CollectionView                
+                ItemsSource = "{Binding ListaDeOportunidades}"
+                EmptyView   = "Nenhuma Oportunidade Registrada">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border 
+                            Grid.Row      = "0" 
+                            Style         = "{StaticResource borderCardStyle}"
+                            HeightRequest = "150">
+                            <Grid
+                                ColumnDefinitions="*,*"
+                                Style="{StaticResource insideGridStyle}">
+                                <Label 
+                                   Grid.Row                = "0"
+                                   Grid.ColumnSpan         = "2"
+                                   Text                    = "{Binding TituloDaSolucao}"
+                                   TextColor               = "DarkCyan"
+                                   FontSize                = "18"
+                                   FontAttributes          = "Bold"
+                                   Margin                  = "0,10"
+                                   HorizontalTextAlignment = "Center"/>                              
+                                <!--COLUNA 1-->
+                                <Button 
+                                    Grid.Row          = "1"
+                                    Grid.Column       = "0"
+                                    Text              = "Analisar Proposta"
+                                    WidthRequest      = "150"
+                                    HeightRequest     = "50"
+                                    Clicked           = "Btn_AnalisarProp"
+                                    HorizontalOptions = "Start"
+                                    Style             = "{StaticResource smallButtonStyle}"/>
+                                <Button 
+                                    Grid.Row      = "1"
+                                    Grid.Column   = "1"
+                                    Text          = "Ver Detalhes"
+                                    WidthRequest  = "150"
+                                    HeightRequest = "50"
+                                    Clicked       = "Btn_EditarOp"
+                                    Style         = "{StaticResource smallButtonStyle}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
 
-        <ImageButton Source           ="img_addbtn5.png"
-                     Grid.Row         ="1"
-                     Grid.ColumnSpan  ="2"
-                     Margin           ="0,0,15,0"
-                     Clicked          ="Btn_NovaOp"
-                     HeightRequest    ="75"
-                     WidthRequest     ="75"
-                     HorizontalOptions="End"/>
+        <BoxView
+            Grid.Row        = "1"
+            Grid.ColumnSpan = "2"
+            Color           = "DarkCyan"
+            VerticalOptions = "Start"
+            HeightRequest   = "1"/>
 
+        <Label
+            Grid.Row                = "1"
+            Grid.Column             = "0"
+            Text                    = "{Binding ListaDeOportunidades.Count,
+                                        StringFormat='Oportunidades Registradas: {0}'}"
+            FontAttributes          = "Bold"
+            VerticalTextAlignment   = "Center"
+            HorizontalTextAlignment = "Center"/>
+
+        <ImageButton 
+            Source            = "img_addbtn5.png"
+            Grid.Row          = "1"
+            Grid.Column       = "1"
+            Margin            = "0,0,15,0"
+            Clicked           = "Btn_NovaOp"
+            HeightRequest     = "75"
+            WidthRequest      = "75"
+            HorizontalOptions = "End"/>
     </Grid>
-
 </ContentPage>

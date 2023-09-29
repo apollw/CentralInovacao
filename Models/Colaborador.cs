@@ -14,11 +14,10 @@ namespace CentralInovacao.Models
         private string _email;
         private string _password;
 
-        private int                     _posicaoNoRanking;
+        private int                _posicaoNoRanking;
         private List<Projeto>      _listaDeProjetos;
         private List<Medalha>      _listaDeMedalhas;
-        private List<Oportunidade> _listaDeOportunidades;
-        
+        private List<Oportunidade> _listaDeOportunidades;        
 
         public int Id { get => _id; set => _id = value; }
         public string Nome { get => _nome; set => _nome = value; }

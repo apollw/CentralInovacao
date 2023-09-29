@@ -13,84 +13,103 @@
 
     <ScrollView>
         <StackLayout Spacing="5">
-            <Label   Text          ="Campos Obrigatórios (*)"                      
-                     Padding       ="5"/>
-            <Label   Text          ="Título da Solução (*)"                       
-                     FontAttributes="Bold"
-                     Padding       ="5"/>
-            <Entry   x:Name               ="_entryTitulo"
-                     FontSize             ="Medium"
-                     WidthRequest         ="400"
-                     BackgroundColor      ="WhiteSmoke"
-                     VerticalTextAlignment="Start"/>
-            <BoxView HeightRequest  ="1"
-                     WidthRequest   ="400"
-                     BackgroundColor="Black"/>
-            <Label   Text           ="Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil: (*)"
-                     FontAttributes ="Bold"
-                     Padding        ="5"/>
-            <Editor  x:Name               ="_editor1"
-                     WidthRequest         ="400"
-                     HeightRequest        ="100"
-                     Placeholder          ="Insira uma descrição..."
-                     PlaceholderColor     ="Gray"
-                     VerticalTextAlignment="Start"
-                     BackgroundColor      ="WhiteSmoke"
-                     TextChanged          ="OnEditorTextChanged1"
-                     Completed            ="OnEditorCompleted"/>
-            <BoxView BackgroundColor ="Black"
-                     HeightRequest   ="1"
-                     WidthRequest    ="400"/>
-            <Label   Text            ="Descreva um breve resumo de como essa solução pode impactar NEGATIVAMENTE o Ceape Brasil: (*)"
-                     FontAttributes  ="Bold"
-                     Padding         ="5"/>
-            <Editor  x:Name          ="_editor2"
-                     WidthRequest    ="400"
-                     HeightRequest   ="100"
-                     Placeholder     ="Insira uma descrição..."
-                     PlaceholderColor="Gray"
-                     BackgroundColor ="WhiteSmoke"
-                     TextChanged     ="OnEditorTextChanged2"
-                     Completed       ="OnEditorCompleted"/>
-            <BoxView BackgroundColor ="Black"
-                     HeightRequest   ="1"
-                     WidthRequest    ="400"/>
-            <Label   Text            ="Selecione os setores impactados por essa solução: (*)"
-                     FontAttributes  ="Bold"
-                     Padding         ="5"/>
+            <Label   
+                Text    = "Campos Obrigatórios (*)"                      
+                Padding = "5"/>
+            <Label   
+                Text           = "Título da Solução (*)"                       
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+            <Entry   
+                x:Name                = "_entryTitulo"
+                FontSize              = "Medium"
+                WidthRequest          = "400"
+                BackgroundColor       = "WhiteSmoke"
+                VerticalTextAlignment = "Start"/>
+            <BoxView 
+                HeightRequest  = "1"
+                WidthRequest   = "400"
+                BackgroundColor= "Black"/>
+            <Label   
+                Text           = "Descreva um breve resumo de como essa solução pode
+                                  impactar POSITIVAMENTE o Ceape Brasil: (*)"
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+            <Editor  
+                x:Name                = "_editor1"
+                WidthRequest          = "400"
+                HeightRequest         = "100"
+                Placeholder           = "Insira uma descrição..."
+                PlaceholderColor      = "Gray"
+                VerticalTextAlignment = "Start"
+                BackgroundColor       = "WhiteSmoke"
+                TextChanged           = "OnEditorTextChanged1"
+                Completed             = "OnEditorCompleted"/>
+            <BoxView 
+                BackgroundColor  = "Black"
+                HeightRequest    = "1"
+                WidthRequest     = "400"/>
+            <Label   
+                Text             = "Descreva um breve resumo de como essa solução 
+                                   pode impactar NEGATIVAMENTE o Ceape Brasil: (*)"
+                FontAttributes   = "Bold"
+                Padding          = "5"/>
+            <Editor  
+                x:Name           = "_editor2"
+                WidthRequest     = "400"
+                HeightRequest    = "100"
+                Placeholder      = "Insira uma descrição..."
+                PlaceholderColor = "Gray"
+                BackgroundColor  = "WhiteSmoke"
+                TextChanged      = "OnEditorTextChanged2"
+                Completed        = "OnEditorCompleted"/>
+            <BoxView 
+                BackgroundColor  = "Black"
+                HeightRequest    = "1"
+                WidthRequest     = "400"/>
+            <Label   
+                Text             = "Selecione os setores impactados por essa solução: (*)"
+                FontAttributes   = "Bold"
+                Padding          = "5"/>
 
-            <CollectionView x:Name       ="_collectionView"                            
-                            SelectionMode="Multiple">
+            <CollectionView 
+                x:Name        = "_collectionView"                            
+                SelectionMode = "Multiple">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid RowDefinitions   ="10,Auto,10,0.5"
-                              ColumnDefinitions="33*,33*,33*"
-                              VerticalOptions  ="FillAndExpand">
-                            <Label Text        ="{Binding .}"
-                                   Grid.Row    ="1"
-                                   Grid.Column ="0"/>
-                            <CheckBox x:Name           ="_checkBox"
-                                      CheckedChanged   ="OnCheckBoxCheckedChanged" 
-                                      Color            ="Green" 
-                                      Grid.Row         ="1" 
-                                      Grid.Column      ="3" 
-                                      HorizontalOptions="End"/>
-                            <BoxView  Grid.Row         ="3"
-                                      Grid.Column      ="0"
-                                      Grid.ColumnSpan  ="3"
-                                      BackgroundColor  ="Black"/>
+                        <Grid 
+                            RowDefinitions    = "10,Auto,10,0.5"
+                            ColumnDefinitions = "33*,33*,33*"
+                            VerticalOptions   = "FillAndExpand">
+                            <Label 
+                                Text        = "{Binding .}"
+                                Grid.Row    = "1"
+                                Grid.Column = "0"/>
+                            <CheckBox 
+                                x:Name            = "_checkBox"
+                                CheckedChanged    = "OnCheckBoxCheckedChanged" 
+                                Color             = "Green" 
+                                Grid.Row          = "1" 
+                                Grid.Column       = "3" 
+                                HorizontalOptions = "End"/>
+                            <BoxView  
+                                Grid.Row         = "3"
+                                Grid.Column      = "0"
+                                Grid.ColumnSpan  = "3"
+                                BackgroundColor  = "Black"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text           ="Enviar para Análise"
-                    TextColor      ="White"
-                    FontSize       ="18"
-                    FontAttributes ="Bold"
-                    BackgroundColor="#14d1ca"
-                    Clicked        ="Btn_SalvarOportunidade"
-                    Margin         ="10"/>
+            <Button 
+                Text            = "Salvar Oportunidade"
+                TextColor       = "White"
+                FontSize        = "18"
+                FontAttributes  = "Bold"
+                BackgroundColor = "#14d1ca"
+                Clicked         = "Btn_SalvarOportunidade"
+                Margin          = "10"/>
         </StackLayout>   
     </ScrollView>
     

@@ -26,31 +26,30 @@
 
     <ScrollView>
         <StackLayout BackgroundColor="WhiteSmoke">
-            <Label Text                   ="Como adquirir mais Pontos?"
-                   TextColor              ="Black"
-                   FontSize               ="18"
-                   FontAttributes         ="Bold"
-                   Margin                 ="0,10"
-                   HorizontalTextAlignment= "Start"/>
+            <Label 
+                Text                    = "Como adquirir mais Pontos?"
+                TextColor               = "Black"
+                FontSize                = "18"
+                FontAttributes          = "Bold"
+                Margin                  = "0,10"
+                HorizontalTextAlignment = "Start"/>
             <Label Text="Exemplo 1"/>
-
-            <Label Text                   ="Como funcionam os Rankings?"
-                   TextColor              ="Black"
-                   FontSize               ="18"
-                   FontAttributes         ="Bold"
-                   Margin                 ="0,10"
-                   HorizontalTextAlignment="Start"/>
+            <Label 
+                Text                    = "Como funcionam os Rankings?"
+                TextColor               = "Black"
+                FontSize                = "18"
+                FontAttributes          = "Bold"
+                Margin                  = "0,10"
+                HorizontalTextAlignment = "Start"/>
             <Label Text="Exemplo 1"/>
-
-            <Label Text                   ="Como funciona o sistema de medalhas?"
-                   TextColor              ="Black"
-                   FontSize               ="18"
-                   FontAttributes         ="Bold"
-                   Margin                 ="0,10"
-                   HorizontalTextAlignment="Start"/>
-            <Label Text="Exemplo 1"/>
-            
+            <Label 
+                Text                    = "Como funciona o sistema de medalhas?"
+                TextColor               = "Black"
+                FontSize                = "18"
+                FontAttributes          = "Bold"
+                Margin                  = "0,10"
+                HorizontalTextAlignment = "Start"/>
+            <Label Text="Exemplo 1"/>            
         </StackLayout>
-    </ScrollView>
-    
+    </ScrollView>    
 </ContentPage>

@@ -8,5 +8,6 @@ namespace CentralInovacao.Models
 {
     public class Tarefa
     {
+
     }
 }

@@ -11,14 +11,11 @@ public partial class PageProjeto : ContentPage
     {
        // await Navigation.PushAsync(new ViewEsteiraSolicitacao());
         await Shell.Current.GoToAsync($"{nameof(PageEsteiraSolicitacao)}");
-
     }
-
     private async void Btn_AnaliseBriefing(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync($"{nameof(PageEsteiraBriefing)}");
     }
-
     private async void Btn_Squad(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync($"{nameof(PageEsteiraSquad)}");

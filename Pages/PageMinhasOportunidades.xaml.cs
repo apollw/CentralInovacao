@@ -5,15 +5,15 @@ namespace CentralInovacao.Pages;
 
 public partial class PageMinhasOportunidades : ContentPage
 {
-    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    List<Oportunidade> ListaDeOportunidades = new List<Oportunidade>();
+    ViewModelOportunidade VMOportunidade       = new ViewModelOportunidade();
+    List<Oportunidade>    ListaDeOportunidades = new List<Oportunidade>();
 	public PageMinhasOportunidades()
 	{
 		InitializeComponent();
-        BindingContext = VMOportunidade;
-
+        BindingContext       = VMOportunidade;
         ListaDeOportunidades = VMOportunidade.CarregarOportunidades();
-	}
+    }    
+
     private async void Btn_Logout(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
@@ -37,7 +37,31 @@ public partial class PageMinhasOportunidades : ContentPage
         Btn_Animation(button);
         await Task.Delay(animationDuration / 2);
 
-        //await Navigation.PushAsync(new ViewNovaOportunidade());
         await Shell.Current.GoToAsync($"{nameof(PageNovaOportunidade)}");
+    }
+
+    private async void Btn_EditarOp(object sender, EventArgs e)
+    {
+        if (sender is Button button)
+        {
+            if (button.BindingContext is Oportunidade oportunidade)
+            {
+                await Navigation.PushAsync(new PageNovaOportunidade(oportunidade));
+            }
+        }       
+    }
+    private async void Btn_AnalisarProp(object sender, EventArgs e)
+    {
+        if (sender is Button button)
+        {
+            if (button.BindingContext is Oportunidade oportunidade)
+            {
+                string test = "";
+                if (test == "admin")
+                    await Navigation.PushAsync(new PageEsteiraBriefing(oportunidade));
+                else
+                    await DisplayAlert("Alerta", "Função Restrita a Administradores", "Fechar");
+            }
+        }
     }
 }

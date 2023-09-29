@@ -9,55 +9,62 @@
                      Clicked = "Btn_Logout"/>
     </ContentPage.ToolbarItems>
 
-    <Grid RowDefinitions   ="35,*"
-          ColumnDefinitions="*,*">
-        <Label Grid.Row="0"
-               Grid.Column="0"
-               Text                    = "Nome"
-               FontSize                = "Medium"
-               FontAttributes          = "Bold"
-               HorizontalTextAlignment = "Center"
-               BackgroundColor         = "White"/>
+    <Grid RowDefinitions    = "35,*"
+          ColumnDefinitions = "*,*">
+        
+        <Label 
+            Grid.Row="0"
+            Grid.Column="0"
+            Text                    = "Nome"
+            FontSize                = "Medium"
+            FontAttributes          = "Bold"
+            HorizontalTextAlignment = "Center"
+            BackgroundColor         = "White"/>
+        
+        <Label 
+            Grid.Row                = "0"
+            Grid.Column             = "1"
+            Text                    = "Projetos"
+            FontSize                = "Medium"
+            FontAttributes          = "Bold"
+            HorizontalTextAlignment = "Center"
+            BackgroundColor         = "White"/>
+        
+        <BoxView 
+            Grid.Row        = "0"
+            Grid.ColumnSpan = "2"
+            Color           = "Gray"
+            HeightRequest   = "1"
+            VerticalOptions = "End"/>
 
-        <Label Grid.Row                = "0"
-               Grid.Column             = "1"
-               Text                    = "Projetos"
-               FontSize                = "Medium"
-               FontAttributes          = "Bold"
-               HorizontalTextAlignment = "Center"
-               BackgroundColor         = "White"/>
-
-        <BoxView Grid.Row="0"
-                     Grid.ColumnSpan="2"
-                     Color="Gray"
-                    HeightRequest="1"
-                    VerticalOptions="End"/>
-
-            <ListView Grid.Row        = "2"
-                      Grid.Column      ="0"
-                      x:Name          = "_myListView"
-                      BackgroundColor = "White">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text      = "{Binding}"
-                                  TextColor = "Black"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-        </ListView>
-
-        <ListView   Grid.Row          = "2"
-                Grid.Column       = "1"
-                x:Name            = "_myListView1"
-                BackgroundColor   = "White"
-                HorizontalOptions = "End">
+        <ListView 
+            x:Name          = "_myListView"
+            Grid.Row        = "2"
+            Grid.Column     = "0"
+            BackgroundColor = "White">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text      = "{Binding}"
-                              TextColor = "Black"/>
+                    <TextCell 
+                        Text      = "{Binding}"
+                        TextColor = "Black"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        
+        <ListView 
+            x:Name            = "_myListView1"
+            Grid.Row          = "2"
+            Grid.Column       = "1"
+            BackgroundColor   = "White"
+            HorizontalOptions = "End">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell 
+                        Text      = "{Binding}"
+                        TextColor = "Black"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
     
 </ContentPage>

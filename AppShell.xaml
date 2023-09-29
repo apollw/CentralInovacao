@@ -21,40 +21,48 @@
 
     <Shell.FlyoutHeader>
         <!--BackgroundColor="#242B40"-->
-        <StackLayout BackgroundColor="#14d1ca" 
-                     Padding        ="10">
-            <Image   Source         ="img_ceape.png"
-                     HeightRequest  ="200"/>
+        <StackLayout 
+            BackgroundColor = "#14d1ca" 
+            Padding         = "10">
+            <Image   
+                Source        = "img_ceape.png"
+                HeightRequest = "200"/>
         </StackLayout>
     </Shell.FlyoutHeader>
 
-    <ShellItem    Title              ="CEAPE Inovação"
-                  Route              ="MainPage"
-                  FlyoutItemIsVisible="False">
+    <ShellItem
+        Title               = "CEAPE Inovação"
+        Route               = "MainPage"
+        FlyoutItemIsVisible = "False">
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
     </ShellItem>  
 
     <FlyoutItem FlyoutDisplayOptions ="AsMultipleItems">
-        <ShellContent Title          ="Central de Ideias"                      
-                      FlyoutIcon     ="shellicon_idea.png"                      
-                      ContentTemplate="{DataTemplate views:PageInicio}"
-                      Route          ="PageInicio"/>
-        <ShellContent Title          ="Minhas Oportunidades"
-                      FlyoutIcon     ="shellicon_inovation.png"
-                      ContentTemplate="{DataTemplate views:PageMinhasOportunidades}"
-                      Route          ="PageMinhasOportunidades"/>
-        <ShellContent Title          ="Meus Projetos"
-                      FlyoutIcon     ="shellicon_project.png"
-                      ContentTemplate="{DataTemplate views:PageMeusProjetos}"
-                      Route          ="PageMeusProjetos"/>
-        <ShellContent Title          ="Ranking Geral"
-                      FlyoutIcon     ="shellicon_rank.png"
-                      ContentTemplate="{DataTemplate views:PageRankingGeral}"
-                      Route          ="PageRankingGeral"/>
-        <ShellContent Title          ="Sobre a Pontuação"
-                      FlyoutIcon     ="shellicon_score.png"
-                      ContentTemplate="{DataTemplate views:PagePontuacao}"
-                      Route          ="PagePontuacao"/>
+        <ShellContent 
+            Title           = "Central de Ideias"                      
+            FlyoutIcon      = "shellicon_idea.png"                      
+            ContentTemplate = "{DataTemplate views:PageInicio}"
+            Route           = "PageInicio"/>
+        <ShellContent 
+            Title           = "Minhas Oportunidades"
+            FlyoutIcon      = "shellicon_inovation.png"
+            ContentTemplate = "{DataTemplate views:PageMinhasOportunidades}"
+            Route           = "PageMinhasOportunidades"/>
+        <ShellContent 
+            Title           = "Meus Projetos"
+            FlyoutIcon      = "shellicon_project.png"
+            ContentTemplate = "{DataTemplate views:PageMeusProjetos}"
+            Route           = "PageMeusProjetos"/>
+        <ShellContent 
+            Title           = "Ranking Geral"
+            FlyoutIcon      = "shellicon_rank.png"
+            ContentTemplate = "{DataTemplate views:PageRankingGeral}"
+            Route           = "PageRankingGeral"/>
+        <ShellContent 
+            Title           = "Sobre a Pontuação"
+            FlyoutIcon      = "shellicon_score.png"
+            ContentTemplate = "{DataTemplate views:PagePontuacao}"
+            Route           = "PagePontuacao"/>
     </FlyoutItem>
 
     <!--<TabBar>

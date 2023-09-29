@@ -27,65 +27,77 @@
     <Grid BackgroundColor="WhiteSmoke">
         <Border Style="{StaticResource borderCardStyle}">
             <Border.Shadow>
-                <Shadow Brush  ="black"
-                        Offset ="10,10"
-                        Radius ="20"
-                        Opacity="0.5"/>
+                <Shadow 
+                    Brush   = "black"
+                    Offset  = "10,10"
+                    Radius  = "20"
+                    Opacity = "0.5"/>
             </Border.Shadow>
             <Grid Style="{StaticResource insideGridStyle}">
             <!--COLUNA 1-->
-            <Label Grid.Row               ="0"
-                   Grid.ColumnSpan        ="3"
-                   Text                   ="Projeto 1"
-                   TextColor              ="Black"
-                   FontSize               ="18"
-                   FontAttributes         ="Bold"
-                   Margin                 ="0,10"
-                   HorizontalTextAlignment= "Center"/>
+            <Label 
+                Grid.Row                = "0"
+                Grid.ColumnSpan         = "3"
+                Text                    = "Projeto 1"
+                TextColor               = "Black"
+                FontSize                = "18"
+                FontAttributes          = "Bold"
+                Margin                  = "0,10"
+                HorizontalTextAlignment = "Center"/>
                 <!--COLUNA 1-->
-                <Image Grid.Row         ="1"
-                       Grid.Column      ="0"
-                       Source           ="administrator.png"
-                       HorizontalOptions="Start"/>
-                <Image Grid.Row         ="2"
-                       Grid.Column      ="0"
-                       Source           ="barchart.png"
-                       HorizontalOptions="Start"/>
-                <Image Grid.Row         ="3"
-                       Grid.Column      ="0"
-                       Source           ="clock.png"
-                       HorizontalOptions="Start"/>
+                <Image 
+                    Grid.Row          = "1"
+                    Grid.Column       = "0"
+                    Source            = "administrator.png"
+                    HorizontalOptions = "Start"/>
+                <Image 
+                    Grid.Row          = "2"
+                    Grid.Column       = "0"
+                    Source            = "barchart.png"
+                    HorizontalOptions = "Start"/>
+                <Image 
+                    Grid.Row          = "3"
+                    Grid.Column       = "0"
+                    Source            = "clock.png"
+                    HorizontalOptions = "Start"/>
                 <!--COLUNA 2-->
-                <Label Grid.Row   ="1"
-                       Grid.Column="1"
-                       Text       ="Responsável:"
-                       Style      ="{StaticResource insideLabelStyle}"/>
-                <Label Grid.Row   ="2"
-                       Grid.Column="1"
-                       Text       ="Situação Atual:"
-                       Style      ="{StaticResource insideLabelStyle}"/>
-                <Label Grid.Row   = "3"
-                       Grid.Column="1"
-                       Text       ="Tempo do Projeto:"
-                       Style      ="{StaticResource insideLabelStyle}"/>
+                <Label 
+                    Grid.Row    = "1"
+                    Grid.Column = "1"
+                    Text        = "Responsável:"
+                    Style       = "{StaticResource insideLabelStyle}"/>
+                <Label 
+                    Grid.Row    = "2"
+                    Grid.Column = "1"
+                    Text        = "Situação Atual:"
+                    Style       = "{StaticResource insideLabelStyle}"/>
+                <Label
+                    Grid.Row    = "3"
+                    Grid.Column = "1"
+                    Text        = "Tempo do Projeto:"
+                    Style       = "{StaticResource insideLabelStyle}"/>
                 <!--COLUNA 3-->
-                <Label Grid.Row               ="1"
-                       Grid.Column            ="2"
-                       Text                   ="Edem Fernando"                            
-                       HorizontalTextAlignment="End"/>
-                <Label Grid.Row               ="2"
-                       Grid.Column            ="2"
-                       Text                   ="Declinado"
-                       HorizontalTextAlignment="End"/>
-                <Label Grid.Row               ="3"
-                       Grid.Column            ="2"
-                       Text                   ="15 dias"
-                       HorizontalTextAlignment="End"/>
-                <Button Grid.Row   ="4"
-                        Grid.Column="2"
-                        Text       ="Abrir"
-                        Style      ="{StaticResource smallButtonStyle}"
-                        Clicked    ="Btn_AbrirProjeto"/>
+                <Label 
+                    Grid.Row                = "1"
+                    Grid.Column             = "2"
+                    Text                    = "Edem Fernando"                            
+                    HorizontalTextAlignment = "End"/>
+                <Label 
+                    Grid.Row                = "2"
+                    Grid.Column             = "2"
+                    Text                    = "Declinado"
+                    HorizontalTextAlignment = "End"/>
+                <Label 
+                    Grid.Row                = "3"
+                    Grid.Column             = "2"
+                    Text                    = "15 dias"
+                    HorizontalTextAlignment = "End"/>
+                <Button 
+                    Grid.Row    = "4"
+                    Grid.Column = "2"
+                    Text        = "Abrir"
+                    Style       = "{StaticResource smallButtonStyle}"
+                    Clicked     = "Btn_AbrirProjeto"/>
             </Grid>
         </Border>
     </Grid>
