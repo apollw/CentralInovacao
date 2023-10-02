@@ -26,6 +26,7 @@
 
     <Grid RowDefinitions    = "85*,15*" 
           ColumnDefinitions = "*,*">
+
         <RefreshView 
             Grid.Row        = "0"
             Grid.ColumnSpan = "2" 
@@ -54,21 +55,12 @@
                                    HorizontalTextAlignment = "Center"/>                              
                                 <!--COLUNA 1-->
                                 <Button 
-                                    Grid.Row          = "1"
-                                    Grid.Column       = "0"
-                                    Text              = "Analisar Proposta"
-                                    WidthRequest      = "150"
-                                    HeightRequest     = "50"
-                                    Clicked           = "Btn_AnalisarProp"
-                                    HorizontalOptions = "Start"
-                                    Style             = "{StaticResource smallButtonStyle}"/>
-                                <Button 
                                     Grid.Row      = "1"
                                     Grid.Column   = "1"
-                                    Text          = "Ver Detalhes"
+                                    Text          = "Abrir Esteira"
                                     WidthRequest  = "150"
                                     HeightRequest = "50"
-                                    Clicked       = "Btn_EditarOp"
+                                    Clicked       = "Btn_AbrirEsteira"
                                     Style         = "{StaticResource smallButtonStyle}"/>
                             </Grid>
                         </Border>

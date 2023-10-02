@@ -64,9 +64,18 @@
                         WidthRequest      = "150"
                         Source            = "img_fotoperfil.png"
                         BackgroundColor   = "White">
+                        
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnProfileImageTapped" />
                         </Image.GestureRecognizers>
+
+                        <Image.Clip>
+                            <EllipseGeometry 
+                                Center="50,50"
+                                RadiusX="150"
+                                RadiusY="150" />
+                        </Image.Clip>
+
                     </Image>
 
                     <Grid 

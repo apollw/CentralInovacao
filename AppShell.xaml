@@ -11,9 +11,9 @@
     Shell.BackgroundColor="#14d1ca"
     Shell.FlyoutBackdrop ="White">
 
-    <!--Shell.FlyoutBehavior="Flyout"
-    Shell.TabBarIsVisible="False"
-    Shell.BackgroundColor="Green"-->
+    <!-- Shell.FlyoutBehavior ="Flyout"
+         Shell.TabBarIsVisible="False"
+         Shell.BackgroundColor="#14d1ca"-->
 
     <!--Shell.TabBarBackgroundColor="LightGray"
     Shell.TabBarUnselectedColor="Gray"
@@ -59,7 +59,7 @@
             ContentTemplate = "{DataTemplate views:PageRankingGeral}"
             Route           = "PageRankingGeral"/>
         <ShellContent 
-            Title           = "Sobre a Pontuação"
+            Title           = "Ajuda"
             FlyoutIcon      = "shellicon_score.png"
             ContentTemplate = "{DataTemplate views:PagePontuacao}"
             Route           = "PagePontuacao"/>
@@ -68,23 +68,28 @@
     <!--<TabBar>
         <Tab Title="Home"
              Icon="shellicon_idea.png">
-            <ShellContent ContentTemplate = "{DataTemplate views:ViewInicio}"
-             Route="ViewInicio"/>
-        </Tab>
-        <Tab Title="Projetos"
-             Icon="shellicon_project.png">
-            <ShellContent ContentTemplate = "{DataTemplate views:ViewMeusProjetos}"
-             Route="ViewMeusProjetos"/>
+            <ShellContent ContentTemplate = "{DataTemplate views:PageInicio}"
+             Route="PageInicio"/>
         </Tab>
         <Tab Title="Oportunidades"
              Icon="shellicon_inovation.png">
-            <ShellContent ContentTemplate = "{DataTemplate views:ViewMinhasOportunidades}"
-             Route="ViewMinhasOportunidades"/>
+            <ShellContent ContentTemplate = "{DataTemplate views:PageMinhasOportunidades}"
+             Route="PageMinhasOportunidades"/>
         </Tab>
+        <Tab Title="Projetos"
+            Icon="shellicon_project.png">
+            <ShellContent ContentTemplate = "{DataTemplate views:PageMeusProjetos}"
+            Route="PageMeusProjetos"/>
+        </Tab>        
         <Tab Title="Ranking"
              Icon="shellicon_rank.png">
-            <ShellContent ContentTemplate = "{DataTemplate views:ViewRankingGeral}"
-             Route="ViewRankingGeral"/>
+            <ShellContent ContentTemplate = "{DataTemplate views:PageRankingGeral}"
+             Route="PageRankingGeral"/>
+        </Tab>
+        <Tab Title="Ajuda"
+             Icon="shellicon_score.png">
+            <ShellContent ContentTemplate = "{DataTemplate views:PagePontuacao}"
+             Route="PagePontuacao"/>
         </Tab>
     </TabBar>-->
 

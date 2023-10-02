@@ -183,16 +183,30 @@
                     Color            ="#14d1ca"/>
             </Grid>
 
-            <Button 
-                Text           ="Salvar"
-                Margin         ="10"
-                BackgroundColor="#14d1ca"
-                TextColor      ="White"
-                FontSize       ="18"
-                FontAttributes ="Bold"
-                Clicked        ="Button_Solicitacao"/>
+            <Grid ColumnDefinitions="*,*">
+                <Button 
+                    Grid.Column     = "0"
+                    Text            = "Enviar para Análise"
+                    Margin          = "10"
+                    BackgroundColor = "White"
+                    BorderColor     = "#14d1ca"
+                    TextColor       = "#14d1ca"
+                    FontSize        = "18"
+                    FontAttributes  = "Bold"
+                    Clicked         = "Btn_EnviarAnalise"/>
+
+                <Button 
+                    Grid.Column     = "1"
+                    Text            = "Salvar"
+                    Margin          = "10"
+                    BackgroundColor = "#14d1ca"
+                    TextColor       = "White"
+                    FontSize        = "18"
+                    FontAttributes  = "Bold"
+                    Clicked         = "Btn_Solicitacao"/>
+            </Grid>
 
         </StackLayout>
-    </ScrollView>    
+    </ScrollView>
 
 </ContentPage>

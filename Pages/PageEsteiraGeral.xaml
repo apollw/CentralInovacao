@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Pages.PageEsteiraGeral"
+             Title="Esteira do Projeto">
+    
+    <!--<ImageButton Source="imgbutton_request.png"/>
+    <ImageButton Source="imgbutton_analysis.png"/>
+    <ImageButton Source="imgbutton_group.png"/>
+    <ImageButton Source="imgbutton_project.png"/>
+    <ImageButton Source="imgbutton_planning.png"/>-->
+
+    <CarouselView ItemsSource="{Binding Buttons}"
+              PeekAreaInsets="100">
+        <CarouselView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout VerticalOptions="Center">
+                    
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="CurrentItem">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale"
+                                        Value="1.1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="PreviousItem">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity"
+                                        Value="0.5" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="NextItem">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity"
+                                        Value="0.5" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="DefaultItem">
+                                <VisualState.Setters>
+                                    <Setter Property="Opacity"
+                                        Value="0.25" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+
+                    <!-- Conteúdo do Item Template -->
+                    <Border WidthRequest="175"
+                            HeightRequest="250">
+                        <Button 
+                            HeightRequest="50"
+                            WidthRequest = "50"/>
+                        <Border.Shadow>
+                            <Shadow Brush="Black"
+                                    Offset="20,20"
+                                    Radius="40"
+                                    Opacity="0.8" />
+                        </Border.Shadow>
+                    </Border>
+                    
+                </StackLayout>
+            </DataTemplate>
+        </CarouselView.ItemTemplate>
+    </CarouselView>
+
+</ContentPage>
+    

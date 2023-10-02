@@ -40,28 +40,15 @@ public partial class PageMinhasOportunidades : ContentPage
         await Shell.Current.GoToAsync($"{nameof(PageNovaOportunidade)}");
     }
 
-    private async void Btn_EditarOp(object sender, EventArgs e)
+    private async void Btn_AbrirEsteira(object sender, EventArgs e)
     {
         if (sender is Button button)
         {
             if (button.BindingContext is Oportunidade oportunidade)
             {
-                await Navigation.PushAsync(new PageNovaOportunidade(oportunidade));
+                await Navigation.PushAsync(new PageEsteiraGeral());
             }
         }       
     }
-    private async void Btn_AnalisarProp(object sender, EventArgs e)
-    {
-        if (sender is Button button)
-        {
-            if (button.BindingContext is Oportunidade oportunidade)
-            {
-                string test = "";
-                if (test == "admin")
-                    await Navigation.PushAsync(new PageEsteiraBriefing(oportunidade));
-                else
-                    await DisplayAlert("Alerta", "Função Restrita a Administradores", "Fechar");
-            }
-        }
-    }
+    
 }

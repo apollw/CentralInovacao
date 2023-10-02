@@ -19,6 +19,7 @@ public partial class AppShell : Shell
         //Registro de Rotas
         Routing.RegisterRoute(nameof(PageProjeto)               , typeof(PageProjeto));
         Routing.RegisterRoute(nameof(PageEsteiraSquad)          , typeof(PageEsteiraSquad));
+        //Routing.RegisterRoute(nameof(PageEsteiraGeral)          , typeof(PageEsteiraGeral));
         Routing.RegisterRoute(nameof(PageEsteiraBriefing)       , typeof(PageEsteiraBriefing));
         Routing.RegisterRoute(nameof(PageNovaOportunidade)      , typeof(PageNovaOportunidade));
         Routing.RegisterRoute(nameof(PageEsteiraSolicitacao)    , typeof(PageEsteiraSolicitacao));
