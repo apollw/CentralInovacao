@@ -11,12 +11,6 @@
 
 
     <ContentPage.Resources>
-        <!--ESTILO DA GRID INTERNA À CARD-BORDER-->
-        <Style TargetType="Grid" x:Key="insideGridStyle">
-            <Setter Property="RowDefinitions"    Value="65,30"/>
-            <Setter Property="Padding"           Value="15"/>
-            <Setter Property="RowSpacing"        Value="10"/>
-        </Style>
         <!--ESTILO DAS LABELS INTERNAS-->
         <Style TargetType="Label" x:Key="insideLabelStyle">
             <Setter Property="FontAttributes"          Value="Bold"/>
@@ -40,29 +34,45 @@
                         <Border 
                             Grid.Row      = "0" 
                             Style         = "{StaticResource borderCardStyle}"
-                            HeightRequest = "150">
-                            <Grid
-                                ColumnDefinitions="*,*"
-                                Style="{StaticResource insideGridStyle}">
+                            HeightRequest = "250">
+                            <StackLayout 
+                                Spacing = "5"
+                                Margin  = "10">
                                 <Label 
-                                   Grid.Row                = "0"
-                                   Grid.ColumnSpan         = "2"
-                                   Text                    = "{Binding TituloDaSolucao}"
+                                   Text                    = "{Binding Titulo}"
                                    TextColor               = "DarkCyan"
                                    FontSize                = "18"
                                    FontAttributes          = "Bold"
                                    Margin                  = "0,10"
-                                   HorizontalTextAlignment = "Center"/>                              
-                                <!--COLUNA 1-->
+                                   HorizontalTextAlignment = "Center"/>
+                                <Label 
+                                   Text                    = "{Binding Id}"
+                                   TextColor               = "Black"
+                                   FontSize                = "15"
+                                   HorizontalTextAlignment = "Center"/>
+                                <Label 
+                                   Text                    = "{Binding DataRegistro}"
+                                   TextColor               = "Black"
+                                   FontSize                = "15"
+                                   HorizontalTextAlignment = "Center"/>
+                                <Label 
+                                   Text                    = "{Binding Status}"
+                                   TextColor               = "Black"
+                                   FontSize                = "15"
+                                   HorizontalTextAlignment = "Center"/>
+                                <Label 
+                                   Text                    = "{Binding Responsavel}"
+                                   TextColor               = "Black"
+                                   FontSize                = "15"
+                                   HorizontalTextAlignment = "Center"/>
                                 <Button 
-                                    Grid.Row      = "1"
-                                    Grid.Column   = "1"
-                                    Text          = "Abrir Esteira"
-                                    WidthRequest  = "150"
-                                    HeightRequest = "50"
-                                    Clicked       = "Btn_AbrirEsteira"
-                                    Style         = "{StaticResource smallButtonStyle}"/>
-                            </Grid>
+                                   Text          = "Abrir"
+                                   WidthRequest  = "100"
+                                   HeightRequest = "50"
+                                   Clicked       = "Btn_AbrirEsteira"
+                                   Margin        = "5"
+                                   Style         = "{StaticResource smallButtonStyle}"/>
+                            </StackLayout>
                         </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

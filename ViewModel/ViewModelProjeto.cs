@@ -26,7 +26,7 @@ namespace CentralInovacao.ViewModel
             //Uma Oportunidade Aprovada vira um projeto
 
             Projeto.Id                = oportunidade.Id;
-            Projeto.Titulo            = oportunidade.TituloDaSolucao;
+            Projeto.Titulo            = oportunidade.Titulo;
             Projeto.AspectosPositivos = oportunidade.AspectosPositivos;
             Projeto.AspectosNegativos = oportunidade.AspectosNegativos;
             Projeto.StatusDoProjeto   = new StatusDoProjeto();

@@ -46,7 +46,7 @@ public partial class PageMinhasOportunidades : ContentPage
         {
             if (button.BindingContext is Oportunidade oportunidade)
             {
-                await Navigation.PushAsync(new PageEsteiraGeral());
+                await Navigation.PushAsync(new PageEsteiraGeral(oportunidade));
             }
         }       
     }

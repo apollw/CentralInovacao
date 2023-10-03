@@ -13,45 +13,48 @@ public partial class PageNovaOportunidade : ContentPage
     public PageNovaOportunidade()
 	{
 		InitializeComponent();
-        //BindingContext = new ViewModelOportunidade();
         BindingContext = VMOportunidade;
 
     }
     public PageNovaOportunidade(Oportunidade oportunidade)
     {
         InitializeComponent();
-        Oportunidade = oportunidade;
+        Oportunidade   = oportunidade;
         BindingContext = VMOportunidade;
         FillPage();
     }
     public void FillPage()
     {
-        _entryTitulo.Text = Oportunidade.TituloDaSolucao;
+        _entryTitulo.Text = Oportunidade.Titulo;
         _editor1.Text     = Oportunidade.AspectosPositivos;
         _editor2.Text     = Oportunidade.AspectosNegativos;
     }
     void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
     {
-        string oldText=e.OldTextValue;
-        string newText=e.NewTextValue;
-        string myText =_editor1.Text;
+        string oldText = e.OldTextValue;
+        string newText = e.NewTextValue;
+        string myText  = _editor1.Text;
     }
     void OnEditorTextChanged2(object sender, TextChangedEventArgs e)
     {
-        string oldText=e.OldTextValue;
-        string newText=e.NewTextValue;
-        string myText =_editor2.Text;
+        string oldText = e.OldTextValue;
+        string newText = e.NewTextValue;
+        string myText  = _editor2.Text;
     }
     void OnEditorCompleted(object sender, EventArgs e)
     {
-        string text=((Editor)sender).Text;
+        string text = ((Editor)sender).Text;
     }
 
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)
     {
-        Oportunidade.TituloDaSolucao   = _entryTitulo.Text;
+        Oportunidade.Titulo            = _entryTitulo.Text;
         Oportunidade.AspectosPositivos = _editor1.Text;
         Oportunidade.AspectosNegativos = _editor2.Text;
+        Oportunidade.Status            = "Em espera";
+        Oportunidade.DataRegistro      = DateTime.Now;
+        Oportunidade.Responsavel       = "Sem responsável";
+        //Oportunidade.Setores           = 
         
         VMOportunidade.SalvarOportunidade(Oportunidade);
 
@@ -63,10 +66,18 @@ public partial class PageNovaOportunidade : ContentPage
     {
         var checkBox = sender as CheckBox;
 
-        if (checkBox.IsChecked)
+        // Recuperar o nome do setor associado a esta CheckBox
+        var nomeSetor = checkBox.AutomationId; // AutomationId associa o nome do setor
+
+        if (!string.IsNullOrEmpty(nomeSetor))
         {
-            var test = 1;
-            var test2 = test;
+            var setor = Oportunidade.Setores.FirstOrDefault(s => s.Nome == nomeSetor);
+
+            if (setor != null)
+            {
+                setor.Selecionado = checkBox.IsChecked ? 1 : 0;
+            }
         }
     }
+
 }

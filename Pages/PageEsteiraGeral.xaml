@@ -3,66 +3,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Pages.PageEsteiraGeral"
              Title="Esteira do Projeto">
-    
-    <!--<ImageButton Source="imgbutton_request.png"/>
-    <ImageButton Source="imgbutton_analysis.png"/>
-    <ImageButton Source="imgbutton_group.png"/>
-    <ImageButton Source="imgbutton_project.png"/>
-    <ImageButton Source="imgbutton_planning.png"/>-->
 
-    <CarouselView ItemsSource="{Binding Buttons}"
-              PeekAreaInsets="100">
-        <CarouselView.ItemTemplate>
-            <DataTemplate>
-                <StackLayout VerticalOptions="Center">
+    <StackLayout VerticalOptions = "Center">
+        <!--ELEMENTO 1 DO STACK-->
+        <CarouselView 
+            ItemsSource     = "{Binding Buttons}"
+            PeekAreaInsets  = "100"
+            Loop            = "False"
+            IndicatorView   = "_indicatorView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>                    
+                    <StackLayout 
+                        HeightRequest = "400"
+                        WidthRequest  = "400"
+                        Margin        = "25">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup   x:Name   = "CommonStates">
+                                <VisualState    x:Name   = "CurrentItem">
+                                    <VisualState.Setters>
+                                        <Setter Property = "Scale"
+                                                Value    = "1.1" />
+                                        <Setter Property = "Opacity"
+                                                Value    = "1.0" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState    x:Name   = "PreviousItem">
+                                    <VisualState.Setters>
+                                        <Setter Property = "Opacity"
+                                                Value    = "0.3" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState    x:Name   = "NextItem">
+                                    <VisualState.Setters>
+                                        <Setter Property = "Opacity"
+                                                Value    = "0.3" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="DefaultItem">
+                                    <VisualState.Setters>
+                                        <Setter Property="Opacity"
+                                    Value="0.25" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                         <!--Conteúdo do Item Template-->
+                        <Border 
+                            HeightRequest = "250"
+                            WidthRequest  = "175"
+                            StrokeShape="RoundRectangle 15">
+                            <Border.Shadow>
+                                <Shadow 
+                                    Brush   = "Black"
+                                    Offset  = "6,6"
+                                    Radius  = "10"
+                                    Opacity = "0.5"/>
+                            </Border.Shadow>
+                            
+                            <StackLayout 
+                                Spacing         = "10"
+                                VerticalOptions = "Center">                                
+                                <ImageButton 
+                                    Source           = "{Binding ImagePath}"
+                                    Command          = "{Binding Command}"
+                                    CommandParameter = "{Binding Text}"
+                                    HeightRequest    = "100"
+                                    WidthRequest     = "100"
+                                    />
+                                <Label 
+                                    Text                    = "{Binding Text}"
+                                    HorizontalTextAlignment = "Center"/>
+                            </StackLayout>
+                            
+                            
+                        </Border>
+                        
+                    </StackLayout>
                     
-                    <VisualStateManager.VisualStateGroups>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="CurrentItem">
-                                <VisualState.Setters>
-                                    <Setter Property="Scale"
-                                        Value="1.1" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="PreviousItem">
-                                <VisualState.Setters>
-                                    <Setter Property="Opacity"
-                                        Value="0.5" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="NextItem">
-                                <VisualState.Setters>
-                                    <Setter Property="Opacity"
-                                        Value="0.5" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="DefaultItem">
-                                <VisualState.Setters>
-                                    <Setter Property="Opacity"
-                                        Value="0.25" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateManager.VisualStateGroups>
-
-                    <!-- Conteúdo do Item Template -->
-                    <Border WidthRequest="175"
-                            HeightRequest="250">
-                        <Button 
-                            HeightRequest="50"
-                            WidthRequest = "50"/>
-                        <Border.Shadow>
-                            <Shadow Brush="Black"
-                                    Offset="20,20"
-                                    Radius="40"
-                                    Opacity="0.8" />
-                        </Border.Shadow>
-                    </Border>
-                    
-                </StackLayout>
-            </DataTemplate>
-        </CarouselView.ItemTemplate>
-    </CarouselView>
-
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <!--ELEMENTO 2 DO STACK-->
+        <IndicatorView 
+            x:Name                 = "_indicatorView"
+            IndicatorColor         = "LightGray"
+            SelectedIndicatorColor = "DarkCyan"
+            HorizontalOptions      = "Center"
+            VerticalOptions        = "Start"/>
+        
+    </StackLayout>
 </ContentPage>
-    
+  

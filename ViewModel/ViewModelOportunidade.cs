@@ -63,7 +63,7 @@ namespace CentralInovacao.ViewModel
             {
                 string json = File.ReadAllText(filePath);
                 ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
-            }
+            }            
             return ListaDeOportunidades;
         }
 
@@ -75,7 +75,7 @@ namespace CentralInovacao.ViewModel
             {
                 string json = File.ReadAllText(filePath);
                 ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
-            }
+            }            
             return ListaDeOportunidades;
         }
     }
