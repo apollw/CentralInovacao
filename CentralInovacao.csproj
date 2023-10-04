@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>CEAPE Inovacao</ApplicationTitle>
+		<ApplicationTitle>CEAPE Inovação</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.centralinovacao</ApplicationId>

@@ -49,22 +49,22 @@
                                    Text                    = "{Binding Id}"
                                    TextColor               = "Black"
                                    FontSize                = "15"
-                                   HorizontalTextAlignment = "Center"/>
+                                   HorizontalTextAlignment = "Start"/>
                                 <Label 
                                    Text                    = "{Binding DataRegistro}"
                                    TextColor               = "Black"
                                    FontSize                = "15"
-                                   HorizontalTextAlignment = "Center"/>
+                                   HorizontalTextAlignment = "Start"/>
                                 <Label 
                                    Text                    = "{Binding Status}"
                                    TextColor               = "Black"
                                    FontSize                = "15"
-                                   HorizontalTextAlignment = "Center"/>
+                                   HorizontalTextAlignment = "Start"/>
                                 <Label 
                                    Text                    = "{Binding Responsavel}"
                                    TextColor               = "Black"
                                    FontSize                = "15"
-                                   HorizontalTextAlignment = "Center"/>
+                                   HorizontalTextAlignment = "Start"/>
                                 <Button 
                                    Text          = "Abrir"
                                    WidthRequest  = "100"

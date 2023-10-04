@@ -39,11 +39,11 @@ public partial class PageEsteiraGeral : ContentPage
         {
             switch (buttonName)
             {
-                case "Solicitação":                  
-                    await Shell.Current.GoToAsync($"{nameof(PageEsteiraSolicitacao)}");
+                case "Solicitação":
+                    await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Oportunidade));
                     break;
                 case "Análise":
-                    await Shell.Current.GoToAsync($"{nameof(PageEsteiraBriefing)}");
+                    await Shell.Current.Navigation.PushAsync(new PageEsteiraBriefing(Oportunidade));
                     break;
                 case "Squad":
                     await Shell.Current.GoToAsync($"{nameof(PageEsteiraSquad)}");
@@ -68,9 +68,9 @@ public partial class PageEsteiraGeral : ContentPage
 
         public ButtonModel(string text, string imagePath, ICommand command)
         {
-            Text    = text;
+            Text      = text;
             ImagePath = imagePath;
-            Command = command;
+            Command   = command;
         }
     }
 

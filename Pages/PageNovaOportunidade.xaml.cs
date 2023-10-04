@@ -54,7 +54,6 @@ public partial class PageNovaOportunidade : ContentPage
         Oportunidade.Status            = "Em espera";
         Oportunidade.DataRegistro      = DateTime.Now;
         Oportunidade.Responsavel       = "Sem responsável";
-        //Oportunidade.Setores           = 
         
         VMOportunidade.SalvarOportunidade(Oportunidade);
 
@@ -71,13 +70,12 @@ public partial class PageNovaOportunidade : ContentPage
 
         if (!string.IsNullOrEmpty(nomeSetor))
         {
-            var setor = Oportunidade.Setores.FirstOrDefault(s => s.Nome == nomeSetor);
-
-            if (setor != null)
+            if (Oportunidade.Setores.ContainsKey(nomeSetor))
             {
-                setor.Selecionado = checkBox.IsChecked ? 1 : 0;
+                Oportunidade.Setores[nomeSetor] = checkBox.IsChecked ? 1 : 0;
             }
         }
     }
+
 
 }

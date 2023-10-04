@@ -61,7 +61,7 @@ namespace CentralInovacao.ViewModel
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
-                string json = File.ReadAllText(filePath);
+                string json = File.ReadAllText(filePath);                
                 ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
             }            
             return ListaDeOportunidades;

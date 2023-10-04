@@ -31,7 +31,7 @@ public partial class PageEsteiraBriefing : ContentPage
 
     private async void Button_Declinar(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PageDeclinio());
+        await Navigation.PushAsync(new PageDeclinio(Oportunidade));
     }
 
     private async void Button_EnviarSquad(object sender, EventArgs e)

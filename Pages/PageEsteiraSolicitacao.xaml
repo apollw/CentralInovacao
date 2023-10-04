@@ -6,12 +6,16 @@
 
     <ScrollView>
         <StackLayout Spacing = "3">
+
+            <Label Text="(*) Campos Obrigatórios"/>
+
             <Label   
                 Text                  = "Colaborador(*)"                       
                 FontAttributes        = "Bold"
                 Padding               = "5"/>
-            <Entry   
-                FontSize              = "Medium"
+            <Entry
+                x:Name                = "_entryColaborador"
+                FontSize              = "15"
                 WidthRequest          = "400"
                 HeightRequest         = "40"
                 VerticalTextAlignment = "Start"
@@ -24,8 +28,9 @@
                 Text                  = "Nome da Solução(*):"                       
                 FontAttributes        = "Bold"
                 Padding               = "5"/>
-            <Entry   
-                FontSize              = "Medium"
+            <Entry
+                x:Name                = "_entryTitulo"
+                FontSize              = "15"
                 WidthRequest          = "400"
                 HeightRequest         = "45"
                 VerticalTextAlignment = "Start"
@@ -116,67 +121,80 @@
                     Grid.Row = "12"   
                     Text     = "Tecnologia da Informação"/>
 
-                <CheckBox 
+                <CheckBox
+                    x:Name            = "_checkBox1"
                     Grid.Row          = "0"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
-                <CheckBox 
+                <CheckBox
+                    x:Name            = "_checkBox2"
                     Grid.Row          = "1"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox3"
                     Grid.Row          = "2"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
-                <CheckBox 
+                <CheckBox
+                    x:Name            = "_checkBox4"
                     Grid.Row          = "3"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox5"
                     Grid.Row          = "4"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox6"
                     Grid.Row          = "5"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox7"
                     Grid.Row          = "6"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox8"
                     Grid.Row          = "7"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox9"
                     Grid.Row          = "8"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox10"
                     Grid.Row          = "9"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox11"
                     Grid.Row          = "10"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox12"
                     Grid.Row          = "11"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
                     Color             = "#14d1ca"/>
                 <CheckBox 
+                    x:Name            = "_checkBox13"
                     Grid.Row          = "12"
                     Grid.Column       = "1"
                     HorizontalOptions = "End"
@@ -190,14 +208,15 @@
                     Margin          = "10"
                     BackgroundColor = "White"
                     BorderColor     = "#14d1ca"
+                    BorderWidth     = "1"
                     TextColor       = "#14d1ca"
-                    FontSize        = "18"
+                    FontSize        = "15"
                     FontAttributes  = "Bold"
                     Clicked         = "Btn_EnviarAnalise"/>
 
                 <Button 
                     Grid.Column     = "1"
-                    Text            = "Salvar"
+                    Text            = "Salvar Alterações"
                     Margin          = "10"
                     BackgroundColor = "#14d1ca"
                     TextColor       = "White"

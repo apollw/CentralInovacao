@@ -8,14 +8,14 @@ namespace CentralInovacao.Models
 {
     public class Oportunidade
     {
-        private int         _id;
-        private string      _titulo;
-        private string      _status;
-        private string      _responsavel;
-        private string      _aspectosPositivos;
-        private string      _aspectosNegativos;
-        private DateTime    _dataRegistro;
-        private List<Setor> _setores;
+        private int                     _id;
+        private string                  _titulo;
+        private string                  _status;
+        private string                  _responsavel;
+        private string                  _aspectosPositivos;
+        private string                  _aspectosNegativos;
+        private DateTime                _dataRegistro;
+        private Dictionary<string, int> _setores;
 
         public int Id { get => _id; set => _id = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
@@ -24,25 +24,25 @@ namespace CentralInovacao.Models
         public DateTime DataRegistro { get => _dataRegistro; set => _dataRegistro = value; }
         public string Responsavel { get => _responsavel; set => _responsavel = value; }
         public string Status { get => _status; set => _status = value; }
-        public List<Setor> Setores { get => _setores; set => _setores = value; }
+        public Dictionary<string, int> Setores { get => _setores; set => _setores = value; }
 
         public Oportunidade()
         {
-            Setores = new List<Setor>
+            Setores = new Dictionary<string, int>
             {
-                new Setor { Nome = "Administrativo"           , Selecionado = 0 },
-                new Setor { Nome = "Análise de Crédito"       , Selecionado = 0 },
-                new Setor { Nome = "Auditoria"                , Selecionado = 0 },
-                new Setor { Nome = "Contabilidade"            , Selecionado = 0 },
-                new Setor { Nome = "Creli"                    , Selecionado = 0 },
-                new Setor { Nome = "Financeiro"               , Selecionado = 0 },
-                new Setor { Nome = "Gestão de Pessoas"        , Selecionado = 0 },
-                new Setor { Nome = "Infraestrutura Civil"     , Selecionado = 0 },
-                new Setor { Nome = "Recebimentos"             , Selecionado = 0 },
-                new Setor { Nome = "Renovação Automática"     , Selecionado = 0 },
-                new Setor { Nome = "Seguros"                  , Selecionado = 0 },
-                new Setor { Nome = "T.I. Inovação"            , Selecionado = 0 },
-                new Setor { Nome = "Tecnologia da Informação" , Selecionado = 0 }               
+                { "Administrativo", 0 },
+                { "Análise de Crédito", 0 },
+                { "Auditoria", 0 },
+                { "Contabilidade", 0 },
+                { "Creli", 0 },
+                { "Financeiro", 0 },
+                { "Gestão de Pessoas", 0 },
+                { "Infraestrutura Civil", 0 },
+                { "Recebimentos", 0 },
+                { "Renovação Automática", 0 },
+                { "Seguros", 0 },
+                { "T.I. Inovação", 0 },
+                { "Tecnologia da Informação", 0 }
             };
         }
 
