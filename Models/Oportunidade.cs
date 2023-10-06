@@ -16,6 +16,8 @@ namespace CentralInovacao.Models
         private string                  _aspectosNegativos;
         private DateTime                _dataRegistro;
         private Dictionary<string, int> _setores;
+        private List<Colaborador>       _squad;
+        private List<Tarefa>            _listaDeTarefas;
 
         public int Id { get => _id; set => _id = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
@@ -25,6 +27,8 @@ namespace CentralInovacao.Models
         public string Responsavel { get => _responsavel; set => _responsavel = value; }
         public string Status { get => _status; set => _status = value; }
         public Dictionary<string, int> Setores { get => _setores; set => _setores = value; }
+        public List<Colaborador> Squad { get => _squad; set => _squad = value; }
+        public List<Tarefa> ListaDeTarefas { get => _listaDeTarefas; set => _listaDeTarefas = value; }
 
         public Oportunidade()
         {
@@ -45,7 +49,6 @@ namespace CentralInovacao.Models
                 { "Tecnologia da Informação", 0 }
             };
         }
-
         public class Setor
         {
             public string Nome { get; set; }

@@ -14,7 +14,7 @@ public partial class PageDeclinio : ContentPage
     public PageDeclinio(Oportunidade oportunidade)
     {
         InitializeComponent();
-        Oportunidade = oportunidade;
+        Oportunidade   = oportunidade;
         BindingContext = VMOportunidade;
     }
     private async void Btn_Declinada(object sender, EventArgs e)

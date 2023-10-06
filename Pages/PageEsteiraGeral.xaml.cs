@@ -14,8 +14,8 @@ public partial class PageEsteiraGeral : ContentPage
     }
     public class ViewModelButton
     {
-        public List<ButtonModel> Buttons { get; set; }
-        public Oportunidade Oportunidade { get; set; }
+        public Oportunidade      Oportunidade { get; set; }
+        public List<ButtonModel> Buttons { get; set; }        
 
         public ViewModelButton(Oportunidade oportunidade)
         {
@@ -46,24 +46,23 @@ public partial class PageEsteiraGeral : ContentPage
                     await Shell.Current.Navigation.PushAsync(new PageEsteiraBriefing(Oportunidade));
                     break;
                 case "Squad":
-                    await Shell.Current.GoToAsync($"{nameof(PageEsteiraSquad)}");
+                    await Shell.Current.Navigation.PushAsync(new PageEsteiraSquad(Oportunidade));
                     break;
                 case "Planejamento":
-                    await Shell.Current.GoToAsync($"{nameof(PageEsteiraPlanejamento)}");
+                    await Shell.Current.Navigation.PushAsync(new PageEsteiraPlanejamento(Oportunidade));
                     break;
                 case "Acompanhamento":
-                    await Shell.Current.GoToAsync($"{nameof(PageEsteiraAcompanhamento)}");
+                    await Shell.Current.Navigation.PushAsync(new PageEsteiraAcompanhamento());
                     break;
                 default:
                     break;
             }
         }
-
     }
     public class ButtonModel
     {
-        public string Text { get; set; }
-        public string ImagePath { get; set; }
+        public string   Text { get; set; }
+        public string   ImagePath { get; set; }
         public ICommand Command { get; set; }
 
         public ButtonModel(string text, string imagePath, ICommand command)

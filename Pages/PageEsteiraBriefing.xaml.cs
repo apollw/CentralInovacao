@@ -22,7 +22,7 @@ public partial class PageEsteiraBriefing : ContentPage
     {
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
-        string myText = _editor1.Text;
+        string myText  = _editor1.Text;
     }
     void OnEditorCompleted(object sender, EventArgs e)
     {

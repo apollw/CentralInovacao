@@ -60,7 +60,7 @@
                     <Label 
                         Text  = "Backlog" 
                         Style = "{StaticResource labelCabecalho}"/>
-                    <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
+                    <ImageButton Style="{StaticResource imgButton1Cabecalho}" Clicked="ImageButton_Clicked"/>
                     <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
                     
                     <!--LINHA 2 - COLEÇÃO DE ITENS-->
@@ -69,7 +69,7 @@
                         Grid.ColumnSpan = "3"
                         x:Name          = "_collectionView"
                         BackgroundColor = "White"
-                        ItemsSource     = "{Binding Items}">
+                        ItemsSource     = "{Binding Oportunidade.ListaDeTarefas}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Border 
