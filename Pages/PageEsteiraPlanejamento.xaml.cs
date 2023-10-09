@@ -7,46 +7,35 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraPlanejamento : ContentPage
 {
-    ViewModelTarefa VMTarefa= new ViewModelTarefa();
+    ViewModelTarefa VMTarefa  = new ViewModelTarefa();
     Oportunidade Oportunidade = new Oportunidade();
 
     public PageEsteiraPlanejamento(Oportunidade oportunidade)
 	{
 		InitializeComponent();
-        Oportunidade = oportunidade;
+        Oportunidade   = oportunidade;
         BindingContext = VMTarefa;
 
-        //Carrega itens da oportunidade
-        Oportunidade.ListaDeTarefas = VMTarefa.CarregarTarefas(Oportunidade);
-
-        // Inicialize a coleção de itens e adicione alguns exemplos
-        //Items = new ObservableCollection<string>
-        //    {
-        //        "Tarefa 1",
-        //        "Tarefa 2",
-        //        "Tarefa 3",
-        //        "Tarefa 1",
-        //        "Tarefa 2",
-        //        "Tarefa 3",
-        //        "Tarefa 1",
-        //        "Tarefa 2",
-        //        "Tarefa 3",
-        //        "Tarefa 1",
-        //        "Tarefa 2",
-        //        "Tarefa 3",
-        //        "Tarefa 1",
-        //        "Tarefa 2",
-        //        "Tarefa 3"
-        //    };
+        FillPage();
 
         //// Vincule a coleção à CollectionView
         //_collectionView.ItemsSource = Items;
         //_collectionView1.ItemsSource = Items;
         //_collectionView2.ItemsSource = Items;
     }
+    public void FillPage()
+    {
+        Oportunidade.ListaDeTarefas = VMTarefa.CarregarTarefas(Oportunidade);
+        _collectionView.ItemsSource = Oportunidade.ListaDeTarefas;
+    }
 
     private void ImageButton_Clicked(object sender, EventArgs e)
     {
-        VMTarefa.NovoItem(Oportunidade);
+        VMTarefa.NovaTarefa(Oportunidade);
+    }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+
     }
 }

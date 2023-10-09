@@ -25,15 +25,15 @@ namespace CentralInovacao.Models
         public string Descricao { get => _descricao; set => _descricao = value; }
         public string Status { get => _status; set => _status = value; }        
         public string Responsavel { get => _responsavel; set => _responsavel = value; }
-        public List<Item> ListaDeItens { get => _listaDeItens; set => _listaDeItens = value; }
         public string Comentarios { get => _comentarios; set => _comentarios = value; }
+        public List<Item> ListaDeItens { get => _listaDeItens; set => _listaDeItens = value; }
 
         public class Item
         {
+            public string   Titulo { get; set; }
             public DateTime Date   { get; set; }
             public int      Status { get; set; }
             //Status 0 = Em andamento, 1 = finalizado 
-            public string   Titulo { get; set; }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace CentralInovacao.ViewModel
             ListaDeOportunidades = new List<Oportunidade>();    
         }
 
-        public void NovoItem(Oportunidade oportunidade)
+        public void NovaTarefa(Oportunidade oportunidade)
         {
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
@@ -49,16 +49,26 @@ namespace CentralInovacao.ViewModel
             //Adiciona tarefa à oportunidade
             oportunidade.ListaDeTarefas.Add(Tarefa);
 
-            foreach(Oportunidade element in ListaDeOportunidades)
-            {
-                //atualizar oportunidade
-                if (element.Id == oportunidade.Id)
-                {
-                    oportunidade = element; //VAZIO
-                }
-            }            
+            //foreach(Oportunidade element in ListaDeOportunidades)
+            //{
+            //    //atualizar oportunidade
+            //    if (element.Id == oportunidade.Id)
+            //    {
+            //        oportunidade = element; //VAZIO
+            //    }
+            //}            
             ListaDeOportunidades.Add(oportunidade);
             File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
+        }
+
+        public void NovoItem(int id)
+        {
+            //Estaremos alterando uma oportunidade específica
+
+            //Se Oportunidade.Id = true
+            // Adiciona item à oportunidade
+            // Update Lista de Oportunidades
+
         }
 
         public List<Tarefa> CarregarTarefas(Oportunidade oportunidade)
