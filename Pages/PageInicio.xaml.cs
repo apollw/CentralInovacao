@@ -1,7 +1,11 @@
+using CentralInovacao.Services;
+
 namespace CentralInovacao.Pages;
 
 public partial class PageInicio : ContentPage
 {
+    private readonly AuthService _authService;
+
     private List<InteractionItem> lastInteractions;
     public List<InteractionItem> LastInteractions
     {
@@ -13,9 +17,10 @@ public partial class PageInicio : ContentPage
         }
     }
 
-    public PageInicio()
+    public PageInicio(AuthService authService)
     {
         InitializeComponent();
+        _authService = authService;
         BindingContext = this;
 
         // Exemplo de dados
@@ -73,8 +78,7 @@ public partial class PageInicio : ContentPage
     }
     private async void Btn_Logout(object sender, EventArgs e)
     {
-        //Navegar para uma Página Específica
-        // Os dois "//" servem para fazer navegação de rota absoluta
+        _authService.Logout();
         await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
     }      
    

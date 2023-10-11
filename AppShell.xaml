@@ -44,12 +44,12 @@
             ContentTemplate = "{DataTemplate views:PageInicio}"
             Route           = "PageInicio"/>
         <ShellContent 
-            Title           = "Minhas Oportunidades"
+            Title           = "Meus Projetos"
             FlyoutIcon      = "shellicon_inovation.png"
             ContentTemplate = "{DataTemplate views:PageMinhasOportunidades}"
             Route           = "PageMinhasOportunidades"/>
         <ShellContent 
-            Title           = "Meus Projetos"
+            Title           = "Oportunidades Gerais"
             FlyoutIcon      = "shellicon_project.png"
             ContentTemplate = "{DataTemplate views:PageMeusProjetos}"
             Route           = "PageMeusProjetos"/>
@@ -59,8 +59,8 @@
             ContentTemplate = "{DataTemplate views:PageRankingGeral}"
             Route           = "PageRankingGeral"/>
         <ShellContent 
-            Title           = "Ajuda"
-            FlyoutIcon      = "shellicon_score.png"
+            Title           = "Saiba Mais"
+            FlyoutIcon      = "shellicon_help.png"
             ContentTemplate = "{DataTemplate views:PagePontuacao}"
             Route           = "PagePontuacao"/>
     </FlyoutItem>

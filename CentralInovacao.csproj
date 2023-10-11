@@ -98,6 +98,7 @@
 	  <None Remove="Resources\Images\key.png" />
 	  <None Remove="Resources\Images\logo_ceape.png" />
 	  <None Remove="Resources\Images\shellheader_ceape.png" />
+	  <None Remove="Resources\Images\shellicon_help.png" />
 	  <None Remove="Resources\Images\shellicon_idea.png" />
 	  <None Remove="Resources\Images\shellicon_inovation.png" />
 	  <None Remove="Resources\Images\shellicon_project.png" />
@@ -113,6 +114,7 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 	  <PackageReference Include="Microcharts.Maui" Version="1.0.0" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <PackageReference Include="RestSharp" Version="106.13.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -140,9 +142,6 @@
 	  <Compile Update="Pages\PageInicio.xaml.cs">
 	    <DependentUpon>PageInicio.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\PageLogin.xaml.cs">
-	    <DependentUpon>PageLogin.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Pages\PageMeusProjetos.xaml.cs">
 	    <DependentUpon>PageMeusProjetos.xaml</DependentUpon>
 	  </Compile>
@@ -165,6 +164,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\PageEsteiraGeral.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PageLoading.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Cards.xaml">
@@ -191,9 +193,6 @@
 	  <MauiXaml Update="Pages\PageInicio.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\PageLogin.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\PageMeusProjetos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -216,7 +215,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Repositories\Interfaces\" />
-	  <Folder Include="Services\" />
 	</ItemGroup>
 	
 </Project>

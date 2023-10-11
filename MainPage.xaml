@@ -90,22 +90,15 @@
                             Opacity = "0.2"/>
                     </Entry.Shadow>
                 </Entry>
-
+                
                 <Button 
                     x:Name          = "_btn_Login"
                     Text            = "Entrar"
                     FontSize        = "20"
                     BackgroundColor = "#14d1ca"
-                    Clicked         = "Btn_Login"/>
-                <Button 
-                    x:Name          = "_btn_Senha"
-                    Text            = "Esqueci a Senha"
-                    TextColor       = "#14d1ca"
-                    FontSize        = "20"
-                    BorderColor     = "#14d1ca"
-                    BorderWidth     = "1"
-                    BackgroundColor = "White"
-                    Clicked         = "Btn_Login"/>
+                    Clicked         = "Btn_Login"
+                    VerticalOptions = "End"/>
+
             </StackLayout>
         </Grid>
     </ScrollView>

@@ -33,7 +33,8 @@
                 FontAttributes          = "Bold"
                 Margin                  = "0,10"
                 HorizontalTextAlignment = "Start"/>
-            <Label Text="Exemplo 1"/>
+            <Label 
+                Text="teste1"/>
             <Label 
                 Text                    = "Como funcionam os Rankings?"
                 TextColor               = "Black"
@@ -41,7 +42,7 @@
                 FontAttributes          = "Bold"
                 Margin                  = "0,10"
                 HorizontalTextAlignment = "Start"/>
-            <Label Text="Exemplo 1"/>
+            <Label Text="teste2"/>
             <Label 
                 Text                    = "Como funciona o sistema de medalhas?"
                 TextColor               = "Black"
@@ -49,7 +50,7 @@
                 FontAttributes          = "Bold"
                 Margin                  = "0,10"
                 HorizontalTextAlignment = "Start"/>
-            <Label Text="Exemplo 1"/>            
+            <Label Text="teste3"/>            
         </StackLayout>
     </ScrollView>    
 </ContentPage>

@@ -36,8 +36,6 @@ namespace CentralInovacao.ViewModel
             }
 
             //Adicionar Novo Item à Oportunidade específica
-
-            Tarefa.Id          = 0;
             Tarefa.DataInicio  = DateTime.Now;
             Tarefa.Titulo      = "NULL";
             Tarefa.Status      = "Em execução";
@@ -48,16 +46,7 @@ namespace CentralInovacao.ViewModel
             oportunidade.ListaDeTarefas = new List<Tarefa> { Tarefa };
             //Adiciona tarefa à oportunidade
             oportunidade.ListaDeTarefas.Add(Tarefa);
-
-            //foreach(Oportunidade element in ListaDeOportunidades)
-            //{
-            //    //atualizar oportunidade
-            //    if (element.Id == oportunidade.Id)
-            //    {
-            //        oportunidade = element; //VAZIO
-            //    }
-            //}            
-            ListaDeOportunidades.Add(oportunidade);
+         
             File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
         }
 

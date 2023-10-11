@@ -1,4 +1,6 @@
-﻿using Microcharts.Maui;
+﻿using CentralInovacao.Pages;
+using CentralInovacao.Services;
+using Microcharts.Maui;
 
 namespace CentralInovacao;
 
@@ -16,6 +18,11 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+		builder.Services.AddSingleton<AuthService>();
+		builder.Services.AddTransient<PageLoading>();
+		builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<PageInicio>();
+
+        return builder.Build();
 	}
 }

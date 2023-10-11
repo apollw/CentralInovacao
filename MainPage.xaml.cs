@@ -1,30 +1,20 @@
 ﻿using CentralInovacao.Pages;
+using CentralInovacao.Services;
 
 namespace CentralInovacao;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage()
+    private readonly AuthService _authService;
+    public MainPage(AuthService authService)
 	{
 		InitializeComponent();
-	}
-    //private async void Btn_Login(object sender, EventArgs e)
-    //{
-    //    //Navegar para uma Página Específica
-    //    // Os dois "//" servem para fazer navegação de rota absoluta
-    //    //if (_entryNome.Text == "LOGIN")
-    //    await Navigation.PushAsync(new ViewLogin());
-    //    //else
-    //    //    await DisplayAlert("Alerta", "Login Incorreto", "Fechar");
-    //}
+        _authService = authService;
+    }
     private async void Btn_Login(object sender, EventArgs e)
-    {
-        //Navegar para uma Página Específica
-        // Os dois "//" servem para fazer navegação de rota absoluta
-        //if (_entryNome.Text == "LOGIN")
-        await Shell.Current.GoToAsync($"//{nameof(PageInicio)}");
-        //else
-        //    await DisplayAlert("Alerta", "Login Incorreto", "Fechar");
+    {      
+        await _authService.LoginAsync(_entryNome.Text,_entrySenha.Text);
+        await Shell.Current.GoToAsync($"{nameof(PageLoading)}");
     }
 
     //Comportamento de Focar e Desfocar das Entries - ReturnType - Done

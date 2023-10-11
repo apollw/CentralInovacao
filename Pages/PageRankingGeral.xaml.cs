@@ -63,3 +63,6 @@ public partial class PageRankingGeral : ContentPage
     }
 
 }
+
+
+

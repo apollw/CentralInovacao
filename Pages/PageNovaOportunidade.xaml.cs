@@ -7,14 +7,13 @@ namespace CentralInovacao.Pages;
 
 public partial class PageNovaOportunidade : ContentPage
 {
+    Oportunidade          Oportunidade   = new Oportunidade();
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    Oportunidade Oportunidade = new Oportunidade();
-    
+
     public PageNovaOportunidade()
 	{
 		InitializeComponent();
-        BindingContext = VMOportunidade;
-
+        BindingContext = VMOportunidade;       
     }
     public PageNovaOportunidade(Oportunidade oportunidade)
     {
@@ -48,6 +47,7 @@ public partial class PageNovaOportunidade : ContentPage
 
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)
     {
+        Oportunidade.Id                = VMOportunidade.GerarNovoId(Oportunidade.Id);
         Oportunidade.Titulo            = _entryTitulo.Text;
         Oportunidade.AspectosPositivos = _editor1.Text;
         Oportunidade.AspectosNegativos = _editor2.Text;

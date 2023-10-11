@@ -31,12 +31,33 @@ namespace CentralInovacao.ViewModel
         public ViewModelOportunidade()
         {
             Oportunidade         = new Oportunidade();
-            ListaDeOportunidades = new List<Oportunidade>();            
+            ListaDeOportunidades = CarregarOportunidades();            
         }
         private async void ExecuteRefresh()
         {
             await CarregarOportunidadesAsync();
             IsRefreshing = false;
+        }
+
+        public int GerarNovoId(int id)
+        {
+            if (id != 0)
+            {
+                return id; // Retorna a ID existente da Oportunidade
+            }
+            else
+            {
+                if (ListaDeOportunidades.Count == 0)
+                {
+                    return 1; // Se a lista está vazia, retorna 1 como o novo ID
+                }
+                else
+                {
+                    int ultimoIdUtilizado = ListaDeOportunidades.Max(oportunidade => oportunidade.Id);
+                    int novoId = ultimoIdUtilizado + 1;
+                    return novoId;
+                }
+            }
         }
 
         public void SalvarOportunidade(Oportunidade oportunidade)
