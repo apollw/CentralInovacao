@@ -44,12 +44,12 @@
             ContentTemplate = "{DataTemplate views:PageInicio}"
             Route           = "PageInicio"/>
         <ShellContent 
-            Title           = "Meus Projetos"
+            Title           = "Minhas Oportunidades"
             FlyoutIcon      = "shellicon_inovation.png"
             ContentTemplate = "{DataTemplate views:PageMinhasOportunidades}"
             Route           = "PageMinhasOportunidades"/>
         <ShellContent 
-            Title           = "Oportunidades Gerais"
+            Title           = "Projetos Gerais"
             FlyoutIcon      = "shellicon_project.png"
             ContentTemplate = "{DataTemplate views:PageMeusProjetos}"
             Route           = "PageMeusProjetos"/>

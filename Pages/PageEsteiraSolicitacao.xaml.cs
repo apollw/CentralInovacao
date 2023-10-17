@@ -23,9 +23,9 @@ public partial class PageEsteiraSolicitacao : ContentPage
     public void FillPage()
     {
         _entryColaborador.Text = "Nome do Usuário";
-        _entryTitulo.Text      = Oportunidade.Titulo;
-        _editor1.Text          = Oportunidade.AspectosPositivos;
-        _editor2.Text          = Oportunidade.AspectosNegativos;
+        _entryTitulo.Text      = Oportunidade.Nome;
+        _editor1.Text          = Oportunidade.DescricaoPositiva;
+        _editor2.Text          = Oportunidade.DescricaoNegativa;
 
         //Atualizar Checkboxes
         _checkBox1.IsChecked  = Oportunidade.Setores.TryGetValue("Administrativo", out int valor1) && valor1 == 1;

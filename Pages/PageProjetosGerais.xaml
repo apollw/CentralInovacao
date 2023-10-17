@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Pages.PageMeusProjetos"
+             Title="Projetos Gerais">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text    = "Logout" 
+                     Clicked = "Btn_Logout"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <!--ESTILO DAS LABELS INTERNAS-->
+        <Style TargetType="Label" x:Key="insideLabelStyle">
+            <Setter Property="FontAttributes"          Value="Bold"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions    = "85*,15*" 
+          ColumnDefinitions = "*,*">
+
+        <RefreshView 
+            Grid.Row        = "0"
+            Grid.ColumnSpan = "2" 
+            IsRefreshing    = "{Binding IsRefreshing, Mode=TwoWay}" 
+            Command         = "{Binding RefreshCommand}">
+            <CollectionView                
+                ItemsSource = "{Binding ListaDeOportunidades}"
+                EmptyView   = "Nenhuma Oportunidade Registrada">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border 
+                            Grid.Row      = "0" 
+                            Style         = "{StaticResource borderCardStyle}"
+                            HeightRequest = "250">
+                            <StackLayout 
+                                Spacing = "5"
+                                Margin  = "10">
+                                <Label 
+                                   Text                    = "{Binding Titulo}"
+                                   TextColor               = "DarkCyan"
+                                   FontSize                = "18"
+                                   FontAttributes          = "Bold"
+                                   Margin                  = "0,10"
+                                   HorizontalTextAlignment = "Center"/>
+                                <Label 
+                                   Text                    = "{Binding Id}"
+                                   TextColor               = "Black"
+                                   FontSize                = "15"
+                                   HorizontalTextAlignment = "Start"/>
+                                <Label 
+                                   Text                    = "{Binding DataRegistro}"
+                                   TextColor               = "Black"
+                                   FontSize                = "15"
+                                   HorizontalTextAlignment = "Start"/>
+                                <Label 
+                                   Text                    = "{Binding Status}"
+                                   TextColor               = "Black"
+                                   FontSize                = "15"
+                                   HorizontalTextAlignment = "Start"/>
+                                <Label 
+                                   Text                    = "{Binding Responsavel}"
+                                   TextColor               = "Black"
+                                   FontSize                = "15"
+                                   HorizontalTextAlignment = "Start"/>
+                                <Button 
+                                   Text          = "Abrir"
+                                   WidthRequest  = "100"
+                                   HeightRequest = "50"
+                                   Clicked       = "Btn_AbrirEsteira"
+                                   Margin        = "5"
+                                   Style         = "{StaticResource smallButtonStyle}"/>
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <BoxView
+            Grid.Row        = "1"
+            Grid.ColumnSpan = "2"
+            Color           = "DarkCyan"
+            VerticalOptions = "Start"
+            HeightRequest   = "1"/>
+
+        <Label
+            Grid.Row                = "1"
+            Grid.Column             = "0"
+            Text                    = "{Binding ListaDeOportunidades.Count,
+                                        StringFormat='Oportunidades Registradas: {0}'}"
+            FontAttributes          = "Bold"
+            VerticalTextAlignment   = "Center"
+            HorizontalTextAlignment = "Center"/>
+    </Grid>
+
+</ContentPage>
+

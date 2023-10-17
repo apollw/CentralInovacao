@@ -11,11 +11,11 @@ namespace CentralInovacao.ViewModel
     public partial class ViewModelColaborador:ObservableObject
     {
         [ObservableProperty]
-        private Colaborador _colaborador;
+        private Usuario _colaborador;
 
         public ViewModelColaborador()
         {
-            Colaborador = new Colaborador();    
+            Colaborador = new Usuario();    
         }
     }
 }

@@ -43,9 +43,9 @@ namespace CentralInovacao.ViewModel
             Tarefa.Comentarios = "NULL";
             Tarefa.Descricao   = "NULL";
             
-            oportunidade.ListaDeTarefas = new List<Tarefa> { Tarefa };
+           // oportunidade.ListaDeTarefas = new List<Tarefa> { Tarefa };
             //Adiciona tarefa à oportunidade
-            oportunidade.ListaDeTarefas.Add(Tarefa);
+            //oportunidade.ListaDeTarefas.Add(Tarefa);
          
             File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
         }
@@ -73,7 +73,7 @@ namespace CentralInovacao.ViewModel
             {
                 if(element.Id == oportunidade.Id) 
                 {
-                    ListaDeTarefas = oportunidade.ListaDeTarefas;
+                    //ListaDeTarefas = oportunidade.ListaDeTarefas;
                 }
             }
 

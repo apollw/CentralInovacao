@@ -142,8 +142,8 @@
 	  <Compile Update="Pages\PageInicio.xaml.cs">
 	    <DependentUpon>PageInicio.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\PageMeusProjetos.xaml.cs">
-	    <DependentUpon>PageMeusProjetos.xaml</DependentUpon>
+	  <Compile Update="Pages\PageProjetosGerais.xaml.cs">
+	    <DependentUpon>PageProjetosGerais.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\PageMinhasOportunidades.xaml.cs">
 	    <DependentUpon>PageMinhasOportunidades.xaml</DependentUpon>
@@ -193,7 +193,7 @@
 	  <MauiXaml Update="Pages\PageInicio.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\PageMeusProjetos.xaml">
+	  <MauiXaml Update="Pages\PageProjetosGerais.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PageMinhasOportunidades.xaml">

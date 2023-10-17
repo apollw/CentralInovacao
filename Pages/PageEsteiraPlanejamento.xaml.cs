@@ -10,6 +10,13 @@ public partial class PageEsteiraPlanejamento : ContentPage
     ViewModelTarefa VMTarefa  = new ViewModelTarefa();
     Oportunidade Oportunidade = new Oportunidade();
 
+    public PageEsteiraPlanejamento()
+    {
+        InitializeComponent();
+        BindingContext = VMTarefa;
+        FillPage();
+    }
+
     public PageEsteiraPlanejamento(Oportunidade oportunidade)
 	{
 		InitializeComponent();
@@ -25,8 +32,8 @@ public partial class PageEsteiraPlanejamento : ContentPage
     }
     public void FillPage()
     {
-        Oportunidade.ListaDeTarefas = VMTarefa.CarregarTarefas(Oportunidade);
-        _collectionView.ItemsSource = Oportunidade.ListaDeTarefas;
+        //Oportunidade.ListaDeTarefas = VMTarefa.CarregarTarefas(Oportunidade);
+        //_collectionView.ItemsSource = Oportunidade.ListaDeTarefas;
     }
 
     private void ImageButton_Clicked(object sender, EventArgs e)

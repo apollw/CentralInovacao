@@ -24,9 +24,9 @@ public partial class PageNovaOportunidade : ContentPage
     }
     public void FillPage()
     {
-        _entryTitulo.Text = Oportunidade.Titulo;
-        _editor1.Text     = Oportunidade.AspectosPositivos;
-        _editor2.Text     = Oportunidade.AspectosNegativos;
+        _entryTitulo.Text = Oportunidade.Nome;
+        _editor1.Text     = Oportunidade.DescricaoPositiva;
+        _editor2.Text     = Oportunidade.DescricaoNegativa;
     }
     void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
     {
@@ -48,12 +48,12 @@ public partial class PageNovaOportunidade : ContentPage
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)
     {
         Oportunidade.Id                = VMOportunidade.GerarNovoId(Oportunidade.Id);
-        Oportunidade.Titulo            = _entryTitulo.Text;
-        Oportunidade.AspectosPositivos = _editor1.Text;
-        Oportunidade.AspectosNegativos = _editor2.Text;
-        Oportunidade.Status            = "Em espera";
-        Oportunidade.DataRegistro      = DateTime.Now;
-        Oportunidade.Responsavel       = "Sem responsável";
+        Oportunidade.Nome              = _entryTitulo.Text;
+        Oportunidade.DescricaoPositiva = _editor1.Text;
+        Oportunidade.DescricaoNegativa = _editor2.Text;
+        Oportunidade.Status            = 0;
+        Oportunidade.Data              = DateTime.Now;
+        Oportunidade.Analista          = 2507;
         
         VMOportunidade.SalvarOportunidade(Oportunidade);
 

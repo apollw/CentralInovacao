@@ -39,7 +39,7 @@
                                 Spacing = "5"
                                 Margin  = "10">
                                 <Label 
-                                   Text                    = "{Binding Titulo}"
+                                   Text                    = "{Binding Nome}"
                                    TextColor               = "DarkCyan"
                                    FontSize                = "18"
                                    FontAttributes          = "Bold"
@@ -51,7 +51,7 @@
                                    FontSize                = "15"
                                    HorizontalTextAlignment = "Start"/>
                                 <Label 
-                                   Text                    = "{Binding DataRegistro}"
+                                   Text                    = "{Binding Data}"
                                    TextColor               = "Black"
                                    FontSize                = "15"
                                    HorizontalTextAlignment = "Start"/>
@@ -61,7 +61,7 @@
                                    FontSize                = "15"
                                    HorizontalTextAlignment = "Start"/>
                                 <Label 
-                                   Text                    = "{Binding Responsavel}"
+                                   Text                    = "{Binding Analista}"
                                    TextColor               = "Black"
                                    FontSize                = "15"
                                    HorizontalTextAlignment = "Start"/>

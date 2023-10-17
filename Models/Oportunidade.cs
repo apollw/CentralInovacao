@@ -9,26 +9,21 @@ namespace CentralInovacao.Models
     public class Oportunidade
     {
         private int                     _id;
-        private string                  _titulo;
-        private string                  _status;
-        private string                  _responsavel;
-        private string                  _aspectosPositivos;
-        private string                  _aspectosNegativos;
-        private DateTime                _dataRegistro;
+        private int                     _usuario;
+        private int                     _status;
+        private int                     _analista;
+        private int                     _estagioAtual;
+        private int                     _motivoDeclinio;
+        private DateTime                _data;
+        private DateTime                _dataFim;
+        private DateTime                _dataAnalise;
+        private DateTime                _dataSquad;
+        private DateTime                _dataPlanejamento;
+        private string                  _nome;
+        private string                  _descricaoPositiva;
+        private string                  _descricaoNegativa;
+        private string                  _descricaoAnalise;
         private Dictionary<string, int> _setores;
-        private List<Colaborador>       _squad;
-        private List<Tarefa>            _listaDeTarefas;
-
-        public int Id { get => _id; set => _id = value; }
-        public string Titulo { get => _titulo; set => _titulo = value; }
-        public string AspectosPositivos { get => _aspectosPositivos; set => _aspectosPositivos = value;}
-        public string AspectosNegativos { get => _aspectosNegativos; set => _aspectosNegativos = value; }
-        public DateTime DataRegistro { get => _dataRegistro; set => _dataRegistro = value; }
-        public string Responsavel { get => _responsavel; set => _responsavel = value; }
-        public string Status { get => _status; set => _status = value; }
-        public Dictionary<string, int> Setores { get => _setores; set => _setores = value; }
-        public List<Colaborador> Squad { get => _squad; set => _squad = value; }
-        public List<Tarefa> ListaDeTarefas { get => _listaDeTarefas; set => _listaDeTarefas = value; }
 
         public Oportunidade()
         {
@@ -49,6 +44,24 @@ namespace CentralInovacao.Models
                 { "Tecnologia da Informação", 0 }
             };
         }
+
+        public int Id { get => _id; set => _id = value; }
+        public int Usuario { get => _usuario; set => _usuario = value; }
+        public int Status { get => _status; set => _status = value; }
+        public int Analista { get => _analista; set => _analista = value; }
+        public int EstagioAtual { get => _estagioAtual; set => _estagioAtual = value; }
+        public int MotivoDeclinio { get => _motivoDeclinio; set => _motivoDeclinio = value; }
+        public DateTime Data { get => _data; set => _data = value; }
+        public DateTime DataFim { get => _dataFim; set => _dataFim = value; }
+        public DateTime DataAnalise { get => _dataAnalise; set => _dataAnalise = value; }
+        public DateTime DataSquad { get => _dataSquad; set => _dataSquad = value; }
+        public DateTime DataPlanejamento { get => _dataPlanejamento; set => _dataPlanejamento = value; }
+        public string Nome { get => _nome; set => _nome = value; }
+        public string DescricaoPositiva { get => _descricaoPositiva; set => _descricaoPositiva = value; }
+        public string DescricaoNegativa { get => _descricaoNegativa; set => _descricaoNegativa = value; }
+        public string DescricaoAnalise { get => _descricaoAnalise; set => _descricaoAnalise = value; }
+        public Dictionary<string, int> Setores { get => _setores; set => _setores = value; }
+
         public class Setor
         {
             public string Nome { get; set; }

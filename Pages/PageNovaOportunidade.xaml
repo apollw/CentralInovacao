@@ -22,7 +22,7 @@
                 Padding        = "5"/>
             <Entry   
                 x:Name                = "_entryTitulo"
-                MaxLength             = "30"
+                MaxLength             = "50"
                 FontSize              = "Medium"
                 WidthRequest          = "400"
                 BackgroundColor       = "WhiteSmoke"
@@ -33,12 +33,12 @@
                 BackgroundColor= "Black"/>
             <Label   
                 Text           = "Descreva um breve resumo de como essa solução pode
-                                  impactar POSITIVAMENTE o Ceape Brasil (Máx: 150 caracteres): (*)"
+                                  impactar POSITIVAMENTE o Ceape Brasil (Máx: 250 caracteres): (*)"
                 FontAttributes = "Bold"
                 Padding        = "5"/>
             <Editor  
                 x:Name                = "_editor1"
-                MaxLength             = "150"
+                MaxLength             = "250"
                 WidthRequest          = "400"
                 HeightRequest         = "100"
                 Placeholder           = "Insira uma descrição..."
@@ -52,13 +52,13 @@
                 HeightRequest    = "1"
                 WidthRequest     = "400"/>
             <Label   
-                Text             = "Descreva um breve resumo de como essa solução 
-                                   pode impactar NEGATIVAMENTE o Ceape Brasil (Máx: 150 caracteres): (*)"
+                Text             = "Descreva alguns aspectos NEGATIVOS dessa solução 
+                                    para o Ceape Brasil (Máx: 250 caracteres): (*)"
                 FontAttributes   = "Bold"
                 Padding          = "5"/>
             <Editor  
                 x:Name           = "_editor2"
-                MaxLength        = "150"
+                MaxLength        = "250"
                 WidthRequest     = "400"
                 HeightRequest    = "100"
                 Placeholder      = "Insira uma descrição..."

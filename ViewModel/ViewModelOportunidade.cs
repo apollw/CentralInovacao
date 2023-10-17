@@ -31,6 +31,7 @@ namespace CentralInovacao.ViewModel
         public ViewModelOportunidade()
         {
             Oportunidade         = new Oportunidade();
+            //ListaDeOportunidades = new List<Oportunidade>();
             ListaDeOportunidades = CarregarOportunidades();            
         }
         private async void ExecuteRefresh()
@@ -63,17 +64,20 @@ namespace CentralInovacao.ViewModel
         public void SalvarOportunidade(Oportunidade oportunidade)
         {
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
+
+            // Limpa o conteúdo do arquivo, criando um arquivo vazio
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
                 if (json != string.Empty)
                     ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
-                              
+
             }
             if (ListaDeOportunidades == null)
                 ListaDeOportunidades = new List<Oportunidade>();
 
             ListaDeOportunidades.Add(oportunidade);
+
             File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
 
         }
@@ -82,9 +86,13 @@ namespace CentralInovacao.ViewModel
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
-                string json = File.ReadAllText(filePath);                
+                string json = File.ReadAllText(filePath);
                 ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
             }
+
+            if (ListaDeOportunidades==null)
+                ListaDeOportunidades= new List<Oportunidade>();
+
             return ListaDeOportunidades;
         }
 
