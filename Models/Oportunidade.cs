@@ -24,9 +24,12 @@ namespace CentralInovacao.Models
         private string                  _descricaoNegativa;
         private string                  _descricaoAnalise;
         private Dictionary<string, int> _setores;
+        private List<Tarefa>            _listaDeTarefas;
 
         public Oportunidade()
         {
+            ListaDeTarefas = new List<Tarefa>();
+
             Setores = new Dictionary<string, int>
             {
                 { "Administrativo", 0 },
@@ -61,6 +64,7 @@ namespace CentralInovacao.Models
         public string DescricaoNegativa { get => _descricaoNegativa; set => _descricaoNegativa = value; }
         public string DescricaoAnalise { get => _descricaoAnalise; set => _descricaoAnalise = value; }
         public Dictionary<string, int> Setores { get => _setores; set => _setores = value; }
+        public List<Tarefa> ListaDeTarefas { get => _listaDeTarefas; set => _listaDeTarefas = value; }
 
         public class Setor
         {

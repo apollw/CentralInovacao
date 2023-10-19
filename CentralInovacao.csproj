@@ -169,6 +169,9 @@
 	  <MauiXaml Update="Pages\PageLoading.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\PageTarefa.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Cards.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

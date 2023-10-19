@@ -7,13 +7,15 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraPlanejamento : ContentPage
 {
-    ViewModelTarefa VMTarefa  = new ViewModelTarefa();
-    Oportunidade Oportunidade = new Oportunidade();
+    Oportunidade          Oportunidade   = new Oportunidade();
+    Tarefa                Tarefa         = new Tarefa();  
+    ViewModelTarefa       VMTarefa       = new ViewModelTarefa();
+    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
 
     public PageEsteiraPlanejamento()
     {
         InitializeComponent();
-        BindingContext = VMTarefa;
+        BindingContext = VMOportunidade;
         FillPage();
     }
 
@@ -21,12 +23,12 @@ public partial class PageEsteiraPlanejamento : ContentPage
 	{
 		InitializeComponent();
         Oportunidade   = oportunidade;
-        BindingContext = VMTarefa;
+        BindingContext = VMOportunidade;
 
         FillPage();
 
-        //// Vincule a coleção à CollectionView
-        //_collectionView.ItemsSource = Items;
+        // Vincule a coleção à CollectionView
+        _collectionView.ItemsSource = oportunidade.ListaDeTarefas;
         //_collectionView1.ItemsSource = Items;
         //_collectionView2.ItemsSource = Items;
     }
@@ -36,13 +38,14 @@ public partial class PageEsteiraPlanejamento : ContentPage
         //_collectionView.ItemsSource = Oportunidade.ListaDeTarefas;
     }
 
-    private void ImageButton_Clicked(object sender, EventArgs e)
+    private async void Btn_AdicionarTarefa(object sender, EventArgs e)
     {
-        VMTarefa.NovaTarefa(Oportunidade);
+        //Passa a oportunidade específica da tarefa
+        await Navigation.PushModalAsync(new PageTarefa(Oportunidade));    
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private void Btn_AdicionarItem(object sender, EventArgs e)
     {
-
+        VMTarefa.SalvarTarefaItem(Oportunidade,VMOportunidade.ListaDeOportunidades);        
     }
 }

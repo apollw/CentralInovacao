@@ -60,7 +60,7 @@
                     <Label 
                         Text  = "Backlog" 
                         Style = "{StaticResource labelCabecalho}"/>
-                    <ImageButton Style="{StaticResource imgButton1Cabecalho}" Clicked="ImageButton_Clicked"/>
+                    <ImageButton Style="{StaticResource imgButton1Cabecalho}" Clicked="Btn_AdicionarTarefa"/>
                     <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
                     
                     <!--LINHA 2 - COLEÇÃO DE ITENS-->
@@ -95,12 +95,12 @@
                                             HorizontalOptions = "Start"/>
                                         <Button 
                                             Text              = "Adicionar Item"
-                                            Clicked           = "Button_Clicked"/>
-                                        <Image 
+                                            Clicked           = "Btn_AdicionarItem"/>
+                                        <!--<Image 
                                             Source            = "img_fotoperfil.png"
                                             HeightRequest     = "60"
                                             WidthRequest      = "60" 
-                                            HorizontalOptions = "End"/>
+                                            HorizontalOptions = "End"/>-->
                                     </StackLayout>
                                 </Border>
                             </DataTemplate>

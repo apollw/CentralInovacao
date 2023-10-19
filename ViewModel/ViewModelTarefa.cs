@@ -25,7 +25,7 @@ namespace CentralInovacao.ViewModel
             ListaDeOportunidades = new List<Oportunidade>();    
         }
 
-        public void NovaTarefa(Oportunidade oportunidade)
+        public void SalvarTarefa(Oportunidade oportunidade,Tarefa tarefa)
         {
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
@@ -35,28 +35,61 @@ namespace CentralInovacao.ViewModel
                     ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
             }
 
-            //Adicionar Novo Item à Oportunidade específica
-            Tarefa.DataInicio  = DateTime.Now;
-            Tarefa.Titulo      = "NULL";
-            Tarefa.Status      = "Em execução";
-            Tarefa.Responsavel = "NULL";
-            Tarefa.Comentarios = "NULL";
-            Tarefa.Descricao   = "NULL";
-            
-           // oportunidade.ListaDeTarefas = new List<Tarefa> { Tarefa };
-            //Adiciona tarefa à oportunidade
-            //oportunidade.ListaDeTarefas.Add(Tarefa);
-         
+            //Lógica de adicionar tarefa à oportunidade específica
+            foreach(Oportunidade element in ListaDeOportunidades)
+            {
+                List<Oportunidade> ListaTemp = ListaDeOportunidades;
+
+                if(element.Id == oportunidade.Id)
+                {
+                    ListaTemp[ListaDeOportunidades.IndexOf(element)].ListaDeTarefas.Add(tarefa);
+                    ListaDeOportunidades=ListaTemp;
+                    break;
+                }
+            }
+
+            //Atualiza a lista
             File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
         }
 
-        public void NovoItem(int id)
+        public void SalvarTarefaItem(Oportunidade oportunidade, List<Oportunidade> listaDeOportunidades)
         {
-            //Estaremos alterando uma oportunidade específica
+            List<Tarefa> ListaTempTarefa = oportunidade.ListaDeTarefas;
+            
+            Tarefa TarefaTemp = new Tarefa();
 
-            //Se Oportunidade.Id = true
-            // Adiciona item à oportunidade
-            // Update Lista de Oportunidades
+            TarefaTemp.ItemNovo.Nome = "Item 1";
+            TarefaTemp.ItemNovo.Data = DateTime.Now;
+
+            //Como cada tarefa tem sua própria Id, através dessa Id pode-se adicionar um item à
+            //lista de itens dessa tarefa
+
+            //Adiciona o novo item à tarefa específica
+            ListaTempTarefa[0].ListaDeItems.Add(TarefaTemp.ItemNovo);
+
+            //Atualiza a Lista de Tarefas da Oportunidade Específica
+            oportunidade.ListaDeTarefas = ListaTempTarefa;
+
+            //Atualiza a Lista de Oportunidades do Usuário
+            var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
+
+            //Lógica de atualizar oportunidade específica da lista de oportunidades do usuário
+            foreach (Oportunidade element in listaDeOportunidades)
+            {
+                if (element.Id == oportunidade.Id)
+                {
+                    List<Oportunidade> ListaTemp = listaDeOportunidades;
+
+                    //Sobreescrever a oportunidade específica
+                    ListaTemp[listaDeOportunidades.IndexOf(element)] = oportunidade;
+
+                    listaDeOportunidades = ListaTemp;
+
+                    break;
+                }
+            }
+
+            File.WriteAllText(filePath, JsonConvert.SerializeObject(listaDeOportunidades));
 
         }
 
