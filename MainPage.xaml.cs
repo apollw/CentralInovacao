@@ -8,11 +8,6 @@ public partial class MainPage : ContentPage
     private readonly AuthService         _authService;
     private readonly ConnectivityService _connectivityService;
 
- //   public MainPage(AuthService authService)
-	//{
-	//	InitializeComponent();
- //       _authService = authService;
- //   }
     public MainPage(AuthService authService, ConnectivityService connectivityService)
     {
         InitializeComponent();

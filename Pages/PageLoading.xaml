@@ -7,7 +7,7 @@
     
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <ActivityIndicator IsRunning="True"/>
-        <Label Text="Verificando Estado de Autenticação..."/>
+        <Label Text="Autenticando..."/>
     </StackLayout>
     
 </ContentPage>

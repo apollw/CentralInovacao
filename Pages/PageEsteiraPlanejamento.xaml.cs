@@ -44,8 +44,13 @@ public partial class PageEsteiraPlanejamento : ContentPage
         await Navigation.PushModalAsync(new PageTarefa(Oportunidade));    
     }
 
-    private void Btn_AdicionarItem(object sender, EventArgs e)
+    private async void Btn_AdicionarItem(object sender, EventArgs e)
     {
-        VMTarefa.SalvarTarefaItem(Oportunidade,VMOportunidade.ListaDeOportunidades);        
+        //Encontramos a tarefa específica clicada
+        Button button = (Button)sender;
+        Tarefa tarefa = (Tarefa)button.CommandParameter;
+
+
+        await Navigation.PushModalAsync(new PageItem(Oportunidade, tarefa));
     }
 }

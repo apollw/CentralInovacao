@@ -64,18 +64,23 @@
                     <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
                     
                     <!--LINHA 2 - COLEÇÃO DE ITENS-->
-                    <CollectionView 
+                    <RefreshView
                         Grid.Row        = "1"
                         Grid.ColumnSpan = "3"
-                        x:Name          = "_collectionView"
-                        BackgroundColor = "White"
-                        ItemsSource     = "{Binding Oportunidade.ListaDeTarefas}">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Border 
-                                    HeightRequest   = "200" 
-                                    Margin          = "15"
-                                    BackgroundColor = "WhiteSmoke">
+                        IsRefreshing    = "{Binding IsRefreshing, Mode=TwoWay}" 
+                        Command         = "{Binding RefreshCommand}">
+                        <CollectionView 
+                            Grid.Row        = "1"
+                            Grid.ColumnSpan = "3"
+                            x:Name          = "_collectionView"
+                            BackgroundColor = "White"
+                            ItemsSource     = "{Binding Oportunidade.ListaDeTarefas}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border 
+                                        HeightRequest   = "175" 
+                                        Margin          = "15"
+                                        BackgroundColor = "WhiteSmoke">
                                     <Border.Shadow>
                                         <Shadow 
                                             Brush   = "black"
@@ -83,29 +88,42 @@
                                             Radius  = "15"
                                             Opacity = "0.5"/>
                                     </Border.Shadow>
-                                    <StackLayout>
+                                    <StackLayout Margin = "5" Spacing="5">                                        
                                         <Label 
                                             Text              = "{Binding Titulo}"
                                             FontSize          = "15"
                                             FontAttributes    = "Bold"
                                             HorizontalOptions = "Center"/>
                                         <Label 
-                                            Text              = "{Binding DataInicio}"
+                                            Text              = "{Binding Id,StringFormat='Id -  {0}'}"
                                             FontSize          = "15"
                                             HorizontalOptions = "Start"/>
-                                        <Button 
-                                            Text              = "Adicionar Item"
-                                            Clicked           = "Btn_AdicionarItem"/>
-                                        <!--<Image 
-                                            Source            = "img_fotoperfil.png"
-                                            HeightRequest     = "60"
-                                            WidthRequest      = "60" 
-                                            HorizontalOptions = "End"/>-->
+                                        <Label 
+                                            Text              = "{Binding Data}"
+                                            FontSize          = "15"
+                                            HorizontalOptions = "Start"/>
+                                        <Grid ColumnDefinitions = "*,*" Margin = "5">
+                                            <Image
+                                                Grid.Column       = "0"
+                                                Source            = "img_fotoperfil.png"
+                                                HeightRequest     = "50"
+                                                WidthRequest      = "50"
+                                                HorizontalOptions = "Start"/>
+                                            <Button
+                                                Grid.Column       = "1"
+                                                Style             = "{StaticResource smallButtonStyle}"
+                                                Text              = "Adicionar Item"
+                                                WidthRequest      = "150"
+                                                HorizontalOptions = "End"
+                                                Clicked           = "Btn_AdicionarItem"
+                                                CommandParameter  = "{Binding .}"/>                                            
+                                        </Grid>
                                     </StackLayout>
-                                </Border>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </RefreshView>
                 </Grid>
             </Border>
                     

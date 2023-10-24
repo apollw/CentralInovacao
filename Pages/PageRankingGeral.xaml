@@ -4,11 +4,6 @@
              x:Class="CentralInovacao.Pages.PageRankingGeral"
              Title="Ranking Geral">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text    = "Logout" 
-                     Clicked = "Btn_Logout"/>
-    </ContentPage.ToolbarItems>
-
     <Grid RowDefinitions    = "35,*"
           ColumnDefinitions = "*,*">
         

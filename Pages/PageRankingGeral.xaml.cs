@@ -57,11 +57,6 @@ public partial class PageRankingGeral : ContentPage
         // Vincula a coleção à ListView
         _myListView1.ItemsSource = itemList2;
     }
-    private async void Btn_Logout(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-    }
-
 }
 
 

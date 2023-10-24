@@ -38,7 +38,8 @@
                 BackgroundColor = "#14d1ca"
                 TextColor       = "White"
                 FontSize        = "18"
-                FontAttributes  = "Bold"/>
+                FontAttributes  = "Bold"
+                IsVisible       = "False"/>
             <Button 
                 Text            = "Declinar Proposta"
                 Margin          = "10"
@@ -48,6 +49,7 @@
                 BorderWidth     = "1"
                 FontSize        = "18"
                 FontAttributes  = "Bold"
+                IsVisible       = "False"
                 Clicked         = "Button_Declinar"/>
             </StackLayout>
     </ScrollView>

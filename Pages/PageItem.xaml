@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Pages.PageItem"
+             Title="PageItem">
+
+    <StackLayout Spacing="5">
+        <Label   
+        Text    = "Campos Obrigatórios (*)"                      
+        Padding = "5"/>
+        <Label   
+        Text           = "Título (*)"
+        FontAttributes = "Bold"
+        Padding        = "5"/>
+        <Entry   
+        x:Name                = "_itemTitulo"
+        MaxLength             = "50"
+        FontSize              = "Medium"
+        WidthRequest          = "400"
+        BackgroundColor       = "WhiteSmoke"
+        VerticalTextAlignment = "Start"/>
+        <BoxView 
+        HeightRequest   = "1"
+        WidthRequest    = "400"
+        BackgroundColor = "Black"/>
+
+        <Button
+        Text    = "Salvar"
+        Clicked = "Btn_SalvarItem"/>
+    </StackLayout>
+
+</ContentPage>

@@ -106,6 +106,8 @@
 	  <None Remove="Resources\Images\shellicon_request.png" />
 	  <None Remove="Resources\Images\shellicon_score.png" />
 	  <None Remove="Resources\Images\user.png" />
+	  <None Remove="Resources\Raw\Medalhas.txt" />
+	  <None Remove="Resources\Raw\Ranking.txt" />
 	  <None Remove="Resources\Splash\splash.png" />
 	  <None Remove="Resources\Splash\splash.svg" />
 	</ItemGroup>
@@ -166,6 +168,9 @@
 	  <MauiXaml Update="Pages\PageEsteiraGeral.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\PageItem.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\PageLoading.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -218,6 +223,15 @@
 
 	<ItemGroup>
 	  <Folder Include="Repositories\Interfaces\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\Medalhas.txt">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
+	  <MauiAsset Update="Resources\Raw\Ranking.txt">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
 	</ItemGroup>
 	
 </Project>

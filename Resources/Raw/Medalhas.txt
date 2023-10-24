@@ -1,0 +1,1 @@
+Arquivo de texto que descreve como o usuário do aplicativo poderá obter maior pontuação à medida que utiliza o programa.

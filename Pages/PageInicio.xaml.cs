@@ -87,7 +87,7 @@ public partial class PageInicio : ContentPage
         // URL do site
         string websiteUrl = "https://academia.ceapebrasil.org.br/university/";
 
-        // Abra o link do site no navegador
+        // Abre o link do site no navegador
         await Launcher.OpenAsync(new Uri(websiteUrl));
     }
 }

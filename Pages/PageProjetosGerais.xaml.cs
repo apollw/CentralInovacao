@@ -18,10 +18,6 @@ public partial class PageMeusProjetos : ContentPage
         //await Navigation.PushAsync(new ViewProjeto());
         await Shell.Current.GoToAsync($"{nameof(PageProjeto)}");
     }
-    private async void Btn_Logout(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-    }
 
     private async void Btn_AbrirEsteira(object sender, EventArgs e)
     {

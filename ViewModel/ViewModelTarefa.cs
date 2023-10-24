@@ -1,11 +1,13 @@
 ﻿using CentralInovacao.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Maui.Controls;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace CentralInovacao.ViewModel
 {    
@@ -14,19 +16,75 @@ namespace CentralInovacao.ViewModel
         [ObservableProperty]
         private Tarefa             _tarefa;
         [ObservableProperty]
+        private Oportunidade       _oportunidade;
+        [ObservableProperty]
         private List<Tarefa>       _listaDeTarefas;
         [ObservableProperty]
         private List<Oportunidade> _listaDeOportunidades;
+        [ObservableProperty]
+        private bool               _isRefreshing;
 
         public ViewModelTarefa()
         {
             Tarefa               = new Tarefa();
+            Oportunidade         = new Oportunidade();
             ListaDeTarefas       = new List<Tarefa>();
-            ListaDeOportunidades = new List<Oportunidade>();    
+        }
+
+        public int GerarNovoId(int id,Oportunidade oportunidade)
+        {
+            if (id != 0)
+            {
+                return id; // Retorna a ID existente da Tarefa
+            }
+            else
+            {
+                if (oportunidade.ListaDeTarefas.Count == 0)
+                {
+                    return 1; // Se a lista está vazia, retorna 1 como o novo ID
+                }
+                else
+                {
+                    int ultimoIdUtilizado = oportunidade.ListaDeTarefas.Max(tarefa => tarefa.Id);
+                    int novoId = ultimoIdUtilizado + 1;
+                    return novoId;
+                }
+            }
+        }
+
+        public int GerarNovoIdItem(int id, Oportunidade oportunidade, Tarefa tarefa)
+        {
+            int index = 0;
+
+            //Pesquisando tarefa específica
+            foreach (Tarefa element in oportunidade.ListaDeTarefas)
+            {
+                //Encontrou a tarefa específica dessa oportunidade
+                if (element.Id == tarefa.Id)
+                {
+                    index = oportunidade.ListaDeTarefas.IndexOf(element);
+                }
+            }
+
+            //Achou o Index da Tarefa procurada dentro da lista
+            if (oportunidade.ListaDeTarefas[index].ListaDeItems.Count == 0)
+            {
+                return 1; // Se a lista está vazia, retorna 1 como o novo ID
+            }
+            else
+            {
+                int ultimoIdUtilizado = oportunidade.ListaDeTarefas[index].ListaDeItems.Max(item => item.id);
+                int novoId = ultimoIdUtilizado + 1;
+                return novoId;
+            }
         }
 
         public void SalvarTarefa(Oportunidade oportunidade,Tarefa tarefa)
         {
+            //Gera o Id da Tarefa 
+            tarefa.Id = GerarNovoId(tarefa.Id,oportunidade);
+
+            //Carrega todas as oportunidades do usuário
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
@@ -52,65 +110,15 @@ namespace CentralInovacao.ViewModel
             File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
         }
 
-        public void SalvarTarefaItem(Oportunidade oportunidade, List<Oportunidade> listaDeOportunidades)
+        public void SalvarItemTarefa(Oportunidade oportunidade, Tarefa tarefa)
         {
-            List<Tarefa> ListaTempTarefa = oportunidade.ListaDeTarefas;
-            
-            Tarefa TarefaTemp = new Tarefa();
-
-            TarefaTemp.ItemNovo.Nome = "Item 1";
-            TarefaTemp.ItemNovo.Data = DateTime.Now;
-
-            //Como cada tarefa tem sua própria Id, através dessa Id pode-se adicionar um item à
-            //lista de itens dessa tarefa
+            //Verificar index correto da tarefa, pois aqui está errado
+            int    IndexTarefa = tarefa.Id;
+            Tarefa TarefaTemp  = tarefa;
 
             //Adiciona o novo item à tarefa específica
-            ListaTempTarefa[0].ListaDeItems.Add(TarefaTemp.ItemNovo);
+            oportunidade.ListaDeTarefas[IndexTarefa].ListaDeItems.Add(TarefaTemp.ItemNovo);
 
-            //Atualiza a Lista de Tarefas da Oportunidade Específica
-            oportunidade.ListaDeTarefas = ListaTempTarefa;
-
-            //Atualiza a Lista de Oportunidades do Usuário
-            var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
-
-            //Lógica de atualizar oportunidade específica da lista de oportunidades do usuário
-            foreach (Oportunidade element in listaDeOportunidades)
-            {
-                if (element.Id == oportunidade.Id)
-                {
-                    List<Oportunidade> ListaTemp = listaDeOportunidades;
-
-                    //Sobreescrever a oportunidade específica
-                    ListaTemp[listaDeOportunidades.IndexOf(element)] = oportunidade;
-
-                    listaDeOportunidades = ListaTemp;
-
-                    break;
-                }
-            }
-
-            File.WriteAllText(filePath, JsonConvert.SerializeObject(listaDeOportunidades));
-
-        }
-
-        public List<Tarefa> CarregarTarefas(Oportunidade oportunidade)
-        {
-            var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
-            if (File.Exists(filePath))
-            {
-                string json = File.ReadAllText(filePath);
-                ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
-            }
-
-            foreach(Oportunidade element in ListaDeOportunidades)
-            {
-                if(element.Id == oportunidade.Id) 
-                {
-                    //ListaDeTarefas = oportunidade.ListaDeTarefas;
-                }
-            }
-
-            return ListaDeTarefas;
-        }
+        } 
     }
 }

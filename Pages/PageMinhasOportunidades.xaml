@@ -4,12 +4,6 @@
              x:Class="CentralInovacao.Pages.PageMinhasOportunidades"
              Title="Minhas Oportunidades">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text   ="Logout" 
-                     Clicked="Btn_Logout"/>
-    </ContentPage.ToolbarItems>
-
-
     <ContentPage.Resources>
         <!--ESTILO DAS LABELS INTERNAS-->
         <Style TargetType="Label" x:Key="insideLabelStyle">
@@ -85,16 +79,16 @@
             Color           = "DarkCyan"
             VerticalOptions = "Start"
             HeightRequest   = "1"/>
-
         <Label
             Grid.Row                = "1"
             Grid.Column             = "0"
             Text                    = "{Binding ListaDeOportunidades.Count,
                                         StringFormat='Oportunidades Registradas: {0}'}"
+            FontSize                = "12"
             FontAttributes          = "Bold"
+            Margin                  = "0,5,0,0"
             VerticalTextAlignment   = "Center"
             HorizontalTextAlignment = "Center"/>
-
         <ImageButton 
             Source            = "img_addbtn5.png"
             Grid.Row          = "1"

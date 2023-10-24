@@ -14,11 +14,6 @@ public partial class PageMinhasOportunidades : ContentPage
         ListaDeOportunidades = VMOportunidade.CarregarOportunidades();
     }    
 
-    private async void Btn_Logout(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-    }
-
     public void Btn_Animation(ImageButton button)
     {
         // Define a escala inicial do botão
