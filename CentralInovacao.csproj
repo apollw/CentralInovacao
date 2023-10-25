@@ -77,6 +77,7 @@
 	  <None Remove="Resources\Images\bin_empty.png" />
 	  <None Remove="Resources\Images\clock.png" />
 	  <None Remove="Resources\Images\email.png" />
+	  <None Remove="Resources\Images\empty_list.png" />
 	  <None Remove="Resources\Images\imgbutton_analysis.png" />
 	  <None Remove="Resources\Images\imgbutton_group.png" />
 	  <None Remove="Resources\Images\imgbutton_planning.png" />
@@ -97,6 +98,8 @@
 	  <None Remove="Resources\Images\img_threepoints.png" />
 	  <None Remove="Resources\Images\key.png" />
 	  <None Remove="Resources\Images\logo_ceape.png" />
+	  <None Remove="Resources\Images\no_wifi.png" />
+	  <None Remove="Resources\Images\question.png" />
 	  <None Remove="Resources\Images\shellheader_ceape.png" />
 	  <None Remove="Resources\Images\shellicon_help.png" />
 	  <None Remove="Resources\Images\shellicon_idea.png" />
@@ -106,6 +109,7 @@
 	  <None Remove="Resources\Images\shellicon_request.png" />
 	  <None Remove="Resources\Images\shellicon_score.png" />
 	  <None Remove="Resources\Images\user.png" />
+	  <None Remove="Resources\Images\verify.png" />
 	  <None Remove="Resources\Raw\Medalhas.txt" />
 	  <None Remove="Resources\Raw\Ranking.txt" />
 	  <None Remove="Resources\Splash\splash.png" />

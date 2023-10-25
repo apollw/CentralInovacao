@@ -21,8 +21,19 @@
             IsRefreshing    = "{Binding IsRefreshing, Mode=TwoWay}" 
             Command         = "{Binding RefreshCommand}">
             <CollectionView                
-                ItemsSource = "{Binding ListaDeOportunidades}"
-                EmptyView   = "Nenhuma Oportunidade Registrada">
+                ItemsSource = "{Binding ListaDeOportunidades}">
+                <CollectionView.EmptyView>
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                        <Label 
+                            Text              = "Nenhuma Oportunidade Registrada" 
+                            HorizontalOptions = "Center"/>
+                        <Image 
+                            Source            = "empty_list.png"
+                            WidthRequest      = "100" 
+                            HeightRequest     = "100"
+                            HorizontalOptions = "Center"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border 

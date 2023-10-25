@@ -60,15 +60,17 @@
                     <Label 
                         Text  = "Backlog" 
                         Style = "{StaticResource labelCabecalho}"/>
-                    <ImageButton Style="{StaticResource imgButton1Cabecalho}" Clicked="Btn_AdicionarTarefa"/>
-                    <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
+                    <ImageButton
+                        Grid.Column       = "2"
+                        Style             = "{StaticResource imgButton1Cabecalho}" 
+                        Clicked           = "Btn_AdicionarTarefa"
+                        HorizontalOptions = "Start"/>
+                    <!--<ImageButton Style="{StaticResource imgButton2Cabecalho}"/>-->
                     
                     <!--LINHA 2 - COLEÇÃO DE ITENS-->
                     <RefreshView
                         Grid.Row        = "1"
-                        Grid.ColumnSpan = "3"
-                        IsRefreshing    = "{Binding IsRefreshing, Mode=TwoWay}" 
-                        Command         = "{Binding RefreshCommand}">
+                        Grid.ColumnSpan = "3">
                         <CollectionView 
                             Grid.Row        = "1"
                             Grid.ColumnSpan = "3"
@@ -102,7 +104,7 @@
                                             Text              = "{Binding Data}"
                                             FontSize          = "15"
                                             HorizontalOptions = "Start"/>
-                                        <Grid ColumnDefinitions = "*,*" Margin = "5">
+                                        <Grid ColumnDefinitions = "*,*,*" Margin = "5">
                                             <Image
                                                 Grid.Column       = "0"
                                                 Source            = "img_fotoperfil.png"
@@ -112,12 +114,20 @@
                                             <Button
                                                 Grid.Column       = "1"
                                                 Style             = "{StaticResource smallButtonStyle}"
-                                                Text              = "Adicionar Item"
-                                                WidthRequest      = "150"
+                                                Text              = "Novo Item"
+                                                WidthRequest      = "100"
                                                 HorizontalOptions = "End"
                                                 Clicked           = "Btn_AdicionarItem"
-                                                CommandParameter  = "{Binding .}"/>                                            
-                                        </Grid>
+                                                CommandParameter  = "{Binding .}"/>
+                                            <Button
+                                                Grid.Column       = "2"
+                                                Style             = "{StaticResource smallButtonStyle}"
+                                                Text              = "Excluir"
+                                                WidthRequest      = "75"
+                                                HorizontalOptions = "End"
+                                                Clicked           = "Btn_ExcluirTarefa"
+                                                CommandParameter  = "{Binding .}"/>
+                                                </Grid>
                                     </StackLayout>
                                     </Border>
                                 </DataTemplate>

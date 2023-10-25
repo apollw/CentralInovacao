@@ -27,11 +27,9 @@ namespace CentralInovacao.ViewModel
 
         /*Comandos*/
         public ICommand RefreshCommand => new Command(ExecuteRefresh);
-
         public ViewModelOportunidade()
         {
             Oportunidade         = new Oportunidade();
-            //ListaDeOportunidades = new List<Oportunidade>();
             ListaDeOportunidades = CarregarOportunidades();            
         }
         private async void ExecuteRefresh()
@@ -89,9 +87,8 @@ namespace CentralInovacao.ViewModel
                 string json = File.ReadAllText(filePath);
                 ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
             }
-
-            if (ListaDeOportunidades==null)
-                ListaDeOportunidades= new List<Oportunidade>();
+            //if (ListaDeOportunidades==null)
+            //    ListaDeOportunidades= new List<Oportunidade>();
 
             return ListaDeOportunidades;
         }

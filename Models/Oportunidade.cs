@@ -28,8 +28,8 @@ namespace CentralInovacao.Models
 
         public Oportunidade()
         {
-            ListaDeTarefas = new List<Tarefa>();
-
+            ListaDeTarefas    = new List<Tarefa>();
+            
             Setores = new Dictionary<string, int>
             {
                 { "Administrativo", 0 },

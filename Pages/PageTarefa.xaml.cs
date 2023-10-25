@@ -8,7 +8,6 @@ public partial class PageTarefa : ContentPage
     Tarefa                Tarefa         = new Tarefa();
     Oportunidade          Oportunidade   = new Oportunidade();
     ViewModelTarefa       VMTarefa       = new ViewModelTarefa();
-    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
     
     public PageTarefa()
 	{
@@ -45,6 +44,6 @@ public partial class PageTarefa : ContentPage
         VMTarefa.SalvarTarefa(Oportunidade,Tarefa);
 
         await DisplayAlert("Aviso", "Tarefa Registrada!", "Voltar");
-        await Navigation.PopModalAsync();
+        await Navigation.PopAsync();
     }
 }

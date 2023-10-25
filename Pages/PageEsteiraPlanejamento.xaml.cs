@@ -8,7 +8,6 @@ namespace CentralInovacao.Pages;
 public partial class PageEsteiraPlanejamento : ContentPage
 {
     Oportunidade          Oportunidade   = new Oportunidade();
-    Tarefa                Tarefa         = new Tarefa();  
     ViewModelTarefa       VMTarefa       = new ViewModelTarefa();
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
 
@@ -16,7 +15,7 @@ public partial class PageEsteiraPlanejamento : ContentPage
     {
         InitializeComponent();
         BindingContext = VMOportunidade;
-        FillPage();
+        //FillPage();
     }
 
     public PageEsteiraPlanejamento(Oportunidade oportunidade)
@@ -25,23 +24,77 @@ public partial class PageEsteiraPlanejamento : ContentPage
         Oportunidade   = oportunidade;
         BindingContext = VMOportunidade;
 
-        FillPage();
+        RefreshScreen();
 
         // Vincule a coleção à CollectionView
-        _collectionView.ItemsSource = oportunidade.ListaDeTarefas;
+        //_collectionView.ItemsSource = oportunidade.ListaDeTarefas;
         //_collectionView1.ItemsSource = Items;
         //_collectionView2.ItemsSource = Items;
     }
-    public void FillPage()
+
+    //protected async override void OnNavigatedTo(NavigatedToEventArgs args)
+    //{
+    //    base.OnNavigatedTo(args);
+
+    //    Oportunidade = await VMTarefa.CarregarTarefasAsync(Oportunidade);
+    //    _collectionView.ItemsSource = Oportunidade.ListaDeTarefas;
+    //}
+
+    //protected async override void OnAppearing()
+    //{
+    //    base.OnAppearing();
+    //    Oportunidade = await VMTarefa.CarregarTarefasAsync(Oportunidade);
+
+    //    // Filtrando as tarefas com base no status
+    //    var tarefasStatus0 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 0).ToList();
+    //    var tarefasStatus1 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 1).ToList();
+    //    var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();
+
+    //    // Atribuindo listas filtradas às CollectionViews correspondentes
+    //    _collectionView.ItemsSource  = tarefasStatus0;
+    //    _collectionView1.ItemsSource = tarefasStatus1;
+    //    _collectionView2.ItemsSource = tarefasStatus2;
+
+    //}
+    protected async void RefreshScreen()
     {
-        //Oportunidade.ListaDeTarefas = VMTarefa.CarregarTarefas(Oportunidade);
-        //_collectionView.ItemsSource = Oportunidade.ListaDeTarefas;
+        Oportunidade = await VMTarefa.CarregarTarefasAsync(Oportunidade);
+
+        // Filtrando as tarefas com base no status
+        var tarefasStatus0 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 0).ToList();
+        var tarefasStatus1 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 1).ToList();
+        var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();
+
+        // Atribuindo listas filtradas às CollectionViews correspondentes
+        _collectionView.ItemsSource = tarefasStatus0;
+        _collectionView1.ItemsSource = tarefasStatus1;
+        _collectionView2.ItemsSource = tarefasStatus2;
+
     }
 
     private async void Btn_AdicionarTarefa(object sender, EventArgs e)
     {
         //Passa a oportunidade específica da tarefa
-        await Navigation.PushModalAsync(new PageTarefa(Oportunidade));    
+        await Navigation.PushAsync(new PageTarefa(Oportunidade));
+
+        //Consertar isso aqui
+
+        RefreshScreen();
+    }
+    private void Btn_ExcluirTarefa(object sender, EventArgs e)
+    {
+        //Encontramos a tarefa específica clicada
+        Button button = (Button)sender;
+        Tarefa tarefa = (Tarefa)button.CommandParameter;
+
+        VMTarefa.ExcluirTarefa(Oportunidade, tarefa);
+
+        RefreshScreen();
+
+        // Atualizando a CollectionView após a exclusão
+        //_collectionView.ItemsSource = Oportunidade.ListaDeTarefas;
+
+        //await Navigation.PushModalAsync(new PageItem(Oportunidade, tarefa));
     }
 
     private async void Btn_AdicionarItem(object sender, EventArgs e)
@@ -50,7 +103,6 @@ public partial class PageEsteiraPlanejamento : ContentPage
         Button button = (Button)sender;
         Tarefa tarefa = (Tarefa)button.CommandParameter;
 
-
         await Navigation.PushModalAsync(new PageItem(Oportunidade, tarefa));
-    }
+    }    
 }

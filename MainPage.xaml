@@ -57,18 +57,17 @@
                             Opacity = "0.2"/>
                     </Entry.Shadow>
                 </Entry>
-
                 <Button 
                     x:Name          = "_btn_Login"
                     Text            = "Entrar"
                     FontSize        = "20"
                     BackgroundColor = "#14d1ca"
                     Clicked         = "Btn_Login"
+                    Margin          = "0,150,0,0"
                     VerticalOptions = "End"/>
 
             </StackLayout>
         </Grid>
     </ScrollView>
-
 </ContentPage>
 
