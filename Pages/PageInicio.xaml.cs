@@ -40,7 +40,7 @@ public partial class PageInicio : ContentPage
             "img_medalha3.png"
         };
 
-        _carouselView.ItemsSource = imagens;
+        //_carouselView.ItemsSource = imagens;
     }
 
     private async void OnProfileImageTapped(object sender, EventArgs e)

@@ -24,10 +24,10 @@ public partial class PageEsteiraPlanejamento : ContentPage
         Oportunidade   = oportunidade;
         BindingContext = VMOportunidade;
 
-        RefreshScreen();
+        //RefreshScreen();
 
         // Vincule a coleção à CollectionView
-        //_collectionView.ItemsSource = oportunidade.ListaDeTarefas;
+        _collectionView.ItemsSource = oportunidade.ListaDeTarefas;
         //_collectionView1.ItemsSource = Items;
         //_collectionView2.ItemsSource = Items;
     }
@@ -51,22 +51,22 @@ public partial class PageEsteiraPlanejamento : ContentPage
     //    var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();
 
     //    // Atribuindo listas filtradas às CollectionViews correspondentes
-    //    _collectionView.ItemsSource  = tarefasStatus0;
+    //    _collectionView.ItemsSource = tarefasStatus0;
     //    _collectionView1.ItemsSource = tarefasStatus1;
     //    _collectionView2.ItemsSource = tarefasStatus2;
-
     //}
     protected async void RefreshScreen()
     {
         Oportunidade = await VMTarefa.CarregarTarefasAsync(Oportunidade);
 
         // Filtrando as tarefas com base no status
-        var tarefasStatus0 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 0).ToList();
+        //var tarefasStatus0 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 0).ToList();
         var tarefasStatus1 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 1).ToList();
         var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();
 
         // Atribuindo listas filtradas às CollectionViews correspondentes
-        _collectionView.ItemsSource = tarefasStatus0;
+        //_collectionView.ItemsSource = tarefasStatus0;
+        //_collectionView.ItemsSource  = Oportunidade.ListaDeTarefasPublica;
         _collectionView1.ItemsSource = tarefasStatus1;
         _collectionView2.ItemsSource = tarefasStatus2;
 

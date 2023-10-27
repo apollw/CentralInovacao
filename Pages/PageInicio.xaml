@@ -145,7 +145,7 @@
             </Border>
             
             <!--SEGUNDO CONTÊINER-->
-            <Border Style="{StaticResource borderGeral}">
+            <!--<Border Style="{StaticResource borderGeral}">
                 <Border.Shadow>
                     <Shadow 
                         Brush   = "black"
@@ -172,7 +172,7 @@
                         </CarouselView.ItemTemplate>
                     </CarouselView>
                 </VerticalStackLayout>
-            </Border>
+            </Border>-->
             
             <!--TERCEIRO CONTÊINER-->
             <Border 

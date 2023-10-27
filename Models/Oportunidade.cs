@@ -25,7 +25,7 @@ namespace CentralInovacao.Models
         private string                  _descricaoAnalise;
         private Dictionary<string, int> _setores;
         private List<Tarefa>            _listaDeTarefas;
-
+        
         public Oportunidade()
         {
             ListaDeTarefas    = new List<Tarefa>();

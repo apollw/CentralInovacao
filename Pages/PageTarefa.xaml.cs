@@ -46,4 +46,14 @@ public partial class PageTarefa : ContentPage
         await DisplayAlert("Aviso", "Tarefa Registrada!", "Voltar");
         await Navigation.PopAsync();
     }
+        protected async void RefreshScreen()
+    {
+        Oportunidade = await VMTarefa.CarregarTarefasAsync(Oportunidade);
+
+        // Filtrando as tarefas com base no status
+        var tarefasStatus0 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 0).ToList();
+        var tarefasStatus1 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 1).ToList();
+        var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();        
+
+    }
 }
