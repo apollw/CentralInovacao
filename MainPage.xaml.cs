@@ -10,9 +10,10 @@ public partial class MainPage : ContentPage
 
     public MainPage(AuthService authService, ConnectivityService connectivityService)
     {
-        InitializeComponent();
+        InitializeComponent();        
         _authService         = authService;
         _connectivityService = connectivityService;
+
     }
     protected override async void OnAppearing()
     {

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using CentralInovacao.MiddlewareApi;
+using CentralInovacao.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,10 @@ namespace CentralInovacao.Services
 {
     public class AuthService
     {
-        private const string AuthStateKey = "AuthState";
+        private const string AuthStateKey   = "AuthState";
+        private const string AuthUserStatus = "AuthUserStatus";
+        private const string AuthUserId     = "AuthUserId";
+        private const string AuthUserName   = "AuthUserName";
 
         public async Task<bool> IsAuthenticatedAsync()
         {
@@ -23,37 +28,92 @@ namespace CentralInovacao.Services
                 return false;
             }
 
-            if (Preferences.ContainsKey(AuthStateKey))
+            //if (Preferences.ContainsKey(AuthStateKey))
+            //{
+            //    return Preferences.Get(AuthStateKey, false);
+            //}
+
+            if (Preferences.ContainsKey(AuthUserStatus))
             {
-                return Preferences.Get(AuthStateKey, false);
+                return Preferences.Get(AuthUserStatus, false);
             }
             else
             {
                 return false;
             }
+
         }
 
         public async Task<bool> LoginAsync(string username, string password)
         {
-            string apiUrl = "https://apisandbox.ceapebrasil.org.br/authentication";
-            
-            var httpClient = new HttpClient();
+            await GetTokenAsync();
+
+            HttpClient httpClient = new HttpClient();
+
+            httpClient.DefaultRequestHeaders.Add("TokenApi", Preferences.Get("AuthToken", "", ""));
+
             var content = new FormUrlEncodedContent(new[]
             {
-                new KeyValuePair<string, string>("Usuario", username),
-                new KeyValuePair<string, string>("Senha"  , password)
+                new KeyValuePair<string, string>("User", username),
+                new KeyValuePair<string, string>("Password", password),
+                new KeyValuePair<string, string>("Application", "2")
             });
             
             try
             {
-                var response = await httpClient.PostAsync(apiUrl, content);
+                var request = await httpClient.PostAsync(ModelAuthApi.UrlAuthUser, content);
 
-                if (response.IsSuccessStatusCode)
+                if (request.IsSuccessStatusCode)
                 {
-                    var token = await response.Content.ReadAsStringAsync();
-                    Preferences.Set("AuthToken", token);
+                    var response = await request.Content.ReadAsStringAsync();
 
+                    ModelLogin modelLogin = JsonConvert.DeserializeObject<ModelLogin>(response);
+
+                    if (modelLogin.Success)
+                    { 
+                        //Login Bem Sucedido
+                        Preferences.Set(AuthUserStatus, true);
+                        Preferences.Set(AuthUserId, modelLogin.User.Id);
+                        Preferences.Set(AuthUserName, modelLogin.User.Name);
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    Preferences.Set(AuthUserStatus, false);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+                return false;
+            }
+        }
+
+        public async Task<bool> GetTokenAsync()
+        {
+            var httpClient = new HttpClient();
+            var content = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("Usuario", ModelAuthApi.User),
+                new KeyValuePair<string, string>("Senha"  , ModelAuthApi.Password)
+            });
+
+            try
+            {
+                var request = await httpClient.PostAsync(ModelAuthApi.UrlToken, content);                
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var json = await request.Content.ReadAsStringAsync();
+
+                    ModelAuthToken objResponse = JsonConvert.DeserializeObject<ModelAuthToken>(json);
+
+                    Preferences.Set("AuthToken",objResponse.TokenApi);
                     Preferences.Set(AuthStateKey, true);
+                    
                     return true;
                 }
                 else
@@ -71,6 +131,10 @@ namespace CentralInovacao.Services
 
         public void Logout()
         {
+            Preferences.Remove("AuthUserStatus");
+            Preferences.Remove("AuthUserId");
+            Preferences.Remove("AuthUserName");
+            
             Preferences.Remove("AuthToken");
             Preferences.Remove(AuthStateKey);
         }
