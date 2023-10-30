@@ -5,13 +5,8 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraSolicitacao : ContentPage
 {
+    Oportunidade          Oportunidade   = new Oportunidade();
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    Oportunidade Oportunidade = new Oportunidade();
-    public PageEsteiraSolicitacao()
-	{
-		InitializeComponent();
-	}
-
     public PageEsteiraSolicitacao(Oportunidade oportunidade)
     {
         InitializeComponent();
@@ -19,7 +14,6 @@ public partial class PageEsteiraSolicitacao : ContentPage
         BindingContext = VMOportunidade;
         FillPage();
     }
-
     public void FillPage()
     {
         _entryColaborador.Text = "Nome do Usuário";
@@ -61,15 +55,18 @@ public partial class PageEsteiraSolicitacao : ContentPage
     }
     private async void Btn_EnviarAnalise(object sender, EventArgs e)
     {
+        Button btn = (Button)sender;
+        btn.IsEnabled = false;
         await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
-        //await Shell.Current.GoToAsync("..");
-        //await Navigation.PushAsync(new PageEsteiraBriefing(Oportunidade));
-
+        btn.IsEnabled = true;        
     }
 
     private async void Btn_Solicitacao(object sender, EventArgs e)
     {
+        Button btn = (Button)sender;
+        btn.IsEnabled = false;
         await DisplayAlert("Alerta", "Edição Completa", "Fechar");
         await Shell.Current.GoToAsync("..");
+        btn.IsEnabled = true;
     }
 }

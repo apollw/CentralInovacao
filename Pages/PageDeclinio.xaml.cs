@@ -5,12 +5,8 @@ namespace CentralInovacao.Pages;
 
 public partial class PageDeclinio : ContentPage
 {
+    Oportunidade          Oportunidade   = new Oportunidade();
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    Oportunidade Oportunidade = new Oportunidade();
-    public PageDeclinio()
-	{
-		InitializeComponent();
-	}
     public PageDeclinio(Oportunidade oportunidade)
     {
         InitializeComponent();
@@ -19,8 +15,11 @@ public partial class PageDeclinio : ContentPage
     }
     private async void Btn_Declinada(object sender, EventArgs e)
     {
-        Oportunidade.Status = 0;
+        Button btn = (Button)sender;
+
+        btn.IsEnabled = false;
         await DisplayAlert("Alerta", "Proposta Declinada", "Fechar");
         await Shell.Current.GoToAsync($"//{nameof(PageInicio)}");
+        btn.IsEnabled = true;
     }
 }

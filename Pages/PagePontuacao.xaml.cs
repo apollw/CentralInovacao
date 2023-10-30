@@ -10,10 +10,9 @@ public partial class PagePontuacao : ContentPage
 	{
 		InitializeComponent();
 
-        Task task   = LoadTextFileAsync("Ranking.txt"  , _lblRanking);
-        Task task2  = LoadTextFileAsync("Medalhas.txt" , _lblMedalhas);
-        Task task3  = LoadTextFileAsync("Pontuacao.txt", _lblPontuacao);
-
+        Task task1 = LoadTextFileAsync("Ranking.txt"  , _lblRanking);
+        Task task2 = LoadTextFileAsync("Medalhas.txt" , _lblMedalhas);
+        Task task3 = LoadTextFileAsync("Pontuacao.txt", _lblPontuacao);
     }
 
     public async Task LoadTextFileAsync(string fileName, Label label)

@@ -11,13 +11,6 @@ public partial class PageEsteiraPlanejamento : ContentPage
     ViewModelTarefa       VMTarefa       = new ViewModelTarefa();
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
 
-    public PageEsteiraPlanejamento()
-    {
-        InitializeComponent();
-        BindingContext = VMOportunidade;
-        //FillPage();
-    }
-
     public PageEsteiraPlanejamento(Oportunidade oportunidade)
 	{
 		InitializeComponent();
@@ -25,7 +18,6 @@ public partial class PageEsteiraPlanejamento : ContentPage
         BindingContext = VMOportunidade;
 
         //RefreshScreen();
-
         // Vincule a coleção à CollectionView
         _collectionView.ItemsSource = oportunidade.ListaDeTarefas;
         //_collectionView1.ItemsSource = Items;
@@ -51,7 +43,7 @@ public partial class PageEsteiraPlanejamento : ContentPage
     //    var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();
 
     //    // Atribuindo listas filtradas às CollectionViews correspondentes
-    //    _collectionView.ItemsSource = tarefasStatus0;
+    //    _collectionView.ItemsSource  = tarefasStatus0;
     //    _collectionView1.ItemsSource = tarefasStatus1;
     //    _collectionView2.ItemsSource = tarefasStatus2;
     //}
@@ -74,20 +66,24 @@ public partial class PageEsteiraPlanejamento : ContentPage
 
     private async void Btn_AdicionarTarefa(object sender, EventArgs e)
     {
+        Button btn = (Button)sender; 
         //Passa a oportunidade específica da tarefa
+        btn.IsEnabled = false;
         await Navigation.PushAsync(new PageTarefa(Oportunidade));
+        btn.IsEnabled = true;
 
         //Consertar isso aqui
-
         RefreshScreen();
     }
     private void Btn_ExcluirTarefa(object sender, EventArgs e)
     {
         //Encontramos a tarefa específica clicada
-        Button button = (Button)sender;
-        Tarefa tarefa = (Tarefa)button.CommandParameter;
+        Button btn = (Button)sender;
+        Tarefa tarefa = (Tarefa)btn.CommandParameter;
 
+        btn.IsEnabled = false;
         VMTarefa.ExcluirTarefa(Oportunidade, tarefa);
+        btn.IsEnabled = true;
 
         RefreshScreen();
 
@@ -96,13 +92,14 @@ public partial class PageEsteiraPlanejamento : ContentPage
 
         //await Navigation.PushModalAsync(new PageItem(Oportunidade, tarefa));
     }
-
     private async void Btn_AdicionarItem(object sender, EventArgs e)
     {
         //Encontramos a tarefa específica clicada
-        Button button = (Button)sender;
-        Tarefa tarefa = (Tarefa)button.CommandParameter;
+        Button btn = (Button)sender;
+        Tarefa tarefa = (Tarefa)btn.CommandParameter;
 
+        btn.IsEnabled = false;
         await Navigation.PushModalAsync(new PageItem(Oportunidade, tarefa));
+        btn.IsEnabled = true;
     }    
 }

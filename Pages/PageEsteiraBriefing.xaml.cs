@@ -5,13 +5,9 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraBriefing : ContentPage
 {
+    Oportunidade          Oportunidade   = new Oportunidade();
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    Oportunidade Oportunidade = new Oportunidade();
-    public PageEsteiraBriefing()
-	{
-		InitializeComponent();
-        BindingContext = VMOportunidade;
-    }
+
     public PageEsteiraBriefing(Oportunidade oportunidade)
     {
         InitializeComponent();
@@ -31,12 +27,18 @@ public partial class PageEsteiraBriefing : ContentPage
 
     private async void Button_Declinar(object sender, EventArgs e)
     {
+        Button btn = (Button)sender;
+        btn.IsEnabled = false;
         await Navigation.PushAsync(new PageDeclinio(Oportunidade));
+        btn.IsEnabled = true;
     }
 
     private async void Button_EnviarSquad(object sender, EventArgs e)
     {
+        Button btn = (Button)sender; 
+        btn.IsEnabled = false;
         await DisplayAlert("", "Enviada para Definição de Squad", "Fechar");
         await Navigation.PopAsync();
+        btn.IsEnabled = true;
     }
 }

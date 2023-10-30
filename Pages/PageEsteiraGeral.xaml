@@ -64,23 +64,18 @@
                             <StackLayout 
                                 Spacing         = "10"
                                 VerticalOptions = "Center">                                
-                                <ImageButton 
+                                <ImageButton
                                     Source           = "{Binding ImagePath}"
                                     Command          = "{Binding Command}"
                                     CommandParameter = "{Binding Text}"
                                     HeightRequest    = "100"
-                                    WidthRequest     = "100"
-                                    />
+                                    WidthRequest     = "100"/>
                                 <Label 
                                     Text                    = "{Binding Text}"
                                     HorizontalTextAlignment = "Center"/>
                             </StackLayout>
-                            
-                            
                         </Border>
-                        
                     </StackLayout>
-                    
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
@@ -90,8 +85,7 @@
             IndicatorColor         = "LightGray"
             SelectedIndicatorColor = "DarkCyan"
             HorizontalOptions      = "Center"
-            VerticalOptions        = "Start"/>
-        
+            VerticalOptions        = "Start"/>        
     </StackLayout>
 </ContentPage>
   

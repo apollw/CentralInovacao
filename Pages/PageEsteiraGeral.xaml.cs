@@ -10,18 +10,16 @@ public partial class PageEsteiraGeral : ContentPage
 	{
 		InitializeComponent();
         BindingContext = new ViewModelButton(oportunidade);
-
     }
     public class ViewModelButton
     {
         public Oportunidade      Oportunidade { get; set; }
-        public List<ButtonModel> Buttons { get; set; }        
+        public List<ButtonModel> Buttons { get; set; }
 
         public ViewModelButton(Oportunidade oportunidade)
         {
             Oportunidade = oportunidade;
-
-            Buttons = new List<ButtonModel>
+            Buttons      = new List<ButtonModel>
             {
                 new ButtonModel("Solicitação"    , "imgbutton_request.png", 
                                 new Command<string>(NavigateToPage)),
@@ -35,11 +33,23 @@ public partial class PageEsteiraGeral : ContentPage
                                 new Command<string>(NavigateToPage))
              };
         }
+
+        //Variável de Controle de Clique
+        private bool _buttonClicked = false;
         private async void NavigateToPage(string buttonName)
         {
+            // Se o botão já foi clicado, sai do método
+            if (_buttonClicked)
+            {
+                return;
+            }
+
+            // Marcando o botão como clicado
+            _buttonClicked = true;
+
             switch (buttonName)
             {
-                case "Solicitação":
+                case "Solicitação":                    
                     await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Oportunidade));
                     break;
                 case "Análise":
@@ -57,6 +67,9 @@ public partial class PageEsteiraGeral : ContentPage
                 default:
                     break;
             }
+
+            // Após a ação ser concluída, reativa o botão
+            _buttonClicked = false;
         }
     }
     public class ButtonModel

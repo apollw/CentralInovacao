@@ -9,7 +9,6 @@ public partial class PageNovaOportunidade : ContentPage
 {
     Oportunidade          Oportunidade   = new Oportunidade();
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-
     public PageNovaOportunidade()
 	{
 		InitializeComponent();
@@ -44,9 +43,11 @@ public partial class PageNovaOportunidade : ContentPage
     {
         string text = ((Editor)sender).Text;
     }
-
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)
     {
+        Button btn = (Button)sender;
+        btn.IsEnabled = false;
+
         Oportunidade.Id                = VMOportunidade.GerarNovoId(Oportunidade.Id);
         Oportunidade.Nome              = _entryTitulo.Text;
         Oportunidade.DescricaoPositiva = _editor1.Text;
@@ -59,6 +60,8 @@ public partial class PageNovaOportunidade : ContentPage
 
         await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
         await Shell.Current.GoToAsync("..");
+
+        btn.IsEnabled = true;
     }
 
     public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)

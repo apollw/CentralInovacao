@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="CentralInovacao.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CentralInovacao"
-    xmlns:views="clr-namespace:CentralInovacao.Pages"
-    Shell.TitleColor="White"
-    Shell.FlyoutBehavior ="Flyout"
-    Shell.TabBarIsVisible="False"
-    Shell.BackgroundColor="#14d1ca"
-    Shell.FlyoutBackdrop ="White">
+    x:Class               = "CentralInovacao.AppShell"
+    xmlns                 = "http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x               = "http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local           = "clr-namespace:CentralInovacao"
+    xmlns:views           = "clr-namespace:CentralInovacao.Pages"
+    Shell.TitleColor      = "White"
+    Shell.FlyoutBehavior  = "Flyout"
+    Shell.TabBarIsVisible = "False"
+    Shell.BackgroundColor = "#14d1ca"
+    Shell.FlyoutBackdrop  = "White">
 
     <!-- Shell.FlyoutBehavior ="Flyout"
          Shell.TabBarIsVisible="False"
@@ -43,6 +43,11 @@
             FlyoutIcon      = "shellicon_idea.png"                      
             ContentTemplate = "{DataTemplate views:PageInicio}"
             Route           = "PageInicio"/>
+        <ShellContent 
+            Title           = "Minhas Medalhas"
+            FlyoutIcon      = "shellicon_score.png"
+            ContentTemplate = "{DataTemplate views:PageMedalhas}"
+            Route           = "PageMedalhas"/>
         <ShellContent 
             Title           = "Minhas Oportunidades"
             FlyoutIcon      = "shellicon_inovation.png"

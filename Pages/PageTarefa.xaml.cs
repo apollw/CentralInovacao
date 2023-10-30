@@ -5,15 +5,10 @@ namespace CentralInovacao.Pages;
 
 public partial class PageTarefa : ContentPage
 {
-    Tarefa                Tarefa         = new Tarefa();
-    Oportunidade          Oportunidade   = new Oportunidade();
-    ViewModelTarefa       VMTarefa       = new ViewModelTarefa();
-    
-    public PageTarefa()
-	{
-		InitializeComponent();
-        BindingContext = VMTarefa;
-	}
+    Tarefa          Tarefa       = new Tarefa();
+    Oportunidade    Oportunidade = new Oportunidade();
+    ViewModelTarefa VMTarefa     = new ViewModelTarefa();
+
     public PageTarefa(Oportunidade oportunidade)
     {
         InitializeComponent();
@@ -33,6 +28,9 @@ public partial class PageTarefa : ContentPage
     }
     private async void Btn_SalvarTarefa(object sender, EventArgs e)
     {
+        Button btn    = (Button)sender;
+        btn.IsEnabled = false;
+
         Tarefa.IdProjeto = Oportunidade.Id;
         Tarefa.IdUsuario = Oportunidade.Usuario;
         Tarefa.Data      = DateTime.Now;
@@ -45,8 +43,10 @@ public partial class PageTarefa : ContentPage
 
         await DisplayAlert("Aviso", "Tarefa Registrada!", "Voltar");
         await Navigation.PopAsync();
+
+        btn.IsEnabled = true;
     }
-        protected async void RefreshScreen()
+    protected async void RefreshScreen()
     {
         Oportunidade = await VMTarefa.CarregarTarefasAsync(Oportunidade);
 
@@ -54,6 +54,5 @@ public partial class PageTarefa : ContentPage
         var tarefasStatus0 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 0).ToList();
         var tarefasStatus1 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 1).ToList();
         var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();        
-
     }
 }

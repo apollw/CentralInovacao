@@ -23,9 +23,9 @@ namespace CentralInovacao.ViewModel
         [ObservableProperty]
         private List<Oportunidade> _listaDeOportunidades;
         [ObservableProperty]
-        private bool               _isRefreshing;
+        private bool               _isRefreshing;        
 
-        /*Comandos*/
+        //Comandos
         public ICommand RefreshCommand => new Command(ExecuteRefresh);
         public ViewModelOportunidade()
         {
@@ -87,9 +87,6 @@ namespace CentralInovacao.ViewModel
                 string json = File.ReadAllText(filePath);
                 ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
             }
-            //if (ListaDeOportunidades==null)
-            //    ListaDeOportunidades= new List<Oportunidade>();
-
             return ListaDeOportunidades;
         }
 

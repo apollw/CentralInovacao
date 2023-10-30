@@ -16,11 +16,10 @@ public partial class PageInicio : ContentPage
             OnPropertyChanged();
         }
     }
-
     public PageInicio(AuthService authService)
     {
         InitializeComponent();
-        _authService = authService;
+        _authService   = authService;
         BindingContext = this;
 
         // Exemplo de dados
@@ -78,8 +77,11 @@ public partial class PageInicio : ContentPage
     }
     private async void Btn_Logout(object sender, EventArgs e)
     {
+        Button btn = (Button)sender;
+        btn.IsEnabled = false;
         _authService.Logout();
         await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+        btn.IsEnabled = true;
     }      
    
     private async void OnImageTapped(object sender, EventArgs e)
