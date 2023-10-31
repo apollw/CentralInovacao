@@ -34,118 +34,117 @@
             <Setter Property="StrokeShape"     Value="RoundRectangle 10"/>
             <Setter Property="StrokeThickness" Value="1"/>
             <Setter Property="Margin"          Value="10"/>
-        </Style>
-        
+            <Setter Property="Padding"         Value="25"/>
+        </Style>        
     </ContentPage.Resources>
 
     <ScrollView>
-        <StackLayout Spacing="5">
+        <StackLayout>
             <!--PRIMEIRO CONTÊINER-->
-            <Border Style="{StaticResource borderGeral}">
+            <Border Style="{StaticResource borderGeral}" HeightRequest="400">
                 <Border.Shadow>
                     <Shadow 
                         Brush   = "Black"
                         Offset  = "10,10"
                         Radius  = "20"
                         Opacity = "0.5"/>
-                </Border.Shadow>
-                <VerticalStackLayout 
-                    BackgroundColor = "White" 
-                    Spacing         = "20">
-                    <Label 
-                        Text     = "Bem-Vindo(a), Colaborador!"
-                        FontSize = "20"
-                        Style    = "{StaticResource labelContainer}"/>
-                    <Image 
-                        x:Name            = "_fotoPerfil"
-                        HorizontalOptions = "Center"
-                        VerticalOptions   = "StartAndExpand"
-                        HeightRequest     = "150"
-                        WidthRequest      = "150"
-                        Source            = "img_fotoperfil.png"
-                        BackgroundColor   = "White">
-                        
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnProfileImageTapped" />
-                        </Image.GestureRecognizers>
-
-                        <Image.Clip>
-                            <EllipseGeometry 
-                                Center="50,50"
-                                RadiusX="150"
-                                RadiusY="150" />
-                        </Image.Clip>
-
-                    </Image>
-
-                    <Grid 
-                        RowDefinitions    = "*,*" 
-                        ColumnDefinitions = "*,*,*">
-                        <!--LINHA 0-->
-                        <Border 
-                            Grid.Row          = "0"
-                            Grid.Column       = "0"
-                            Margin            = "15"
-                            HorizontalOptions = "Start"
-                            VerticalOptions   = "End"
-                            HeightRequest     = "50"
-                            WidthRequest      = "100"
-                            StrokeShape       = "RoundRectangle 50">
-                            <Label 
-                                Text              = "1º"
-                                HorizontalOptions = "Center"
-                                VerticalOptions   = "Center"/>
-                        </Border>
-                        <Border 
-                            Grid.Row          = "0"
-                            Grid.Column       = "1"
-                            Margin            = "15"
+                    </Border.Shadow>
+                    <VerticalStackLayout
+                        Spacing         = "25"
+                        BackgroundColor = "White">
+                        <Label 
+                            Text     = "Bem-Vindo(a), Colaborador!"
+                            FontSize = "20"
+                            Style    = "{StaticResource labelContainer}"/>
+                        <Image 
+                            x:Name            = "_fotoPerfil"
                             HorizontalOptions = "Center"
-                            VerticalOptions   = "End"
-                            HeightRequest     = "50"
-                            WidthRequest      = "100"
-                            StrokeShape       = "RoundRectangle 50">
-                            <Label 
-                                Text              = "10"
+                            VerticalOptions   = "StartAndExpand"
+                            HeightRequest     = "150"
+                            WidthRequest      = "150"
+                            Source            = "img_fotoperfil.png"
+                            BackgroundColor   = "White">
+
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnProfileImageTapped" />
+                            </Image.GestureRecognizers>
+
+                            <Image.Clip>
+                                <EllipseGeometry 
+                                    Center="50,50"
+                                    RadiusX="150"
+                                    RadiusY="150" />
+                            </Image.Clip>
+                        </Image>
+
+                        <Grid 
+                            RowDefinitions    = "*,*" 
+                            ColumnDefinitions = "*,*,*">
+                            <!--LINHA 0-->
+                            <Border 
+                                Grid.Row          = "0"
+                                Grid.Column       = "0"
+                                Margin            = "15"
                                 HorizontalOptions = "Center"
-                                VerticalOptions   = "Center"/>
-                        </Border>
-                        <Border 
-                            Grid.Row          = "0"
-                            Grid.Column       = "2"
-                            Margin            = "15"
-                            HorizontalOptions = "End"
-                            VerticalOptions   = "End"
-                            HeightRequest     = "50"
-                            WidthRequest      = "100"
-                            StrokeShape       = "RoundRectangle 50">
+                                VerticalOptions   = "End"
+                                HeightRequest     = "50"
+                                WidthRequest      = "100"
+                                StrokeShape       = "RoundRectangle 50">
+                                <Label 
+                                    Text              = "1º"
+                                    HorizontalOptions = "Center"
+                                    VerticalOptions   = "Center"/>
+                            </Border>
+                            <Border 
+                                Grid.Row          = "0"
+                                Grid.Column       = "1"
+                                Margin            = "15"
+                                HorizontalOptions = "Center"
+                                VerticalOptions   = "End"
+                                HeightRequest     = "50"
+                                WidthRequest      = "100"
+                                StrokeShape       = "RoundRectangle 50">
+                                <Label 
+                                    Text              = "10"
+                                    HorizontalOptions = "Center"
+                                    VerticalOptions   = "Center"/>
+                            </Border>
+                            <Border 
+                                Grid.Row          = "0"
+                                Grid.Column       = "2"
+                                Margin            = "15"
+                                HorizontalOptions = "Center"
+                                VerticalOptions   = "End"
+                                HeightRequest     = "50"
+                                WidthRequest      = "100"
+                                StrokeShape       = "RoundRectangle 50">
                             <Label 
                                 Text              = "15"
                                 HorizontalOptions = "Center"
                                 VerticalOptions   = "Center"/>
-                        </Border>
-                        <!--LINHA 1-->
-                        <Label 
-                            Grid.Row          = "1"
-                            Grid.Column       = "0"                        
-                            Text              = "Ranking"
-                            HorizontalOptions = "Center"/>
-                        <Label 
-                            Grid.Row          = "1"
-                            Grid.Column       = "1"
-                            Text              = "Projetos"
-                            HorizontalOptions = "Center"/>
-                        <Label 
-                            Grid.Row          = "1"
-                            Grid.Column       = "2"
-                            Text              = "Oportunidades"
-                            HorizontalOptions = "Center"/>
-                    </Grid>                    
-                </VerticalStackLayout>
-            </Border>
-            
-            <!--SEGUNDO CONTÊINER-->
-            <!--<Border Style="{StaticResource borderGeral}">
+                            </Border>
+                            <!--LINHA 1-->
+                            <Label 
+                                Grid.Row          = "1"
+                                Grid.Column       = "0"                        
+                                Text              = "Ranking"
+                                HorizontalOptions = "Center"/>
+                            <Label 
+                                Grid.Row          = "1"
+                                Grid.Column       = "1"
+                                Text              = "Projetos"
+                                HorizontalOptions = "Center"/>
+                            <Label 
+                                Grid.Row          = "1"
+                                Grid.Column       = "2"
+                                Text              = "Oportunidades"
+                                HorizontalOptions = "Center"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!--SEGUNDO CONTÊINER-->
+                <!--<Border Style="{StaticResource borderGeral}">
                 <Border.Shadow>
                     <Shadow 
                         Brush   = "black"
@@ -173,104 +172,99 @@
                     </CarouselView>
                 </VerticalStackLayout>
             </Border>-->
-            
-            <!--TERCEIRO CONTÊINER-->
-            <Border 
-                Style         = "{StaticResource borderGeral}"
-                HeightRequest = "200">
-                <Border.Shadow>
-                    <Shadow 
+
+                <!--SEGUNDO CONTÊINER-->
+                <Border
+                    Style         = "{StaticResource borderGeral}"
+                    HeightRequest = "250">
+                    <Border.Shadow>
+                        <Shadow 
                         Brush   = "black"
                         Offset  = "10,10"
                         Radius  = "20"
                         Opacity = "0.5"/>
-                </Border.Shadow>
-                <VerticalStackLayout 
-                    Spacing = "10" 
-                    Margin  = "10">
-                    <Label 
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="20">
+                        <Label 
                         Text  = "Últimas Interações"
                         Style = "{StaticResource labelContainer}"/>
-                    <Grid 
-                        ColumnDefinitions = "*"
-                        HeightRequest     = "150" 
-                        BackgroundColor   = "Yellow">
-                        <CarouselView 
-                            Grid.Column      = "0"
-                            x:Name           = "carouselView"
-                            ItemsSource      = "{Binding LastInteractions}"
-                            IsScrollAnimated = "True"              
-                            BackgroundColor  = "White"
-                            IsBounceEnabled  = "True"
-                            VerticalOptions  = "StartAndExpand">
-                            <CarouselView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid 
-                                        RowDefinitions    = "2*,8*" 
-                                        ColumnDefinitions = "*,*">
-                                        <Image 
-                                            Grid.Column       = "0"
-                                            HorizontalOptions = "Center"
-                                            VerticalOptions   = "StartAndExpand"
-                                            HeightRequest     = "100"
-                                            WidthRequest      = "100"
-                                            Source            = "img_fotoperfil.png"
-                                            BackgroundColor   = "White"/>
-                                        <Label 
-                                            Grid.Row                = "0"
-                                            Grid.Column             = "1"
-                                            Text                    = "{Binding Title}"
-                                            FontSize                = "15"
-                                            FontAttributes          = "Bold"
-                                            VerticalOptions         = "Start"
-                                            HorizontalTextAlignment = "Center"/>
-                                        <Label 
-                                            Grid.Row                = "1"
-                                            Grid.Column             = "1"
-                                            Text                    = "{Binding Description}"
-                                            VerticalOptions         = "Start"
-                                            HorizontalTextAlignment = "Center"/>
-                                    </Grid>
-                                </DataTemplate>
-                            </CarouselView.ItemTemplate>
-                        </CarouselView>
-                    </Grid>
-                </VerticalStackLayout>
-            </Border>           
-           
-            <!--QUARTO CONTÊINER-->
-            <Border Style="{StaticResource borderGeral}">
-                <Border.Shadow>
-                    <Shadow 
-                        Brush   = "black"
-                        Offset  = "10,10"
-                        Radius  = "20"
-                        Opacity = "0.5"/>
-                </Border.Shadow>
-                <VerticalStackLayout 
-                    Spacing = "10" 
-                    Margin  = "10">
-                    <Label 
-                        Text  = "Cursos da Gestão de Inovação"
-                        Style = "{StaticResource labelContainer}"/>
-                    <Border StrokeShape ="RoundRectangle 20">
-                        <Image 
-                            Source = "img_banner.png"
-                            Aspect = "AspectFill">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer 
-                                    Tapped="OnImageTapped"
-                                    NumberOfTapsRequired="1"/>
-                            </Image.GestureRecognizers>
-                        </Image>
-                    </Border>
-                    <Label 
-                        Text                    = "Clique para acessar a Academia CEAPE e confira o Módulo"
-                        FontSize                = "12"
-                        FontAttributes          = "Bold"
-                        HorizontalTextAlignment = "Center"/>
-                </VerticalStackLayout>
-            </Border>
-        </StackLayout>
-    </ScrollView>
+                        <Grid Margin = "20" HorizontalOptions="Start">
+                            <CarouselView
+                                x:Name            = "carouselView"
+                                ItemsSource       = "{Binding LastInteractions}"
+                                IsScrollAnimated  = "True"              
+                                IsBounceEnabled   = "True"
+                                HeightRequest     = "100"
+                                WidthRequest      = "300"
+                                HorizontalOptions = "Start">
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid ColumnDefinitions = "4*,6*">
+                                            <Image 
+                                                Grid.Column       = "0"
+                                                HorizontalOptions = "Center"
+                                                HeightRequest     = "75"
+                                                WidthRequest      = "75"
+                                                Source            = "img_fotoperfil.png"/>
+                                            <Grid 
+                                                Grid.Column    = "1"
+                                                RowDefinitions = "*,*">
+                                                <Label 
+                                                    Grid.Row                = "0"
+                                                    Grid.Column             = "1"
+                                                    Text                    = "{Binding Title}"
+                                                    FontSize                = "15"
+                                                    FontAttributes          = "Bold"
+                                                    VerticalOptions         = "Start"
+                                                    HorizontalTextAlignment = "Center"/>
+                                                <Label 
+                                                    Grid.Row                = "1"
+                                                    Grid.Column             = "1"
+                                                    Text                    = "{Binding Description}"
+                                                    VerticalOptions         = "Start"
+                                                    HorizontalTextAlignment = "Center"/>
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!--TERCEIRO CONTÊINER-->
+                <Border Style="{StaticResource borderGeral}">
+                    <Border.Shadow>
+                        <Shadow 
+                            Brush   = "black"
+                            Offset  = "10,10"
+                            Radius  = "20"
+                            Opacity = "0.5"/>
+                    </Border.Shadow>
+                    <VerticalStackLayout 
+                        Spacing = "10" 
+                        Margin  = "10">
+                        <Label 
+                            Text  = "Cursos da Gestão de Inovação"
+                            Style = "{StaticResource labelContainer}"/>
+                        <Border StrokeShape ="RoundRectangle 20">
+                            <Image 
+                                Source = "img_banner.png"
+                                Aspect = "AspectFill">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Tapped="OnImageTapped"
+                                        NumberOfTapsRequired="1"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Border>
+                        <Label 
+                            Text                    = "Clique para acessar a Academia CEAPE e confira o Módulo"
+                            FontSize                = "12"
+                            FontAttributes          = "Bold"
+                            HorizontalTextAlignment = "Center"/>
+                    </VerticalStackLayout>
+                </Border>
+            </StackLayout>
+        </ScrollView>
 </ContentPage>

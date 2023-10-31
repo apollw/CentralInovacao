@@ -76,12 +76,9 @@ public partial class PageInicio : ContentPage
         scaleAnimation.Commit(button, "PressingButtonAnimation", length: 250, easing: Easing.SinOut, finished: (v, c) => button.Scale = 1);
     }
     private async void Btn_Logout(object sender, EventArgs e)
-    {
-        Button btn = (Button)sender;
-        btn.IsEnabled = false;
+    {        
         _authService.Logout();
         await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-        btn.IsEnabled = true;
     }      
    
     private async void OnImageTapped(object sender, EventArgs e)

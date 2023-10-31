@@ -5,14 +5,14 @@
              Title="Adicionar Oportunidade">
 
     <ContentPage.Resources>
-        <Style TargetType="CheckBox">
-            <Setter Property="HorizontalOptions" Value="End"/>
-            <Setter Property="Color" Value="#14d1ca"/>
+        <Style TargetType = "CheckBox">
+            <Setter Property = "HorizontalOptions" Value = "End"/>
+            <Setter Property = "Color"             Value = "#14d1ca"/>
         </Style>
     </ContentPage.Resources>
 
-    <ScrollView>
-        <StackLayout Spacing="5">
+    <ScrollView Margin="15">
+        <StackLayout Spacing="5" HorizontalOptions="Center">
             <Label   
                 Text    = "Campos Obrigatórios (*)"                      
                 Padding = "5"/>
@@ -26,16 +26,18 @@
                 FontSize              = "Medium"
                 WidthRequest          = "400"
                 BackgroundColor       = "WhiteSmoke"
-                VerticalTextAlignment = "Start"/>
+                VerticalTextAlignment = "Start"
+                HorizontalOptions     = "Start"/>
             <BoxView 
-                HeightRequest  = "1"
-                WidthRequest   = "400"
-                BackgroundColor= "Black"/>
+                HeightRequest     = "1"
+                WidthRequest      = "400"
+                BackgroundColor   = "Black"
+                HorizontalOptions = "Start"/>
             <Label   
-                Text           = "Descreva um breve resumo de como essa solução pode
-                                  impactar POSITIVAMENTE o Ceape Brasil (Máx: 250 caracteres): (*)"
-                FontAttributes = "Bold"
-                Padding        = "5"/>
+                Text              = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil (Máx: 250 caracteres): (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
             <Editor  
                 x:Name                = "_editor1"
                 MaxLength             = "250"
@@ -46,68 +48,74 @@
                 VerticalTextAlignment = "Start"
                 BackgroundColor       = "WhiteSmoke"
                 TextChanged           = "OnEditorTextChanged1"
-                Completed             = "OnEditorCompleted"/>
+                Completed             = "OnEditorCompleted"
+                HorizontalOptions     = "Start"/>
             <BoxView 
-                BackgroundColor  = "Black"
-                HeightRequest    = "1"
-                WidthRequest     = "400"/>
+                BackgroundColor   = "Black"
+                HeightRequest     = "1"
+                WidthRequest      = "400"
+                HorizontalOptions = "Start"/>
             <Label   
-                Text             = "Descreva alguns aspectos NEGATIVOS dessa solução 
-                                    para o Ceape Brasil (Máx: 250 caracteres): (*)"
-                FontAttributes   = "Bold"
-                Padding          = "5"/>
+                Text              = "Descreva alguns aspectos NEGATIVOS dessa solução para o Ceape Brasil (Máx: 250 caracteres): (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
             <Editor  
-                x:Name           = "_editor2"
-                MaxLength        = "250"
-                WidthRequest     = "400"
-                HeightRequest    = "100"
-                Placeholder      = "Insira uma descrição..."
-                PlaceholderColor = "Gray"
-                BackgroundColor  = "WhiteSmoke"
-                TextChanged      = "OnEditorTextChanged2"
-                Completed        = "OnEditorCompleted"/>
+                x:Name            = "_editor2"
+                MaxLength         = "250"
+                WidthRequest      = "400"
+                HeightRequest     = "100"
+                Placeholder       = "Insira uma descrição..."
+                PlaceholderColor  = "Gray"
+                BackgroundColor   = "WhiteSmoke"
+                TextChanged       = "OnEditorTextChanged2"
+                Completed         = "OnEditorCompleted"
+                HorizontalOptions = "Start"/>
             <BoxView 
-                BackgroundColor  = "Black"
-                HeightRequest    = "1"
-                WidthRequest     = "400"/>
+                BackgroundColor   = "Black"
+                HeightRequest     = "1"
+                WidthRequest      = "400"
+                HorizontalOptions = "Start"/>
             <Label   
-                Text             = "Selecione os setores impactados por essa solução: (*)"
-                FontAttributes   = "Bold"
-                Padding          = "5"/>
+                Text              = "Selecione os setores impactados por essa solução: (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
 
-            <CollectionView 
+            <!--<CollectionView 
                 x:Name        = "_collectionView"                            
                 SelectionMode = "Multiple">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid 
                             RowDefinitions    = "10,Auto,10,0.5"
-                            ColumnDefinitions = "33*,33*,33*"
+                            ColumnDefinitions = "5*,5*"
                             VerticalOptions   = "FillAndExpand">
                             <Label 
-                                Text        = "{Binding .}"
-                                Grid.Row    = "1"
-                                Grid.Column = "0"/>
+                                Text              = "{Binding .}"
+                                Grid.Row          = "1"
+                                Grid.Column       = "0"
+                                HorizontalOptions = "Start"/>
                             <CheckBox 
                                 x:Name            = "_checkBox"
                                 CheckedChanged    = "OnCheckBoxCheckedChanged" 
                                 Color             = "Green" 
                                 Grid.Row          = "1" 
-                                Grid.Column       = "3" 
+                                Grid.Column       = "1" 
                                 HorizontalOptions = "End"/>
                             <BoxView  
                                 Grid.Row         = "3"
                                 Grid.Column      = "0"
-                                Grid.ColumnSpan  = "3"
+                                Grid.ColumnSpan  = "2"
                                 BackgroundColor  = "Black"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+            </CollectionView>-->
 
             <Grid    
                 RowDefinitions    = "*,*,*,*,*,*,*,*,*,*,*,*,*"
-                ColumnDefinitions = "300,*"
+                ColumnDefinitions = "300,Auto"
                 HeightRequest     = "350"
                 Padding           = "10">
                 <Label  
