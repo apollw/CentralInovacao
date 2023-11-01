@@ -30,7 +30,7 @@ namespace CentralInovacao.ViewModel
         public ViewModelOportunidade()
         {
             Oportunidade         = new Oportunidade();
-            ListaDeOportunidades = CarregarOportunidades();            
+            ListaDeOportunidades = new List<Oportunidade>();
         }
         private async void ExecuteRefresh()
         {
@@ -81,6 +81,7 @@ namespace CentralInovacao.ViewModel
         }
         public List<Oportunidade> CarregarOportunidades()
         {
+            ListaDeOportunidades = new List<Oportunidade>();
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {

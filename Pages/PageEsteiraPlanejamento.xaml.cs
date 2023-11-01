@@ -61,9 +61,7 @@ public partial class PageEsteiraPlanejamento : ContentPage
         //_collectionView.ItemsSource  = Oportunidade.ListaDeTarefasPublica;
         _collectionView1.ItemsSource = tarefasStatus1;
         _collectionView2.ItemsSource = tarefasStatus2;
-
     }
-
     private async void Btn_AdicionarTarefa(object sender, EventArgs e)
     {
         Button btn = (Button)sender; 

@@ -38,12 +38,14 @@
         </Style>        
     </ContentPage.Resources>
 
-    <ScrollView>
-        <StackLayout>
-            <!--PRIMEIRO CONTÊINER-->
-            <Border Style="{StaticResource borderGeral}" HeightRequest="400">
-                <Border.Shadow>
-                    <Shadow 
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="1,1,1,1">
+            <StackLayout Spacing="10">
+                <!--PRIMEIRO CONTÊINER-->
+                <Border Style="{StaticResource borderGeral}" HeightRequest="400">
+                    <Border.Shadow>
+                        <Shadow 
                         Brush   = "Black"
                         Offset  = "10,10"
                         Radius  = "20"
@@ -118,7 +120,7 @@
                                 HeightRequest     = "50"
                                 WidthRequest      = "100"
                                 StrokeShape       = "RoundRectangle 50">
-                            <Label 
+                                <Label 
                                 Text              = "15"
                                 HorizontalOptions = "Center"
                                 VerticalOptions   = "Center"/>
@@ -265,6 +267,30 @@
                             HorizontalTextAlignment = "Center"/>
                     </VerticalStackLayout>
                 </Border>
+                <!--CONTÊINER VAZIO-->
+                <Grid HeightRequest="100">
+                    <!--GRID VAZIA PARA EFEITO DE ESPAÇO-->
+                </Grid>
             </StackLayout>
         </ScrollView>
+
+        <!-- Botão fixo no canto inferior direito -->
+        <ImageButton
+            Margin                      = "15"
+            Source                      = "btn_plus8.png"
+            HeightRequest               = "100"
+            WidthRequest                = "100"
+            Clicked                     = "Btn_NovaOp"
+            AbsoluteLayout.LayoutFlags  = "PositionProportional"
+            AbsoluteLayout.LayoutBounds = "1,1,-1,-1">
+            <ImageButton.Shadow>
+                <Shadow 
+                    Brush   = "cyan"
+                    Offset  = "5,5"
+                    Radius  = "1"
+                    Opacity = "0.5"/>
+            </ImageButton.Shadow>
+        </ImageButton>
+    </AbsoluteLayout>
+
 </ContentPage>

@@ -11,7 +11,7 @@
         </Style>
     </ContentPage.Resources>
 
-    <ScrollView Margin="15">
+    <ScrollView Margin="5">
         <StackLayout Spacing="5" HorizontalOptions="Center">
             <Label   
                 Text    = "Campos Obrigatórios (*)"                      

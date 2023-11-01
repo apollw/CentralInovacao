@@ -63,7 +63,6 @@ public partial class PageNovaOportunidade : ContentPage
 
         btn.IsEnabled = true;
     }
-
     public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
         var checkBox = sender as CheckBox;
@@ -79,6 +78,4 @@ public partial class PageNovaOportunidade : ContentPage
             }
         }
     }
-
-
 }

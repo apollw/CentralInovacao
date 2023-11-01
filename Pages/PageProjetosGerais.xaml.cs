@@ -5,22 +5,25 @@ namespace CentralInovacao.Pages;
 
 public partial class PageMeusProjetos : ContentPage
 {
-    List<Oportunidade>    ListaDeOportunidades = new List<Oportunidade>();
-    ViewModelOportunidade VMOportunidade       = new ViewModelOportunidade();
+    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
     public PageMeusProjetos()
     {
         InitializeComponent();
         BindingContext = VMOportunidade;
     }
-    private async void Btn_AbrirProjeto(object sender, EventArgs e)
+    protected async override void OnAppearing()
     {
-        Button btn = (Button)sender;
-        btn.IsEnabled = false;
-        //await Navigation.PushAsync(new ViewProjeto());
-        await Shell.Current.GoToAsync($"{nameof(PageProjeto)}");
-        btn.IsEnabled = true;
-    }
+        base.OnAppearing();
 
+        activityIndicator.IsRunning = true;
+        activityIndicator.IsVisible = true;
+
+        await VMOportunidade.CarregarOportunidadesAsync();
+
+        //Reativa o botão após o fim da tarefa
+        activityIndicator.IsRunning = false;
+        activityIndicator.IsVisible = false;
+    }
     private async void Btn_AbrirEsteira(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
@@ -29,7 +32,17 @@ public partial class PageMeusProjetos : ContentPage
         {
             if (button.BindingContext is Oportunidade oportunidade)
             {
+                //Desabilita o botão até o fim da tarefa
+                activityIndicator.IsRunning = true;
+                activityIndicator.IsVisible = true;
+                btn.IsEnabled = false;
+
                 await Navigation.PushAsync(new PageEsteiraGeral(oportunidade));
+
+                //Reativa o botão após o fim da tarefa
+                activityIndicator.IsRunning = false;
+                activityIndicator.IsVisible = false;
+                btn.IsEnabled = true;
             }
         }
         btn.IsEnabled = true;

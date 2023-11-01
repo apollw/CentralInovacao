@@ -4,7 +4,9 @@
              x:Class = "CentralInovacao.Pages.PageEsteiraGeral"
              Title   = "Esteira do Projeto">
 
-    <StackLayout VerticalOptions = "Center">
+    <AbsoluteLayout>
+        <StackLayout VerticalOptions = "Center" AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="1,1,1,1">
         <!--ELEMENTO 1 DO STACK-->
         <CarouselView 
             ItemsSource     = "{Binding Buttons}"
@@ -85,7 +87,19 @@
             IndicatorColor         = "LightGray"
             SelectedIndicatorColor = "DarkCyan"
             HorizontalOptions      = "Center"
-            VerticalOptions        = "Start"/>        
-    </StackLayout>
+            VerticalOptions        = "Start"/>       
+    </StackLayout>    
+
+    <ActivityIndicator
+         x:Name                      = "activityIndicator"
+         Color                       = "Cyan"
+         IsRunning                   = "False" 
+         IsVisible                   = "False"
+         WidthRequest                = "85"
+         HeightRequest               = "85"
+         AbsoluteLayout.LayoutFlags  = "PositionProportional"
+         AbsoluteLayout.LayoutBounds = "0.5,0.5,-1,-1"/>
+    </AbsoluteLayout>
+
 </ContentPage>
   

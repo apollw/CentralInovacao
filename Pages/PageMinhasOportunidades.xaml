@@ -14,7 +14,7 @@
 
     <AbsoluteLayout>
         <Grid 
-            RowDefinitions    = "85*,15*" 
+            RowDefinitions    = "9*,1*" 
             ColumnDefinitions = "*,*"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="1,1,1,1">
@@ -97,7 +97,7 @@
                 HeightRequest   = "1"/>
             <Label
                 Grid.Row                = "1"
-                Grid.Column             = "0"
+                Grid.ColumnSpan         = "2"
                 Text                    = "{Binding ListaDeOportunidades.Count,
                                             StringFormat='Oportunidades Registradas: {0}'}"
                 FontSize                = "12"
@@ -105,18 +105,7 @@
                 Margin                  = "0,5,0,0"
                 VerticalTextAlignment   = "Center"
                 HorizontalTextAlignment = "Center"/>
-            <ImageButton 
-                Source            = "img_addbtn5.png"
-                Grid.Row          = "1"
-                Grid.Column       = "1"
-                Margin            = "0,0,15,0"
-                Clicked           = "Btn_NovaOp"
-                IsEnabled         = "{Binding IsClicked}"
-                HeightRequest     = "75"
-                WidthRequest      = "75"
-                HorizontalOptions = "End"/>
         </Grid>
-
         <ActivityIndicator
             x:Name                      = "activityIndicator"
             Color                       = "Cyan"
@@ -127,6 +116,4 @@
             AbsoluteLayout.LayoutFlags  = "PositionProportional"
             AbsoluteLayout.LayoutBounds = "0.5,0.5,-1,-1"/>
     </AbsoluteLayout>
-    
-
 </ContentPage>

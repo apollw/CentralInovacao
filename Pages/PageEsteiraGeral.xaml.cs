@@ -6,36 +6,41 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraGeral : ContentPage
 {
+    
 	public PageEsteiraGeral(Oportunidade oportunidade)
 	{
 		InitializeComponent();
-        BindingContext = new ViewModelButton(oportunidade);
+        ViewModelButton VMButton = new ViewModelButton(oportunidade);
+        VMButton.ActivityIndicatorLocal = activityIndicator;
+        BindingContext  = VMButton;        
     }
     public class ViewModelButton
     {
         public Oportunidade      Oportunidade { get; set; }
         public List<ButtonModel> Buttons { get; set; }
+        public ActivityIndicator ActivityIndicatorLocal { get; set; }
 
         public ViewModelButton(Oportunidade oportunidade)
         {
             Oportunidade = oportunidade;
             Buttons      = new List<ButtonModel>
             {
-                new ButtonModel("Solicitação"    , "imgbutton_request.png", 
+                new ButtonModel("Solicitação"    , "btn_request.png", 
                                 new Command<string>(NavigateToPage)),
-                new ButtonModel("Análise"        , "imgbutton_analysis.png", 
+                new ButtonModel("Análise"        , "btn_analysis.png", 
                                 new Command<string>(NavigateToPage)),
-                new ButtonModel("Squad"          , "imgbutton_group.png",
+                new ButtonModel("Squad"          , "btn_group.png",
                                 new Command<string>(NavigateToPage)),
-                new ButtonModel("Planejamento"   , "imgbutton_planning.png", 
+                new ButtonModel("Planejamento"   , "btn_planning.png", 
                                 new Command<string>(NavigateToPage)),
-                new ButtonModel("Acompanhamento" , "imgbutton_project.png", 
+                new ButtonModel("Acompanhamento" , "btn_project.png", 
                                 new Command<string>(NavigateToPage))
              };
         }
 
         //Variável de Controle de Clique
         private bool _buttonClicked = false;
+        
         private async void NavigateToPage(string buttonName)
         {
             // Se o botão já foi clicado, sai do método
@@ -46,23 +51,23 @@ public partial class PageEsteiraGeral : ContentPage
 
             // Marcando o botão como clicado
             _buttonClicked = true;
-
+            
             switch (buttonName)
             {
                 case "Solicitação":                    
-                    await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Oportunidade));
+                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Oportunidade)));
                     break;
                 case "Análise":
-                    await Shell.Current.Navigation.PushAsync(new PageEsteiraBriefing(Oportunidade));
+                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraBriefing(Oportunidade)));
                     break;
                 case "Squad":
-                    await Shell.Current.Navigation.PushAsync(new PageEsteiraSquad(Oportunidade));
+                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSquad(Oportunidade)));
                     break;
                 case "Planejamento":
-                    await Shell.Current.Navigation.PushAsync(new PageEsteiraPlanejamento(Oportunidade));
+                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraPlanejamento(Oportunidade)));
                     break;
                 case "Acompanhamento":
-                    await Shell.Current.Navigation.PushAsync(new PageEsteiraAcompanhamento());
+                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraAcompanhamento()));
                     break;
                 default:
                     break;
@@ -70,6 +75,21 @@ public partial class PageEsteiraGeral : ContentPage
 
             // Após a ação ser concluída, reativa o botão
             _buttonClicked = false;
+        }
+        private async Task HandleNavigationAsync(Func<Task> navigationAction)
+        {
+            ActivityIndicatorLocal.IsRunning = true;
+            ActivityIndicatorLocal.IsVisible = true;
+
+            try
+            {
+                await navigationAction();
+            }
+            finally
+            {
+                ActivityIndicatorLocal.IsRunning = false;
+                ActivityIndicatorLocal.IsVisible = false;
+            }
         }
     }
     public class ButtonModel

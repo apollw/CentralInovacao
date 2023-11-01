@@ -2,64 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CentralInovacao.Pages.PageRankingGeral"
-             Title="Ranking Geral">
+             BackgroundImageSource="ranking.png"
+             Title=" ">
 
-    <Grid RowDefinitions    = "35,*"
-          ColumnDefinitions = "*,*">
-        
-        <Label 
-            Grid.Row="0"
-            Grid.Column="0"
-            Text                    = "Nome"
-            FontSize                = "Medium"
-            FontAttributes          = "Bold"
-            HorizontalTextAlignment = "Center"
-            BackgroundColor         = "White"/>
-        
-        <Label 
-            Grid.Row                = "0"
-            Grid.Column             = "1"
-            Text                    = "Projetos"
-            FontSize                = "Medium"
-            FontAttributes          = "Bold"
-            HorizontalTextAlignment = "Center"
-            BackgroundColor         = "White"/>
-        
-        <BoxView 
-            Grid.Row        = "0"
-            Grid.ColumnSpan = "2"
-            Color           = "Gray"
-            HeightRequest   = "1"
-            VerticalOptions = "End"/>
-
-        <ListView 
-            x:Name          = "_myListView"
-            Grid.Row        = "2"
-            Grid.Column     = "0"
-            BackgroundColor = "White">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell 
-                        Text      = "{Binding}"
-                        TextColor = "Black"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        
-        <ListView 
-            x:Name            = "_myListView1"
-            Grid.Row          = "2"
-            Grid.Column       = "1"
-            BackgroundColor   = "White"
-            HorizontalOptions = "End">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell 
-                        Text      = "{Binding}"
-                        TextColor = "Black"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
-    
+    <VerticalStackLayout>
+        <Grid 
+            RowDefinitions="Auto,Auto" 
+            BackgroundColor="#14d1ca">
+            <Label
+                Grid.Row="0"
+                Text="Seu Rank"
+                FontSize="35"
+                TextColor="White"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center">
+                <Label.Shadow>
+                    <Shadow 
+                        Brush   = "Black"
+                        Offset  = "5,5"
+                        Radius  = "1"
+                        Opacity = "0.5"/>
+                </Label.Shadow>
+            </Label>
+            <Label
+                Grid.Row="1"
+                Text="1º"
+                TextColor="White"
+                FontSize="100"
+                FontAttributes="Bold"
+                HorizontalTextAlignment="Center">
+                <Label.Shadow>
+                    <Shadow 
+                        Brush   = "Black"
+                        Offset  = "5,5"
+                        Radius  = "1"
+                        Opacity = "0.5"/>
+                </Label.Shadow>
+            </Label>
+        </Grid>
+    </VerticalStackLayout>
 </ContentPage>

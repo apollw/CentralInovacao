@@ -1,10 +1,13 @@
+using CentralInovacao.Models;
 using CentralInovacao.Services;
+using Microsoft.Maui.Controls;
 
 namespace CentralInovacao.Pages;
 
 public partial class PageInicio : ContentPage
 {
     private readonly AuthService _authService;
+    Oportunidade Oportunidade = new Oportunidade();
 
     private List<InteractionItem> lastInteractions;
     public List<InteractionItem> LastInteractions
@@ -88,6 +91,24 @@ public partial class PageInicio : ContentPage
 
         // Abre o link do site no navegador
         await Launcher.OpenAsync(new Uri(websiteUrl));
+    }
+
+    private async void Btn_NovaOp(object sender, EventArgs e)
+    {
+        var button = (ImageButton)sender;
+        int animationDuration = 100;
+
+        //Executa Animação
+        Btn_Animation(button);
+        await Task.Delay(animationDuration / 2);
+      
+        button.IsEnabled = false;
+
+        await Shell.Current.GoToAsync($"{nameof(PageNovaOportunidade)}");
+
+        //Reativa o botão após o fim da tarefa
+        button.IsEnabled = true;
+       
     }
 }
 
