@@ -14,7 +14,6 @@ public partial class PageTarefa : ContentPage
         InitializeComponent();
         Oportunidade   = oportunidade;
         BindingContext = VMTarefa;
-        //FillPage();
     }
     void OnEditorTextChanged(object sender, TextChangedEventArgs e)
     {
@@ -26,7 +25,7 @@ public partial class PageTarefa : ContentPage
     {
         string text = ((Editor)sender).Text;
     }
-    private async void Btn_SalvarTarefa(object sender, EventArgs e)
+    private async void Btn_SalvarTarefaBacklog(object sender, EventArgs e)
     {
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
@@ -39,20 +38,24 @@ public partial class PageTarefa : ContentPage
         Tarefa.Ordem     = 0;
         Tarefa.Descricao = _editorDescricao.Text;
 
-        VMTarefa.SalvarTarefa(Oportunidade,Tarefa);
+        VMTarefa.SalvarTarefaBacklog(Oportunidade,Tarefa);
+        VMTarefa.SalvarTarefaExecucao(Oportunidade, Tarefa);
+        VMTarefa.SalvarTarefaFinalizadas(Oportunidade, Tarefa);
+
 
         await DisplayAlert("Aviso", "Tarefa Registrada!", "Voltar");
         await Navigation.PopAsync();
 
         btn.IsEnabled = true;
     }
-    protected async void RefreshScreen()
-    {
-        Oportunidade = await VMTarefa.CarregarTarefasAsync(Oportunidade);
 
-        // Filtrando as tarefas com base no status
-        var tarefasStatus0 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 0).ToList();
-        var tarefasStatus1 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 1).ToList();
-        var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();        
-    }
+    //protected async void RefreshScreen()
+    //{
+    //    Oportunidade = await VMTarefa.CarregarTarefasAsync(Oportunidade);
+
+    //    // Filtrando as tarefas com base no status
+    //    var tarefasStatus0 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 0).ToList();
+    //    var tarefasStatus1 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 1).ToList();
+    //    var tarefasStatus2 = Oportunidade.ListaDeTarefas.Where(tarefa => tarefa.Status == 2).ToList();        
+    //}
 }

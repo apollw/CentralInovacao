@@ -4,29 +4,101 @@
              x:Class="CentralInovacao.Pages.PageItem"
              Title="PageItem">
 
-    <StackLayout Spacing="5">
-        <Label   
-        Text    = "Campos Obrigatórios (*)"                      
-        Padding = "5"/>
-        <Label   
-        Text           = "Título (*)"
-        FontAttributes = "Bold"
-        Padding        = "5"/>
+    <!--<StackLayout Spacing="5" Margin="15" HorizontalOptions="Center">
         <Entry   
-        x:Name                = "_itemTitulo"
-        MaxLength             = "50"
-        FontSize              = "Medium"
-        WidthRequest          = "400"
-        BackgroundColor       = "WhiteSmoke"
-        VerticalTextAlignment = "Start"/>
+            x:Name                = "_itemTitulo"
+            MaxLength             = "50"
+            FontSize              = "Medium"
+            WidthRequest          = "400"
+            BackgroundColor       = "WhiteSmoke"
+            HorizontalOptions     = "Start"
+            VerticalTextAlignment = "Start"/>
         <BoxView 
-        HeightRequest   = "1"
-        WidthRequest    = "400"
-        BackgroundColor = "Black"/>
-
+            HeightRequest     = "1"
+            WidthRequest      = "400"
+            BackgroundColor   = "Black"
+            HorizontalOptions = "Start"/>        
         <Button
-        Text    = "Salvar"
-        Clicked = "Btn_SalvarItem"/>
-    </StackLayout>
+            Text              = "Salvar"
+            Style             = "{StaticResource smallButtonStyle}"
+            Clicked           = "Btn_SalvarItem"
+            HorizontalOptions = "Center"/>
+    </StackLayout>-->
+
+    <ScrollView Margin = "15">
+        <StackLayout Spacing = "3">
+            <Label   
+                Text                  = "NOME DA TAREFA"                       
+                FontAttributes        = "Bold"
+                Padding               = "5"
+                HorizontalOptions     = "Start"/>
+            <BoxView 
+                BackgroundColor       = "Black"
+                HeightRequest         = "1"
+                WidthRequest          = "400"
+                HorizontalOptions     = "Start"/>
+            <Label   
+                Text                  = "DESCRIÇÃO"                       
+                FontAttributes        = "Bold"
+                Padding               = "5"
+                HorizontalOptions     = "Start"/>
+            <Editor  
+                x:Name                = "_editor1"
+                WidthRequest          = "400"
+                HeightRequest         = "150"
+                VerticalTextAlignment = "Start"
+                BackgroundColor       = "WhiteSmoke"
+                HorizontalOptions     = "Start"/>
+            <Label   
+                Text                  = "PROGRESSO DA TAREFA"                       
+                FontAttributes        = "Bold"
+                Padding               = "5"
+                HorizontalOptions     = "Start"/>
+            <ProgressBar 
+                WidthRequest          = "400"
+                BackgroundColor       = "Red"
+                HorizontalOptions     = "Start"/>    
+            <Label   
+                Text                  = "RESPONSÁVEL"                       
+                FontAttributes        = "Bold"
+                Padding               = "5"
+                HorizontalOptions     = "Start"/>
+            <Label   
+                Text                  = "PESSOA RESPONSÁVEL"                       
+                FontAttributes        = "Bold"
+                Padding               = "5"
+                HorizontalOptions     = "Start"/>
+            <Border
+                HeightRequest     = "150"
+                WidthRequest      = "400"
+                HorizontalOptions = "Start">
+                <CollectionView
+                    BackgroundColor = "White"
+                    ItemsSource     = "{Binding Tarefa}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="1">
+                                <Label 
+                                    Text              = "{Binding Nome}"
+                                    FontSize          = "15"
+                                    FontAttributes    = "Bold"
+                                    HorizontalOptions = "Center"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>
+            <Button 
+                Grid.Column     = "1"
+                Text            = "Adicionar Item"
+                Margin          = "10"
+                BackgroundColor = "#14d1ca"
+                TextColor       = "White"
+                FontSize        = "18"
+                FontAttributes  = "Bold"
+                Clicked         = "Btn_SalvarItem"/>
+
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CentralInovacao.Pages.PageEsteiraPlanejamento"
-             Title="Esteira de Planejamento">
+<ContentPage xmlns   = "http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class = "CentralInovacao.Pages.PageEsteiraPlanejamento"
+             Title   = "Esteira de Planejamento">
 
     <ContentPage.Resources>
         <!--BORDA EXTERNA-->
@@ -26,7 +26,7 @@
         <Style TargetType="ImageButton" x:Key="imgButton1Cabecalho">
             <Setter Property="Grid.Row"          Value="0"/>
             <Setter Property="Grid.Column"       Value="1"/>
-            <Setter Property="Source"            Value="img_addbtn3.png"/>
+            <Setter Property="Source"            Value="btn_plus5.png"/>
             <Setter Property="HeightRequest"     Value="45"/>
             <Setter Property="WidthRequest"      Value="35"/>
             <Setter Property="HorizontalOptions" Value="End"/>
@@ -35,7 +35,7 @@
         <Style TargetType="ImageButton" x:Key="imgButton2Cabecalho">
             <Setter Property="Grid.Row"          Value="0"/>
             <Setter Property="Grid.Column"       Value="2"/>
-            <Setter Property="Source"            Value="img_threepoints.png"/>
+            <Setter Property="Source"            Value="btn_threepoints.png"/>
             <Setter Property="HeightRequest"     Value="45"/>
             <Setter Property="WidthRequest"      Value="35"/>
             <Setter Property="HorizontalOptions" Value="End"/>
@@ -63,77 +63,65 @@
                     <ImageButton
                         Grid.Column       = "2"
                         Style             = "{StaticResource imgButton1Cabecalho}" 
-                        Clicked           = "Btn_AdicionarTarefa"
+                        Clicked           = "Btn_AdicionarTarefaBacklog"
                         HorizontalOptions = "Start"/>
                     <!--<ImageButton Style="{StaticResource imgButton2Cabecalho}"/>-->
                     
                     <!--LINHA 2 - COLEÇÃO DE ITENS-->
-                    <RefreshView
+                    <CollectionView 
                         Grid.Row        = "1"
-                        Grid.ColumnSpan = "3">
-                        <CollectionView 
-                            Grid.Row        = "1"
-                            Grid.ColumnSpan = "3"
-                            x:Name          = "_collectionView"
-                            BackgroundColor = "White"
-                            ItemsSource     = "{Binding Oportunidade.ListaDeTarefas}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Border 
-                                        HeightRequest   = "175" 
-                                        Margin          = "15"
-                                        BackgroundColor = "WhiteSmoke">
-                                    <Border.Shadow>
-                                        <Shadow 
-                                            Brush   = "black"
-                                            Offset  = "20,20"
-                                            Radius  = "15"
-                                            Opacity = "0.5"/>
-                                    </Border.Shadow>
-                                    <StackLayout Margin = "5" Spacing="5">                                        
-                                        <Label 
-                                            Text              = "{Binding Titulo}"
-                                            FontSize          = "15"
-                                            FontAttributes    = "Bold"
-                                            HorizontalOptions = "Center"/>
-                                        <Label 
-                                            Text              = "{Binding Id,StringFormat='Id -  {0}'}"
-                                            FontSize          = "15"
-                                            HorizontalOptions = "Start"/>
-                                        <Label 
-                                            Text              = "{Binding Data}"
-                                            FontSize          = "15"
-                                            HorizontalOptions = "Start"/>
-                                        <Grid ColumnDefinitions = "*,*,*" Margin = "5">
-                                            <Image
-                                                Grid.Column       = "0"
-                                                Source            = "img_fotoperfil.png"
-                                                HeightRequest     = "50"
-                                                WidthRequest      = "50"
-                                                HorizontalOptions = "Start"/>
-                                            <Button
-                                                Grid.Column       = "1"
-                                                Style             = "{StaticResource smallButtonStyle}"
-                                                Text              = "Novo Item"
-                                                WidthRequest      = "100"
-                                                HorizontalOptions = "End"
-                                                Clicked           = "Btn_AdicionarItem"
-                                                CommandParameter  = "{Binding .}"/>
-                                            <Button
-                                                Grid.Column       = "2"
-                                                Style             = "{StaticResource smallButtonStyle}"
-                                                Text              = "Excluir"
-                                                WidthRequest      = "75"
-                                                HorizontalOptions = "End"
-                                                Clicked           = "Btn_ExcluirTarefa"
-                                                CommandParameter  = "{Binding .}"/>
-                                                </Grid>
-                                    </StackLayout>
-                                    </Border>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </RefreshView>
+                        Grid.ColumnSpan = "3"
+                        x:Name          = "_collectionView1"
+                        BackgroundColor = "White"
+                        ItemsSource     = "{Binding ListaDeTarefasBacklog}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border 
+                                    HeightRequest   = "175"
+                                    Padding         = "25"
+                                    Margin          = "25"
+                                    BackgroundColor = "White"
+                                    StrokeShape     = "RoundRectangle 15"
+                                    StrokeThickness = "2">
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            Tapped               = "OnBorderTapped_PaginaItem"
+                                            CommandParameter     = "{Binding .}"
+                                            NumberOfTapsRequired = "1"/>
+                                    </Border.GestureRecognizers>
+                                <StackLayout>
+                                    <Label 
+                                        Text              = "{Binding Titulo}"
+                                        FontSize          = "15"
+                                        FontAttributes    = "Bold"
+                                        HorizontalOptions = "Center"/>
+                                    <Label 
+                                        Text              = "{Binding Id,StringFormat='Id -  {0}'}"
+                                        FontSize          = "12"
+                                        HorizontalOptions = "Start"/>
+                                    <Label 
+                                        Text              = "{Binding Data,StringFormat='Data de Registro - {0}'}"
+                                        FontSize          = "12"
+                                        HorizontalOptions = "Start"/>
+                                    <!--Text              = "{Binding Analista,StringFormat='Responsável - {0}'}"-->
+                                    <Button
+                                        Grid.Column       = "1"
+                                        Text              = "X"
+                                        TextColor         = "Red"
+                                        FontSize          = "18"
+                                        FontAttributes    = "Bold"
+                                        BorderColor       = "Transparent"
+                                        BackgroundColor   = "Transparent"  
+                                        HeightRequest     = "50"
+                                        WidthRequest      = "45"
+                                        HorizontalOptions = "End"
+                                        Clicked           = "Btn_ExcluirTarefa"
+                                        CommandParameter  = "{Binding .}"/>
+                                </StackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </Grid>
             </Border>
                     
@@ -144,58 +132,70 @@
                     RowDefinitions    = "10*,90*"
                     ColumnDefinitions = "50*,35*,15*"
                     Margin            = "10">
-                        <Label Text  = "Em Execução" 
-                               Style = "{StaticResource labelCabecalho}"/>
-                        <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
-                        <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
-
-                        <!--LINHA 2 - COLEÇÃO DE ITENS-->
-                        <CollectionView 
-                            Grid.Row        = "1"
-                            Grid.ColumnSpan = "3"
-                            x:Name          = "_collectionView1"
-                            BackgroundColor = "White"
-                            ItemsSource     = "{Binding Items}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Border 
-                                        HeightRequest   = "200" 
-                                        Margin          = "15,15,15,15"
-                                        BackgroundColor = "WhiteSmoke">
-                                     <Border.Shadow>
-                                         <Shadow 
-                                             Brush   = "black"
-                                             Offset  = "20,20"
-                                             Radius  = "15"
-                                             Opacity = "0.5"/>
-                                        </Border.Shadow>
-                                        <Grid 
-                                            RowDefinitions = "20*,50*,30*" 
-                                            Padding        = "10">
-                                            <Label 
-                                                Grid.Row          = "0" 
-                                                Text              = "{Binding .}"
-                                                FontSize          = "15"
-                                                FontAttributes    = "Bold"
-                                                HorizontalOptions = "Center"/>
-                                            <Label 
-                                                Grid.Row          = "1"
-                                                Text              = "25/06/2023 8:50:26"
-                                                FontSize          = "15"
-                                                HorizontalOptions = "Start"/>
-                                            <Image 
-                                                Source            = "img_fotoperfil.png"
-                                                Grid.Row          = "2"
-                                                HeightRequest     = "60"
-                                                WidthRequest      = "60" 
-                                                HorizontalOptions = "End"/>
-                                        </Grid>
-                                    </Border>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </Grid>
-                </Border>
+                    <Label Text  = "Em Execução" Style = "{StaticResource labelCabecalho}"/>
+                    <ImageButton
+                        Grid.Column       = "2"
+                        Style             = "{StaticResource imgButton1Cabecalho}"
+                        Clicked           = "Btn_AdicionarTarefaExecucao"
+                        HorizontalOptions = "Start"/>
+                    <!--<ImageButton Style="{StaticResource imgButton2Cabecalho}"/>-->
+                <!--LINHA 2 - COLEÇÃO DE ITENS-->
+                <CollectionView 
+                    Grid.Row        = "1"
+                    Grid.ColumnSpan = "3"
+                    x:Name          = "_collectionView2"
+                    BackgroundColor = "White"
+                    ItemsSource     = "{Binding ListaDeTarefasExecucao}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border 
+                                HeightRequest   = "175"
+                                Padding         = "25"
+                                Margin          = "25"
+                                BackgroundColor = "White"
+                                StrokeShape     = "RoundRectangle 15"
+                                StrokeThickness = "2">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Tapped               = "OnBorderTapped_PaginaItem"
+                                    CommandParameter     = "{Binding .}"
+                                    NumberOfTapsRequired = "1"/>
+                            </Border.GestureRecognizers>
+                            <StackLayout>
+                                <Label
+                                    Text              = "{Binding Titulo}"
+                                    FontSize          = "15"
+                                    FontAttributes    = "Bold"
+                                    HorizontalOptions = "Center"/>
+                                    <Label
+                                        Text              = "{Binding Id,StringFormat='Id -  {0}'}"
+                                        FontSize          = "12"
+                                        HorizontalOptions = "Start"/>
+                                    <Label 
+                                        Text              = "{Binding Data,StringFormat='Data de Registro - {0}'}"
+                                        FontSize          = "12"
+                                        HorizontalOptions = "Start"/>
+                                    <!--Text              = "{Binding Analista,StringFormat='Responsável - {0}'}"-->
+                                    <Button
+                                        Grid.Column       = "1"
+                                        Text              = "X"
+                                        TextColor         = "Red"
+                                        FontSize          = "18"
+                                        FontAttributes    = "Bold"
+                                        BorderColor       = "Transparent"
+                                        BackgroundColor   = "Transparent"  
+                                        HeightRequest     = "50"
+                                        WidthRequest      = "45"
+                                        HorizontalOptions = "End"
+                                        Clicked           = "Btn_ExcluirTarefa"
+                                        CommandParameter  = "{Binding .}"/>
+                                </StackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Border>
 
                 <!--CARD DE ANDAMENTO-->
             <Border Style="{StaticResource bordaExterna}">
@@ -204,61 +204,74 @@
                     RowDefinitions    = "10*,90*"
                     ColumnDefinitions = "50*,35*,15*"
                     Margin            = "10">
-                      <Label Text  = "Finalizados" 
-                             Style = "{StaticResource labelCabecalho}"/>
-                      <ImageButton Style="{StaticResource imgButton1Cabecalho}"/>
-                      <ImageButton Style="{StaticResource imgButton2Cabecalho}"/>
+                    <Label 
+                        Text  = "Finalizados" 
+                        Style = "{StaticResource labelCabecalho}"/>
+                    <ImageButton 
+                        Grid.Column       = "2"
+                        Style             = "{StaticResource imgButton1Cabecalho}"
+                        Clicked           = "Btn_AdicionarTarefaFinalizadas"
+                        HorizontalOptions = "Start"/>
+                    <!--<ImageButton Style="{StaticResource imgButton2Cabecalho}"/>-->
 
                 <!--LINHA 2 - COLEÇÃO DE ITENS-->
                 <CollectionView 
                     Grid.Row        = "1"
                     Grid.ColumnSpan = "3"
-                    x:Name          = "_collectionView2"
+                    x:Name          = "_collectionView3"
                     BackgroundColor = "White"
-                    ItemsSource     = "{Binding Items}">
+                    ItemsSource     = "{Binding ListaDeTarefasFinalizadas}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                                    <Border 
-                                        HeightRequest   = "200" 
-                                        Margin          = "15,15,15,15"
-                                        BackgroundColor = "WhiteSmoke">
-                                        <Border.Shadow>
-                                            <Shadow 
-                                                Brush   = "black"
-                                                Offset  = "20,20"
-                                                Radius  = "15"
-                                                Opacity = "0.5"/>
-                                        </Border.Shadow>
-                                        <Grid 
-                                            RowDefinitions = "20*,50*,30*"
-                                            Padding        = "10">
-                                            <Label 
-                                                Grid.Row          = "0" 
-                                                Text              = "{Binding .}"
-                                                FontSize          = "15"
-                                                FontAttributes    = "Bold"
-                                                HorizontalOptions = "Center"/>
-                                            <Label 
-                                                Grid.Row          = "1"
-                                                Text              = "25/06/2023 8:50:26"
-                                                FontSize          = "15"
-                                                HorizontalOptions = "Start"/>
-                                            <Image 
-                                                Source            = "img_fotoperfil.png"
-                                                Grid.Row          = "2"
-                                                HeightRequest     = "60"
-                                                WidthRequest      = "60" 
-                                                HorizontalOptions = "End"/>
-                                        </Grid>
-                                    </Border>
-                                </DataTemplate>
+                            <Border 
+                                HeightRequest   = "175"
+                                Padding         = "25"
+                                Margin          = "25"
+                                BackgroundColor = "White"
+                                StrokeShape     = "RoundRectangle 15"
+                                StrokeThickness = "2">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Tapped               = "OnBorderTapped_PaginaItem"
+                                    CommandParameter     = "{Binding .}"
+                                    NumberOfTapsRequired = "1"/>
+                            </Border.GestureRecognizers>
+                            <StackLayout>
+                                <Label
+                                    Text              = "{Binding Titulo}"
+                                    FontSize          = "15"
+                                    FontAttributes    = "Bold"
+                                    HorizontalOptions = "Center"/>
+                                <Label
+                                        Text              = "{Binding Id,StringFormat='Id -  {0}'}"
+                                        FontSize          = "12"
+                                        HorizontalOptions = "Start"/>
+                                    <Label 
+                                        Text              = "{Binding Data,StringFormat='Data de Registro - {0}'}"
+                                        FontSize          = "12"
+                                        HorizontalOptions = "Start"/>
+                                    <!--Text              = "{Binding Analista,StringFormat='Responsável - {0}'}"-->
+                                    <Button
+                                        Grid.Column       = "1"
+                                        Text              = "X"
+                                        TextColor         = "Red"
+                                        FontSize          = "18"
+                                        FontAttributes    = "Bold"
+                                        BorderColor       = "Transparent"
+                                        BackgroundColor   = "Transparent"  
+                                        HeightRequest     = "50"
+                                        WidthRequest      = "45"
+                                        HorizontalOptions = "End"
+                                        Clicked           = "Btn_ExcluirTarefa"
+                                        CommandParameter  = "{Binding .}"/>
+                                </StackLayout>
+                            </Border>
+                        </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 </Grid>
             </Border>
-
             </HorizontalStackLayout>
         </ScrollView>        
-    </StackLayout>  
-        
+    </StackLayout>        
 </ContentPage>

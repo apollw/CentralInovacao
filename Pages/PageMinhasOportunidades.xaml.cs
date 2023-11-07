@@ -10,7 +10,7 @@ public partial class PageMinhasOportunidades : ContentPage
 	{
 		InitializeComponent();
         BindingContext = VMOportunidade;
-    } 
+    }
     protected async override void OnAppearing()
     {
         base.OnAppearing();
@@ -18,7 +18,7 @@ public partial class PageMinhasOportunidades : ContentPage
         activityIndicator.IsRunning = true;
         activityIndicator.IsVisible = true;
 
-        await VMOportunidade.CarregarOportunidadesAsync();
+        await VMOportunidade.CarregarOportunidadesAsyncLocal();
 
         //Reativa o botão após o fim da tarefa
         activityIndicator.IsRunning = false;
@@ -48,5 +48,4 @@ public partial class PageMinhasOportunidades : ContentPage
             }
         }
     }
-
 }

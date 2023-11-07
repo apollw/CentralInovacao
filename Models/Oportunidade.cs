@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CentralInovacao.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,22 +16,31 @@ namespace CentralInovacao.Models
         private int                     _analista;
         private int                     _estagioAtual;
         private int                     _motivoDeclinio;
+
         private DateTime                _data;
         private DateTime                _dataFim;
         private DateTime                _dataAnalise;
         private DateTime                _dataSquad;
         private DateTime                _dataPlanejamento;
+        
         private string                  _nome;
         private string                  _descricaoPositiva;
         private string                  _descricaoNegativa;
         private string                  _descricaoAnalise;
-        private Dictionary<string, int> _setores;
-        private List<Tarefa>            _listaDeTarefas;
         
+        private Dictionary<string, int> _setores;
+        private ObservableCollection<Tarefa> _listaDeTarefas;
+        private ObservableCollection<Tarefa> _listaDeTarefasBacklog;
+        private ObservableCollection<Tarefa> _listaDeTarefasExecucao;
+        private ObservableCollection<Tarefa> _listaDeTarefasFinalizadas;
+
         public Oportunidade()
         {
-            ListaDeTarefas    = new List<Tarefa>();
-            
+            ListaDeTarefas            = new ObservableCollection<Tarefa>();
+            ListaDeTarefasBacklog     = new ObservableCollection<Tarefa>();
+            ListaDeTarefasExecucao    = new ObservableCollection<Tarefa>();
+            ListaDeTarefasFinalizadas = new ObservableCollection<Tarefa>();
+
             Setores = new Dictionary<string, int>
             {
                 { "Administrativo", 0 },
@@ -64,15 +75,17 @@ namespace CentralInovacao.Models
         public string DescricaoNegativa { get => _descricaoNegativa; set => _descricaoNegativa = value; }
         public string DescricaoAnalise { get => _descricaoAnalise; set => _descricaoAnalise = value; }
         public Dictionary<string, int> Setores { get => _setores; set => _setores = value; }
-        public List<Tarefa> ListaDeTarefas { get => _listaDeTarefas; set => _listaDeTarefas = value; }
+        public ObservableCollection<Tarefa> ListaDeTarefas { get => _listaDeTarefas; set => _listaDeTarefas = value; }
+        public ObservableCollection<Tarefa> ListaDeTarefasBacklog { get => _listaDeTarefasBacklog; set => _listaDeTarefasBacklog = value; }
+        public ObservableCollection<Tarefa> ListaDeTarefasExecucao { get => _listaDeTarefasExecucao; set => _listaDeTarefasExecucao = value; }
+        public ObservableCollection<Tarefa> ListaDeTarefasFinalizadas { get => _listaDeTarefasFinalizadas; set => _listaDeTarefasFinalizadas = value; }
 
         public class Setor
         {
             public string Nome { get; set; }
             public int    Selecionado { get; set; }
         }
-    }
-    
+    }    
 }
 
 

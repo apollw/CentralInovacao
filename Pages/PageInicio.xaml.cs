@@ -1,5 +1,6 @@
 using CentralInovacao.Models;
 using CentralInovacao.Services;
+using CentralInovacao.ViewModel;
 using Microsoft.Maui.Controls;
 
 namespace CentralInovacao.Pages;
@@ -7,42 +8,43 @@ namespace CentralInovacao.Pages;
 public partial class PageInicio : ContentPage
 {
     private readonly AuthService _authService;
-    Oportunidade Oportunidade = new Oportunidade();
+    Oportunidade     Oportunidade = new Oportunidade();
+    ViewModelUsuario VMUsuario    = new ViewModelUsuario();
 
-    private List<InteractionItem> lastInteractions;
-    public List<InteractionItem> LastInteractions
-    {
-        get => lastInteractions;
-        set
-        {
-            lastInteractions = value;
-            OnPropertyChanged();
-        }
-    }
+    //private List<InteractionItem> lastInteractions;
+    //public List<InteractionItem> LastInteractions
+    //{
+    //    get => lastInteractions;
+    //    set
+    //    {
+    //        lastInteractions = value;
+    //        OnPropertyChanged();
+    //    }
+    //}
+    
     public PageInicio(AuthService authService)
     {
         InitializeComponent();
-        _authService   = authService;
-        BindingContext = this;
-
-        // Exemplo de dados
-        LastInteractions = new List<InteractionItem>
-            {
-                new InteractionItem { Title = "Edem Fernando", Description = "Alterou a foto de perfil" },
-                new InteractionItem { Title = "Danilo Ferreira", Description = "Adicionou uma nova oportunidade" },
-                new InteractionItem { Title = "Bruce Dickson", Description = "Iniciou um projeto" },
-                new InteractionItem { Title = "Fernando Gregório", Description = "Finalizou um projeto" },
-                new InteractionItem { Title = "Arthur Carvalho", Description = "Subiu no Ranking Geral" }
-            };
-
-        List<string> imagens = new List<string>
+        _authService = authService;
+        // Recupera os dados do Usuário
+        if (Preferences.ContainsKey("AuthUserId") && Preferences.ContainsKey("AuthUserName"))
         {
-            "img_medalha1.png",
-            "img_medalha2.png",
-            "img_medalha3.png"
-        };
+            // 0 é um valor padrão
+            VMUsuario.Usuario.Id = Preferences.Get("AuthUserId", 0);
+            // string.Empty é um valor padrão caso não exista
+            VMUsuario.Usuario.Nome = Preferences.Get("AuthUserName", string.Empty);
+        }
+        BindingContext = VMUsuario;              
 
-        //_carouselView.ItemsSource = imagens;
+        //// Exemplo de dados
+        //LastInteractions = new List<InteractionItem>
+        //{   
+        //    new InteractionItem { Title = "Edem Fernando", Description = "Alterou a foto de perfil" },
+        //    new InteractionItem { Title = "Danilo Ferreira", Description = "Adicionou uma nova oportunidade" },
+        //    new InteractionItem { Title = "Bruce Dickson", Description = "Iniciou um projeto" },
+        //    new InteractionItem { Title = "Fernando Gregório", Description = "Finalizou um projeto" },
+        //    new InteractionItem { Title = "Arthur Carvalho", Description = "Subiu no Ranking Geral" }
+        //};
     }
 
     private async void OnProfileImageTapped(object sender, EventArgs e)
@@ -68,7 +70,6 @@ public partial class PageInicio : ContentPage
             }
         }
     }
-    /*BOTÕES*/
     public void Btn_Animation(ImageButton button)
     {
         // Define a escala inicial do botão
@@ -79,11 +80,15 @@ public partial class PageInicio : ContentPage
         scaleAnimation.Commit(button, "PressingButtonAnimation", length: 250, easing: Easing.SinOut, finished: (v, c) => button.Scale = 1);
     }
     private async void Btn_Logout(object sender, EventArgs e)
-    {        
+    {   
         _authService.Logout();
+
+        //Ao deslogar, apaga os dados que estão na ViewModel
+        VMUsuario.Usuario.Id = 0;
+        VMUsuario.Usuario.Nome = String.Empty;
+        
         await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-    }      
-   
+    }
     private async void OnImageTapped(object sender, EventArgs e)
     {
         // URL do site
@@ -92,7 +97,6 @@ public partial class PageInicio : ContentPage
         // Abre o link do site no navegador
         await Launcher.OpenAsync(new Uri(websiteUrl));
     }
-
     private async void Btn_NovaOp(object sender, EventArgs e)
     {
         var button = (ImageButton)sender;
@@ -112,9 +116,9 @@ public partial class PageInicio : ContentPage
     }
 }
 
-// Classe para representar os dados da "última interação"
-public class InteractionItem
-{
-    public string Title { get; set; }
-    public string Description { get; set; }
-}
+//// Classe para representar os dados da "última interação"
+//public class InteractionItem
+//{
+//    public string Title { get; set; }
+//    public string Description { get; set; }
+//}

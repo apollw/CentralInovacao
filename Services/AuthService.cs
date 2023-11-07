@@ -69,8 +69,8 @@ namespace CentralInovacao.Services
                     { 
                         //Login Bem Sucedido
                         Preferences.Set(AuthUserStatus, true);
-                        Preferences.Set(AuthUserId, modelLogin.User.Id);
-                        Preferences.Set(AuthUserName, modelLogin.User.Name);
+                        Preferences.Set(AuthUserId    , modelLogin.User.Id);
+                        Preferences.Set(AuthUserName  , modelLogin.User.Name);
                     }
 
                     return true;
@@ -128,9 +128,14 @@ namespace CentralInovacao.Services
         public void Logout()
         {
             Preferences.Remove("AuthUserStatus");
+            Preferences.Remove(AuthUserStatus);
+
             Preferences.Remove("AuthUserId");
+            Preferences.Remove(AuthUserId);
+
             Preferences.Remove("AuthUserName");
-            
+            Preferences.Remove(AuthUserName);
+
             Preferences.Remove("AuthToken");
             Preferences.Remove(AuthStateKey);
         }

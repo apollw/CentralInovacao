@@ -13,15 +13,15 @@
         <Setter Property="VerticalOptions"   Value="Start"/>
     </Style>
 
-    <Style TargetType="Button" x:Key="smallButtonStyle">
-        <Setter Property="TextColor"         Value="Black"/>
-        <Setter Property="FontSize"          Value="12"/>
-        <Setter Property="BorderColor"       Value="#14d1ca"/>
+    <!--<Style TargetType="Button" x:Key="buttonStyle">
+        <Setter Property="TextColor"         Value="White"/>
+        <Setter Property="FontSize"          Value="18"/>
+        <Setter Property="FontAttributes"    Value="Bold"/>
         <Setter Property="BorderWidth"       Value="1"/>
         <Setter Property="BackgroundColor"   Value="White"/>
         <Setter Property="HorizontalOptions" Value="End"/>
         <Setter Property="HeightRequest"     Value="35"/>
-        <Setter Property="WidthRequest"      Value="85"/>
-    </Style>
+        <Setter Property="WidthRequest"      Value="85"/>   
+    </Style>-->
 
 </ResourceDictionary>

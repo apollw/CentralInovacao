@@ -1,5 +1,6 @@
 using CentralInovacao.Models;
 using CentralInovacao.Pages;
+using System.Reflection;
 using System.Windows.Input;
 
 namespace CentralInovacao.Pages;
@@ -23,18 +24,34 @@ public partial class PageEsteiraGeral : ContentPage
         public ViewModelButton(Oportunidade oportunidade)
         {
             Oportunidade = oportunidade;
-            Buttons      = new List<ButtonModel>
+
+            Buttons = new List<ButtonModel>
             {
-                new ButtonModel("Solicitação"    , "btn_request.png", 
-                                new Command<string>(NavigateToPage)),
-                new ButtonModel("Análise"        , "btn_analysis.png", 
-                                new Command<string>(NavigateToPage)),
-                new ButtonModel("Squad"          , "btn_group.png",
-                                new Command<string>(NavigateToPage)),
-                new ButtonModel("Planejamento"   , "btn_planning.png", 
-                                new Command<string>(NavigateToPage)),
-                new ButtonModel("Acompanhamento" , "btn_project.png", 
-                                new Command<string>(NavigateToPage))
+                new ButtonModel(
+                    "Solicitação",
+                    "Clique para ver mais detalhes sobre a oportunidade registrada",
+                    "btn_request.png",
+                    new Command<string>(NavigateToPage)),
+                new ButtonModel(
+                    "Análise",
+                    "Acompanhe o status da Análise da oportunidade registrada",
+                    "btn_analysis.png",
+                    new Command<string>(NavigateToPage)),
+                new ButtonModel(
+                    "Squad",
+                    "Visualize os integrantes da Squad responsável pelo projeto",
+                    "btn_group.png",
+                    new Command<string>(NavigateToPage)),
+                new ButtonModel(
+                    "Planejamento",
+                    "Visualize a etapa de planejamento do projeto",
+                    "btn_planning.png",
+                    new Command<string>(NavigateToPage)),
+                new ButtonModel(
+                    "Acompanhamento",
+                    "Visualize estatísticas, gráficos e atualizações do projeto",
+                    "btn_project.png",
+                    new Command<string>(NavigateToPage))
              };
         }
 
@@ -54,8 +71,9 @@ public partial class PageEsteiraGeral : ContentPage
             
             switch (buttonName)
             {
-                case "Solicitação":                    
+                case "Solicitação":
                     await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Oportunidade)));
+                    //await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageNovaOportunidade(Oportunidade)));
                     break;
                 case "Análise":
                     await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraBriefing(Oportunidade)));
@@ -95,14 +113,16 @@ public partial class PageEsteiraGeral : ContentPage
     public class ButtonModel
     {
         public string   Text { get; set; }
+        public string   Description { get; set; }
         public string   ImagePath { get; set; }
         public ICommand Command { get; set; }
 
-        public ButtonModel(string text, string imagePath, ICommand command)
+        public ButtonModel(string text, string description, string imagePath, ICommand command)
         {
-            Text      = text;
-            ImagePath = imagePath;
-            Command   = command;
+            Text        = text;
+            Description = description;
+            ImagePath   = imagePath;
+            Command     = command;
         }
     }
 

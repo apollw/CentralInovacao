@@ -14,7 +14,7 @@ public partial class PageItem : ContentPage
         InitializeComponent();
         Tarefa         = tarefa;
         Oportunidade   = oportunidade;
-        BindingContext = VMTarefa;
+        BindingContext = Tarefa;
         //FillPage();
     }
 
@@ -23,8 +23,8 @@ public partial class PageItem : ContentPage
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
         //Preenche o item novo da tarefa específica
-        Tarefa.ItemNovo.id   = VMTarefa.GerarNovoIdItem(Tarefa.ItemNovo.id,Oportunidade, Tarefa);
-        Tarefa.ItemNovo.Nome = _itemTitulo.Text;
+        //Tarefa.ItemNovo.id   = VMTarefa.GerarNovoIdItem(Tarefa.ItemNovo.id,Oportunidade, Tarefa);
+        //Tarefa.ItemNovo.Nome = _itemTitulo.Text;
         Tarefa.ItemNovo.Data = DateTime.Now;
 
         VMTarefa.SalvarItemTarefa(Oportunidade, Tarefa);

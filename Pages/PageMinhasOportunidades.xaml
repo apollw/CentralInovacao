@@ -74,15 +74,15 @@
                                        TextColor               = "Black"
                                        FontSize                = "15"
                                        HorizontalTextAlignment = "Start"/>
-                                    <Button
-                                       x:Name         = "_btnAbrirEsteira"
-                                       Text           = "Abrir"
-                                       WidthRequest   = "100"
-                                       HeightRequest  = "50"
-                                       FontAttributes ="Bold"
-                                       Clicked        = "Btn_AbrirEsteira"
-                                       Margin         = "5"
-                                       Style          = "{StaticResource smallButtonStyle}"/>
+                                    <Button 
+                                        x:Name         = "_btnAbrirEsteira"
+                                        Text           = "Abrir Esteira"
+                                        FontAttributes = "Bold"
+                                        Clicked        = "Btn_AbrirEsteira"
+                                        Margin         = "5"
+                                        BackgroundColor = "#14d1ca"
+                                        TextColor       = "White"
+                                        FontSize        = "18"/>
                                 </StackLayout>
                             </Border>
                         </DataTemplate>

@@ -19,25 +19,29 @@ namespace CentralInovacao.ViewModel
     public partial class ViewModelOportunidade : ObservableObject
     {
         [ObservableProperty]
-        private Oportunidade       _oportunidade;
+        private bool _isRefreshing;
         [ObservableProperty]
-        private List<Oportunidade> _listaDeOportunidades;
+        private Oportunidade _oportunidade;
         [ObservableProperty]
-        private bool               _isRefreshing;        
-
+        private ObservableCollection<Oportunidade> _listaDeOportunidades;
+        
         //Comandos
         public ICommand RefreshCommand => new Command(ExecuteRefresh);
         public ViewModelOportunidade()
         {
             Oportunidade         = new Oportunidade();
-            ListaDeOportunidades = new List<Oportunidade>();
+            ListaDeOportunidades = CarregarOportunidadesLocal();
+        }
+        public ViewModelOportunidade(Oportunidade oportunidade)
+        {
+            Oportunidade         = oportunidade;
+            ListaDeOportunidades = new ObservableCollection<Oportunidade>();
         }
         private async void ExecuteRefresh()
         {
-            await CarregarOportunidadesAsync();
+            await CarregarOportunidadesAsyncLocal();
             IsRefreshing = false;
         }
-
         public int GerarNovoId(int id)
         {
             if (id != 0)
@@ -58,47 +62,41 @@ namespace CentralInovacao.ViewModel
                 }
             }
         }
-
-        public void SalvarOportunidade(Oportunidade oportunidade)
+        public void SalvarOportunidadeLocal(Oportunidade oportunidade)
         {
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
 
-            // Limpa o conteúdo do arquivo, criando um arquivo vazio
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
                 if (json != string.Empty)
-                    ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
-
+                    ListaDeOportunidades = JsonConvert.DeserializeObject<ObservableCollection<Oportunidade>>(json);
             }
-            if (ListaDeOportunidades == null)
-                ListaDeOportunidades = new List<Oportunidade>();
 
             ListaDeOportunidades.Add(oportunidade);
-
             File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
-
         }
-        public List<Oportunidade> CarregarOportunidades()
+
+        public ObservableCollection<Oportunidade> CarregarOportunidadesLocal()
         {
-            ListaDeOportunidades = new List<Oportunidade>();
+            ListaDeOportunidades = new ObservableCollection<Oportunidade>();
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
+                ListaDeOportunidades = JsonConvert.DeserializeObject<ObservableCollection<Oportunidade>>(json);
             }
             return ListaDeOportunidades;
         }
 
-        public async Task<List<Oportunidade>> CarregarOportunidadesAsync()
+        public async Task<ObservableCollection<Oportunidade>> CarregarOportunidadesAsyncLocal()
         {
             await Task.Delay(500);
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                ListaDeOportunidades = JsonConvert.DeserializeObject<List<Oportunidade>>(json);
+                ListaDeOportunidades = JsonConvert.DeserializeObject<ObservableCollection<Oportunidade>>(json);
             }            
             return ListaDeOportunidades;
         }

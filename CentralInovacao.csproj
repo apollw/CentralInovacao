@@ -96,6 +96,7 @@
 	  <None Remove="Resources\Images\btn_plus8.png" />
 	  <None Remove="Resources\Images\btn_project.png" />
 	  <None Remove="Resources\Images\btn_request.png" />
+	  <None Remove="Resources\Images\btn_threepoints.png" />
 	  <None Remove="Resources\Images\clock.png" />
 	  <None Remove="Resources\Images\email.png" />
 	  <None Remove="Resources\Images\empty_list.png" />
@@ -105,7 +106,6 @@
 	  <None Remove="Resources\Images\img_medalha1.png" />
 	  <None Remove="Resources\Images\img_medalha2.png" />
 	  <None Remove="Resources\Images\img_medalha3.png" />
-	  <None Remove="Resources\Images\img_threepoints.png" />
 	  <None Remove="Resources\Images\key.png" />
 	  <None Remove="Resources\Images\logo_ceape.png" />
 	  <None Remove="Resources\Images\no_wifi.png" />

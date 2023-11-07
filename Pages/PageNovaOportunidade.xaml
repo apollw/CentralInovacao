@@ -12,7 +12,7 @@
     </ContentPage.Resources>
 
     <ScrollView Margin="5">
-        <StackLayout Spacing="5" HorizontalOptions="Center">
+        <StackLayout Spacing = "10" Margin = "5" HorizontalOptions="Center">
             <Label   
                 Text    = "Campos Obrigatórios (*)"                      
                 Padding = "5"/>
@@ -20,104 +20,83 @@
                 Text           = "Título da Solução (*)"                       
                 FontAttributes = "Bold"
                 Padding        = "5"/>
-            <Entry   
-                x:Name                = "_entryTitulo"
-                MaxLength             = "50"
-                FontSize              = "Medium"
-                WidthRequest          = "400"
-                BackgroundColor       = "WhiteSmoke"
-                VerticalTextAlignment = "Start"
-                HorizontalOptions     = "Start"/>
-            <BoxView 
-                HeightRequest     = "1"
-                WidthRequest      = "400"
-                BackgroundColor   = "Black"
-                HorizontalOptions = "Start"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "50"
+                WidthRequest  = "385">
+                <Entry   
+                    x:Name                = "_entryTitulo"
+                    MaxLength             = "50"
+                    FontSize              = "18"
+                    HeightRequest         = "45"
+                    WidthRequest          = "375"
+                    Placeholder           = "Insira um título..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
             <Label   
                 Text              = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil (Máx: 250 caracteres): (*)"
                 FontAttributes    = "Bold"
                 Padding           = "5"
                 HorizontalOptions = "Start"/>
-            <Editor  
-                x:Name                = "_editor1"
-                MaxLength             = "250"
-                WidthRequest          = "400"
-                HeightRequest         = "100"
-                Placeholder           = "Insira uma descrição..."
-                PlaceholderColor      = "Gray"
-                VerticalTextAlignment = "Start"
-                BackgroundColor       = "WhiteSmoke"
-                TextChanged           = "OnEditorTextChanged1"
-                Completed             = "OnEditorCompleted"
-                HorizontalOptions     = "Start"/>
-            <BoxView 
-                BackgroundColor   = "Black"
-                HeightRequest     = "1"
-                WidthRequest      = "400"
-                HorizontalOptions = "Start"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
+                <Editor
+                    x:Name                = "_editor1"
+                    MaxLength             = "250"
+                    WidthRequest          = "375"
+                    HeightRequest         = "145"
+                    FontSize              = "15"
+                    Placeholder           = "Insira uma descrição..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    TextChanged           = "OnEditorTextChanged1"
+                    Completed             = "OnEditorCompleted"
+                    VerticalOptions       = "Center"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
             <Label   
                 Text              = "Descreva alguns aspectos NEGATIVOS dessa solução para o Ceape Brasil (Máx: 250 caracteres): (*)"
                 FontAttributes    = "Bold"
                 Padding           = "5"
                 HorizontalOptions = "Start"/>
-            <Editor  
-                x:Name            = "_editor2"
-                MaxLength         = "250"
-                WidthRequest      = "400"
-                HeightRequest     = "100"
-                Placeholder       = "Insira uma descrição..."
-                PlaceholderColor  = "Gray"
-                BackgroundColor   = "WhiteSmoke"
-                TextChanged       = "OnEditorTextChanged2"
-                Completed         = "OnEditorCompleted"
-                HorizontalOptions = "Start"/>
-            <BoxView 
-                BackgroundColor   = "Black"
-                HeightRequest     = "1"
-                WidthRequest      = "400"
-                HorizontalOptions = "Start"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
+                <Editor
+                    x:Name                = "_editor2"
+                    MaxLength             = "250"
+                    WidthRequest          = "375"
+                    HeightRequest         = "145"
+                    FontSize              = "15"
+                    Placeholder           = "Insira uma descrição..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    TextChanged           = "OnEditorTextChanged2"
+                    Completed             = "OnEditorCompleted"
+                    VerticalOptions       = "Center"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
+
             <Label   
                 Text              = "Selecione os setores impactados por essa solução: (*)"
                 FontAttributes    = "Bold"
                 Padding           = "5"
                 HorizontalOptions = "Start"/>
-
-            <!--<CollectionView 
-                x:Name        = "_collectionView"                            
-                SelectionMode = "Multiple">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid 
-                            RowDefinitions    = "10,Auto,10,0.5"
-                            ColumnDefinitions = "5*,5*"
-                            VerticalOptions   = "FillAndExpand">
-                            <Label 
-                                Text              = "{Binding .}"
-                                Grid.Row          = "1"
-                                Grid.Column       = "0"
-                                HorizontalOptions = "Start"/>
-                            <CheckBox 
-                                x:Name            = "_checkBox"
-                                CheckedChanged    = "OnCheckBoxCheckedChanged" 
-                                Color             = "Green" 
-                                Grid.Row          = "1" 
-                                Grid.Column       = "1" 
-                                HorizontalOptions = "End"/>
-                            <BoxView  
-                                Grid.Row         = "3"
-                                Grid.Column      = "0"
-                                Grid.ColumnSpan  = "2"
-                                BackgroundColor  = "Black"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>-->
-
+            
             <Grid    
                 RowDefinitions    = "*,*,*,*,*,*,*,*,*,*,*,*,*"
-                ColumnDefinitions = "300,Auto"
+                ColumnDefinitions = "200,175"
                 HeightRequest     = "350"
-                Padding           = "10">
+                Padding           = "10"
+                HorizontalOptions = "Start">
                 <Label  
                     Grid.Row = "0"                        
                     Text     = "Administrativo"/>
