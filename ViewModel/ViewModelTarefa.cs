@@ -152,11 +152,28 @@ namespace CentralInovacao.ViewModel
             //File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
         }
 
-        public void SalvarItemTarefa(Oportunidade oportunidade, Tarefa tarefa)
+        public void SalvarItemTarefa(Oportunidade oportunidade, Tarefa tarefa, Tarefa.Item item)
         {
+            int index = 0;
+
+            foreach(Tarefa element in oportunidade.ListaDeTarefas)
+            {
+                if(element.Id == tarefa.Id)
+                {
+                    //Tarefa encontrada
+                    break; // Sair do loop quando a tarefa for encontrada
+                }
+
+                index++; // Incrementar o índice a cada iteração
+            }
+
+            Tarefa TarefaTemp = oportunidade.ListaDeTarefas[index];
+
+            TarefaTemp.ListaDeItems.Add(item);
+
             //Usando LINQ para encontrar Tarefa
             //int IndexTarefa = oportunidade.ListaDeTarefas.FindIndex(element => element.Id == tarefa.Id);
-            Tarefa TarefaTemp  = tarefa;
+            
             
             //Adiciona o novo item à tarefa específica
             //oportunidade.ListaDeTarefas[IndexTarefa].ListaDeItems.Add(TarefaTemp.ItemNovo);

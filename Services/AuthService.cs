@@ -29,15 +29,15 @@ namespace CentralInovacao.Services
             }
 
             //DESABILITAR LOGIN PARA TESTES
-            //if (Preferences.ContainsKey(AuthUserStatus))
-            //{
-            //    return Preferences.Get(AuthUserStatus, false);
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-            return true;
+            if (Preferences.ContainsKey(AuthUserStatus))
+            {
+                return Preferences.Get(AuthUserStatus, false);
+            }
+            else
+            {
+                return false;
+            }
+            //return true;
         }
 
         public async Task<bool> LoginAsync(string username, string password)

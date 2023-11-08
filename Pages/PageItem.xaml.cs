@@ -27,7 +27,7 @@ public partial class PageItem : ContentPage
         //Tarefa.ItemNovo.Nome = _itemTitulo.Text;
         Tarefa.ItemNovo.Data = DateTime.Now;
 
-        VMTarefa.SalvarItemTarefa(Oportunidade, Tarefa);
+        //VMTarefa.SalvarItemTarefa(Oportunidade, Tarefa);
         await Navigation.PopModalAsync();
         btn.IsEnabled = false;
     }

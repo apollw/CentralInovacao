@@ -25,56 +25,66 @@
             HorizontalOptions = "Center"/>
     </StackLayout>-->
 
-    <ScrollView Margin = "15">
-        <StackLayout Spacing = "3">
+    <ScrollView Margin = "5">
+        <StackLayout Spacing = "10" Margin = "5" HorizontalOptions="Center">
             <Label   
-                Text                  = "NOME DA TAREFA"                       
-                FontAttributes        = "Bold"
-                Padding               = "5"
-                HorizontalOptions     = "Start"/>
+                Text           = "Título da Tarefa"
+                FontSize       = "18"
+                FontAttributes = "Bold"
+                Padding        = "5"
+                HorizontalOptions="Center"/>
             <BoxView 
-                BackgroundColor       = "Black"
-                HeightRequest         = "1"
-                WidthRequest          = "400"
-                HorizontalOptions     = "Start"/>
-            <Label   
-                Text                  = "DESCRIÇÃO"                       
-                FontAttributes        = "Bold"
-                Padding               = "5"
-                HorizontalOptions     = "Start"/>
-            <Editor  
-                x:Name                = "_editor1"
-                WidthRequest          = "400"
-                HeightRequest         = "150"
-                VerticalTextAlignment = "Start"
-                BackgroundColor       = "WhiteSmoke"
-                HorizontalOptions     = "Start"/>
-            <Label   
-                Text                  = "PROGRESSO DA TAREFA"                       
-                FontAttributes        = "Bold"
-                Padding               = "5"
-                HorizontalOptions     = "Start"/>
+                BackgroundColor   = "Black"
+                HeightRequest     = "1"
+                WidthRequest      = "400"
+                HorizontalOptions = "Start"/>
+            <Label
+                Text           = "Descrição"                       
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
+                <Editor
+                    x:Name                = "_editor1"
+                    MaxLength             = "250"
+                    WidthRequest          = "375"
+                    HeightRequest         = "145"
+                    FontSize              = "15"
+                    HorizontalOptions     = "Start"
+                    VerticalOptions       = "Center"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
+            <!--TextChanged           = "OnEditorTextChanged1"
+            Completed = "OnEditorCompleted"-->
+            <Label
+                Text           = "Progresso"                       
+                FontAttributes = "Bold"
+                Padding        = "5"/>
             <ProgressBar 
                 WidthRequest          = "400"
-                BackgroundColor       = "Red"
-                HorizontalOptions     = "Start"/>    
-            <Label   
-                Text                  = "RESPONSÁVEL"                       
-                FontAttributes        = "Bold"
-                Padding               = "5"
+                HeightRequest         = "25"
+                BackgroundColor       = "Cyan"
                 HorizontalOptions     = "Start"/>
-            <Label   
-                Text                  = "PESSOA RESPONSÁVEL"                       
-                FontAttributes        = "Bold"
-                Padding               = "5"
-                HorizontalOptions     = "Start"/>
-            <Border
-                HeightRequest     = "150"
-                WidthRequest      = "400"
-                HorizontalOptions = "Start">
+            <Label
+                Text           = "Responsável"                       
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+            <Label
+                Text           = "Leanderson Gustavo Silva e Silva"
+                TextColor      = "DarkCyan"
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+            <Frame
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
                 <CollectionView
                     BackgroundColor = "White"
-                    ItemsSource     = "{Binding Tarefa}">
+                    ItemsSource     = "{Binding ListaDeItems}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Spacing="1">
@@ -87,7 +97,7 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            </Border>
+            </Frame>
             <Button 
                 Grid.Column     = "1"
                 Text            = "Adicionar Item"
@@ -100,5 +110,4 @@
 
         </StackLayout>
     </ScrollView>
-
 </ContentPage>
