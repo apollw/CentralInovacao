@@ -24,23 +24,23 @@ namespace CentralInovacao.ViewModel
         private Oportunidade _oportunidade;
         [ObservableProperty]
         private ObservableCollection<Oportunidade> _listaDeOportunidades;
-        
+
         //Comandos
         public ICommand RefreshCommand => new Command(ExecuteRefresh);
         public ViewModelOportunidade()
         {
-            Oportunidade         = new Oportunidade();
-            ListaDeOportunidades = CarregarOportunidadesLocal();
+            //Oportunidade         = new Oportunidade();
+            //ListaDeOportunidades = CarregarOportunidadesLocal();
         }
         public ViewModelOportunidade(Oportunidade oportunidade)
         {
-            Oportunidade         = oportunidade;
-            ListaDeOportunidades = new ObservableCollection<Oportunidade>();
+            //Oportunidade         = oportunidade;
+            //ListaDeOportunidades = new ObservableCollection<Oportunidade>();
         }
         private async void ExecuteRefresh()
         {
             await CarregarOportunidadesAsyncLocal();
-            IsRefreshing = false;
+            //IsRefreshing = false;
         }
         public int GerarNovoId(int id)
         {
@@ -92,12 +92,13 @@ namespace CentralInovacao.ViewModel
         public async Task<ObservableCollection<Oportunidade>> CarregarOportunidadesAsyncLocal()
         {
             await Task.Delay(500);
+
             var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
                 ListaDeOportunidades = JsonConvert.DeserializeObject<ObservableCollection<Oportunidade>>(json);
-            }            
+            }
             return ListaDeOportunidades;
         }
     }

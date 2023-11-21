@@ -1,4 +1,6 @@
-﻿using CentralInovacao.Models;
+﻿using Business.Inovacao;
+using CentralInovacao.Models;
+using CentralInovacao.Repositories;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.ApplicationModel.Communication;
@@ -7,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Formats.Asn1;
 using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
@@ -19,87 +22,31 @@ namespace CentralInovacao.ViewModel
     public partial class ViewModelProject : ObservableObject
     {
         [ObservableProperty]
-        private bool _isRefreshing;
+        private bool            _isRefreshing;
         [ObservableProperty]
-        private Project _project;
+        private Project         _project;
         [ObservableProperty]
-        private ObservableCollection<Project> _projectList;
-        
-        //Comandos
-        public ICommand RefreshCommand => new Command(ExecuteRefresh);
+        private RESTProject     _rESTProject;
+        [ObservableProperty]
+        private List<ModelArea> _ListAreaGeneral;
+        [ObservableProperty]
+        private ObservableCollection<Project> _projectList;      
+
         public ViewModelProject()
         {
-            Project     = new Project();
-            ProjectList = LoadProjects();
+            Project     = new Project(); 
+            RESTProject = new RESTProject();
+            ProjectList = new ObservableCollection<Project>();
         }
         public ViewModelProject(Project project)
         {
             Project     = project;
             ProjectList = new ObservableCollection<Project>();
         }
-        private async void ExecuteRefresh()
+        public async void SaveProject(Project project)
         {
-            await LoadProjectsAsync();
-            IsRefreshing = false;
-        }
-        public int GenerateId(int id)
-        {
-            if (id != 0)
-            {
-                return id; // Retorna a ID existente da Oportunidade
-            }
-            else
-            {
-                if (ProjectList.Count == 0)
-                {
-                    return 1; // Se a lista está vazia, retorna 1 como o novo ID
-                }
-                else
-                {
-                    int ultimoIdUtilizado = ProjectList.Max(project => project.Id);
-                    int novoId = ultimoIdUtilizado + 1;
-                    return novoId;
-                }
-            }
-        }
-        public void SaveProject(Project project)
-        {
-            //var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
-
-            //if (File.Exists(filePath))
-            //{
-            //    string json = File.ReadAllText(filePath);
-            //    if (json != string.Empty)
-            //        ListaDeOportunidades = JsonConvert.DeserializeObject<ObservableCollection<Oportunidade>>(json);
-            //}
-
-            ProjectList.Add(project);
-            //File.WriteAllText(filePath, JsonConvert.SerializeObject(ListaDeOportunidades));
+            await RESTProject.CreateProject(project);
         }
 
-        public ObservableCollection<Project> LoadProjects()
-        {
-            ProjectList = new ObservableCollection<Project>();
-            //var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
-            //if (File.Exists(filePath))
-            // {
-            //    string json = File.ReadAllText(filePath);
-            //    ListaDeOportunidades = JsonConvert.DeserializeObject<ObservableCollection<Oportunidade>>(json);
-            //}
-            return ProjectList;
-        }
-
-        public async Task<ObservableCollection<Project>> LoadProjectsAsync()
-        {
-            await Task.Delay(500);
-            ProjectList = new ObservableCollection<Project>();
-            //var filePath = Path.Combine(FileSystem.AppDataDirectory, "oportunidades.json");
-            //if (File.Exists(filePath))
-            //{
-            //    string json = File.ReadAllText(filePath);
-            //    ListaDeOportunidades = JsonConvert.DeserializeObject<ObservableCollection<Oportunidade>>(json);
-            //}            
-            return ProjectList;
-        }
     }
 }

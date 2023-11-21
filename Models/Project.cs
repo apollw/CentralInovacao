@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CentralInovacao.Models
 {
-    public class Project : ModelProject
+    public class Project:ModelProject
     {
 
     }    

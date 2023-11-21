@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net6.0-android</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
@@ -138,6 +138,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Reference Include="Business.Inovacao">
+	    <HintPath>..\..\Bin\Business.Inovacao.dll</HintPath>
+	  </Reference>
+	  <Reference Include="DAL">
+	    <HintPath>..\..\Bin\DAL.dll</HintPath>
+	  </Reference>
+	  <Reference Include="DAL.DataProviderSqlServer">
+	    <HintPath>..\..\Bin\DAL.DataProviderSqlServer.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="MainPage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
 	  </Compile>
@@ -240,14 +252,6 @@
 	  <MauiXaml Update="Pages\PageRankingGeral.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Repositories\Interfaces\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\InfoLight\Business\Business.Inovacao\Business.Inovacao.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

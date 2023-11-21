@@ -22,7 +22,7 @@ public static class MauiProgram
         builder.Services.AddTransient<ConnectivityService>();
         builder.Services.AddTransient<PageLoading>();
 		builder.Services.AddTransient<MainPage>();
-        builder.Services.AddTransient<PageInicio>();
+        builder.Services.AddTransient<PageInicio>();		
 
         return builder.Build();
 	}
