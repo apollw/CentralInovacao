@@ -8,43 +8,36 @@ namespace CentralInovacao.Pages;
 public partial class PageInicio : ContentPage
 {
     private readonly AuthService _authService;
-    Oportunidade     Oportunidade = new Oportunidade();
-    ViewModelUsuario VMUsuario    = new ViewModelUsuario();
-
-    //private List<InteractionItem> lastInteractions;
-    //public List<InteractionItem> LastInteractions
-    //{
-    //    get => lastInteractions;
-    //    set
-    //    {
-    //        lastInteractions = value;
-    //        OnPropertyChanged();
-    //    }
-    //}
+    ViewModelUsuario VMUsuario   = new ViewModelUsuario();
     
     public PageInicio(AuthService authService)
     {
         InitializeComponent();
         _authService = authService;
+
         // Recupera os dados do Usuário
         if (Preferences.ContainsKey("AuthUserId") && Preferences.ContainsKey("AuthUserName"))
         {
             // 0 é um valor padrão
             VMUsuario.Usuario.Id = Preferences.Get("AuthUserId", 0);
             // string.Empty é um valor padrão caso não exista
-            VMUsuario.Usuario.Nome = Preferences.Get("AuthUserName", string.Empty);
+            string NomeCompleto = Preferences.Get("AuthUserName", string.Empty);
+
+            // Divide a string em partes usando espaços como delimitador
+            string[] partes = NomeCompleto.Split(' ');
+
+            // Verifica se há pelo menos um nome
+            if (partes.Length > 0)
+            {
+                // Pega o primeiro nome e transforma em caixa baixa, exceto a primeira letra
+                string primeiroNome = partes[0].Substring(0, 1).ToUpper() + partes[0].Substring(1).ToLower();
+
+                VMUsuario.Usuario.Nome = primeiroNome;
+            }
         }
+
         BindingContext = VMUsuario;              
 
-        //// Exemplo de dados
-        //LastInteractions = new List<InteractionItem>
-        //{   
-        //    new InteractionItem { Title = "Edem Fernando", Description = "Alterou a foto de perfil" },
-        //    new InteractionItem { Title = "Danilo Ferreira", Description = "Adicionou uma nova oportunidade" },
-        //    new InteractionItem { Title = "Bruce Dickson", Description = "Iniciou um projeto" },
-        //    new InteractionItem { Title = "Fernando Gregório", Description = "Finalizou um projeto" },
-        //    new InteractionItem { Title = "Arthur Carvalho", Description = "Subiu no Ranking Geral" }
-        //};
     }
 
     private async void OnProfileImageTapped(object sender, EventArgs e)
@@ -115,10 +108,3 @@ public partial class PageInicio : ContentPage
        
     }
 }
-
-//// Classe para representar os dados da "última interação"
-//public class InteractionItem
-//{
-//    public string Title { get; set; }
-//    public string Description { get; set; }
-//}

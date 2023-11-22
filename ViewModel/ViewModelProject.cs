@@ -36,16 +36,45 @@ namespace CentralInovacao.ViewModel
         {
             Project     = new Project(); 
             RESTProject = new RESTProject();
-            ProjectList = new ObservableCollection<Project>();
         }
+
         public ViewModelProject(Project project)
         {
             Project     = project;
-            ProjectList = new ObservableCollection<Project>();
+            RESTProject = new RESTProject();
         }
-        public async void SaveProject(Project project)
+
+        public async void SalvarProjeto(Project project)
         {
             await RESTProject.CreateProject(project);
+        }
+
+        public async void GetProjeto(int project_id,int user_id)
+        {
+            //Popula o objeto Project da ViewModelProject
+            Project = await RESTProject.GetProject(project_id,user_id);
+        }
+
+        public async void GetListaProjetosUsuario()
+        {
+            List<Project> ListaCarregada = new List<Project>();
+
+            ListaCarregada = await RESTProject.GetListProjectsUser();
+
+            //Popular a Lista de Projetos do Usuário
+            ProjectList = new ObservableCollection<Project>(ListaCarregada);
+
+        }
+
+        public async void GetListaProjetosUsuarioFiltroPorData(string filtro)
+        {
+            List<Project> ListaCarregada = new List<Project>();
+
+            ListaCarregada = await RESTProject.GetListProjectsUser();
+
+            //Popular a Lista de Projetos do Usuário
+            ProjectList = new ObservableCollection<Project>(ListaCarregada);
+
         }
 
     }

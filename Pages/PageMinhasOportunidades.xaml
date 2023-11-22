@@ -14,19 +14,79 @@
 
     <AbsoluteLayout>
         <Grid 
-            RowDefinitions    = "9*,1*" 
+            RowDefinitions    = "1*,7*,*" 
             ColumnDefinitions = "*,*"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="1,1,1,1">
-            
-            <RefreshView
+
+            <!--IsRefreshing    = "{Binding IsRefreshing, Mode=TwoWay}"-->
+            <!--Command         = "{Binding RefreshCommand}"-->
+
+            <!--<RefreshView
                 Grid.Row        = "0"
-                Grid.ColumnSpan = "2" 
-                IsRefreshing    = "{Binding IsRefreshing, Mode=TwoWay}" 
-                Command         = "{Binding RefreshCommand}">
-                <CollectionView
-                    x:Name      = "_collectionViewOportunidades"
-                    ItemsSource = "{Binding ListaDeOportunidades}">
+                Grid.ColumnSpan = "2">-->
+
+            <Grid
+                Grid.Row          = "0"
+                Grid.ColumnSpan   = "2"
+                Margin            = "10"
+                RowDefinitions    = "*,*"
+                ColumnDefinitions = "25*,25*,50*"
+                ColumnSpacing     = "10"
+                HorizontalOptions = "Start">
+
+                <Label
+                    Grid.Row          = "0"
+                    Grid.Column       = "2"
+                    Text              = "Filtrar por Data:"
+                    FontAttributes    = "Bold"
+                    HorizontalOptions = "End"/>
+                <Label
+                    Grid.Row          = "0"
+                    Grid.Column       = "1"
+                    Text              = "Início"
+                    HorizontalOptions = "Center"/>
+
+                <Frame
+                    Grid.Row          = "1"
+                    Grid.Column       = "1"
+                    HeightRequest     = "55"
+                    WidthRequest      = "125"
+                    BorderColor       = "LightGray"
+                    VerticalOptions   = "Start">
+                    <DatePicker
+                        x:Name        = "_datePicker1"
+                        HeightRequest = "50"
+                        Format        = "dd/MM/yyyy"/>
+                </Frame>              
+                
+                <Label 
+                    Grid.Row          = "0"
+                    Grid.Column       = "2"
+                    Text              = "Término"
+                    HorizontalOptions = "Center"/>
+                
+                <Frame
+                    Grid.Row          = "1"
+                    Grid.Column       = "2"
+                    HeightRequest     = "55"
+                    WidthRequest      = "125"
+                    BorderColor       = "LightGray"
+                    VerticalOptions   = "Start">
+                    <DatePicker
+                        x:Name        = "_datePicker2"
+                        HeightRequest = "50"
+                        Format        = "dd/MM/yyyy"/>
+                </Frame>
+
+            </Grid>
+            
+            <CollectionView
+                    x:Name          = "_collectionViewOportunidades"
+                    Grid.Row        = "1"
+                    Grid.ColumnSpan = "2"
+                    HorizontalOptions="Center"
+                    ItemsSource     = "{Binding ProjectList}">
                     <CollectionView.EmptyView>
                         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                             <Label
@@ -49,7 +109,7 @@
                                     Spacing = "5"
                                     Margin  = "10">
                                     <Label 
-                                       Text                    = "{Binding Nome}"
+                                       Text                    = "{Binding Name}"
                                        TextColor               = "DarkCyan"
                                        FontSize                = "18"
                                        FontAttributes          = "Bold"
@@ -60,17 +120,17 @@
                                        FontSize                = "15"
                                        HorizontalTextAlignment = "Start"/>
                                     <Label 
-                                       Text                    = "{Binding Data,StringFormat='Data de Início: {0}'}"
+                                       Text                    = "{Binding DateIni,StringFormat='Data de Início: {0}'}"
                                        TextColor               = "Black"
                                        FontSize                = "15"
                                        HorizontalTextAlignment = "Start"/>
                                     <Label 
-                                       Text                    = "{Binding Status,StringFormat='Status da Solução: {0}'}"
+                                       Text                    = "{Binding LkpStatus,StringFormat='Status da Solução: {0}'}"
                                        TextColor               = "Black"
                                        FontSize                = "15"
                                        HorizontalTextAlignment = "Start"/>
                                     <Label 
-                                       Text                    = "{Binding Analista,StringFormat='Responsável: {0}'}"
+                                       Text                    = "{Binding LkpAnalyst,StringFormat='Responsável: {0}'}"
                                        TextColor               = "Black"
                                        FontSize                = "15"
                                        HorizontalTextAlignment = "Start"/>
@@ -88,17 +148,17 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            </RefreshView>
+            <!--</RefreshView>-->
             <BoxView
-                Grid.Row        = "1"
+                Grid.Row        = "2"
                 Grid.ColumnSpan = "2"
                 Color           = "DarkCyan"
                 VerticalOptions = "Start"
                 HeightRequest   = "1"/>
             <Label
-                Grid.Row                = "1"
+                Grid.Row                = "2"
                 Grid.ColumnSpan         = "2"
-                Text                    = "{Binding ListaDeOportunidades.Count,
+                Text                    = "{Binding ProjectList.Count,
                                             StringFormat='Oportunidades Registradas: {0}'}"
                 FontSize                = "12"
                 FontAttributes          = "Bold"

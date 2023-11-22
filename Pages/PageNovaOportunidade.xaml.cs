@@ -63,7 +63,7 @@ public partial class PageNovaOportunidade : ContentPage
         VMProject.Project.DescriptionPositive = _editor1.Text;
         VMProject.Project.DescriptionNegative = _editor2.Text;
 
-        VMProject.SaveProject(VMProject.Project);
+        VMProject.SalvarProjeto(VMProject.Project);
 
         await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
         await Shell.Current.GoToAsync("..");

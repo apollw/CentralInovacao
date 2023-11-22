@@ -5,13 +5,23 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraSquad : ContentPage
 {
-    Oportunidade          Oportunidade   = new Oportunidade();
-    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    public PageEsteiraSquad(Oportunidade oportunidade)
+    //Oportunidade          Oportunidade   = new Oportunidade();
+    //ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
+
+    Project          Projeto = new Project();
+    ViewModelProject VMProject = new ViewModelProject();
+
+    //public PageEsteiraSquad(Oportunidade oportunidade)
+    //{
+    //    InitializeComponent();
+    //    Oportunidade   = oportunidade;
+    //    BindingContext = VMOportunidade;
+    //}
+    public PageEsteiraSquad(Project projeto)
     {
         InitializeComponent();
-        Oportunidade   = oportunidade;
-        BindingContext = VMOportunidade;
+        Projeto = projeto;
+        BindingContext = VMProject;
     }
     private async void Btn_AddColaborador(object sender, EventArgs e)
     {

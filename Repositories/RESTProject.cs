@@ -55,18 +55,108 @@ namespace CentralInovacao.Repositories
             }
             return false;
         }
-        //Carregar Lista de Áreas ---ALTERAR PARA USAR COMMON API
+
+        //Carregar Projeto Específico do Usuário
+        public async Task<Project> GetProject(int project_id,int user_id)
+        {
+            Project Projeto = new Project();
+            string _parametros = $"/projects/{project_id}?user={user_id}";
+
+            try
+            {
+                var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi + _parametros);
+
+                if (response.IsSuccessful)
+                {
+                    Projeto = JsonConvert.DeserializeObject<Project>(response.Content);
+                    return Projeto;
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return Projeto;
+        }
+
+        //Carregar Lista de Projetos do Usuário
+        public async Task<List<Project>> GetListProjectsUser()
+        {
+            List<Project> ListaProjetos = new List<Project>();
+
+            var projetoJSON = new JObject(
+            new JProperty("DateIni", "2023-10-01"),
+            new JProperty("DateEnd", "2023-11-30"),
+            new JProperty("Name",""),
+            new JProperty("OnlyMyProjects",true),
+            new JProperty("User",3068)
+            );
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+
+            try
+            {
+                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list",body);
+
+                if (response.IsSuccessful)
+                {
+                    ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
+                    return ListaProjetos;
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return ListaProjetos;
+        }
+
+        //Carregar Lista de Projetos do Usuário por Filtro de Data
+        public async Task<List<Project>> GetListProjectsUser(string filtro)
+        {
+            List<Project> ListaProjetos = new List<Project>();
+
+            var projetoJSON = new JObject(
+            new JProperty("DateIni", "2023-10-01"),
+            new JProperty("DateEnd", "2023-11-30"),
+            new JProperty("Name", ""),
+            new JProperty("OnlyMyProjects", true),
+            new JProperty("User", 3068)
+            );
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+
+            try
+            {
+                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", body);
+
+                if (response.IsSuccessful)
+                {
+                    ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
+                    return ListaProjetos;
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return ListaProjetos;
+        }
+
+        //Carregar Lista de Áreas
         public async Task<List<ModelArea>> GetListAreas()
         {
             List<ModelArea> ListaAreas = new List<ModelArea>();            
 
             try
             {
-                var request = await _httpClient.GetAsync(ModelAuthApi.UrlApi+"/resources/areas");
-                if (request.IsSuccessStatusCode)
+                var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi + "/resources/areas");
+
+                if (response.IsSuccessful)
                 {
-                    var response = await request.Content.ReadAsStringAsync();
-                    ListaAreas = JsonConvert.DeserializeObject<List<ModelArea>>(response);
+                    ListaAreas= JsonConvert.DeserializeObject<List<ModelArea>>(response.Content);
                     return ListaAreas;
                 }
             }
@@ -76,5 +166,6 @@ namespace CentralInovacao.Repositories
             }
             return ListaAreas;
         }
+
     }
 }

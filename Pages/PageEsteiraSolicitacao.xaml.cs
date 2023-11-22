@@ -5,13 +5,22 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraSolicitacao : ContentPage
 {
+    Project               Projeto        = new Project();
     Oportunidade          Oportunidade   = new Oportunidade();
+    ViewModelProject      VMProject      = new ViewModelProject();  
     ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
     public PageEsteiraSolicitacao(Oportunidade oportunidade)
     {
         InitializeComponent();
         Oportunidade   = oportunidade;
         BindingContext = VMOportunidade;
+        FillPage();
+    }
+    public PageEsteiraSolicitacao(Project projeto)
+    {
+        InitializeComponent();
+        Projeto = projeto;
+        BindingContext = VMProject;
         FillPage();
     }
     public void FillPage()

@@ -5,14 +5,23 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraBriefing : ContentPage
 {
-    Oportunidade          Oportunidade   = new Oportunidade();
-    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
+    //Oportunidade          Oportunidade   = new Oportunidade();
+    //ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
 
-    public PageEsteiraBriefing(Oportunidade oportunidade)
+    Project          Projeto   = new Project();
+    ViewModelProject VMProject = new ViewModelProject();    
+
+    //public PageEsteiraBriefing(Oportunidade oportunidade)
+    //{
+    //    InitializeComponent();
+    //    Oportunidade   = oportunidade;
+    //    BindingContext = VMOportunidade;
+    //}
+    public PageEsteiraBriefing(Project projeto)
     {
         InitializeComponent();
-        Oportunidade   = oportunidade;
-        BindingContext = VMOportunidade;
+        Projeto = projeto;
+        BindingContext = VMProject;
     }
     void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
     {
@@ -29,7 +38,7 @@ public partial class PageEsteiraBriefing : ContentPage
     {
         Button btn = (Button)sender;
         btn.IsEnabled = false;
-        await Navigation.PushAsync(new PageDeclinio(Oportunidade));
+        //await Navigation.PushAsync(new PageDeclinio(Oportunidade));
         btn.IsEnabled = true;
     }
 

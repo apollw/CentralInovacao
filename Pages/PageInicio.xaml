@@ -60,7 +60,7 @@
                         Spacing         = "25"
                         BackgroundColor = "White">
                         <Label 
-                            Text     = "{Binding Usuario.Nome}"
+                            Text     = "{Binding Usuario.Nome,StringFormat='Bem-Vindo {0}!'}"
                             FontSize = "20"
                             Style    = "{StaticResource labelContainer}"/>
                         <Image 
