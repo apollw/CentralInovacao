@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CentralInovacao.Pages.PageTestes"
+             Title="Página de Testes">
+
+    <ScrollView Margin="15">
+        <VerticalStackLayout Spacing="10">
+            <Button Text="Carregar Lista de Usuários"           Clicked="Btn_CarregarListaUsuarios"/>
+            <Button Text="Carregar Lista de Status"             Clicked="Btn_CarregarListaStatus"/>
+            <Button Text="Carregar Lista de Funções"            Clicked="Btn_CarregarListaFuncoes"/>
+            <Button Text="Carregar Lista de Estágios"           Clicked="Btn_CarregarListaEstagios"/>
+            <Button Text="Carregar Lista de Classificações"     Clicked="Btn_CarregarListaClassificacoes"/>
+            <Button Text="Carregar Lista de Documentos"         Clicked="Btn_CarregarTiposDocumentos"/>
+            <Button Text="Carregar Lista de Razões de Declínio" Clicked="Btn_CarregarListaDeclinio"/>           
+            <Button Text="Get Check Open Stage"                 Clicked="Btn_CheckStage"/>
+            <Image x:Name="_image1"/>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

@@ -210,7 +210,7 @@
                 </Border>
 
                 <!--TERCEIRO CONTÊINER-->
-                <Border Style="{StaticResource borderGeral}">
+                <Border Style="{StaticResource borderGeral}" Margin="0,0,0,100">
                     <Border.Shadow>
                         <Shadow 
                             Brush   = "black"
@@ -242,10 +242,6 @@
                             HorizontalTextAlignment = "Center"/>
                     </VerticalStackLayout>
                 </Border>
-                <!--CONTÊINER VAZIO-->
-                <Grid HeightRequest="100">
-                    <!--GRID VAZIA PARA EFEITO DE ESPAÇO-->
-                </Grid>
             </StackLayout>
         </ScrollView>
 

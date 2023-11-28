@@ -11,10 +11,11 @@
     Shell.BackgroundColor = "#14d1ca"
     Shell.FlyoutBackdrop  = "White">
 
+    <!--NO CASO DE IMPLEMENTAÇÃO DE TABBAR, ALTERAR ESSAS PROPRIEDADES-->    
     <!-- Shell.FlyoutBehavior ="Flyout"
          Shell.TabBarIsVisible="False"
          Shell.BackgroundColor="#14d1ca"-->
-
+    
     <!--Shell.TabBarBackgroundColor="LightGray"
     Shell.TabBarUnselectedColor="Gray"
     Shell.TabBarTitleColor="Green"-->
@@ -49,15 +50,15 @@
             ContentTemplate = "{DataTemplate views:PageMedalhas}"
             Route           = "PageMedalhas"/>
         <ShellContent 
-            Title           = "Minhas Oportunidades"
+            Title           = "Meus Projetos"
             FlyoutIcon      = "shellicon_inovation.png"
             ContentTemplate = "{DataTemplate views:PageMinhasOportunidades}"
             Route           = "PageMinhasOportunidades"/>
         <ShellContent 
             Title           = "Projetos Gerais"
             FlyoutIcon      = "shellicon_project.png"
-            ContentTemplate = "{DataTemplate views:PageMeusProjetos}"
-            Route           = "PageMeusProjetos"/>
+            ContentTemplate = "{DataTemplate views:PageProjetosGerais}"
+            Route           = "PageProjetosGerais"/>
         <ShellContent 
             Title           = "Ranking Geral"
             FlyoutIcon      = "shellicon_rank.png"
@@ -68,8 +69,14 @@
             FlyoutIcon      = "shellicon_help.png"
             ContentTemplate = "{DataTemplate views:PagePontuacao}"
             Route           = "PagePontuacao"/>
+        <ShellContent 
+            Title           = "Página de Testes"
+            FlyoutIcon      = "barchart.png"
+            ContentTemplate = "{DataTemplate views:PageTestes}"
+            Route           = "PageTestes"/>
     </FlyoutItem>
 
+    <!--CASO DE IMPLEMENTAÇÃO DE TABBAR-->
     <!--<TabBar>
         <Tab Title="Home"
              Icon="shellicon_idea.png">

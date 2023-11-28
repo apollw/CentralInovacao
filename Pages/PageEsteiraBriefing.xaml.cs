@@ -34,7 +34,7 @@ public partial class PageEsteiraBriefing : ContentPage
         string text = ((Editor)sender).Text;
     }
 
-    private async void Button_Declinar(object sender, EventArgs e)
+    private void Button_Declinar(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
         btn.IsEnabled = false;

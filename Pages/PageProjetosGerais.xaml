@@ -1,10 +1,208 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CentralInovacao.Pages.PageMeusProjetos"
+             x:Class="CentralInovacao.Pages.PageProjetosGerais"
              Title="Projetos Gerais">
 
+    <ContentPage.Resources>
+        <!--ESTILO DAS LABELS INTERNAS-->
+        <Style TargetType="Label" x:Key="insideLabelStyle">
+            <Setter Property="FontAttributes"          Value="Bold"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        </Style>
+    </ContentPage.Resources>
 
+    <AbsoluteLayout>
+        <Grid 
+            RowDefinitions              = "8*,2*" 
+            ColumnDefinitions           = "*,*"
+            AbsoluteLayout.LayoutFlags  = "All"
+            AbsoluteLayout.LayoutBounds = "1,1,1,1">
 
+            <!--IsRefreshing    = "{Binding IsRefreshing, Mode=TwoWay}"-->
+            <!--Command         = "{Binding RefreshCommand}"-->
+
+            <!--<RefreshView
+                Grid.Row        = "0"
+                Grid.ColumnSpan = "2">-->
+
+            <CollectionView
+                    x:Name            = "_collectionViewProjetosGerais"
+                    Grid.Row          = "0"
+                    Grid.ColumnSpan   = "2"
+                    HorizontalOptions = "Center"
+                    ItemsSource       = "{Binding ProjectListGeneral}">
+                <CollectionView.EmptyView>
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                        <Label
+                                Text              = "Nenhuma Oportunidade Registrada"
+                                HorizontalOptions = "Center"/>
+                        <Image
+                                Source            = "empty_list.png"
+                                WidthRequest      = "100" 
+                                HeightRequest     = "100"
+                                HorizontalOptions = "Center"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                                Style         = "{StaticResource borderCardStyle}"
+                                HeightRequest = "350"
+                                WidthRequest  = "300">
+                            <StackLayout 
+                                    Spacing = "5"
+                                    Margin  = "10">
+                                <Image 
+                                    Source        = "dotnet_bot.png"
+                                    HeightRequest = "100"/>
+                                <Label 
+                                       Text                    = "{Binding Name}"
+                                       TextColor               = "DarkCyan"
+                                       FontSize                = "18"
+                                       FontAttributes          = "Bold"
+                                       HorizontalTextAlignment = "Center"/>
+                                <Label 
+                                       Text                    = "{Binding Id,StringFormat='Id: {0}'}"
+                                       TextColor               = "Black"
+                                       FontSize                = "15"
+                                       HorizontalTextAlignment = "Start"/>
+                                <Label 
+                                       Text                    = "{Binding DateIni,StringFormat='Data de Início: {0}'}"
+                                       TextColor               = "Black"
+                                       FontSize                = "15"
+                                       HorizontalTextAlignment = "Start"/>
+                                <Label 
+                                       Text                    = "{Binding LkpStatus,StringFormat='Status da Solução: {0}'}"
+                                       TextColor               = "Black"
+                                       FontSize                = "15"
+                                       HorizontalTextAlignment = "Start"/>
+                                <Label 
+                                       Text                    = "{Binding LkpAnalyst,StringFormat='Responsável: {0}'}"
+                                       TextColor               = "Black"
+                                       FontSize                = "15"
+                                       HorizontalTextAlignment = "Start"/>
+                                <Button 
+                                        x:Name         = "_btnAbrirEsteira"
+                                        Text           = "Abrir Esteira"
+                                        FontAttributes = "Bold"
+                                        Clicked        = "Btn_AbrirEsteira"
+                                        Margin         = "5"
+                                        BackgroundColor = "#14d1ca"
+                                        TextColor       = "White"
+                                        FontSize        = "18"/>
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--</RefreshView>-->
+            <BoxView
+                Grid.Row        = "1"
+                Grid.ColumnSpan = "2"
+                Color           = "DarkCyan"
+                VerticalOptions = "Start"
+                HeightRequest   = "1"/>
+
+            <Grid
+                Grid.Row          = "1"
+                Grid.ColumnSpan   = "2"
+                Margin            = "5"
+                RowDefinitions    = "*,*"
+                ColumnDefinitions = "*,*,*"
+                ColumnSpacing     = "10"
+                HorizontalOptions = "Center">
+
+                <Label
+                    Grid.Row          = "0"
+                    Grid.Column       = "0"
+                    Text              = "Filtrar por Data:"
+                    FontAttributes    = "Bold"
+                    VerticalOptions   = "Center"
+                    HorizontalOptions = "Center"/>
+
+                <Border
+                    Grid.Row          = "0"
+                    Grid.Column       = "1"
+                    HeightRequest     = "50"
+                    WidthRequest      = "130">
+                    <StackLayout>
+                        <Label 
+                            Text              = "Início"
+                            FontSize          = "10"
+                            FontAttributes    = "Bold"
+                            HorizontalOptions = "Center"/>
+                        <DatePicker
+                            x:Name        = "_datePicker1"
+                            HeightRequest = "35"
+                            WidthRequest  = "120"
+                            Format        = "dd/MM/yyyy"/>
+                    </StackLayout>
+                </Border>
+
+                <Border
+                    Grid.Row          = "0"
+                    Grid.Column       = "2"
+                    HeightRequest     = "50"
+                    WidthRequest      = "130">
+                    <StackLayout>
+                        <Label 
+                            Text              = "Término"
+                            FontSize          = "10"
+                            FontAttributes    = "Bold"
+                            HorizontalOptions = "Center"/>
+                        <DatePicker
+                            x:Name        = "_datePicker2"
+                            HeightRequest = "35"
+                            WidthRequest  = "120"
+                            Format        = "dd/MM/yyyy"/>
+                    </StackLayout>
+                </Border>
+
+                <HorizontalStackLayout 
+                    Grid.Row        = "1"
+                    Grid.ColumnSpan = "3"
+                    Spacing         = "25">
+                    <Label
+                    Grid.ColumnSpan         = "2"
+                    Text                    = "{Binding ProjectListGeneral.Count,
+                                                StringFormat='Projetos Registrados: {0}'}"
+                    FontSize                = "12"
+                    FontAttributes          = "Bold"
+                    Margin                  = "0,5,0,0"
+                    VerticalTextAlignment   = "Center"
+                    HorizontalTextAlignment = "Start"/>
+
+                    <Button
+                    Text              = "Filtrar"
+                    BackgroundColor   = "#14d1ca"
+                    TextColor         = "White"
+                    FontSize          = "18"
+                    WidthRequest      = "75"
+                    Clicked           = "Btn_Filtrar"/>
+
+                    <Button
+                    Text              = "Limpar Filtros"
+                    BackgroundColor   = "#14d1ca"
+                    TextColor         = "White"
+                    FontSize          = "15"
+                    WidthRequest      = "125"
+                    Clicked           = "Btn_LimparFiltros"/>
+
+                </HorizontalStackLayout>
+
+            </Grid>
+
+        </Grid>
+        <ActivityIndicator
+            x:Name                      = "activityIndicator"
+            Color                       = "Cyan"
+            IsRunning                   = "False" 
+            IsVisible                   = "False"
+            WidthRequest                = "85"
+            HeightRequest               = "85"
+            AbsoluteLayout.LayoutFlags  = "PositionProportional"
+            AbsoluteLayout.LayoutBounds = "0.5,0.5,-1,-1"/>
+    </AbsoluteLayout>
 </ContentPage>
 

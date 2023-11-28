@@ -138,6 +138,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Reference Include="Business.Common">
+	    <HintPath>..\..\Bin\Business.Common.dll</HintPath>
+	  </Reference>
 	  <Reference Include="Business.Inovacao">
 	    <HintPath>..\..\Bin\Business.Inovacao.dll</HintPath>
 	  </Reference>
@@ -208,6 +211,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PageTarefa.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PageTestes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\Cards.xaml">

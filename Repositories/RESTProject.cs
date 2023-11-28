@@ -16,6 +16,7 @@ namespace CentralInovacao.Repositories
     public class RESTProject
     {
         private readonly HttpClient _httpClient;
+
         public RESTProject()
         {
             _httpClient = new HttpClient();
@@ -79,6 +80,58 @@ namespace CentralInovacao.Repositories
             return Projeto;
         }
 
+        //Carregar Lista Geral de Projetos
+        public async Task<List<Project>> GetListProjects()
+        {
+            List<Project> ListaProjetos = new List<Project>();
+
+            var projetoJSON = new JObject(
+            new JProperty("Name", ""),
+            new JProperty("OnlyMyProjects", false)
+            );
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+
+            try
+            {
+                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", body);
+
+                if (response.IsSuccessful)
+                {
+                    ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
+                    return ListaProjetos;
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return ListaProjetos;
+        }
+
+        //Carregar Lista de Projetos Geral por Filtro de Data
+        public async Task<List<Project>> GetListProjects(string filtro)
+        {
+            List<Project> ListaProjetos = new List<Project>();
+
+            try
+            {
+                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", filtro);
+
+                if (response.IsSuccessful)
+                {
+                    ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
+                    return ListaProjetos;
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return ListaProjetos;
+        }
+
         //Carregar Lista de Projetos do Usuário
         public async Task<List<Project>> GetListProjectsUser()
         {
@@ -116,21 +169,10 @@ namespace CentralInovacao.Repositories
         public async Task<List<Project>> GetListProjectsUser(string filtro)
         {
             List<Project> ListaProjetos = new List<Project>();
-
-            var projetoJSON = new JObject(
-            new JProperty("DateIni", "2023-10-01"),
-            new JProperty("DateEnd", "2023-11-30"),
-            new JProperty("Name", ""),
-            new JProperty("OnlyMyProjects", true),
-            new JProperty("User", 3068)
-            );
-
-            //Serializa o objeto JSON
-            var body = JsonConvert.SerializeObject(projetoJSON);
-
+            
             try
             {
-                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", body);
+                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", filtro);
 
                 if (response.IsSuccessful)
                 {
@@ -145,26 +187,24 @@ namespace CentralInovacao.Repositories
             return ListaProjetos;
         }
 
-        //Carregar Lista de Áreas
-        public async Task<List<ModelArea>> GetListAreas()
+        //Checa o Estágio Atual do Projeto
+        public async Task<bool> GetCheckOpenStage(int user_id, int project_id, int stage)
         {
-            List<ModelArea> ListaAreas = new List<ModelArea>();            
-
             try
             {
-                var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi + "/resources/areas");
+                var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi + 
+                    $"/projects/{project_id}/check-open-stage/{stage}?user={user_id}");
 
                 if (response.IsSuccessful)
                 {
-                    ListaAreas= JsonConvert.DeserializeObject<List<ModelArea>>(response.Content);
-                    return ListaAreas;
+                    return true;
                 }
             }
             catch (Exception ex)
             {
                 await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
             }
-            return ListaAreas;
+            return false;
         }
 
     }

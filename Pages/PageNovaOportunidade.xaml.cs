@@ -9,28 +9,19 @@ namespace CentralInovacao.Pages;
 
 public partial class PageNovaOportunidade : ContentPage
 {
-    RESTProject      RESTProject    = new RESTProject();
-    ViewModelProject VMProject      = new ViewModelProject();
-    Oportunidade          Oportunidade   = new Oportunidade();
-    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
+    RESTResources         RESTResources = new RESTResources();
+    ViewModelProject      VMProject      = new ViewModelProject();
 
     public PageNovaOportunidade()
 	{
 		InitializeComponent();
         BindingContext = VMProject;        
         FillPage();
-    }
-
-    public PageNovaOportunidade(Oportunidade oportunidade)
-    {
-        InitializeComponent();
-        VMOportunidade.Oportunidade = oportunidade;
-        BindingContext = VMOportunidade;
-    }
+    }    
 
     public async void FillPage()
     {
-        VMProject.ListAreaGeneral        = await RESTProject.GetListAreas();
+        VMProject.ListAreaGeneral        = await RESTResources.GetListAreas();
         _CollectionViewAreas.ItemsSource = VMProject.ListAreaGeneral;
     }
 
@@ -71,27 +62,6 @@ public partial class PageNovaOportunidade : ContentPage
         btn.IsEnabled = true;
     }
 
-    private async void Btn_SalvarOportunidadeLocal(object sender, EventArgs e)
-    {
-        Button btn = (Button)sender;
-        btn.IsEnabled = false;
-
-        //Oportunidade.Id = VMOportunidade.GerarNovoId(Oportunidade.Id);
-        Oportunidade.Nome = _entryTitulo.Text;
-        Oportunidade.DescricaoPositiva = _editor1.Text;
-        Oportunidade.DescricaoNegativa = _editor2.Text;
-        Oportunidade.Status = 0;
-        Oportunidade.Data = DateTime.Now;
-        Oportunidade.Analista = 2507;
-
-        //VMOportunidade.SalvarOportunidadeLocal(Oportunidade);
-
-        await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
-        await Shell.Current.GoToAsync("..");
-
-        btn.IsEnabled = true;
-    }
-
     public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
         var checkBox = sender as CheckBox;      
@@ -110,3 +80,24 @@ public partial class PageNovaOportunidade : ContentPage
         }                
     }
 }
+
+//private async void Btn_SalvarOportunidadeLocal(object sender, EventArgs e)
+//{
+//    Button btn = (Button)sender;
+//    btn.IsEnabled = false;
+
+//    //Oportunidade.Id = VMOportunidade.GerarNovoId(Oportunidade.Id);
+//    Oportunidade.Nome = _entryTitulo.Text;
+//    Oportunidade.DescricaoPositiva = _editor1.Text;
+//    Oportunidade.DescricaoNegativa = _editor2.Text;
+//    Oportunidade.Status = 0;
+//    Oportunidade.Data = DateTime.Now;
+//    Oportunidade.Analista = 2507;
+
+//    //VMOportunidade.SalvarOportunidadeLocal(Oportunidade);
+
+//    await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
+//    await Shell.Current.GoToAsync("..");
+
+//    btn.IsEnabled = true;
+//}

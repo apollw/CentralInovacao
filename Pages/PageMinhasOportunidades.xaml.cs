@@ -14,21 +14,7 @@ public partial class PageMinhasOportunidades : ContentPage
         BindingContext = VMProject;
         VMProject.GetListaProjetosUsuario();
     }
-    //protected async override void OnAppearing()
-    //{
-    //    base.OnAppearing();
 
-    //    activityIndicator.IsRunning = true;
-    //    activityIndicator.IsVisible = true;
-
-    //    //await VMOportunidade.CarregarOportunidadesAsyncLocal();
-    //    VMProject.GetListaProjetosUsuario();
-
-    //    //Reativa o botão após o fim da tarefa
-    //    activityIndicator.IsRunning = false;
-    //    activityIndicator.IsVisible = false;
-
-    //}
     private async void Btn_AbrirEsteira(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
@@ -68,6 +54,7 @@ public partial class PageMinhasOportunidades : ContentPage
                 btn.IsEnabled = false;
 
                 //await Navigation.PushAsync(new PageEsteiraGeral(oportunidade));
+                await Task.Delay(1000);
 
                 //Reativa o botão após o fim da tarefa
                 activityIndicator.IsRunning = false;
@@ -77,4 +64,34 @@ public partial class PageMinhasOportunidades : ContentPage
             }
         }
     }
+
+    private void Btn_Filtrar(object sender, EventArgs e)
+    {
+        DateTime DateIni = _datePicker1.Date;
+        DateTime DateEnd = _datePicker2.Date;
+
+        VMProject.GetListaProjetosUsuarioFiltroPorData(DateIni, DateEnd);
+    }
+
+    private void Btn_LimparFiltros(object sender, EventArgs e)
+    {
+        VMProject.GetListaProjetosUsuario();
+    }
+
 }
+
+//protected async override void OnAppearing()
+//{
+//    base.OnAppearing();
+
+//    activityIndicator.IsRunning = true;
+//    activityIndicator.IsVisible = true;
+
+//    //await VMOportunidade.CarregarOportunidadesAsyncLocal();
+//    VMProject.GetListaProjetosUsuario();
+
+//    //Reativa o botão após o fim da tarefa
+//    activityIndicator.IsRunning = false;
+//    activityIndicator.IsVisible = false;
+
+//}

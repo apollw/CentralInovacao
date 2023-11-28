@@ -24,17 +24,17 @@ public partial class PageEsteiraPlanejamento : ContentPage
         Projeto        = projeto;
         BindingContext = Projeto;
     }
-    private async void Btn_AdicionarTarefaBacklog(object sender, EventArgs e)
+    private void Btn_AdicionarTarefaBacklog(object sender, EventArgs e)
     {
         //Passa a oportunidade específica da tarefa
         //await Navigation.PushAsync(new PageTarefa(Oportunidade));        
     }
-    private async void Btn_AdicionarTarefaExecucao(object sender, EventArgs e)
+    private void Btn_AdicionarTarefaExecucao(object sender, EventArgs e)
     {
         //Passa a oportunidade específica da tarefa
         //await Navigation.PushAsync(new PageTarefa(Oportunidade));
     }
-    private async void Btn_AdicionarTarefaFinalizadas(object sender, EventArgs e)
+    private void Btn_AdicionarTarefaFinalizadas(object sender, EventArgs e)
     {
         //Passa a oportunidade específica da tarefa
         //await Navigation.PushAsync(new PageTarefa(Oportunidade));
@@ -51,7 +51,7 @@ public partial class PageEsteiraPlanejamento : ContentPage
         //Oportunidade.ListaDeTarefasBacklog.Remove(tarefa);
         btn.IsEnabled = true;        
     }
-    private async void Btn_AdicionarItem(object sender, EventArgs e)
+    private void Btn_AdicionarItem(object sender, EventArgs e)
     {
         //Encontramos a tarefa específica clicada
         ImageButton btn = (ImageButton)sender;
@@ -61,7 +61,7 @@ public partial class PageEsteiraPlanejamento : ContentPage
         //await Navigation.PushModalAsync(new PageItem(Oportunidade, tarefa));
         btn.IsEnabled = true;
     }
-    private async void OnBorderTapped_PaginaItem(object sender, EventArgs e)
+    private void OnBorderTapped_PaginaItem(object sender, EventArgs e)
     {
         //Encontramos a tarefa específica clicada
         //ImageButton btn = (ImageButton)sender;

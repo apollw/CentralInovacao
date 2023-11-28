@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.ApplicationModel.Communication;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,7 +31,9 @@ namespace CentralInovacao.ViewModel
         [ObservableProperty]
         private List<ModelArea> _ListAreaGeneral;
         [ObservableProperty]
-        private ObservableCollection<Project> _projectList;      
+        private ObservableCollection<Project> _projectList;
+        [ObservableProperty]
+        private ObservableCollection<Project> _projectListGeneral;
 
         public ViewModelProject()
         {
@@ -55,6 +58,35 @@ namespace CentralInovacao.ViewModel
             Project = await RESTProject.GetProject(project_id,user_id);
         }
 
+        public async void GetListaProjetosGeral()
+        {
+            List<Project> ListaCarregada = new List<Project>();
+
+            ListaCarregada = await RESTProject.GetListProjects();
+
+            //Popular a Lista de Projetos do Usuário
+            ProjectListGeneral = new ObservableCollection<Project>(ListaCarregada);
+        }
+
+        public async void GetListaProjetosFiltroPorData(DateTime DateIni, DateTime DateEnd)
+        {
+            List<Project> ListaCarregada = new List<Project>();
+
+            var projetoJSON = new JObject(
+            new JProperty("DateIni", DateIni),
+            new JProperty("DateEnd", DateEnd),
+            new JProperty("OnlyMyProjects", false)
+            );
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+
+            ListaCarregada = await RESTProject.GetListProjectsUser(body);
+
+            //Popular a Lista de Projetos do Usuário
+            ProjectListGeneral = new ObservableCollection<Project>(ListaCarregada);
+        }
+
         public async void GetListaProjetosUsuario()
         {
             List<Project> ListaCarregada = new List<Project>();
@@ -66,11 +98,21 @@ namespace CentralInovacao.ViewModel
 
         }
 
-        public async void GetListaProjetosUsuarioFiltroPorData(string filtro)
+        public async void GetListaProjetosUsuarioFiltroPorData(DateTime DateIni, DateTime DateEnd)
         {
             List<Project> ListaCarregada = new List<Project>();
 
-            ListaCarregada = await RESTProject.GetListProjectsUser();
+            var projetoJSON = new JObject(
+            new JProperty("DateIni", DateIni),
+            new JProperty("DateEnd", DateEnd),
+            new JProperty("OnlyMyProjects", true),
+            new JProperty("User", Preferences.Get("AuthUserId",0))
+            );
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+
+            ListaCarregada = await RESTProject.GetListProjectsUser(body);
 
             //Popular a Lista de Projetos do Usuário
             ProjectList = new ObservableCollection<Project>(ListaCarregada);
