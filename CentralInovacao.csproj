@@ -114,6 +114,7 @@
 	  <None Remove="Resources\Images\saibamais_medalhas.png" />
 	  <None Remove="Resources\Images\saibamais_pontos.png" />
 	  <None Remove="Resources\Images\saibamais_ranking.png" />
+	  <None Remove="Resources\Images\sem_foto.png" />
 	  <None Remove="Resources\Images\shellheader_ceape.png" />
 	  <None Remove="Resources\Images\shellicon_help.png" />
 	  <None Remove="Resources\Images\shellicon_idea.png" />

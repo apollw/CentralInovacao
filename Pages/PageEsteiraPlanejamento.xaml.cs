@@ -7,17 +7,8 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraPlanejamento : ContentPage
 {
-    //Oportunidade Oportunidade  = new Oportunidade();
-    //ViewModelTarefa VMTarefa = new ViewModelTarefa();
-
     Project Projeto = new Project();
 
- //   public PageEsteiraPlanejamento(Oportunidade oportunidade)
-	//{
-	//	InitializeComponent();
- //       Oportunidade   = oportunidade;
- //       BindingContext = Oportunidade;        
- //   }
     public PageEsteiraPlanejamento(Project projeto)
     {
         InitializeComponent();

@@ -1,49 +1,31 @@
+using Business.Inovacao;
 using CentralInovacao.Models;
+using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
 
 namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraSolicitacao : ContentPage
 {
-    Project               Projeto        = new Project();
-    Oportunidade          Oportunidade   = new Oportunidade();
-    ViewModelProject      VMProject      = new ViewModelProject();  
-    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    public PageEsteiraSolicitacao(Oportunidade oportunidade)
-    {
-        InitializeComponent();
-        Oportunidade   = oportunidade;
-        BindingContext = VMOportunidade;
-        FillPage();
-    }
+    RESTResources    RESTResources = new RESTResources();
+    ViewModelProject VMProject     = new ViewModelProject();
+
     public PageEsteiraSolicitacao(Project projeto)
     {
         InitializeComponent();
-        Projeto = projeto;
-        BindingContext = VMProject;
+        VMProject.Project = projeto;
+        BindingContext    = VMProject;
         FillPage();
     }
-    public void FillPage()
+    public async void FillPage()
     {
-        _entryColaborador.Text = "Nome do Usuário";
-        _entryTitulo.Text      = Oportunidade.Nome;
-        _editor1.Text          = Oportunidade.DescricaoPositiva;
-        _editor2.Text          = Oportunidade.DescricaoNegativa;
+        VMProject.ListAreaGeneral        = await RESTResources.GetListAreas();
+        _CollectionViewAreas.ItemsSource = VMProject.Project.ListArea;
 
-        //Atualizar Checkboxes
-        _checkBox1.IsChecked  = Oportunidade.Setores.TryGetValue("Administrativo", out int valor1) && valor1 == 1;
-        _checkBox2.IsChecked  = Oportunidade.Setores.TryGetValue("Análise de Crédito", out int valor2) && valor2 == 1;
-        _checkBox3.IsChecked  = Oportunidade.Setores.TryGetValue("Auditoria", out int valor3) && valor3 == 1;
-        _checkBox4.IsChecked  = Oportunidade.Setores.TryGetValue("Contabilidade", out int valor4) && valor4 == 1;
-        _checkBox5.IsChecked  = Oportunidade.Setores.TryGetValue("Creli", out int valor5) && valor5 == 1;
-        _checkBox6.IsChecked  = Oportunidade.Setores.TryGetValue("Financeiro", out int valor6) && valor6 == 1;
-        _checkBox7.IsChecked  = Oportunidade.Setores.TryGetValue("Gestão de Pessoas", out int valor7) && valor7 == 1;
-        _checkBox8.IsChecked  = Oportunidade.Setores.TryGetValue("Infraestrutura Civil", out int valor8) && valor8 == 1;
-        _checkBox9.IsChecked  = Oportunidade.Setores.TryGetValue("Recebimentos", out int valor9) && valor9 == 1;
-        _checkBox10.IsChecked = Oportunidade.Setores.TryGetValue("Renovação Automática", out int valor10) && valor10 == 1;
-        _checkBox11.IsChecked = Oportunidade.Setores.TryGetValue("Seguros", out int valor11) && valor11 == 1;
-        _checkBox12.IsChecked = Oportunidade.Setores.TryGetValue("T.I. Inovação", out int valor12) && valor12 == 1;
-        _checkBox13.IsChecked = Oportunidade.Setores.TryGetValue("Tecnologia da Informação", out int valor13) && valor13 == 1;
+        _lblUsuario.Text       = VMProject.Project.LkpUser;
+        _entryTitulo.Text      = VMProject.Project.Name;
+        _editor1.Text          = VMProject.Project.DescriptionPositive;
+        _editor2.Text          = VMProject.Project.DescriptionNegative;        
     }
 
     void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
@@ -78,4 +60,41 @@ public partial class PageEsteiraSolicitacao : ContentPage
         await Shell.Current.GoToAsync("..");
         btn.IsEnabled = true;
     }
+
+    private async void Btn_SalvarOportunidade(object sender, EventArgs e)
+    {
+        Button btn = (Button)sender;
+        btn.IsEnabled = false;
+
+        VMProject.Project.User = Preferences.Get("AuthUserId", 0);
+        VMProject.Project.Name = _entryTitulo.Text;
+        VMProject.Project.DescriptionPositive = _editor1.Text;
+        VMProject.Project.DescriptionNegative = _editor2.Text;
+
+        VMProject.EditarProjeto(VMProject.Project);
+
+        await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
+        await Shell.Current.GoToAsync("..");
+
+        btn.IsEnabled = true;
+    }
+
+    public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        var checkBox = sender as CheckBox;
+
+        //Verifica se o CheckBox foi clicado
+        if (checkBox.BindingContext is ModelArea area)
+        {
+            if (e.Value)
+            {
+                VMProject.Project.ListArea.Add(area);
+            }
+            else
+            {
+                VMProject.Project.ListArea.Remove(area);
+            }
+        }
+    }
 }
+

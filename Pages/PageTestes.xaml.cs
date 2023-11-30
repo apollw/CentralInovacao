@@ -50,28 +50,9 @@ public partial class PageTestes : ContentPage
         List<ModelGeneric> ListaDeRazoes = new List<ModelGeneric>();
         ListaDeRazoes = await RESTResources.GetListReasons();
     }
-    private async void Btn_CheckStage(object sender, EventArgs e)
+    private async void Btn_CheckStage(object sender, EventArgs e) //Dúvida
     {
         bool resposta = new bool();
-        resposta = await RESTProject.GetCheckOpenStage(1807,1,5);
-    }
-
-    private async void Btn_LoadImage(object sender, EventArgs e)
-    {
-        Project projeto = new Project();
-
-        projeto = await RESTProject.GetProject(1,1);
-        
-        // Suponha que você tenha a string base64 da imagem vinda da sua API
-        string base64StringFromAPI = "SEU_BASE64_STRING_DA_IMAGEM";
-
-        // Converte a string base64 de volta para um array de bytes
-        byte[] imageBytes = System.Convert.FromBase64String(base64StringFromAPI);
-
-        // Cria uma ImageSource a partir dos bytes da imagem
-        ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(imageBytes));
-
-        _image1.Source = imageSource;
-
-    }
+        resposta = await RESTProject.GetCheckOpenStage(1807,4,1);
+    }    
 }

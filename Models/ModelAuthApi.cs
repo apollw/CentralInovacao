@@ -10,9 +10,9 @@ namespace CentralInovacao.Models
     {
         public const string User        = "inovacao"; //Verificar se está logando automaticamente
         public const string Password    = "$:,Tn~s|5T:n,40rHU4m|w)x";
-        public const string UrlApi      = "http://localhost:50068/api";
+        public const string UrlApi      = "http://localhost:50069/api";
         public const string UrlToken    = "https://apisandbox.ceapebrasil.org.br/authentication";
-        public const string UrlAuthUser = "http://localhost:50068/login/attempt";
+        public const string UrlAuthUser = "http://localhost:50069/login/attempt";
 
     }
 }

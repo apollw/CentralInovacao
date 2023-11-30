@@ -4,228 +4,238 @@
              x:Class="CentralInovacao.Pages.PageEsteiraSolicitacao"
              Title="Esteira de Solicitacao">
 
+    <ContentPage.Resources>
+        <Style TargetType = "CheckBox">
+            <Setter Property = "HorizontalOptions" Value = "End"/>
+            <Setter Property = "HeightRequest"     Value = "50"/>
+            <Setter Property = "Color"             Value = "#14d1ca"/>
+        </Style>
+    </ContentPage.Resources>
+
     <ScrollView>
         <StackLayout Spacing = "3">
 
             <Label Text="(*) Campos Obrigatórios"/>
 
-            <Label   
-                Text                  = "Colaborador(*)"                       
-                FontAttributes        = "Bold"
-                Padding               = "5"/>
-            <Entry
-                x:Name                = "_entryColaborador"
-                FontSize              = "15"
-                WidthRequest          = "400"
-                HeightRequest         = "40"
-                VerticalTextAlignment = "Start"
-                BackgroundColor       = "WhiteSmoke"/>
-            <BoxView 
-                BackgroundColor       = "Black"
-                HeightRequest         = "1"
-                WidthRequest          = "400"/>
-            <Label   
-                Text                  = "Nome da Solução(*):"                       
-                FontAttributes        = "Bold"
-                Padding               = "5"/>
-            <Entry
-                x:Name                = "_entryTitulo"
-                FontSize              = "15"
-                WidthRequest          = "400"
-                HeightRequest         = "45"
-                VerticalTextAlignment = "Start"
-                BackgroundColor       = "WhiteSmoke"/>
-            <BoxView 
-                BackgroundColor       = "Black"
-                HeightRequest         = "1"
-                WidthRequest          = "400"/>
-            <Label   
-                Text                  = "Aspectos Positivos da Solução(*):"
-                FontAttributes        = "Bold"
-                Padding               = "5"/>
-            <Editor  
-                x:Name                = "_editor1"
-                WidthRequest          = "400"
-                HeightRequest         = "150"
-                VerticalTextAlignment = "Start"
-                BackgroundColor       = "WhiteSmoke"
-                TextChanged           = "OnEditorTextChanged1"
-                Completed             = "OnEditorCompleted"/>
-            <BoxView 
-                BackgroundColor       = "Black"
-                HeightRequest         = "1"
-                WidthRequest          = "400"/>
-            <Label   
-                Text                  = "Aspectos Negativos do Problema(*):"
-                FontAttributes        = "Bold"
-                Padding               = "5"/>
-            <Editor  
-                x:Name                = "_editor2"
-                WidthRequest          = "400"
-                HeightRequest         = "150"
-                VerticalTextAlignment = "Start"
-                BackgroundColor       = "WhiteSmoke"
-                TextChanged           = "OnEditorTextChanged2"
-                Completed             = "OnEditorCompleted"/>
-            <BoxView 
-                BackgroundColor       = "Black"
-                HeightRequest         = "1"
-                WidthRequest          = "400"/>
-            <Label   
-                Text                  = "Setores Envolvidos(*):"
+            <Label
+                x:Name                = "_lblUsuario"
                 FontAttributes        = "Bold"
                 Padding               = "5"/>
 
-            <Grid    
-                RowDefinitions    = "*,*,*,*,*,*,*,*,*,*,*,*,*"
-                ColumnDefinitions = "300,*"
-                HeightRequest     = "350"
-                Padding           = "10">
-                <Label  
-                    Grid.Row = "0"                        
-                    Text     = "Administrativo"/>
-                <Label  
-                    Grid.Row = "1"   
-                    Text     = "Análise de Crédito"/>
-                <Label  
-                    Grid.Row = "2"   
-                    Text     = "Auditoria"/>
-                <Label  
-                    Grid.Row = "3"   
-                    Text     = "Contabilidade"/>
-                <Label  
-                    Grid.Row = "4"   
-                    Text     = "Creli"/>
-                <Label  
-                    Grid.Row = "5"   
-                    Text     = "Financeiro"/>
-                <Label  
-                    Grid.Row = "6"   
-                    Text     = "Gestão de Pessoas"/>
-                <Label  
-                    Grid.Row = "7"   
-                    Text     = "Infraestrutura Civil"/>
-                <Label  
-                    Grid.Row = "8"   
-                    Text     = "Inovação"/>
-                <Label  
-                    Grid.Row = "9"   
-                    Text     = "Recebimentos"/>
-                <Label  
-                    Grid.Row = "10"   
-                    Text     = "Renovação Automática"/>
-                <Label  
-                    Grid.Row = "11"   
-                    Text     = "Seguros"/>
-                <Label  
-                    Grid.Row = "12"   
-                    Text     = "Tecnologia da Informação"/>
+            <Label   
+                Text    = "Campos Obrigatórios (*)"                      
+                Padding = "5"/>
+            <Label   
+                Text           = "Título da Solução (*)"                       
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "50"
+                WidthRequest  = "385">
+                <Entry   
+                    x:Name                = "_entryTitulo"
+                    MaxLength             = "50"
+                    FontSize              = "18"
+                    HeightRequest         = "45"
+                    WidthRequest          = "375"
+                    Placeholder           = "Insira um título..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
+            <Label   
+                Text              = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil (Máx: 250 caracteres): (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
+                <Editor
+                    x:Name                = "_editor1"
+                    MaxLength             = "250"
+                    WidthRequest          = "375"
+                    HeightRequest         = "145"
+                    FontSize              = "15"
+                    Placeholder           = "Insira uma descrição..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    TextChanged           = "OnEditorTextChanged1"
+                    Completed             = "OnEditorCompleted"
+                    VerticalOptions       = "Center"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
+            <Label   
+                Text              = "Descreva alguns aspectos NEGATIVOS dessa solução para o Ceape Brasil (Máx: 250 caracteres): (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
+                <Editor
+                    x:Name                = "_editor2"
+                    MaxLength             = "250"
+                    WidthRequest          = "375"
+                    HeightRequest         = "145"
+                    FontSize              = "15"
+                    Placeholder           = "Insira uma descrição..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    TextChanged           = "OnEditorTextChanged2"
+                    Completed             = "OnEditorCompleted"
+                    VerticalOptions       = "Center"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
 
-                <CheckBox
-                    x:Name            = "_checkBox1"
-                    Grid.Row          = "0"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox
-                    x:Name            = "_checkBox2"
-                    Grid.Row          = "1"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox3"
-                    Grid.Row          = "2"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox
-                    x:Name            = "_checkBox4"
-                    Grid.Row          = "3"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox5"
-                    Grid.Row          = "4"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox6"
-                    Grid.Row          = "5"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox7"
-                    Grid.Row          = "6"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox8"
-                    Grid.Row          = "7"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox9"
-                    Grid.Row          = "8"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox10"
-                    Grid.Row          = "9"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox11"
-                    Grid.Row          = "10"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox12"
-                    Grid.Row          = "11"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-                <CheckBox 
-                    x:Name            = "_checkBox13"
-                    Grid.Row          = "12"
-                    Grid.Column       = "1"
-                    HorizontalOptions = "End"
-                    Color             = "#14d1ca"/>
-            </Grid>
+            <Label   
+                Text              = "Selecione os setores impactados por essa solução: (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
 
-            <Grid ColumnDefinitions = "*,*">
-                <Button 
-                    Grid.Column     = "0"
-                    Text            = "Enviar para Análise"
-                    Margin          = "10"
-                    BackgroundColor = "White"
-                    BorderColor     = "#14d1ca"
-                    BorderWidth     = "1"
-                    TextColor       = "#14d1ca"
-                    FontSize        = "15"
-                    FontAttributes  = "Bold"
-                    Clicked         = "Btn_EnviarAnalise"/>
+            <CollectionView x:Name="_CollectionViewAreas" ItemsSource="{Binding ListAreaGeneral}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,*">
+                            <Label
+                                Grid.Column = "0"
+                                Text        = "{Binding Name}" />
+                            <CheckBox 
+                                Grid.Column       = "1"
+                                HorizontalOptions = "Center"
+                                CheckedChanged    = "OnCheckBoxCheckedChanged" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-                <Button 
-                    Grid.Column     = "1"
-                    Text            = "Salvar Alterações"
-                    Margin          = "10"
-                    BackgroundColor = "#14d1ca"
-                    TextColor       = "White"
-                    FontSize        = "18"
-                    FontAttributes  = "Bold"
-                    Clicked         = "Btn_Solicitacao"/>
-            </Grid>
+            <Button 
+                Text            = "Salvar Oportunidade"
+                TextColor       = "White"
+                FontSize        = "18"
+                FontAttributes  = "Bold"
+                BackgroundColor = "#14d1ca"
+                Clicked         = "Btn_SalvarOportunidade"
+                Margin          = "10"/>
 
         </StackLayout>
     </ScrollView>
 
 </ContentPage>
+
+
+<!--
+
+<ScrollView Margin="5">
+    <StackLayout Spacing = "10" Margin = "5" HorizontalOptions="Center">
+        <Label   
+                Text    = "Campos Obrigatórios (*)"                      
+                Padding = "5"/>
+        <Label   
+                Text           = "Título da Solução (*)"                       
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+        <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "50"
+                WidthRequest  = "385">
+            <Entry   
+                    x:Name                = "_entryTitulo"
+                    MaxLength             = "50"
+                    FontSize              = "18"
+                    HeightRequest         = "45"
+                    WidthRequest          = "375"
+                    Placeholder           = "Insira um título..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    VerticalTextAlignment = "Start"/>
+        </Frame>
+        <Label   
+                Text              = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil (Máx: 250 caracteres): (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
+        <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
+            <Editor
+                    x:Name                = "_editor1"
+                    MaxLength             = "250"
+                    WidthRequest          = "375"
+                    HeightRequest         = "145"
+                    FontSize              = "15"
+                    Placeholder           = "Insira uma descrição..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    TextChanged           = "OnEditorTextChanged1"
+                    Completed             = "OnEditorCompleted"
+                    VerticalOptions       = "Center"
+                    VerticalTextAlignment = "Start"/>
+        </Frame>
+        <Label   
+                Text              = "Descreva alguns aspectos NEGATIVOS dessa solução para o Ceape Brasil (Máx: 250 caracteres): (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
+        <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
+            <Editor
+                    x:Name                = "_editor2"
+                    MaxLength             = "250"
+                    WidthRequest          = "375"
+                    HeightRequest         = "145"
+                    FontSize              = "15"
+                    Placeholder           = "Insira uma descrição..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    TextChanged           = "OnEditorTextChanged2"
+                    Completed             = "OnEditorCompleted"
+                    VerticalOptions       = "Center"
+                    VerticalTextAlignment = "Start"/>
+        </Frame>
+
+        <Label   
+                Text              = "Selecione os setores impactados por essa solução: (*)"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
+
+        <CollectionView x:Name="_CollectionViewAreas" ItemsSource="{Binding ListAreaGeneral}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,*">
+                        <Label
+                                Grid.Column = "0"
+                                Text        = "{Binding Name}" />
+                        <CheckBox 
+                                Grid.Column       = "1"
+                                HorizontalOptions = "Center"
+                                CheckedChanged    = "OnCheckBoxCheckedChanged" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button 
+                Text            = "Salvar Oportunidade"
+                TextColor       = "White"
+                FontSize        = "18"
+                FontAttributes  = "Bold"
+                BackgroundColor = "#14d1ca"
+                Clicked         = "Btn_SalvarOportunidade"
+                Margin          = "10"/>
+    </StackLayout>
+</ScrollView>-->

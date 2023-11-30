@@ -52,6 +52,11 @@ namespace CentralInovacao.ViewModel
             await RESTProject.CreateProject(project);
         }
 
+        public async void EditarProjeto(Project project)
+        {
+            await RESTProject.EditProject(project,project.Id,project.User);
+        }
+
         public async void GetProjeto(int project_id,int user_id)
         {
             //Popula o objeto Project da ViewModelProject

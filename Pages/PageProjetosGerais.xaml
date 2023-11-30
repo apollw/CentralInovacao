@@ -48,39 +48,46 @@
                     <DataTemplate>
                         <Border
                                 Style         = "{StaticResource borderCardStyle}"
-                                HeightRequest = "350"
+                                HeightRequest = "400"
                                 WidthRequest  = "300">
                             <StackLayout 
                                     Spacing = "5"
                                     Margin  = "10">
-                                <Image 
-                                    Source        = "dotnet_bot.png"
-                                    HeightRequest = "100"/>
+                                <Border 
+                                    StrokeShape     = "RoundRectangle 10"
+                                    StrokeThickness = "4"
+                                    WidthRequest    = "200">
+                                    <Image 
+                                        Source               = "{Binding ThumbnailImage}"
+                                        Aspect               = "AspectFit"
+                                        MaximumHeightRequest = "150"
+                                        MaximumWidthRequest  = "200"/>
+                                </Border>
                                 <Label 
                                        Text                    = "{Binding Name}"
                                        TextColor               = "DarkCyan"
-                                       FontSize                = "18"
+                                       FontSize                = "16"
                                        FontAttributes          = "Bold"
                                        HorizontalTextAlignment = "Center"/>
                                 <Label 
                                        Text                    = "{Binding Id,StringFormat='Id: {0}'}"
                                        TextColor               = "Black"
-                                       FontSize                = "15"
+                                       FontSize                = "14"
                                        HorizontalTextAlignment = "Start"/>
                                 <Label 
                                        Text                    = "{Binding DateIni,StringFormat='Data de Início: {0}'}"
                                        TextColor               = "Black"
-                                       FontSize                = "15"
+                                       FontSize                = "14"
                                        HorizontalTextAlignment = "Start"/>
                                 <Label 
                                        Text                    = "{Binding LkpStatus,StringFormat='Status da Solução: {0}'}"
                                        TextColor               = "Black"
-                                       FontSize                = "15"
+                                       FontSize                = "14"
                                        HorizontalTextAlignment = "Start"/>
                                 <Label 
                                        Text                    = "{Binding LkpAnalyst,StringFormat='Responsável: {0}'}"
                                        TextColor               = "Black"
-                                       FontSize                = "15"
+                                       FontSize                = "14"
                                        HorizontalTextAlignment = "Start"/>
                                 <Button 
                                         x:Name         = "_btnAbrirEsteira"

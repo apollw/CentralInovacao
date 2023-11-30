@@ -14,7 +14,6 @@
             <Button Text="Carregar Lista de Documentos"         Clicked="Btn_CarregarTiposDocumentos"/>
             <Button Text="Carregar Lista de Razões de Declínio" Clicked="Btn_CarregarListaDeclinio"/>           
             <Button Text="Get Check Open Stage"                 Clicked="Btn_CheckStage"/>
-            <Image x:Name="_image1"/>
         </VerticalStackLayout>
     </ScrollView>
     

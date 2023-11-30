@@ -151,65 +151,6 @@
                 </Border>
 
                 <!--SEGUNDO CONTÊINER-->
-                <Border
-                    Style         = "{StaticResource borderGeral}"
-                    HeightRequest = "250">
-                    <Border.Shadow>
-                        <Shadow 
-                        Brush   = "black"
-                        Offset  = "10,10"
-                        Radius  = "20"
-                        Opacity = "0.5"/>
-                    </Border.Shadow>
-                    <VerticalStackLayout Spacing="20">
-                        <Label 
-                        Text  = "Últimas Interações"
-                        Style = "{StaticResource labelContainer}"/>
-                        <Grid Margin = "20" HorizontalOptions="Start">
-                            <CarouselView
-                                x:Name            = "carouselView"
-                                ItemsSource       = "{Binding LastInteractions}"
-                                IsScrollAnimated  = "True"              
-                                IsBounceEnabled   = "True"
-                                HeightRequest     = "100"
-                                WidthRequest      = "300"
-                                HorizontalOptions = "Start">
-                                <CarouselView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid ColumnDefinitions = "4*,6*">
-                                            <Image 
-                                                Grid.Column       = "0"
-                                                HorizontalOptions = "Center"
-                                                HeightRequest     = "75"
-                                                WidthRequest      = "75"
-                                                Source            = "img_fotoperfil.png"/>
-                                            <Grid 
-                                                Grid.Column    = "1"
-                                                RowDefinitions = "*,*">
-                                                <Label 
-                                                    Grid.Row                = "0"
-                                                    Grid.Column             = "1"
-                                                    Text                    = "{Binding Title}"
-                                                    FontSize                = "15"
-                                                    FontAttributes          = "Bold"
-                                                    VerticalOptions         = "Start"
-                                                    HorizontalTextAlignment = "Center"/>
-                                                <Label 
-                                                    Grid.Row                = "1"
-                                                    Grid.Column             = "1"
-                                                    Text                    = "{Binding Description}"
-                                                    VerticalOptions         = "Start"
-                                                    HorizontalTextAlignment = "Center"/>
-                                            </Grid>
-                                        </Grid>
-                                    </DataTemplate>
-                                </CarouselView.ItemTemplate>
-                            </CarouselView>
-                        </Grid>
-                    </VerticalStackLayout>
-                </Border>
-
-                <!--TERCEIRO CONTÊINER-->
                 <Border Style="{StaticResource borderGeral}" Margin="0,0,0,100">
                     <Border.Shadow>
                         <Shadow 

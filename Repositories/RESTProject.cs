@@ -57,6 +57,41 @@ namespace CentralInovacao.Repositories
             return false;
         }
 
+        //Editar Projeto
+        public async Task<bool> EditProject(Project project, int project_id, int user_id)
+        {
+            var projetoJSON = new JObject(
+            new JProperty("User", project.User),
+            new JProperty("Name", project.Name),
+            new JProperty("DescriptionPositive", project.DescriptionPositive),
+            new JProperty("DescriptionNegative", project.DescriptionNegative),
+            new JProperty("ListArea",
+                new JArray(
+                    project.ListArea.Select(area =>
+                        new JObject(
+                            new JProperty("Id", area.Id),
+                            new JProperty("Name", area.Name)
+                        )
+                    )
+                )
+            )
+            );
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+
+            try
+            {
+                IRestResponse request = 
+                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/solicitation?user={user_id}", body);
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return false;
+        }
+
         //Carregar Projeto Específico do Usuário
         public async Task<Project> GetProject(int project_id,int user_id)
         {
@@ -206,6 +241,10 @@ namespace CentralInovacao.Repositories
             }
             return false;
         }
+
+        //Adicionar Capa do Projeto
+
+        //Adicionar Evidência do Projeto
 
     }
 }
