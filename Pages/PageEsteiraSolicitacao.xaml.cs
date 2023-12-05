@@ -2,76 +2,86 @@ using Business.Inovacao;
 using CentralInovacao.Models;
 using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
+using Microsoft.Maui.Controls;
 
 namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraSolicitacao : ContentPage
 {
-    RESTResources    RESTResources = new RESTResources();
-    ViewModelProject VMProject     = new ViewModelProject();
+    List<AreaLocal>  ListAreaLocal     = new List<AreaLocal>();
+    List<ModelArea>  ProjectAreasLocal = new List<ModelArea>();
+    RESTResources    RESTResources     = new RESTResources();
+    ViewModelProject VMProject         = new ViewModelProject();
 
     public PageEsteiraSolicitacao(Project projeto)
     {
         InitializeComponent();
-        VMProject.Project = projeto;
         BindingContext    = VMProject;
+        VMProject.Project = projeto;
+
         FillPage();
     }
+
     public async void FillPage()
     {
-        VMProject.ListAreaGeneral        = await RESTResources.GetListAreas();
-        _CollectionViewAreas.ItemsSource = VMProject.Project.ListArea;
+        VMProject.ListAreaGeneral = await RESTResources.GetListAreas();
 
-        _lblUsuario.Text       = VMProject.Project.LkpUser;
-        _entryTitulo.Text      = VMProject.Project.Name;
-        _editor1.Text          = VMProject.Project.DescriptionPositive;
-        _editor2.Text          = VMProject.Project.DescriptionNegative;        
+        ListAreaLocal = VMProject.ListAreaGeneral.Select(modelArea =>
+        {
+            var areaLocal = new AreaLocal
+            {
+                Id   = modelArea.Id,
+                Name = modelArea.Name,
+                IsSelected = VMProject.Project.ListArea.Any(a => a.Id == modelArea.Id)
+            };
+            return areaLocal;
+        }).ToList();
+
+        _CollectionViewAreas.ItemsSource = ListAreaLocal;
+
+        _lblUsuario.Text  = VMProject.Project.LkpUser;
+        _entryTitulo.Text = VMProject.Project.Name;
+        _editor1.Text     = VMProject.Project.DescriptionPositive;
+        _editor2.Text     = VMProject.Project.DescriptionNegative;
     }
 
-    void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
-    {
-        string oldText = e.OldTextValue;
-        string newText = e.NewTextValue;
-        string myText  = _editor1.Text;
-    }
-    void OnEditorTextChanged2(object sender, TextChangedEventArgs e)
-    {
-        string oldText = e.OldTextValue;
-        string newText = e.NewTextValue;
-        string myText  = _editor2.Text;
-    }
-    void OnEditorCompleted(object sender, EventArgs e)
-    {
-        string text = ((Editor)sender).Text;
-    }
     private async void Btn_EnviarAnalise(object sender, EventArgs e)
     {
-        Button btn = (Button)sender;
+        Button btn    = (Button)sender;
         btn.IsEnabled = false;
-        await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
-        btn.IsEnabled = true;        
-    }
 
+        await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
+        
+        btn.IsEnabled = true;        
+    } //NÃO IMPLEMENTADO
+    
     private async void Btn_Solicitacao(object sender, EventArgs e)
     {
-        Button btn = (Button)sender;
+        Button btn    = (Button)sender;
         btn.IsEnabled = false;
+
         await DisplayAlert("Alerta", "Edição Completa", "Fechar");
         await Shell.Current.GoToAsync("..");
+
         btn.IsEnabled = true;
-    }
+    } //NÃO IMPLEMENTADO
+
+    private async void Btn_ClassificarProjeto(object sender, EventArgs e)
+    {
+        await Task.Delay(1000);
+    } //NÃO IMPLEMENTADO
 
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)
     {
-        Button btn = (Button)sender;
+        Button btn    = (Button)sender;
         btn.IsEnabled = false;
 
-        VMProject.Project.User = Preferences.Get("AuthUserId", 0);
-        VMProject.Project.Name = _entryTitulo.Text;
+        VMProject.Project.User                = Preferences.Get("AuthUserId", 0);
+        VMProject.Project.Name                = _entryTitulo.Text;
         VMProject.Project.DescriptionPositive = _editor1.Text;
         VMProject.Project.DescriptionNegative = _editor2.Text;
 
-        VMProject.EditarProjeto(VMProject.Project);
+        VMProject.EditarProjeto(VMProject.Project,ProjectAreasLocal);
 
         await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
         await Shell.Current.GoToAsync("..");
@@ -79,22 +89,45 @@ public partial class PageEsteiraSolicitacao : ContentPage
         btn.IsEnabled = true;
     }
 
-    public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+    public  void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
         var checkBox = sender as CheckBox;
 
         //Verifica se o CheckBox foi clicado
         if (checkBox.BindingContext is ModelArea area)
         {
+            //Estou alterando uma lista local, para não duplicar a lista que vem do Endpoint
             if (e.Value)
             {
-                VMProject.Project.ListArea.Add(area);
+                ProjectAreasLocal.Add(area);
             }
             else
             {
-                VMProject.Project.ListArea.Remove(area);
+                ProjectAreasLocal.Remove(area);
             }
         }
     }
+
+    private void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
+    {
+        string oldText = e.OldTextValue;
+        string newText = e.NewTextValue;
+        string myText  = _editor1.Text;
+    }
+
+    private void OnEditorTextChanged2(object sender, TextChangedEventArgs e)
+    {
+        string oldText = e.OldTextValue;
+        string newText = e.NewTextValue;
+        string myText  = _editor2.Text;
+    }
+
+    private void OnEditorCompleted(object sender, EventArgs e)
+    {
+        string text = ((Editor)sender).Text;
+    }
+
 }
+
+
 

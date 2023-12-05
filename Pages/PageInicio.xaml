@@ -11,10 +11,6 @@
                      Clicked="Btn_Logout"/>        
     </ContentPage.ToolbarItems>
 
-    <!--<ContentPage.BindingContext>
-        <viewmodel:ViewModelUsuario/>
-    </ContentPage.BindingContext>-->
-
     <ContentPage.Resources>
         <!--CONTAINER DA LABEL DE TÍTULO-->
         <Style TargetType="Border" x:Key="borderContainer">
@@ -60,7 +56,7 @@
                         Spacing         = "25"
                         BackgroundColor = "White">
                         <Label 
-                            Text     = "{Binding Usuario.Nome,StringFormat='Bem-Vindo {0}!'}"
+                            Text     = "{Binding Name,StringFormat='Bem-Vindo {0}!'}"
                             FontSize = "20"
                             Style    = "{StaticResource labelContainer}"/>
                         <Image 

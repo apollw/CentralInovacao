@@ -1,3 +1,4 @@
+using CentralInovacao.MiddlewareApi;
 using CentralInovacao.Models;
 using CentralInovacao.Services;
 using CentralInovacao.ViewModel;
@@ -8,7 +9,7 @@ namespace CentralInovacao.Pages;
 public partial class PageInicio : ContentPage
 {
     private readonly AuthService _authService;
-    ViewModelUsuario VMUsuario   = new ViewModelUsuario();
+    ModelUserLocal Usuario = new ModelUserLocal();
     
     public PageInicio(AuthService authService)
     {
@@ -19,7 +20,7 @@ public partial class PageInicio : ContentPage
         if (Preferences.ContainsKey("AuthUserId") && Preferences.ContainsKey("AuthUserName"))
         {
             // 0 é um valor padrão
-            VMUsuario.Usuario.Id = Preferences.Get("AuthUserId", 0);
+            Usuario.Id = Preferences.Get("AuthUserId", 0);
             // string.Empty é um valor padrão caso não exista
             string NomeCompleto = Preferences.Get("AuthUserName", string.Empty);
 
@@ -32,11 +33,11 @@ public partial class PageInicio : ContentPage
                 // Pega o primeiro nome e transforma em caixa baixa, exceto a primeira letra
                 string primeiroNome = partes[0].Substring(0, 1).ToUpper() + partes[0].Substring(1).ToLower();
 
-                VMUsuario.Usuario.Nome = primeiroNome;
+                Usuario.Name = primeiroNome;
             }
         }
 
-        BindingContext = VMUsuario;              
+        BindingContext = Usuario;              
 
     }
 
@@ -47,22 +48,15 @@ public partial class PageInicio : ContentPage
 
         if (result != null)
         {
-            // Lê a imagem selecionada e converte em bytes
-            using (var stream = await result.OpenReadAsync())
-            {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    stream.CopyTo(ms);
-                    byte[] imageBytes = ms.ToArray();
+            FileInfo f = new FileInfo(result.FullPath);
 
-                    // Salva a imagem em algum armazenamento, como o banco de dados ou um serviço de armazenamento em nuvem
-
-                    // Exemplo: Atualiza a imagem exibida na tela
-                    _fotoPerfil.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
-                }
-            }
-        }
+            byte[] imageByte = File.ReadAllBytes(f.FullName);
+            string file = Convert.ToBase64String(imageByte);            
+            
+            _fotoPerfil.Source = ImageSource.FromStream(() => new MemoryStream(imageByte));
+        }                    
     }
+
     public void Btn_Animation(ImageButton button)
     {
         // Define a escala inicial do botão
@@ -77,8 +71,8 @@ public partial class PageInicio : ContentPage
         _authService.Logout();
 
         //Ao deslogar, apaga os dados que estão na ViewModel
-        VMUsuario.Usuario.Id = 0;
-        VMUsuario.Usuario.Nome = String.Empty;
+        Usuario.Id = 0;
+        Usuario.Name = String.Empty;
         
         await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
     }

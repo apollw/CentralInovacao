@@ -1,5 +1,6 @@
 using CentralInovacao.Models;
 using CentralInovacao.Pages;
+using CentralInovacao.ViewModel;
 using System.Reflection;
 using System.Windows.Input;
 
@@ -7,13 +8,6 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraGeral : ContentPage
 {    
-	//public PageEsteiraGeral(Oportunidade oportunidade)
-	//{
-	//	InitializeComponent();
- //       ViewModelButton VMButton = new ViewModelButton(oportunidade);
- //       VMButton.ActivityIndicatorLocal = activityIndicator;
- //       BindingContext  = VMButton;        
- //   }
     public PageEsteiraGeral(Project project)
     {
         InitializeComponent();
@@ -21,46 +15,12 @@ public partial class PageEsteiraGeral : ContentPage
         VMButton.ActivityIndicatorLocal = activityIndicator;
         BindingContext = VMButton;
     }
+
     public class ViewModelButton
     {
-        //public Oportunidade      Oportunidade { get; set; }
         public Project           Projeto { get; set; }
         public List<ButtonModel> Buttons { get; set; }
         public ActivityIndicator ActivityIndicatorLocal { get; set; }
-
-        //public ViewModelButton(Oportunidade oportunidade)
-        //{
-        //    Oportunidade = oportunidade;
-
-        //    Buttons = new List<ButtonModel>
-        //    {
-        //        new ButtonModel(
-        //            "Solicitação",
-        //            "Clique para ver mais detalhes sobre a oportunidade registrada",
-        //            "btn_request.png",
-        //            new Command<string>(NavigateToPage)),
-        //        new ButtonModel(
-        //            "Análise",
-        //            "Acompanhe o status da Análise da oportunidade registrada",
-        //            "btn_analysis.png",
-        //            new Command<string>(NavigateToPage)),
-        //        new ButtonModel(
-        //            "Squad",
-        //            "Visualize os integrantes da Squad responsável pelo projeto",
-        //            "btn_group.png",
-        //            new Command<string>(NavigateToPage)),
-        //        new ButtonModel(
-        //            "Planejamento",
-        //            "Visualize a etapa de planejamento do projeto",
-        //            "btn_planning.png",
-        //            new Command<string>(NavigateToPage)),
-        //        new ButtonModel(
-        //            "Acompanhamento",
-        //            "Visualize estatísticas, gráficos e atualizações do projeto",
-        //            "btn_project.png",
-        //            new Command<string>(NavigateToPage))
-        //     };
-        //}
 
         public ViewModelButton(Project projeto)
         {
@@ -113,20 +73,15 @@ public partial class PageEsteiraGeral : ContentPage
             switch (buttonName)
             {
                 case "Solicitação":
-                    //await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Oportunidade)));
                     await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Projeto)));
-                    //await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageNovaOportunidade(Oportunidade)));
                     break;
                 case "Análise":
-                    //await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraBriefing(Oportunidade)));
                     await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraBriefing(Projeto)));
                     break;
                 case "Squad":
-                    //await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSquad(Oportunidade)));
                     await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSquad(Projeto)));
                     break;
                 case "Planejamento":
-                    //await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraPlanejamento(Oportunidade)));
                     await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraPlanejamento(Projeto)));
                     break;
                 case "Acompanhamento":
@@ -139,6 +94,7 @@ public partial class PageEsteiraGeral : ContentPage
             // Após a ação ser concluída, reativa o botão
             _buttonClicked = false;
         }
+
         private async Task HandleNavigationAsync(Func<Task> navigationAction)
         {
             ActivityIndicatorLocal.IsRunning = true;
@@ -154,7 +110,14 @@ public partial class PageEsteiraGeral : ContentPage
                 ActivityIndicatorLocal.IsVisible = false;
             }
         }
+
+        //private bool VerifyStage(Project projeto)
+        //{
+        //    await RESTProject.GetCheckOpenStage(, 4, 1);
+        //    return false;
+        //}
     }
+
     public class ButtonModel
     {
         public string   Text { get; set; }

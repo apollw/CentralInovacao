@@ -99,7 +99,7 @@
                             <Label
                                 Grid.Column = "0"
                                 Text        = "{Binding Name}" />
-                            <CheckBox 
+                            <CheckBox
                                 Grid.Column       = "1"
                                 HorizontalOptions = "Center"
                                 CheckedChanged    = "OnCheckBoxCheckedChanged" />

@@ -1,4 +1,5 @@
 ﻿using Business.Inovacao;
+using CentralInovacao.MiddlewareApi;
 using CentralInovacao.Models;
 using CentralInovacao.Repositories;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -29,7 +30,7 @@ namespace CentralInovacao.ViewModel
         [ObservableProperty]
         private RESTProject     _rESTProject;
         [ObservableProperty]
-        private List<ModelArea> _ListAreaGeneral;
+        private List<ModelArea> _listAreaGeneral;
         [ObservableProperty]
         private ObservableCollection<Project> _projectList;
         [ObservableProperty]
@@ -52,8 +53,9 @@ namespace CentralInovacao.ViewModel
             await RESTProject.CreateProject(project);
         }
 
-        public async void EditarProjeto(Project project)
+        public async void EditarProjeto(Project project, List<ModelArea> ProjectAreas)
         {
+            project.ListArea = ProjectAreas;
             await RESTProject.EditProject(project,project.Id,project.User);
         }
 
@@ -124,5 +126,23 @@ namespace CentralInovacao.ViewModel
 
         }
 
+        public async void SalvarImagemProjeto(Project project, FileInfo fileInfo, string file)
+        {
+
+            var objJSON = new JObject(
+            new JProperty("Project", project.Id),
+            new JProperty("User", project.User),
+            new JProperty("Type", 1),
+            new JProperty("Name", fileInfo.Name),
+            new JProperty("Extension", fileInfo.Extension),
+            new JProperty("Document",file)
+            );
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(objJSON);
+
+            //Popular a Lista de Projetos do Usuário
+            await RESTProject.AddProjectImage(project, body);
+        }
     }
 }

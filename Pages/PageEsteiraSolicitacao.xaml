@@ -12,16 +12,14 @@
         </Style>
     </ContentPage.Resources>
 
-    <ScrollView>
+    <ScrollView Margin="10">
         <StackLayout Spacing = "3">
 
             <Label Text="(*) Campos Obrigatórios"/>
-
             <Label
                 x:Name                = "_lblUsuario"
                 FontAttributes        = "Bold"
                 Padding               = "5"/>
-
             <Label   
                 Text    = "Campos Obrigatórios (*)"                      
                 Padding = "5"/>
@@ -107,135 +105,48 @@
                             <Label
                                 Grid.Column = "0"
                                 Text        = "{Binding Name}" />
-                            <CheckBox 
+                            <CheckBox
                                 Grid.Column       = "1"
                                 HorizontalOptions = "Center"
+                                IsChecked         = "{Binding IsSelected}"
                                 CheckedChanged    = "OnCheckBoxCheckedChanged" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button 
-                Text            = "Salvar Oportunidade"
-                TextColor       = "White"
-                FontSize        = "18"
-                FontAttributes  = "Bold"
-                BackgroundColor = "#14d1ca"
-                Clicked         = "Btn_SalvarOportunidade"
-                Margin          = "10"/>
-
+            <Grid ColumnDefinitions="*,*,*">
+                <Button
+                    Grid.Column     = "0"
+                    Text            = "Classificar Projeto"
+                    TextColor       = "White"
+                    FontSize        = "18"
+                    FontAttributes  = "Bold"
+                    BackgroundColor = "#14d1ca"
+                    WidthRequest    = "250"
+                    Clicked         = "Btn_ClassificarProjeto"
+                    HorizontalOptions="Start"/>
+                <Button
+                    Grid.Column     = "1"
+                    Text            = "Enviar para Análise"
+                    TextColor       = "White"
+                    FontSize        = "18"
+                    FontAttributes  = "Bold"
+                    BackgroundColor = "#14d1ca"
+                    WidthRequest    = "250"
+                    Clicked         = "Btn_EnviarAnalise"
+                    HorizontalOptions="Start"/>
+                <Button
+                    Grid.Column     = "2"
+                    Text            = "Salvar Oportunidade"
+                    TextColor       = "White"
+                    FontSize        = "18"
+                    FontAttributes  = "Bold"
+                    BackgroundColor = "#14d1ca"
+                    WidthRequest    = "250"
+                    Clicked         = "Btn_SalvarOportunidade"
+                    HorizontalOptions="Start"/>
+            </Grid>
         </StackLayout>
     </ScrollView>
-
 </ContentPage>
-
-
-<!--
-
-<ScrollView Margin="5">
-    <StackLayout Spacing = "10" Margin = "5" HorizontalOptions="Center">
-        <Label   
-                Text    = "Campos Obrigatórios (*)"                      
-                Padding = "5"/>
-        <Label   
-                Text           = "Título da Solução (*)"                       
-                FontAttributes = "Bold"
-                Padding        = "5"/>
-        <Frame 
-                BorderColor   = "DarkGray" 
-                CornerRadius  = "5"
-                HeightRequest = "50"
-                WidthRequest  = "385">
-            <Entry   
-                    x:Name                = "_entryTitulo"
-                    MaxLength             = "50"
-                    FontSize              = "18"
-                    HeightRequest         = "45"
-                    WidthRequest          = "375"
-                    Placeholder           = "Insira um título..."
-                    PlaceholderColor      = "LightGray"
-                    HorizontalOptions     = "Start"
-                    VerticalTextAlignment = "Start"/>
-        </Frame>
-        <Label   
-                Text              = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil (Máx: 250 caracteres): (*)"
-                FontAttributes    = "Bold"
-                Padding           = "5"
-                HorizontalOptions = "Start"/>
-        <Frame 
-                BorderColor   = "DarkGray" 
-                CornerRadius  = "5"
-                HeightRequest = "175"
-                WidthRequest  = "385">
-            <Editor
-                    x:Name                = "_editor1"
-                    MaxLength             = "250"
-                    WidthRequest          = "375"
-                    HeightRequest         = "145"
-                    FontSize              = "15"
-                    Placeholder           = "Insira uma descrição..."
-                    PlaceholderColor      = "LightGray"
-                    HorizontalOptions     = "Start"
-                    TextChanged           = "OnEditorTextChanged1"
-                    Completed             = "OnEditorCompleted"
-                    VerticalOptions       = "Center"
-                    VerticalTextAlignment = "Start"/>
-        </Frame>
-        <Label   
-                Text              = "Descreva alguns aspectos NEGATIVOS dessa solução para o Ceape Brasil (Máx: 250 caracteres): (*)"
-                FontAttributes    = "Bold"
-                Padding           = "5"
-                HorizontalOptions = "Start"/>
-        <Frame 
-                BorderColor   = "DarkGray" 
-                CornerRadius  = "5"
-                HeightRequest = "175"
-                WidthRequest  = "385">
-            <Editor
-                    x:Name                = "_editor2"
-                    MaxLength             = "250"
-                    WidthRequest          = "375"
-                    HeightRequest         = "145"
-                    FontSize              = "15"
-                    Placeholder           = "Insira uma descrição..."
-                    PlaceholderColor      = "LightGray"
-                    HorizontalOptions     = "Start"
-                    TextChanged           = "OnEditorTextChanged2"
-                    Completed             = "OnEditorCompleted"
-                    VerticalOptions       = "Center"
-                    VerticalTextAlignment = "Start"/>
-        </Frame>
-
-        <Label   
-                Text              = "Selecione os setores impactados por essa solução: (*)"
-                FontAttributes    = "Bold"
-                Padding           = "5"
-                HorizontalOptions = "Start"/>
-
-        <CollectionView x:Name="_CollectionViewAreas" ItemsSource="{Binding ListAreaGeneral}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnDefinitions="*,*">
-                        <Label
-                                Grid.Column = "0"
-                                Text        = "{Binding Name}" />
-                        <CheckBox 
-                                Grid.Column       = "1"
-                                HorizontalOptions = "Center"
-                                CheckedChanged    = "OnCheckBoxCheckedChanged" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-        <Button 
-                Text            = "Salvar Oportunidade"
-                TextColor       = "White"
-                FontSize        = "18"
-                FontAttributes  = "Bold"
-                BackgroundColor = "#14d1ca"
-                Clicked         = "Btn_SalvarOportunidade"
-                Margin          = "10"/>
-    </StackLayout>
-</ScrollView>-->

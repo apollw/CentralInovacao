@@ -35,7 +35,6 @@ public partial class PageMinhasOportunidades : ContentPage
                 activityIndicator.IsVisible = true;
                 btn.IsEnabled               = false;
 
-                //await Navigation.PushAsync(new PageEsteiraGeral(project));
                 VMProject.GetProjeto(project.Id, project.User);
                 await Navigation.PushAsync(new PageEsteiraGeral(VMProject.Project));
 

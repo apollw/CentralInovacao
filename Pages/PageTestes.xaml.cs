@@ -1,6 +1,7 @@
 using Business.Inovacao;
 using CentralInovacao.Models;
 using CentralInovacao.Repositories;
+using CentralInovacao.ViewModel;
 using RestSharp;
 
 namespace CentralInovacao.Pages;
@@ -14,7 +15,6 @@ public partial class PageTestes : ContentPage
 	{
 		InitializeComponent();
 	}
-
     private async void Btn_CarregarListaUsuarios(object sender, EventArgs e)
     {
 		List<ModelUser> ListaDeUsuarios = new List<ModelUser>();
@@ -50,9 +50,41 @@ public partial class PageTestes : ContentPage
         List<ModelGeneric> ListaDeRazoes = new List<ModelGeneric>();
         ListaDeRazoes = await RESTResources.GetListReasons();
     }
-    private async void Btn_CheckStage(object sender, EventArgs e) //Dúvida
+    private async void Btn_CheckStage(object sender, EventArgs e)
     {
         bool resposta = new bool();
         resposta = await RESTProject.GetCheckOpenStage(1807,4,1);
-    }    
+    }
+    private async void OnProfileImageTapped(object sender, EventArgs e)
+    {
+        // Abre a galeria para selecionar uma imagem
+        var result = await MediaPicker.PickPhotoAsync();
+        Project project = new Project();
+
+        project = await RESTProject.GetProject(13,3068);
+
+        if (result != null)
+        {
+            FileInfo f = new FileInfo(result.FullPath);
+
+            byte[] imageByte = File.ReadAllBytes(f.FullName);
+            string file = Convert.ToBase64String(imageByte);
+
+            ViewModelProject vmp = new ViewModelProject();
+
+            vmp.SalvarImagemProjeto(project,f,file);
+
+            _img.Source = ImageSource.FromStream(() => new MemoryStream(imageByte));
+        }
+    }
+    private async void Btn_ClassificarProjeto(object sender, EventArgs e)
+    {
+        int classificacao = 1; //Classificação vai de 1 a 3
+        int projeto_id = 13;
+
+        //Enviar a classificação. Resposta = Ok, BadRequest
+        bool resposta = await RESTProject.ClassifyProject(projeto_id,classificacao);
+    }
+
+
 }

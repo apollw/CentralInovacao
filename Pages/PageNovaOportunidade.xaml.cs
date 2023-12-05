@@ -64,7 +64,7 @@ public partial class PageNovaOportunidade : ContentPage
 
     public void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        var checkBox = sender as CheckBox;      
+        var checkBox = sender as CheckBox;
 
         //Verifica se o CheckBox foi clicado
         if (checkBox.BindingContext is ModelArea area)
@@ -79,25 +79,5 @@ public partial class PageNovaOportunidade : ContentPage
             }
         }                
     }
+
 }
-
-//private async void Btn_SalvarOportunidadeLocal(object sender, EventArgs e)
-//{
-//    Button btn = (Button)sender;
-//    btn.IsEnabled = false;
-
-//    //Oportunidade.Id = VMOportunidade.GerarNovoId(Oportunidade.Id);
-//    Oportunidade.Nome = _entryTitulo.Text;
-//    Oportunidade.DescricaoPositiva = _editor1.Text;
-//    Oportunidade.DescricaoNegativa = _editor2.Text;
-//    Oportunidade.Status = 0;
-//    Oportunidade.Data = DateTime.Now;
-//    Oportunidade.Analista = 2507;
-
-//    //VMOportunidade.SalvarOportunidadeLocal(Oportunidade);
-
-//    await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
-//    await Shell.Current.GoToAsync("..");
-
-//    btn.IsEnabled = true;
-//}

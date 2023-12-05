@@ -1,4 +1,5 @@
-﻿using CentralInovacao.Models;
+﻿using CentralInovacao.MiddlewareApi;
+using CentralInovacao.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,11 @@ namespace CentralInovacao.ViewModel
     public partial class ViewModelUsuario:ObservableObject
     {
         [ObservableProperty]
-        private Usuario _usuario;
+        private ModelUserLocal _usuario;
 
         public ViewModelUsuario()
         {
-            Usuario = new Usuario();    
+            Usuario = new ModelUserLocal();    
         }
     }
 }

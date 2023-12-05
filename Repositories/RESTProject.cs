@@ -14,15 +14,7 @@ using System.Threading.Tasks;
 namespace CentralInovacao.Repositories
 {
     public class RESTProject
-    {
-        private readonly HttpClient _httpClient;
-
-        public RESTProject()
-        {
-            _httpClient = new HttpClient();
-            _httpClient.DefaultRequestHeaders.Add("TokenApi", Preferences.Get("AuthToken", "", ""));
-        }
-
+    {        
         //Criar Projeto
         public async Task<bool> CreateProject(Project project)
         {
@@ -84,6 +76,27 @@ namespace CentralInovacao.Repositories
             {
                 IRestResponse request = 
                 CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/solicitation?user={user_id}", body);
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return false;
+        }
+
+        //Classificar Projeto
+        public async Task<bool> ClassifyProject(int project_id, int classification_id)
+        {
+            var projetoJSON = new JObject(new JProperty("Id", classification_id));
+            int user_id = Preferences.Get("AuthUserId", 0);
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+
+            try
+            {
+                IRestResponse request =
+                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/classify?user={1305}",body);
             }
             catch (Exception ex)
             {
@@ -173,11 +186,11 @@ namespace CentralInovacao.Repositories
             List<Project> ListaProjetos = new List<Project>();
 
             var projetoJSON = new JObject(
-            new JProperty("DateIni", "2023-10-01"),
-            new JProperty("DateEnd", "2023-11-30"),
+            new JProperty("DateIni", ""),
+            new JProperty("DateEnd", ""),
             new JProperty("Name",""),
             new JProperty("OnlyMyProjects",true),
-            new JProperty("User",3068)
+            new JProperty("User", Preferences.Get("AuthUserId", 0))
             );
 
             //Serializa o objeto JSON
@@ -243,6 +256,25 @@ namespace CentralInovacao.Repositories
         }
 
         //Adicionar Capa do Projeto
+        public async Task<bool> AddProjectImage(Project project,string body)
+        {
+            string _parametros = $"/projects/{project.Id}/add-image?user={project.User}";
+
+            try
+            {
+                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + _parametros,body);
+
+                if (response.IsSuccessful)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return false;
+        }
 
         //Adicionar Evidência do Projeto
 
