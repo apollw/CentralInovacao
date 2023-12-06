@@ -14,7 +14,9 @@
             <Button Text ="Carregar Lista de Documentos"         Clicked="Btn_CarregarTiposDocumentos"/>
             <Button Text ="Carregar Lista de Razões de Declínio" Clicked="Btn_CarregarListaDeclinio"/>           
             <Button Text ="Get Check Open Stage"                 Clicked="Btn_CheckStage"/>
+            <Button Text ="Send to Analysis"                     Clicked="Btn_EnviarParaAnalise"/>
             <Button Text ="Classify Project"                     Clicked="Btn_ClassificarProjeto"/>
+            <Button Text ="Update Analysis"                      Clicked="Btn_AtualizarAnalise"/>
             <Button Text ="Adicionar Imagem no Projeto"          Clicked="OnProfileImageTapped"/>
             <Image x:Name="_img" WidthRequest="400"/>
             

@@ -105,6 +105,29 @@ namespace CentralInovacao.Repositories
             return false;
         }
 
+        //Enviar para Análise
+        public async Task<bool> SendToAnalysis(int project_id)
+        {
+            int user_id = Preferences.Get("AuthUserId", 0);
+            var projetoJSON = new JObject(new JProperty(" ", " "));
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+
+            //{ { url} }/ projects /{ { project} }/ sendto / 2 ? user ={ { user} }
+
+            try
+            {
+                IRestResponse request =
+                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/sendto/2?user={user_id}",body);
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+            }
+            return false;
+        }
+
         //Carregar Projeto Específico do Usuário
         public async Task<Project> GetProject(int project_id,int user_id)
         {
@@ -275,8 +298,5 @@ namespace CentralInovacao.Repositories
             }
             return false;
         }
-
-        //Adicionar Evidência do Projeto
-
     }
 }
