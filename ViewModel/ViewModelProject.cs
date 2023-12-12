@@ -48,9 +48,9 @@ namespace CentralInovacao.ViewModel
             RESTProject = new RESTProject();
         }
 
-        public async void SalvarProjeto(Project project)
+        public async Task<bool> SalvarProjeto(Project project)
         {
-            await RESTProject.CreateProject(project);
+            return await RESTProject.CreateProject(project);
         }
 
         public async void EditarProjeto(Project project, List<ModelArea> ProjectAreas)

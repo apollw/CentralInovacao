@@ -23,32 +23,32 @@ public partial class PageTestes : ContentPage
     }
     private async void Btn_CarregarListaStatus(object sender, EventArgs e)
     {
-        List<ModelGeneric> ListaDeStatus = new List<ModelGeneric>();
+        List<ModelGenericLocal> ListaDeStatus = new List<ModelGenericLocal>();
         ListaDeStatus = await RESTResources.GetListStatus();
     }
     private async void Btn_CarregarListaFuncoes(object sender, EventArgs e)
     {
-        List<ModelGeneric> ListaDeFuncoes = new List<ModelGeneric>();
+        List<ModelGenericLocal> ListaDeFuncoes = new List<ModelGenericLocal>();
         ListaDeFuncoes = await RESTResources.GetListFunctions();
     }
     private async void Btn_CarregarListaEstagios(object sender, EventArgs e)
     {
-        List<ModelGeneric> ListaDeEstagios = new List<ModelGeneric>();
+        List<ModelGenericLocal> ListaDeEstagios = new List<ModelGenericLocal>();
         ListaDeEstagios = await RESTResources.GetListStages();
     }
     private async void Btn_CarregarListaClassificacoes(object sender, EventArgs e)
     {
-        List<ModelGeneric> ListaDeClassificacoes = new List<ModelGeneric>();
+        List<ModelGenericLocal> ListaDeClassificacoes = new List<ModelGenericLocal>();
         ListaDeClassificacoes = await RESTResources.GetListClassifications();
     }
     private async void Btn_CarregarTiposDocumentos(object sender, EventArgs e)
     {
-        List<ModelGeneric> ListaDeDocumentos = new List<ModelGeneric>();
+        List<ModelGenericLocal> ListaDeDocumentos = new List<ModelGenericLocal>();
         ListaDeDocumentos = await RESTResources.GetListDocumentTypes();
     }
     private async void Btn_CarregarListaDeclinio(object sender, EventArgs e)
     {
-        List<ModelGeneric> ListaDeRazoes = new List<ModelGeneric>();
+        List<ModelGenericLocal> ListaDeRazoes = new List<ModelGenericLocal>();
         ListaDeRazoes = await RESTResources.GetListReasons();
     }
     private async void Btn_CheckStage(object sender, EventArgs e)
@@ -67,7 +67,10 @@ public partial class PageTestes : ContentPage
     private async void Btn_EnviarParaAnalise(object sender, EventArgs e)
     {
         bool resposta = new bool();
-        resposta = await RESTProject.SendToAnalysis(13);
+        int stage = 2;
+        int project_id = 13;
+
+        resposta = await RESTProject.SendToStage(project_id,stage);
     }
     private async void Btn_AtualizarAnalise(object sender, EventArgs e)
     {
@@ -77,6 +80,21 @@ public partial class PageTestes : ContentPage
 
         int project_id = 13;
         resposta = await RESTAnalysis.UpdateAnalysis(project_id,descricao);
+    }
+    private async void Btn_AtivarProjeto(object sender, EventArgs e)
+    {
+        bool resposta = new bool();
+
+        int project_id = 13;
+        resposta = await RESTAnalysis.ActivateProject(project_id);
+    }
+    private async void Btn_DeclinarProjeto(object sender, EventArgs e)
+    {
+        bool resposta = new bool();
+
+        int project_id = 13;
+        int decline_reason = 1;
+        resposta = await RESTAnalysis.DeclineProject(project_id, decline_reason);
     }
 
     private async void OnProfileImageTapped(object sender, EventArgs e)

@@ -65,9 +65,9 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Status
-        public async Task<List<ModelGeneric>> GetListStatus()
+        public async Task<List<ModelGenericLocal>> GetListStatus()
         {
-            List<ModelGeneric> ListaStatus = new List<ModelGeneric>();
+            List<ModelGenericLocal> ListaStatus = new List<ModelGenericLocal>();
 
             try
             {
@@ -75,7 +75,7 @@ namespace CentralInovacao.Repositories
 
                 if (response.IsSuccessful)
                 {
-                    ListaStatus = JsonConvert.DeserializeObject<List<ModelGeneric>>(response.Content);
+                    ListaStatus = JsonConvert.DeserializeObject<List<ModelGenericLocal>>(response.Content);
                     return ListaStatus;
                 }
             }
@@ -88,9 +88,9 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Funções
-        public async Task<List<ModelGeneric>> GetListFunctions()
+        public async Task<List<ModelGenericLocal>> GetListFunctions()
         {
-            List<ModelGeneric> ListaFuncoes = new List<ModelGeneric>();
+            List<ModelGenericLocal> ListaFuncoes = new List<ModelGenericLocal>();
 
             try
             {
@@ -98,7 +98,7 @@ namespace CentralInovacao.Repositories
 
                 if (response.IsSuccessful)
                 {
-                    ListaFuncoes = JsonConvert.DeserializeObject<List<ModelGeneric>>(response.Content);
+                    ListaFuncoes = JsonConvert.DeserializeObject<List<ModelGenericLocal>>(response.Content);
                     return ListaFuncoes;
                 }
             }
@@ -111,9 +111,9 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Estágios
-        public async Task<List<ModelGeneric>> GetListStages()
+        public async Task<List<ModelGenericLocal>> GetListStages()
         {
-            List<ModelGeneric> ListaEstagios = new List<ModelGeneric>();
+            List<ModelGenericLocal> ListaEstagios = new List<ModelGenericLocal>();
 
             try
             {
@@ -121,7 +121,7 @@ namespace CentralInovacao.Repositories
 
                 if (response.IsSuccessful)
                 {
-                    ListaEstagios = JsonConvert.DeserializeObject<List<ModelGeneric>>(response.Content);
+                    ListaEstagios = JsonConvert.DeserializeObject<List<ModelGenericLocal>>(response.Content);
                     return ListaEstagios;
                 }
             }
@@ -134,9 +134,9 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Classificações
-        public async Task<List<ModelGeneric>> GetListClassifications()
+        public async Task<List<ModelGenericLocal>> GetListClassifications()
         {
-            List<ModelGeneric> ListaClassificacoes = new List<ModelGeneric>();
+            List<ModelGenericLocal> ListaClassificacoes = new List<ModelGenericLocal>();
 
             try
             {
@@ -144,7 +144,7 @@ namespace CentralInovacao.Repositories
 
                 if (response.IsSuccessful)
                 {
-                    ListaClassificacoes = JsonConvert.DeserializeObject<List<ModelGeneric>>(response.Content);
+                    ListaClassificacoes = JsonConvert.DeserializeObject<List<ModelGenericLocal>>(response.Content);
                     return ListaClassificacoes;
                 }
             }
@@ -157,9 +157,9 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Tipos de Documento
-        public async Task<List<ModelGeneric>> GetListDocumentTypes()
+        public async Task<List<ModelGenericLocal>> GetListDocumentTypes()
         {
-            List<ModelGeneric> ListaDocumentos= new List<ModelGeneric>();
+            List<ModelGenericLocal> ListaDocumentos= new List<ModelGenericLocal>();
 
             try
             {
@@ -167,7 +167,7 @@ namespace CentralInovacao.Repositories
 
                 if (response.IsSuccessful)
                 {
-                    ListaDocumentos = JsonConvert.DeserializeObject<List<ModelGeneric>>(response.Content);
+                    ListaDocumentos = JsonConvert.DeserializeObject<List<ModelGenericLocal>>(response.Content);
                     return ListaDocumentos;
                 }
             }
@@ -180,9 +180,9 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Razões de Declínio
-        public async Task<List<ModelGeneric>> GetListReasons()
+        public async Task<List<ModelGenericLocal>> GetListReasons()
         {
-            List<ModelGeneric> ListaRazoes = new List<ModelGeneric>();
+            List<ModelGenericLocal> ListaRazoes = new List<ModelGenericLocal>();
 
             try
             {
@@ -190,7 +190,7 @@ namespace CentralInovacao.Repositories
 
                 if (response.IsSuccessful)
                 {
-                    ListaRazoes = JsonConvert.DeserializeObject<List<ModelGeneric>>(response.Content);
+                    ListaRazoes = JsonConvert.DeserializeObject<List<ModelGenericLocal>>(response.Content);
                     return ListaRazoes;
                 }
             }

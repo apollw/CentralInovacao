@@ -14,9 +14,42 @@ using System.Threading.Tasks;
 namespace CentralInovacao.Repositories
 {
     public class RESTProject
-    {        
+    {   
         //Criar Projeto
         public async Task<bool> CreateProject(Project project)
+        {
+            var projetoJSON = new JObject(
+            new JProperty("User", project.User),
+            new JProperty("Name", project.Name),
+            new JProperty("DescriptionPositive", project.DescriptionPositive),
+            new JProperty("DescriptionNegative", project.DescriptionNegative),
+            new JProperty("ListArea",
+                new JArray(
+                    project.ListArea.Select(area =>
+                        new JObject(
+                            new JProperty("Id", area.Id),
+                            new JProperty("Name", area.Name)
+                        )
+                    )
+                )
+            )
+            );
+
+            //Serializa o objeto JSON
+            var body = JsonConvert.SerializeObject(projetoJSON);
+            
+            IRestResponse request = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi+"/projects", body);
+
+            if (!(request.StatusCode == System.Net.HttpStatusCode.OK))
+            {
+                await Shell.Current.DisplayAlert(" ", $"Erro: {request.Content}", "Retornar");
+                return false;
+            }
+            return true;
+        }
+
+        //Criar Projeto
+        public async Task<bool> CreateProjectLegado(Project project)
         {
             var projetoJSON = new JObject(
             new JProperty("User", project.User),
@@ -40,7 +73,7 @@ namespace CentralInovacao.Repositories
 
             try
             {
-                IRestResponse request = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi+"/projects", body);
+                IRestResponse request = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects", body);
             }
             catch (Exception ex)
             {
@@ -106,7 +139,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Enviar para Análise
-        public async Task<bool> SendToAnalysis(int project_id)
+        public async Task<bool> SendToStage(int project_id, int stage)
         {
             int user_id = Preferences.Get("AuthUserId", 0);
             var projetoJSON = new JObject(new JProperty(" ", " "));
@@ -114,12 +147,10 @@ namespace CentralInovacao.Repositories
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
-            //{ { url} }/ projects /{ { project} }/ sendto / 2 ? user ={ { user} }
-
             try
             {
                 IRestResponse request =
-                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/sendto/2?user={user_id}",body);
+                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/sendto/{stage}?user={user_id}",body);
             }
             catch (Exception ex)
             {

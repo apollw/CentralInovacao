@@ -109,6 +109,7 @@
 	  <None Remove="Resources\Images\key.png" />
 	  <None Remove="Resources\Images\logo_ceape.png" />
 	  <None Remove="Resources\Images\no_wifi.png" />
+	  <None Remove="Resources\Images\onda_invertida.png" />
 	  <None Remove="Resources\Images\question.png" />
 	  <None Remove="Resources\Images\ranking.png" />
 	  <None Remove="Resources\Images\saibamais_medalhas.png" />

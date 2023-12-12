@@ -88,6 +88,11 @@ namespace CentralInovacao.Models
             request.RequestFormat = DataFormat.Json;
             request.AddHeader("Content-Type", "application/json");
 
+            // Adiciona o cabeçalho com o token obtido anteriormente
+            string authToken = Preferences.Get("AuthToken", "", "");
+            request.AddHeader("TokenApi", authToken);
+            request.AddHeader("Content-Type", "application/json");
+
             //adiciona o json serializado no corpo da requisição
             request.AddParameter("application/json; charset=utf-8", jsonBody, ParameterType.RequestBody);
 

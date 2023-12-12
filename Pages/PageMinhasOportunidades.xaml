@@ -70,11 +70,6 @@
                                        FontAttributes          = "Bold"
                                        HorizontalTextAlignment = "Center"/>
                                     <Label 
-                                       Text                    = "{Binding Id,StringFormat='Id: {0}'}"
-                                       TextColor               = "Black"
-                                       FontSize                = "14"
-                                       HorizontalTextAlignment = "Start"/>
-                                    <Label 
                                        Text                    = "{Binding DateIni,StringFormat='Data de Início: {0}'}"
                                        TextColor               = "Black"
                                        FontSize                = "14"

@@ -4,53 +4,104 @@
              x:Class="CentralInovacao.Pages.PageEsteiraBriefing"
              Title="Briefing e Análise">
 
-    <ScrollView>
-        <StackLayout Spacing="3">
+    <ContentPage.Resources>
+        <Style TargetType = "CheckBox">
+            <Setter Property = "HorizontalOptions" Value = "End"/>
+            <Setter Property = "HeightRequest"     Value = "50"/>
+            <Setter Property = "Color"             Value = "#14d1ca"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView Margin="10">
+        <StackLayout Spacing = "3" HorizontalOptions="Center">
+
             <Label   
-                Text                  = "Analista do Projeto/Solução(*)"                       
-                FontAttributes        = "Bold"
-                Padding               = "5"/>
-            <Entry   
-                FontSize              = "Medium"
-                WidthRequest          = "400"
-                HeightRequest         = "40"
-                VerticalTextAlignment = "Start"
-                BackgroundColor       = "WhiteSmoke"/>
-            <BoxView 
-                BackgroundColor       = "Black"
-                HeightRequest         = "1"
-                WidthRequest          = "400"/>
+                Text           = "Analista:"                       
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "50"
+                WidthRequest  = "385">
+                <Entry   
+                    x:Name                = "_entryAnalyst"
+                    Text                  = "{Binding Project.LkpAnalyst}"
+                    IsReadOnly            = "True"
+                    MaxLength             = "50"
+                    FontSize              = "18"
+                    HeightRequest         = "45"
+                    WidthRequest          = "375"
+                    HorizontalOptions     = "Start"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
             <Label   
-                Text                  = "Reais Benefícios Mapeados pelo Analista(*):"
-                FontAttributes        = "Bold"
-                Padding               = "5"/>
-            <Editor  
-                x:Name                = "_editor1"
-                WidthRequest          = "400"
-                HeightRequest         = "150"
-                VerticalTextAlignment = "Start"
-                BackgroundColor       = "WhiteSmoke"
-                TextChanged           = "OnEditorTextChanged1"
-                Completed             = "OnEditorCompleted"/>
-            <Button 
-                Text            = "Aprovar Proposta"
-                Margin          = "10"
-                BackgroundColor = "#14d1ca"
-                TextColor       = "White"
-                FontSize        = "18"
-                FontAttributes  = "Bold"
-                IsVisible       = "False"/>
-            <Button 
-                Text            = "Declinar Proposta"
-                Margin          = "10"
-                BackgroundColor = "White"
-                TextColor       = "Red"
-                BorderColor     = "Red"
-                BorderWidth     = "1"
-                FontSize        = "18"
-                FontAttributes  = "Bold"
-                IsVisible       = "False"
-                Clicked         = "Button_Declinar"/>
-            </StackLayout>
+                Text              = "Parecer do Analista:"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Start"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "175"
+                WidthRequest  = "385">
+                <Editor
+                    x:Name                = "_editor1"
+                    Text                  = "{Binding Project.DescriptionAnalyst}"
+                    MaxLength             = "250"
+                    WidthRequest          = "375"
+                    HeightRequest         = "145"
+                    FontSize              = "15"
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    TextChanged           = "OnEditorTextChanged1"
+                    Completed             = "OnEditorCompleted"
+                    VerticalOptions       = "Center"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
+
+            <Grid HorizontalOptions="Center" RowDefinitions="5*,5*" ColumnDefinitions="*,*" ColumnSpacing="5" RowSpacing="5">
+                <Button
+                    Grid.Row          = "0"
+                    Grid.Column       = "0"
+                    Text              = "Enviar para Squad"
+                    TextColor         = "White"
+                    FontSize          = "15"
+                    FontAttributes    = "Bold"
+                    BackgroundColor   = "#14d1ca"
+                    WidthRequest      = "200"
+                    HorizontalOptions = "Start"/>
+                <Button
+                    Grid.Row          = "0"
+                    Grid.Column       = "1"
+                    Text              = "Salvar"
+                    TextColor         = "White"
+                    FontSize          = "18"
+                    FontAttributes    = "Bold"
+                    BackgroundColor   = "#14d1ca"
+                    WidthRequest      = "200"
+                    HorizontalOptions ="Start"/>
+                <Button
+                    Grid.Row        = "1"
+                    Grid.Column     = "0"
+                    Text            = "Alterar Capa do Projeto"
+                    TextColor       = "White"
+                    FontSize        = "15"
+                    FontAttributes  = "Bold"
+                    BackgroundColor = "#14d1ca"
+                    WidthRequest    = "200"
+                    HorizontalOptions="Start"/>
+                <Button
+                    Grid.Row        = "1"
+                    Grid.Column     = "1"
+                    Text            = "Declinar Proposta"
+                    TextColor       = "White"
+                    FontSize        = "15"
+                    FontAttributes  = "Bold"
+                    BackgroundColor = "#14d1ca"
+                    WidthRequest    = "200"
+                    HorizontalOptions="Start"/>
+            </Grid>
+        </StackLayout>
     </ScrollView>
 </ContentPage>
