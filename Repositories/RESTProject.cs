@@ -48,40 +48,6 @@ namespace CentralInovacao.Repositories
             return true;
         }
 
-        //Criar Projeto
-        public async Task<bool> CreateProjectLegado(Project project)
-        {
-            var projetoJSON = new JObject(
-            new JProperty("User", project.User),
-            new JProperty("Name", project.Name),
-            new JProperty("DescriptionPositive", project.DescriptionPositive),
-            new JProperty("DescriptionNegative", project.DescriptionNegative),
-            new JProperty("ListArea",
-                new JArray(
-                    project.ListArea.Select(area =>
-                        new JObject(
-                            new JProperty("Id", area.Id),
-                            new JProperty("Name", area.Name)
-                        )
-                    )
-                )
-            )
-            );
-
-            //Serializa o objeto JSON
-            var body = JsonConvert.SerializeObject(projetoJSON);
-
-            try
-            {
-                IRestResponse request = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects", body);
-            }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
-            return false;
-        }
-
         //Editar Projeto
         public async Task<bool> EditProject(Project project, int project_id, int user_id)
         {
@@ -107,7 +73,7 @@ namespace CentralInovacao.Repositories
 
             try
             {
-                IRestResponse request = 
+                IRestResponse request =
                 CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/solicitation?user={user_id}", body);
             }
             catch (Exception ex)
@@ -126,16 +92,18 @@ namespace CentralInovacao.Repositories
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
-            try
+            IRestResponse response = CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + 
+                $"/projects/{project_id}/classify?user={user_id}", body);
+
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                IRestResponse request =
-                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/classify?user={1305}",body);
+                string errorMessage = FormatErrorMessage(response.Content);
+
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+
+                return false;
             }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
-            return false;
+            return true;
         }
 
         //Enviar para Análise
@@ -147,16 +115,18 @@ namespace CentralInovacao.Repositories
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
-            try
+            IRestResponse response = CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + 
+                $"/projects/{project_id}/sendto/{stage}?user={user_id}", body);
+
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                IRestResponse request =
-                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/sendto/{stage}?user={user_id}",body);
+                string errorMessage = FormatErrorMessage(response.Content);
+
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+
+                return false;
             }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
-            return false;
+            return true;
         }
 
         //Carregar Projeto Específico do Usuário
@@ -289,24 +259,20 @@ namespace CentralInovacao.Repositories
             return ListaProjetos;
         }
 
-        //Checa o Estágio Atual do Projeto
         public async Task<bool> GetCheckOpenStage(int user_id, int project_id, int stage)
         {
-            try
-            {
-                var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi + 
-                    $"/projects/{project_id}/check-open-stage/{stage}?user={user_id}");
+            var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi +
+                           $"/projects/{project_id}/check-open-stage/{stage}?user={user_id}");
 
-                if (response.IsSuccessful)
-                {
-                    return true;
-                }
-            }
-            catch (Exception ex)
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+                string errorMessage = FormatErrorMessage(response.Content);
+
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+
+                return false;
             }
-            return false;
+            return true;
         }
 
         //Adicionar Capa do Projeto
@@ -328,6 +294,38 @@ namespace CentralInovacao.Repositories
                 await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
             }
             return false;
+        }
+
+        //Formatar Mensagem de Erro
+        private string FormatErrorMessage(string rawErrorMessage)
+        {
+            try
+            {
+                // Encontra a posição do início da mensagem JSON
+                int startIndex = rawErrorMessage.IndexOf("{\"Message\":\"");
+
+                // Se encontrar o início da mensagem JSON, extrai apenas a mensagem
+                if (startIndex >= 0)
+                {
+                    // Remove a parte inicial indesejada
+                    rawErrorMessage = rawErrorMessage.Substring(startIndex + "{\"Message\":\"".Length);
+
+                    // Encontra o final da mensagem JSON
+                    int endIndex = rawErrorMessage.IndexOf("\"}");
+
+                    // Se encontrar o final da mensagem JSON, extrai apenas a mensagem
+                    if (endIndex >= 0)
+                    {
+                        rawErrorMessage = rawErrorMessage.Substring(0, endIndex);
+                    }
+                }
+
+                return rawErrorMessage;
+            }
+            catch (Exception ex)
+            {
+                return "Ocorreu um erro ao processar a resposta.";
+            }
         }
     }
 }

@@ -11,14 +11,6 @@ namespace CentralInovacao.Repositories
 {
     public class RESTResources
     {
-        private readonly HttpClient _httpClient;
-
-        public RESTResources()
-        {
-            _httpClient = new HttpClient();
-            _httpClient.DefaultRequestHeaders.Add("TokenApi", Preferences.Get("AuthToken", "", ""));
-        }
-
         //Carregar Lista de Áreas
         public async Task<List<ModelArea>> GetListAreas()
         {

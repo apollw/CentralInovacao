@@ -55,7 +55,7 @@ public partial class PageTestes : ContentPage
     {
         bool resposta = new bool();
         resposta = await RESTProject.GetCheckOpenStage(1807,4,1);
-    }
+    }//--------------------IMPLEMENTADO
     private async void Btn_ClassificarProjeto(object sender, EventArgs e)
     {
         int classificacao = 1; //Classificação vai de 1 a 3

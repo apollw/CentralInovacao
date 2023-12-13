@@ -11,6 +11,7 @@ public partial class PageEsteiraSolicitacao : ContentPage
     List<AreaLocal>  ListAreaLocal     = new List<AreaLocal>();
     List<ModelArea>  ProjectAreasLocal = new List<ModelArea>();
     RESTResources    RESTResources     = new RESTResources();
+    RESTProject      RESTProject       = new RESTProject();
     ViewModelProject VMProject         = new ViewModelProject();
 
     public PageEsteiraSolicitacao(Project projeto)
@@ -49,26 +50,25 @@ public partial class PageEsteiraSolicitacao : ContentPage
     {
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
-
-        await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
         
+        if(await RESTProject.SendToStage(VMProject.Project.Id, 2))
+            await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
+
         btn.IsEnabled = true;        
-    } //NÃO IMPLEMENTADO
+    }
     
-    private async void Btn_Solicitacao(object sender, EventArgs e)
-    {
-        Button btn    = (Button)sender;
-        btn.IsEnabled = false;
-
-        await DisplayAlert("Alerta", "Edição Completa", "Fechar");
-        await Shell.Current.GoToAsync("..");
-
-        btn.IsEnabled = true;
-    } //NÃO IMPLEMENTADO
-
     private async void Btn_ClassificarProjeto(object sender, EventArgs e)
     {
-        await Task.Delay(1000);
+        Button btn = (Button)sender;
+        btn.IsEnabled = false;
+
+        int classificacao = 1; //Classificação vai de 1 a 3
+
+        if (await RESTProject.ClassifyProject(VMProject.Project.Id, classificacao))
+            await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
+
+        btn.IsEnabled = true;
+
     } //NÃO IMPLEMENTADO
 
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)

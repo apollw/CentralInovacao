@@ -1,5 +1,6 @@
 using CentralInovacao.Models;
 using CentralInovacao.Pages;
+using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
 using System.Reflection;
 using System.Windows.Input;
@@ -61,6 +62,8 @@ public partial class PageEsteiraGeral : ContentPage
         
         private async void NavigateToPage(string buttonName)
         {
+            bool response = false;
+
             // Se o botão já foi clicado, sai do método
             if (_buttonClicked)
             {
@@ -72,20 +75,25 @@ public partial class PageEsteiraGeral : ContentPage
             
             switch (buttonName)
             {
-                case "Solicitação":
-                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Projeto)));
+                case "Solicitação":                    
+                    if(response = await CheckStage(Projeto, 1))
+                        await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSolicitacao(Projeto)));
                     break;
                 case "Análise":
+                    if(response = await CheckStage(Projeto, 2))
                     await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraBriefing(Projeto)));
                     break;
                 case "Squad":
-                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSquad(Projeto)));
+                    if (response = await CheckStage(Projeto, 3))
+                        await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraSquad(Projeto)));
                     break;
                 case "Planejamento":
-                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraPlanejamento(Projeto)));
+                    if (response = await CheckStage(Projeto, 4))
+                        await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraPlanejamento(Projeto)));
                     break;
                 case "Acompanhamento":
-                    await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraAcompanhamento()));
+                    if (response = await CheckStage(Projeto, 5))
+                        await HandleNavigationAsync(async () => await Shell.Current.Navigation.PushAsync(new PageEsteiraAcompanhamento()));
                     break;
                 default:
                     break;
@@ -111,11 +119,17 @@ public partial class PageEsteiraGeral : ContentPage
             }
         }
 
-        //private bool VerifyStage(Project projeto)
-        //{
-        //    await RESTProject.GetCheckOpenStage(, 4, 1);
-        //    return false;
-        //}
+        public async Task<bool> CheckStage(Project project, int stage)
+        {
+            bool Resposta           = new bool();
+            RESTProject RESTProject = new RESTProject();
+
+            int User_Id    = Preferences.Get("AuthUserId", 0); ;
+            int Project_Id = project.Id;
+            int Stage      = stage;            
+
+            return Resposta = await RESTProject.GetCheckOpenStage(User_Id, Project_Id, Stage);
+        }
     }
 
     public class ButtonModel
