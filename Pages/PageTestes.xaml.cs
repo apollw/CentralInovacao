@@ -16,6 +16,8 @@ public partial class PageTestes : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    //RESOURCES
     private async void Btn_CarregarListaUsuarios(object sender, EventArgs e)
     {
 		List<ModelUser> ListaDeUsuarios = new List<ModelUser>();
@@ -51,6 +53,8 @@ public partial class PageTestes : ContentPage
         List<ModelGenericLocal> ListaDeRazoes = new List<ModelGenericLocal>();
         ListaDeRazoes = await RESTResources.GetListReasons();
     }
+
+    //PROJECT
     private async void Btn_CheckStage(object sender, EventArgs e)
     {
         bool resposta = new bool();
@@ -63,7 +67,7 @@ public partial class PageTestes : ContentPage
 
         //Enviar a classificação. Resposta = Ok, BadRequest
         bool resposta = await RESTProject.ClassifyProject(projeto_id,classificacao);
-    }
+    }//------------IMPLEMENTADO
     private async void Btn_EnviarParaAnalise(object sender, EventArgs e)
     {
         bool resposta = new bool();
@@ -71,32 +75,7 @@ public partial class PageTestes : ContentPage
         int project_id = 13;
 
         resposta = await RESTProject.SendToStage(project_id,stage);
-    }
-    private async void Btn_AtualizarAnalise(object sender, EventArgs e)
-    {
-        bool resposta = new bool();
-
-        string descricao="Descrição teste";
-
-        int project_id = 13;
-        resposta = await RESTAnalysis.UpdateAnalysis(project_id,descricao);
-    }
-    private async void Btn_AtivarProjeto(object sender, EventArgs e)
-    {
-        bool resposta = new bool();
-
-        int project_id = 13;
-        resposta = await RESTAnalysis.ActivateProject(project_id);
-    }
-    private async void Btn_DeclinarProjeto(object sender, EventArgs e)
-    {
-        bool resposta = new bool();
-
-        int project_id = 13;
-        int decline_reason = 1;
-        resposta = await RESTAnalysis.DeclineProject(project_id, decline_reason);
-    }
-
+    }//-------------IMPLEMENTADO
     private async void OnProfileImageTapped(object sender, EventArgs e)
     {
         // Abre a galeria para selecionar uma imagem
@@ -118,7 +97,34 @@ public partial class PageTestes : ContentPage
 
             _img.Source = ImageSource.FromStream(() => new MemoryStream(imageByte));
         }
-    }
+    }//--------------IMPLEMENTADO
 
+    //ANALYSIS
+    private async void Btn_AtualizarAnalise(object sender, EventArgs e)
+    {
+        bool resposta = new bool();
 
+        string descricao="Descrição teste";
+
+        //public async Task<bool> UpdateAnalysis(int project_id, string descricao)
+
+        int project_id = 13;
+        resposta = await RESTAnalysis.UpdateAnalysis(project_id,descricao);
+    }//--------------IMPLEMENTADO
+    private async void Btn_AtivarProjeto(object sender, EventArgs e)
+    {
+        bool resposta = new bool();
+
+        int project_id = 13;
+        resposta = await RESTAnalysis.ActivateProject(project_id);
+    }//-----------------IMPLEMENTADO
+    private async void Btn_DeclinarProjeto(object sender, EventArgs e)
+    {
+        bool resposta = new bool();
+
+        int project_id = 13;
+        int decline_reason = 1;
+        resposta = await RESTAnalysis.DeclineProject(project_id, decline_reason);
+    }//---------------IMPLEMENTADO
 }
+

@@ -1,4 +1,5 @@
-﻿using Business.Inovacao;
+﻿using Business.Common;
+using Business.Inovacao;
 using CentralInovacao.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -38,14 +39,18 @@ namespace CentralInovacao.Repositories
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
             
-            IRestResponse request = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi+"/projects", body);
-
-            if (!(request.StatusCode == System.Net.HttpStatusCode.OK))
+            IRestResponse response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi+"/projects", body);
+         
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                await Shell.Current.DisplayAlert(" ", $"Erro: {request.Content}", "Retornar");
+                string errorMessage = FormatErrorMessage(response.Content);
+
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+
                 return false;
             }
             return true;
+
         }
 
         //Editar Projeto
@@ -71,16 +76,18 @@ namespace CentralInovacao.Repositories
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
-            try
+            IRestResponse response = CommonApi.DoPutWithJson(ModelAuthApi.UrlApi +
+                $"/projects/{project_id}/solicitation?user={user_id}", body);
+
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                IRestResponse request =
-                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/solicitation?user={user_id}", body);
+                string errorMessage = FormatErrorMessage(response.Content);
+
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+
+                return false;
             }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
-            return false;
+            return true;
         }
 
         //Classificar Projeto
@@ -135,21 +142,18 @@ namespace CentralInovacao.Repositories
             Project Projeto = new Project();
             string _parametros = $"/projects/{project_id}?user={user_id}";
 
-            try
-            {
-                var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi + _parametros);
+            IRestResponse response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi + _parametros);
 
-                if (response.IsSuccessful)
-                {
-                    Projeto = JsonConvert.DeserializeObject<Project>(response.Content);
-                    return Projeto;
-                }
-            }
-            catch (Exception ex)
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+                string errorMessage = FormatErrorMessage(response.Content);
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+                return Projeto;
             }
+
+            Projeto = JsonConvert.DeserializeObject<Project>(response.Content);
             return Projeto;
+            
         }
 
         //Carregar Lista Geral de Projetos
@@ -164,21 +168,17 @@ namespace CentralInovacao.Repositories
 
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
+            
+            var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", body);
 
-            try
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", body);
-
-                if (response.IsSuccessful)
-                {
-                    ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
-                    return ListaProjetos;
-                }
+                string errorMessage = FormatErrorMessage(response.Content);
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+                return ListaProjetos;
             }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
+            
+            ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
             return ListaProjetos;
         }
 
@@ -187,20 +187,16 @@ namespace CentralInovacao.Repositories
         {
             List<Project> ListaProjetos = new List<Project>();
 
-            try
-            {
-                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", filtro);
+            var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", filtro);
 
-                if (response.IsSuccessful)
-                {
-                    ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
-                    return ListaProjetos;
-                }
-            }
-            catch (Exception ex)
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+                string errorMessage = FormatErrorMessage(response.Content);
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+                return ListaProjetos;
             }
+
+            ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
             return ListaProjetos;
         }
 
@@ -220,21 +216,17 @@ namespace CentralInovacao.Repositories
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
-            try
-            {
-                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list",body);
+            var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", body);
 
-                if (response.IsSuccessful)
-                {
-                    ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
-                    return ListaProjetos;
-                }
-            }
-            catch (Exception ex)
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+                string errorMessage = FormatErrorMessage(response.Content);
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+                return ListaProjetos;
             }
-            return ListaProjetos;
+
+            ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
+            return ListaProjetos;           
         }
 
         //Carregar Lista de Projetos do Usuário por Filtro de Data
@@ -242,20 +234,16 @@ namespace CentralInovacao.Repositories
         {
             List<Project> ListaProjetos = new List<Project>();
             
-            try
+            var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", filtro);
+            
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + "/projects/list", filtro);
-
-                if (response.IsSuccessful)
-                {
-                    ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
-                    return ListaProjetos;
-                }
+                string errorMessage = FormatErrorMessage(response.Content);
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+                return ListaProjetos;
             }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
+            
+            ListaProjetos = JsonConvert.DeserializeObject<List<Project>>(response.Content);
             return ListaProjetos;
         }
 
@@ -279,21 +267,19 @@ namespace CentralInovacao.Repositories
         public async Task<bool> AddProjectImage(Project project,string body)
         {
             string _parametros = $"/projects/{project.Id}/add-image?user={project.User}";
-
-            try
+            
+            var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + _parametros,body);
+            
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                var response = CommonApi.DoPostWithJson(ModelAuthApi.UrlApi + _parametros,body);
+                string errorMessage = FormatErrorMessage(response.Content);
 
-                if (response.IsSuccessful)
-                {
-                    return true;
-                }
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+
+                return false;
             }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
-            return false;
+            await Shell.Current.DisplayAlert("Aviso", "Capa do Projeto alterada com Sucesso!", "Fechar");
+            return true;
         }
 
         //Formatar Mensagem de Erro

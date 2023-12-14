@@ -23,17 +23,17 @@ namespace CentralInovacao.Repositories
 
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
-
-            try
+            
+            IRestResponse response = CommonApi.DoPutWithJson(ModelAuthApi.UrlApi +
+                                    $"/projects/{project_id}/analysis?user={user_id}",body);
+            
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                IRestResponse request =
-                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/analysis?user={user_id}",body);
+                string errorMessage = FormatErrorMessage(response.Content);
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+                return false;
             }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
-            return false;
+            return true;
         }
 
         //Ativar Projeto
@@ -48,16 +48,16 @@ namespace CentralInovacao.Repositories
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
-            try
+            IRestResponse response = CommonApi.DoPutWithJson(ModelAuthApi.UrlApi +
+                    $"/projects/{project_id}/active?user={user_id}", body);
+
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                IRestResponse request =
-                CommonApi.DoPutWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/active?user={user_id}",body);
+                string errorMessage = FormatErrorMessage(response.Content);
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+                return false;
             }
-            catch (Exception ex)
-            {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
-            }
-            return false;
+            return true;
         }
 
         //Declinar Projeto
@@ -68,22 +68,50 @@ namespace CentralInovacao.Repositories
             );
 
             int user_id = Preferences.Get("AuthUserId", 0);
-
-            //{{url}}/projects/{{project}}/1/decline?user={{user}}
-
-            //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
+            IRestResponse response = CommonApi.DoDeleteWithJson(ModelAuthApi.UrlApi +
+                    $"/projects/{project_id}/{decline_reason}/decline?user={user_id}", body);
+
+            if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
+            {
+                string errorMessage = FormatErrorMessage(response.Content);
+                await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
+                return false;
+            }
+            return true;
+        }
+
+        //Formatar Mensagem de Erro
+        private string FormatErrorMessage(string rawErrorMessage)
+        {
             try
             {
-                IRestResponse request =
-                CommonApi.DoDeleteWithJson(ModelAuthApi.UrlApi + $"/projects/{project_id}/{decline_reason}/decline?user={user_id}", body);
+                // Encontra a posição do início da mensagem JSON
+                int startIndex = rawErrorMessage.IndexOf("{\"Message\":\"");
+
+                // Se encontrar o início da mensagem JSON, extrai apenas a mensagem
+                if (startIndex >= 0)
+                {
+                    // Remove a parte inicial indesejada
+                    rawErrorMessage = rawErrorMessage.Substring(startIndex + "{\"Message\":\"".Length);
+
+                    // Encontra o final da mensagem JSON
+                    int endIndex = rawErrorMessage.IndexOf("\"}");
+
+                    // Se encontrar o final da mensagem JSON, extrai apenas a mensagem
+                    if (endIndex >= 0)
+                    {
+                        rawErrorMessage = rawErrorMessage.Substring(0, endIndex);
+                    }
+                }
+
+                return rawErrorMessage;
             }
             catch (Exception ex)
             {
-                await Shell.Current.DisplayAlert(" ", ex.Message, "Retornar");
+                return "Ocorreu um erro ao processar a resposta.";
             }
-            return false;
         }
     }
 }

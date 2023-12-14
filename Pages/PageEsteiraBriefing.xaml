@@ -68,8 +68,9 @@
                     TextColor         = "White"
                     FontSize          = "15"
                     FontAttributes    = "Bold"
-                    BackgroundColor   = "#14d1ca"
+                    BackgroundColor   = "Cyan"
                     WidthRequest      = "200"
+                    Clicked           = "Button_EnviarSquad"
                     HorizontalOptions = "Start"/>
                 <Button
                     Grid.Row          = "0"
@@ -80,27 +81,43 @@
                     FontAttributes    = "Bold"
                     BackgroundColor   = "#14d1ca"
                     WidthRequest      = "200"
-                    HorizontalOptions ="Start"/>
+                    Clicked           = "Button_AtualizarAnalise"
+                    HorizontalOptions = "Start"/>
                 <Button
-                    Grid.Row        = "1"
-                    Grid.Column     = "0"
-                    Text            = "Alterar Capa do Projeto"
-                    TextColor       = "White"
-                    FontSize        = "15"
-                    FontAttributes  = "Bold"
-                    BackgroundColor = "#14d1ca"
-                    WidthRequest    = "200"
-                    HorizontalOptions="Start"/>
+                    Grid.Row          = "1"
+                    Grid.Column       = "0"
+                    Text              = "Alterar Capa do Projeto"
+                    TextColor         = "White"
+                    FontSize          = "15"
+                    FontAttributes    = "Bold"
+                    BackgroundColor   = "LightGreen"
+                    WidthRequest      = "200"
+                    Clicked           = "Button_AlterarCapaProjeto"
+                    HorizontalOptions = "Start"/>
                 <Button
-                    Grid.Row        = "1"
-                    Grid.Column     = "1"
-                    Text            = "Declinar Proposta"
-                    TextColor       = "White"
-                    FontSize        = "15"
-                    FontAttributes  = "Bold"
-                    BackgroundColor = "#14d1ca"
-                    WidthRequest    = "200"
-                    HorizontalOptions="Start"/>
+                    Grid.Row          = "1"
+                    Grid.Column       = "1"
+                    Text              = "Declinar Proposta"
+                    TextColor         = "White"
+                    FontSize          = "15"
+                    FontAttributes    = "Bold"
+                    BackgroundColor   = "PaleVioletRed"
+                    WidthRequest      = "200"
+                    IsVisible         = "{Binding StatusDeactivated}"
+                    Clicked           = "Button_Declinar"
+                    HorizontalOptions = "Start"/>
+                <Button
+                    Grid.Row          = "1"
+                    Grid.Column       = "1"
+                    Text              = "Ativar Proposta"
+                    TextColor         = "White"
+                    FontSize          = "15"
+                    FontAttributes    = "Bold"
+                    BackgroundColor   = "Green"
+                    WidthRequest      = "200"
+                    IsVisible         = "{Binding StatusActivated}"
+                    Clicked           = "Button_Ativar"
+                    HorizontalOptions = "Start"/>
             </Grid>
         </StackLayout>
     </ScrollView>

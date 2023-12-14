@@ -26,6 +26,10 @@ namespace CentralInovacao.ViewModel
         [ObservableProperty]
         private bool            _isRefreshing;
         [ObservableProperty]
+        private int             _statusActivated;
+        [ObservableProperty]
+        private int             _statusDeactivated;
+        [ObservableProperty]
         private Project         _project;
         [ObservableProperty]
         private RESTProject     _rESTProject;
@@ -126,9 +130,8 @@ namespace CentralInovacao.ViewModel
 
         }
 
-        public async void SalvarImagemProjeto(Project project, FileInfo fileInfo, string file)
+        public async void SalvarImagemProjeto(Project project, FileInfo fileInfo, string file)//--------------PARCIAL
         {
-
             var objJSON = new JObject(
             new JProperty("Project", project.Id),
             new JProperty("User", project.User),
@@ -138,11 +141,13 @@ namespace CentralInovacao.ViewModel
             new JProperty("Document",file)
             );
 
+            //FAZER VERIFICAÇÕES DA EXTENSÃO DO ARQUIVO E TAMBÉM DO TAMANHO
+
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(objJSON);
 
             //Popular a Lista de Projetos do Usuário
             await RESTProject.AddProjectImage(project, body);
-        }
+        } 
     }
 }
