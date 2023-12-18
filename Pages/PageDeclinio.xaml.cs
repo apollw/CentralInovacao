@@ -1,25 +1,50 @@
 using CentralInovacao.Models;
+using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
 
 namespace CentralInovacao.Pages;
 
 public partial class PageDeclinio : ContentPage
 {
-    Oportunidade          Oportunidade   = new Oportunidade();
-    ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
-    public PageDeclinio(Oportunidade oportunidade)
+    Project                 objProject       = new Project();
+    RESTAnalysis            objRESTAnalysis  = new RESTAnalysis();
+    RESTResources           objRESTResources = new RESTResources();
+    List<ModelGenericLocal> ListaDeRazoes    = new List<ModelGenericLocal>();
+
+    public PageDeclinio(Project projeto)
     {
         InitializeComponent();
-        Oportunidade   = oportunidade;
-        BindingContext = VMOportunidade;
-    }
-    private async void Btn_Declinada(object sender, EventArgs e)
-    {
-        Button btn = (Button)sender;
+        GetLista();
+        objProject = projeto;
 
-        btn.IsEnabled = false;
-        await DisplayAlert("Alerta", "Proposta Declinada", "Fechar");
-        await Shell.Current.GoToAsync($"//{nameof(PageInicio)}");
-        btn.IsEnabled = true;
+        _picker.ItemsSource        = ListaDeRazoes;
+        _picker.ItemDisplayBinding = new Binding("Description");
     }
+
+    public async void GetLista()
+    {
+        ListaDeRazoes = await objRESTResources.GetListReasons();
+    }
+
+    private async void Btn_Retornar(object sender, EventArgs e)
+    {
+        await Shell.Current.Navigation.PopAsync();
+    }
+
+    private async void Btn_Declinar(object sender, EventArgs e)
+    {
+        if (_picker.SelectedItem is ModelGenericLocal selected)
+        {
+            if (await objRESTAnalysis.DeclineProject(objProject.Id, selected.Id))
+            {
+                await DisplayAlert("Aviso","Proposta Declinada com Sucesso!","Retornar");
+                await Shell.Current.Navigation.PopModalAsync();
+            }            
+        }
+        else
+        {
+            await DisplayAlert("Aviso", "Por favor, selecione uma razão para declínio.", "OK");
+        }
+    }
+
 }

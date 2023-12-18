@@ -12,7 +12,6 @@ public partial class PageMinhasOportunidades : ContentPage
 	{
 		InitializeComponent();
         BindingContext = VMProject;
-        //VMProject.GetListaProjetosUsuario();
     }
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
@@ -59,18 +58,8 @@ public partial class PageMinhasOportunidades : ContentPage
 
 }
 
-//protected async override void OnAppearing()
+//protected override void OnAppearing()
 //{
 //    base.OnAppearing();
-
-//    activityIndicator.IsRunning = true;
-//    activityIndicator.IsVisible = true;
-
-//    //await VMOportunidade.CarregarOportunidadesAsyncLocal();
-//    VMProject.GetListaProjetosUsuario();
-
-//    //Reativa o botão após o fim da tarefa
-//    activityIndicator.IsRunning = false;
-//    activityIndicator.IsVisible = false;
 
 //}

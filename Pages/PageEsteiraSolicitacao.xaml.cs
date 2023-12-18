@@ -8,10 +8,10 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraSolicitacao : ContentPage
 {
+    RESTProject      objRESTProject    = new RESTProject();
+    RESTResources    objRESTResources  = new RESTResources();
     List<AreaLocal>  ListAreaLocal     = new List<AreaLocal>();
     List<ModelArea>  ProjectAreasLocal = new List<ModelArea>();
-    RESTResources    RESTResources     = new RESTResources();
-    RESTProject      RESTProject       = new RESTProject();
     ViewModelProject VMProject         = new ViewModelProject();
 
     public PageEsteiraSolicitacao(Project projeto)
@@ -19,13 +19,12 @@ public partial class PageEsteiraSolicitacao : ContentPage
         InitializeComponent();
         BindingContext    = VMProject;
         VMProject.Project = projeto;
-
         FillPage();
     }
 
     public async void FillPage()
     {
-        VMProject.ListAreaGeneral = await RESTResources.GetListAreas();
+        VMProject.ListAreaGeneral = await objRESTResources.GetListAreas();
 
         ListAreaLocal = VMProject.ListAreaGeneral.Select(modelArea =>
         {
@@ -51,7 +50,7 @@ public partial class PageEsteiraSolicitacao : ContentPage
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
         
-        if(await RESTProject.SendToStage(VMProject.Project.Id, 2))
+        if(await objRESTProject.SendToStage(VMProject.Project.Id, 2))
             await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
 
         btn.IsEnabled = true;        
@@ -60,16 +59,11 @@ public partial class PageEsteiraSolicitacao : ContentPage
     private async void Btn_ClassificarProjeto(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
+
         btn.IsEnabled = false;
-
-        int classificacao = 1; //Classificação vai de 1 a 3
-
-        if (await RESTProject.ClassifyProject(VMProject.Project.Id, classificacao))
-            await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
-
+        await Shell.Current.Navigation.PushAsync(new PageClassificar(VMProject.Project));
         btn.IsEnabled = true;
-
-    } //NÃO IMPLEMENTADO
+    }
 
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)
     {

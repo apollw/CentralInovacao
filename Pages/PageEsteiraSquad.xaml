@@ -34,7 +34,7 @@
         <Frame Grid.Row="1" Margin="0,0,0,15">
             <Grid RowDefinitions="8*,2*" ColumnDefinitions="*,*,*">
                 <!--MODELO DO FRAME DA LISTA-->
-                <Label 
+                <!--<Label 
                     Grid.Column       = "0" 
                     Text              = "LEANDERSON GUSTAVO SILVA E SILVA"
                     TextColor         = "Black"
@@ -51,7 +51,7 @@
                     Text              = "ATIVO"
                     TextColor         = "Black"
                     FontSize          = "15"
-                    HorizontalOptions = "Start"/>
+                    HorizontalOptions = "Start"/>-->
             </Grid>
         </Frame>
         
@@ -73,6 +73,7 @@
                 FontAttributes    = "Bold"
                 BackgroundColor   = "#14d1ca"
                 WidthRequest      =  "250"
+                Clicked           = "Button_EnviarPlanejamento"
                 HorizontalOptions = "End"/>
         </Grid>
         

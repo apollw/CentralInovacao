@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:CentralInovacao.ViewModel"
-             x:Class="CentralInovacao.Pages.PageInicio"
-             Title="Central de Ideias"
-             BackgroundColor="White">
+<ContentPage xmlns           = "http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x         = "http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel = "clr-namespace:CentralInovacao.ViewModel"
+             x:Class         = "CentralInovacao.Pages.PageInicio"
+             Title           = "Central de Ideias"
+             BackgroundColor = "White">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text   ="Logout" 
-                     Clicked="Btn_Logout"/>        
+        <ToolbarItem Text    = "Logout" 
+                     Clicked = "Btn_Logout"/>        
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
@@ -55,8 +55,8 @@
                     <VerticalStackLayout
                         Spacing         = "25"
                         BackgroundColor = "White">
-                        <Label 
-                            Text     = "{Binding Name,StringFormat='Bem-Vindo {0}!'}"
+                        <Label
+                            x:Name   = "_lblUsername"
                             FontSize = "20"
                             Style    = "{StaticResource labelContainer}"/>
                         <Image 

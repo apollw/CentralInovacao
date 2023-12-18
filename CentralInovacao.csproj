@@ -158,6 +158,9 @@
 	  <Compile Update="MainPage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\PageClassificar.xaml.cs">
+	    <DependentUpon>PageClassificar.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\PageDeclinio.xaml.cs">
 	    <DependentUpon>PageDeclinio.xaml</DependentUpon>
 	  </Compile>
@@ -200,6 +203,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\PageClassificar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\PageEsteiraGeral.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

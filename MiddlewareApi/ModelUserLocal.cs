@@ -17,7 +17,7 @@ namespace CentralInovacao.MiddlewareApi
             Usuario usuario = new Usuario();
 
             usuario.Id   = _id;
-            usuario.Nome = _name;
+            usuario.Name = _name;
 
             return usuario;
         }

@@ -1,3 +1,4 @@
+using Business.Inovacao;
 using CentralInovacao.Models;
 using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
@@ -6,19 +7,18 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraBriefing : ContentPage
 {
-    ViewModelProject VMProject    = new ViewModelProject();
-    RESTProject      RESTProject  = new RESTProject();
-    RESTAnalysis     RESTAnalysis = new RESTAnalysis();
-    
+    Project          objProject      = new Project();
+    RESTProject      objRESTProject  = new RESTProject();
+    RESTAnalysis     objRESTAnalysis = new RESTAnalysis();
+    ViewModelProject VMProject       = new ViewModelProject();
+
     public PageEsteiraBriefing(Project projeto)
     {
         InitializeComponent();
-        VMProject.Project           = projeto;
-        VMProject.StatusActivated   = (VMProject.Project.Status > 1) ? 1 : 0;
-        VMProject.StatusDeactivated = (VMProject.Project.Status > 1) ? 0 : 1;
-        BindingContext              = VMProject;
+        objProject     = projeto;
+        BindingContext = VMProject;
     }
-    
+
     private void OnEditorTextChanged1(object sender, TextChangedEventArgs e)
     {
         string oldText = e.OldTextValue;
@@ -36,21 +36,21 @@ public partial class PageEsteiraBriefing : ContentPage
     {
         string text = ((Editor)sender).Text;
     }
-    
+
+    protected async override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+        VMProject.Project = await objRESTProject.GetProject(objProject.Id, objProject.User);
+        VMProject.StatusActivated = (VMProject.Project.Status > 1) ? 1 : 0;
+        VMProject.StatusDeactivated = (VMProject.Project.Status > 1) ? 0 : 1;
+    }
+
     private async void Button_Declinar(object sender, EventArgs e)
     {
-        Button btn    = (Button)sender;
+        Button btn = (Button)sender;
+
         btn.IsEnabled = false;
-
-        int decline_reason = 1;
-
-        if (await RESTAnalysis.DeclineProject(VMProject.Project.Id, decline_reason))
-        {
-            VMProject.StatusActivated   = 1;
-            VMProject.StatusDeactivated = 0;
-
-            await DisplayAlert("Aviso", "Proposta Declinada", "Fechar");
-        }
+        await Shell.Current.Navigation.PushAsync(new PageDeclinio(VMProject.Project));
         btn.IsEnabled = true;
     }
 
@@ -59,7 +59,7 @@ public partial class PageEsteiraBriefing : ContentPage
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
 
-        if (await RESTAnalysis.ActivateProject(VMProject.Project.Id))
+        if (await objRESTAnalysis.ActivateProject(VMProject.Project.Id))
         {
             VMProject.StatusActivated   = 0;
             VMProject.StatusDeactivated = 1;
@@ -74,7 +74,7 @@ public partial class PageEsteiraBriefing : ContentPage
         Button btn    = (Button)sender; 
         btn.IsEnabled = false;
 
-        if (await RESTProject.SendToStage(VMProject.Project.Id, 3))
+        if (await objRESTProject.SendToStage(VMProject.Project.Id, 3))
             await DisplayAlert("Aviso", "Enviado para Definição de Squad", "Fechar");
         btn.IsEnabled = true;
     }
@@ -106,7 +106,7 @@ public partial class PageEsteiraBriefing : ContentPage
 
         string descricao = _editor1.Text;
 
-        if (await RESTAnalysis.UpdateAnalysis(VMProject.Project.Id, descricao))
+        if (await objRESTAnalysis.UpdateAnalysis(VMProject.Project.Id, descricao))
             await DisplayAlert("Aviso", "Análise atualizada!", "Fechar");
         btn.IsEnabled = true;
     }   

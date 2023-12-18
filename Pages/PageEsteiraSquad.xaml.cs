@@ -1,33 +1,36 @@
 using CentralInovacao.Models;
+using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
 
 namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraSquad : ContentPage
 {
-    //Oportunidade          Oportunidade   = new Oportunidade();
-    //ViewModelOportunidade VMOportunidade = new ViewModelOportunidade();
+    ViewModelProject VMProject   = new ViewModelProject();
+    RESTProject      RESTProject = new RESTProject();    
 
-    Project          Projeto = new Project();
-    ViewModelProject VMProject = new ViewModelProject();
-
-    //public PageEsteiraSquad(Oportunidade oportunidade)
-    //{
-    //    InitializeComponent();
-    //    Oportunidade   = oportunidade;
-    //    BindingContext = VMOportunidade;
-    //}
     public PageEsteiraSquad(Project projeto)
     {
         InitializeComponent();
-        Projeto = projeto;
-        BindingContext = VMProject;
+        VMProject.Project = projeto;
+        BindingContext    = VMProject;
     }
+
     private async void Btn_AddColaborador(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
         btn.IsEnabled = false;
         await DisplayAlert("Alerta", "Colaborador Adicionado", "Fechar");
         btn.IsEnabled = true; 
+    }
+
+    private async void Button_EnviarPlanejamento(object sender, EventArgs e)
+    {
+        Button btn = (Button)sender;
+        btn.IsEnabled = false;
+
+        if (await RESTProject.SendToStage(VMProject.Project.Id, 4))
+            await DisplayAlert("Aviso", "Enviado para Planejamento", "Fechar");
+        btn.IsEnabled = true;
     }
 }

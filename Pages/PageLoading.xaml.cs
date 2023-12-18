@@ -5,11 +5,13 @@ namespace CentralInovacao.Pages;
 public partial class PageLoading : ContentPage
 {
 	private readonly AuthService _authService;
+
 	public PageLoading(AuthService authService)
 	{
 		InitializeComponent();
 		_authService = authService;
 	}
+
     protected async override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);

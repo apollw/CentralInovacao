@@ -110,7 +110,7 @@ namespace CentralInovacao.Repositories
             }
             catch (Exception ex)
             {
-                return "Ocorreu um erro ao processar a resposta.";
+                return ex.Message;
             }
         }
     }

@@ -9,41 +9,15 @@ namespace CentralInovacao.Pages;
 public partial class PageInicio : ContentPage
 {
     private readonly AuthService _authService;
-    ModelUserLocal Usuario = new ModelUserLocal();
     
     public PageInicio(AuthService authService)
     {
         InitializeComponent();
-        _authService = authService;
-
-        // Recupera os dados do Usuário
-        if (Preferences.ContainsKey("AuthUserId") && Preferences.ContainsKey("AuthUserName"))
-        {
-            // 0 é um valor padrão
-            Usuario.Id = Preferences.Get("AuthUserId", 0);
-            // string.Empty é um valor padrão caso não exista
-            string NomeCompleto = Preferences.Get("AuthUserName", string.Empty);
-
-            // Divide a string em partes usando espaços como delimitador
-            string[] partes = NomeCompleto.Split(' ');
-
-            // Verifica se há pelo menos um nome
-            if (partes.Length > 0)
-            {
-                // Pega o primeiro nome e transforma em caixa baixa, exceto a primeira letra
-                string primeiroNome = partes[0].Substring(0, 1).ToUpper() + partes[0].Substring(1).ToLower();
-
-                Usuario.Name = primeiroNome;
-            }
-        }
-
-        BindingContext = Usuario;              
-
+        _authService   = authService;
     }
 
     private async void OnProfileImageTapped(object sender, EventArgs e)
     {
-        // Abre a galeria para selecionar uma imagem
         var result = await MediaPicker.PickPhotoAsync();
 
         if (result != null)
@@ -66,39 +40,48 @@ public partial class PageInicio : ContentPage
         // Define a duração da animação (em milissegundos)
         scaleAnimation.Commit(button, "PressingButtonAnimation", length: 250, easing: Easing.SinOut, finished: (v, c) => button.Scale = 1);
     }
-    private async void Btn_Logout(object sender, EventArgs e)
-    {   
-        _authService.Logout();
 
-        //Ao deslogar, apaga os dados que estão na ViewModel
-        Usuario.Id = 0;
-        Usuario.Name = String.Empty;
-        
+    private async void Btn_Logout(object sender, EventArgs e)
+    {
+        _authService.Logout();   
         await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
     }
+
     private async void OnImageTapped(object sender, EventArgs e)
     {
-        // URL do site
         string websiteUrl = "https://academia.ceapebrasil.org.br/university/";
-
-        // Abre o link do site no navegador
         await Launcher.OpenAsync(new Uri(websiteUrl));
     }
+
     private async void Btn_NovaOp(object sender, EventArgs e)
     {
         var button = (ImageButton)sender;
         int animationDuration = 100;
 
-        //Executa Animação
         Btn_Animation(button);
         await Task.Delay(animationDuration / 2);
       
         button.IsEnabled = false;
-
         await Shell.Current.GoToAsync($"{nameof(PageNovaOportunidade)}");
-
-        //Reativa o botão após o fim da tarefa
         button.IsEnabled = true;
        
+    }
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+
+        if (Preferences.ContainsKey("AuthUserId") && Preferences.ContainsKey("AuthUserName"))
+        {
+            string NomeCompleto = Preferences.Get("AuthUserName", string.Empty);
+            string[] partes = NomeCompleto.Split(' ');
+
+            if (partes.Length > 0)
+            {
+                string primeiroNome = partes[0].Substring(0, 1).ToUpper() + partes[0].Substring(1).ToLower();
+
+                _lblUsername.Text = "Bem vindo, " + primeiroNome + "!";
+            }
+        }
     }
 }
