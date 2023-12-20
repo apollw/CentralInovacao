@@ -33,7 +33,7 @@ public partial class PageMinhasOportunidades : ContentPage
                 btn.IsEnabled               = false;
 
                 VMProject.GetProjeto(project.Id, project.User);
-                await Navigation.PushAsync(new PageEsteiraGeral(VMProject.Project));
+                await Navigation.PushAsync(new PageEsteiraGeral(VMProject.ObjProject));
 
                 activityIndicator.IsRunning = false;
                 activityIndicator.IsVisible = false;
@@ -47,8 +47,9 @@ public partial class PageMinhasOportunidades : ContentPage
     {
         DateTime DateIni = _datePicker1.Date;
         DateTime DateEnd = _datePicker2.Date;
-
         VMProject.GetListaProjetosUsuarioFiltroPorData(DateIni, DateEnd);
+
+        //await Shell.Current.Navigation.PushAsync(new PageFiltro());
     }
 
     private void Btn_LimparFiltros(object sender, EventArgs e)

@@ -19,6 +19,8 @@
             <Button Text ="Update Analysis"                      Clicked="Btn_AtualizarAnalise"/>
             <Button Text ="Activate Project"                     Clicked="Btn_AtivarProjeto"/>
             <Button Text ="Decline Project"                      Clicked="Btn_DeclinarProjeto"/>
+            <Button Text ="Load Project Squad"                   Clicked="Btn_CarregarSquadProjeto"/>
+            <Button Text ="Add User in Squad"                    Clicked="Btn_AdicionarUsuarioSquad"/>
 
             <Button Text ="Adicionar Imagem no Projeto"          Clicked="OnProfileImageTapped"/>
             <Image x:Name="_img" WidthRequest="400"/>

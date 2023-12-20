@@ -9,15 +9,15 @@ namespace CentralInovacao.Pages;
 
 public partial class PageNovaOportunidade : ContentPage
 {
-    RESTResources         RESTResources = new RESTResources();
-    ViewModelProject      VMProject      = new ViewModelProject();
+    RESTResources    RESTResources = new RESTResources();
+    ViewModelProject VMProject     = new ViewModelProject();
 
     public PageNovaOportunidade()
 	{
 		InitializeComponent();
         BindingContext = VMProject;        
         FillPage();
-    }    
+    }   
 
     public async void FillPage()
     {
@@ -49,12 +49,12 @@ public partial class PageNovaOportunidade : ContentPage
         Button btn = (Button)sender;
         btn.IsEnabled = false;
 
-        VMProject.Project.User                = Preferences.Get("AuthUserId", 0);
-        VMProject.Project.Name                = _entryTitulo.Text; 
-        VMProject.Project.DescriptionPositive = _editor1.Text;
-        VMProject.Project.DescriptionNegative = _editor2.Text;
+        VMProject.ObjProject.User                = Preferences.Get("AuthUserId", 0);
+        VMProject.ObjProject.Name                = _entryTitulo.Text; 
+        VMProject.ObjProject.DescriptionPositive = _editor1.Text;
+        VMProject.ObjProject.DescriptionNegative = _editor2.Text;
 
-        if(await VMProject.SalvarProjeto(VMProject.Project))
+        if(await VMProject.SalvarProjeto(VMProject.ObjProject))
         {
             await Shell.Current.DisplayAlert("Aviso", "Projeto Registrado!", "Voltar");
             await Shell.Current.GoToAsync("..");
@@ -72,11 +72,11 @@ public partial class PageNovaOportunidade : ContentPage
         {
             if (e.Value)
             {
-                VMProject.Project.ListArea.Add(area);
+                VMProject.ObjProject.ListArea.Add(area);
             }
             else
             {
-                VMProject.Project.ListArea.Remove(area);
+                VMProject.ObjProject.ListArea.Remove(area);
             }
         }                
     }

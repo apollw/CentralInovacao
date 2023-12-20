@@ -60,7 +60,12 @@
                     VerticalTextAlignment = "Start"/>
             </Frame>
 
-            <Grid HorizontalOptions="Center" RowDefinitions="5*,5*" ColumnDefinitions="*,*" ColumnSpacing="5" RowSpacing="5">
+            <Grid
+                ColumnSpacing     = "5" 
+                RowSpacing        = "5"
+                RowDefinitions    = "5*,5*" 
+                ColumnDefinitions = "*,*" 
+                HorizontalOptions = "Center">
                 <Button
                     Grid.Row          = "0"
                     Grid.Column       = "0"
@@ -68,7 +73,7 @@
                     TextColor         = "White"
                     FontSize          = "15"
                     FontAttributes    = "Bold"
-                    BackgroundColor   = "Cyan"
+                    BackgroundColor   = "DarkCyan"
                     WidthRequest      = "200"
                     Clicked           = "Button_EnviarSquad"
                     HorizontalOptions = "Start"/>
@@ -90,7 +95,7 @@
                     TextColor         = "White"
                     FontSize          = "15"
                     FontAttributes    = "Bold"
-                    BackgroundColor   = "LightGreen"
+                    BackgroundColor   = "BlueViolet"
                     WidthRequest      = "200"
                     Clicked           = "Button_AlterarCapaProjeto"
                     HorizontalOptions = "Start"/>

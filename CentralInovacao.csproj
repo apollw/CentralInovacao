@@ -76,10 +76,6 @@
 	  <None Remove="Resources\Images\bin_closed.png" />
 	  <None Remove="Resources\Images\bin_empty.png" />
 	  <None Remove="Resources\Images\btn.png" />
-	  <None Remove="Resources\Images\btn_add1.png" />
-	  <None Remove="Resources\Images\btn_add2.png" />
-	  <None Remove="Resources\Images\btn_add3.png" />
-	  <None Remove="Resources\Images\btn_add4.png" />
 	  <None Remove="Resources\Images\btn_add5.png" />
 	  <None Remove="Resources\Images\btn_add6.png" />
 	  <None Remove="Resources\Images\btn_add7.png" />
@@ -103,9 +99,6 @@
 	  <None Remove="Resources\Images\img_banner.png" />
 	  <None Remove="Resources\Images\img_ceape.png" />
 	  <None Remove="Resources\Images\img_fotoperfil.png" />
-	  <None Remove="Resources\Images\img_medalha1.png" />
-	  <None Remove="Resources\Images\img_medalha2.png" />
-	  <None Remove="Resources\Images\img_medalha3.png" />
 	  <None Remove="Resources\Images\key.png" />
 	  <None Remove="Resources\Images\logo_ceape.png" />
 	  <None Remove="Resources\Images\no_wifi.png" />
@@ -124,6 +117,8 @@
 	  <None Remove="Resources\Images\shellicon_rank.png" />
 	  <None Remove="Resources\Images\shellicon_request.png" />
 	  <None Remove="Resources\Images\shellicon_score.png" />
+	  <None Remove="Resources\Images\star.png" />
+	  <None Remove="Resources\Images\thumb_down.png" />
 	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\verify.png" />
 	  <None Remove="Resources\Raw\Medalhas.txt" />
@@ -203,10 +198,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\PageAddColaborador.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\PageClassificar.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PageEsteiraGeral.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PageFiltro.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PageItem.xaml">

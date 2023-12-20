@@ -45,13 +45,13 @@
             <StackLayout Spacing="10">
                 <!--PRIMEIRO CONTÊINER-->
                 <Border Style="{StaticResource borderGeral}" HeightRequest="400">
-                    <Border.Shadow>
+                    <!--<Border.Shadow>
                         <Shadow 
                         Brush   = "Black"
                         Offset  = "10,10"
                         Radius  = "20"
                         Opacity = "0.5"/>
-                    </Border.Shadow>
+                    </Border.Shadow>-->
                     <VerticalStackLayout
                         Spacing         = "25"
                         BackgroundColor = "White">
@@ -147,14 +147,14 @@
                 </Border>
 
                 <!--SEGUNDO CONTÊINER-->
-                <Border Style="{StaticResource borderGeral}" Margin="0,0,0,100">
-                    <Border.Shadow>
+                <Border Style="{StaticResource borderGeral}" Margin="10,0,10,100">
+                    <!--<Border.Shadow>
                         <Shadow 
                             Brush   = "black"
                             Offset  = "10,10"
                             Radius  = "20"
                             Opacity = "0.5"/>
-                    </Border.Shadow>
+                    </Border.Shadow>-->
                     <VerticalStackLayout 
                         Spacing = "10" 
                         Margin  = "10">

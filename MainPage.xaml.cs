@@ -7,12 +7,14 @@ public partial class MainPage : ContentPage
 {
     private readonly AuthService         _authService;
     private readonly ConnectivityService _connectivityService;
+
     public MainPage(AuthService authService, ConnectivityService connectivityService)
     {
         InitializeComponent();        
         _authService         = authService;
         _connectivityService = connectivityService;
     }
+
     protected override async void OnAppearing()
     {
         base.OnAppearing();

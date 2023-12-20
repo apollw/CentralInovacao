@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns   = "http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class = "CentralInovacao.Pages.PageFiltro"
+             Title   = "Localizar Projetos">
+
+    <ContentPage.Resources>
+        <Style TargetType = "CheckBox">
+            <Setter Property = "HorizontalOptions" Value = "End"/>
+            <Setter Property = "HeightRequest"     Value = "50"/>
+            <Setter Property = "Color"             Value = "#14d1ca"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView HorizontalOptions="Center">
+        <StackLayout Margin = "5" HorizontalOptions="Center">
+            <Label   
+                Text           = "Nome do Projeto/Oportunidade"                       
+                FontAttributes = "Bold"
+                Padding        = "5"
+                HorizontalOptions = "Center"/>
+            <Frame 
+                BorderColor   = "DarkGray" 
+                CornerRadius  = "5"
+                HeightRequest = "50"
+                WidthRequest  = "385">
+                <Entry   
+                    x:Name                = "_entryTitulo"
+                    MaxLength             = "50"
+                    FontSize              = "18"
+                    HeightRequest         = "45"
+                    WidthRequest          = "375"
+                    Placeholder           = "Insira um título..."
+                    PlaceholderColor      = "LightGray"
+                    HorizontalOptions     = "Start"
+                    VerticalTextAlignment = "Start"/>
+            </Frame>
+
+            <Grid
+                Grid.ColumnSpan   = "2"
+                Margin            = "5"
+                RowDefinitions    = "*,*"
+                ColumnDefinitions = "*,*,*"
+                ColumnSpacing     = "10"
+                HorizontalOptions = "Center">
+                
+                <Border
+                    Grid.Row          = "0"
+                    Grid.Column       = "1"
+                    HeightRequest     = "50"
+                    WidthRequest      = "130">
+                    <StackLayout>
+                        <Label 
+                            Text              = "Início"
+                            FontSize          = "10"
+                            FontAttributes    = "Bold"
+                            HorizontalOptions = "Center"/>
+                        <DatePicker
+                            x:Name        = "_datePicker1"
+                            HeightRequest = "35"
+                            WidthRequest  = "100"
+                            Format        = "dd/MM/yyyy"/>
+                    </StackLayout>
+                </Border>
+                
+                <Border
+                    Grid.Row          = "0"
+                    Grid.Column       = "2"
+                    HeightRequest     = "50"
+                    WidthRequest      = "130">
+                    <StackLayout>
+                        <Label 
+                            Text              = "Término"
+                            FontSize          = "10"
+                            FontAttributes    = "Bold"
+                            HorizontalOptions = "Center"/>
+                        <DatePicker
+                            x:Name        = "_datePicker2"
+                            HeightRequest = "35"
+                            WidthRequest  = "100"
+                            Format        = "dd/MM/yyyy"/>
+                    </StackLayout>
+                </Border>
+            </Grid>
+            
+            <Label   
+                Text              = "Setores"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Center"/>
+
+            <CollectionView 
+                x:Name      = "_CollectionViewAreas" 
+                ItemsSource = "{Binding ListAreaGeneral}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,*" MaximumWidthRequest="450">
+                            <Label
+                                Grid.Column = "0"
+                                Text        = "{Binding Name}" />
+                            <CheckBox
+                                Grid.Column       = "1"
+                                HorizontalOptions = "Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label   
+                Text              = "Status"
+                FontAttributes    = "Bold"
+                Padding           = "5"
+                HorizontalOptions = "Center"/>
+
+            <CollectionView x:Name="_CollectionViewStatus" ItemsSource="{Binding ListAreaGeneral}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,*" MaximumWidthRequest="450">
+                            <Label
+                                Grid.Column = "0"
+                                Text        = "{Binding Description}" />
+                            <CheckBox
+                                Grid.Column       = "1"
+                                HorizontalOptions = "Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout>
+                <Label 
+                    Text="Filtrar Somente meus Projetos" 
+                    FontAttributes="Bold"
+                    VerticalTextAlignment="Center"/>
+                <CheckBox 
+                    BackgroundColor = "#14d1ca"
+                    Margin          = "10"/>
+            </HorizontalStackLayout>
+            
+            <Button 
+                Text            = "Localizar"
+                TextColor       = "White"
+                FontSize        = "18"
+                FontAttributes  = "Bold"
+                BackgroundColor = "#14d1ca"
+                Margin          = "10"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

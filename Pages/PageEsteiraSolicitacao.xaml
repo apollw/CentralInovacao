@@ -13,13 +13,24 @@
     </ContentPage.Resources>
 
     <ScrollView Margin="10">
-        <StackLayout Spacing = "3">
-
-            <Label Text="(*) Campos Obrigatórios"/>
+        <StackLayout Spacing = "3">            
             <Label
-                x:Name                = "_lblUsuario"
-                FontAttributes        = "Bold"
-                Padding               = "5"/>
+                x:Name         = "_lblUsuario"
+                FontAttributes = "Bold"
+                Padding        = "5"/>
+            <HorizontalStackLayout Spacing="10" Margin="5">
+                <Label 
+                    Text                  = "Classificação:"
+                    FontAttributes        = "Bold"
+                    VerticalTextAlignment = "Center"/>
+                <Label 
+                    Text                  = "{Binding Project.Classification}"
+                    FontAttributes        = "Bold"
+                    VerticalTextAlignment = "Center"/>
+                <Image 
+                    Source              = "star.png"
+                    MaximumWidthRequest = "35"/>                
+            </HorizontalStackLayout>
             <Label   
                 Text    = "Campos Obrigatórios (*)"                      
                 Padding = "5"/>
@@ -115,7 +126,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Grid ColumnDefinitions="*,*,*">
+            <HorizontalStackLayout Spacing="15">
                 <Button
                     Grid.Column     = "0"
                     Text            = "Classificar Projeto"
@@ -146,7 +157,7 @@
                     WidthRequest    = "250"
                     Clicked         = "Btn_SalvarOportunidade"
                     HorizontalOptions="Start"/>
-            </Grid>
+            </HorizontalStackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>

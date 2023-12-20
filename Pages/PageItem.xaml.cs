@@ -6,17 +6,17 @@ namespace CentralInovacao.Pages;
 public partial class PageItem : ContentPage
 {
     Tarefa          Tarefa       = new Tarefa();
-    Oportunidade    Oportunidade = new Oportunidade(); 
+    //Oportunidade    Oportunidade = new Oportunidade(); 
     ViewModelTarefa VMTarefa     = new ViewModelTarefa();
         
-    public PageItem(Oportunidade oportunidade, Tarefa tarefa)
-    {
-        InitializeComponent();
-        Tarefa         = tarefa;
-        Oportunidade   = oportunidade;
-        BindingContext = Tarefa;
-        //FillPage();
-    }
+    //public PageItem(Oportunidade oportunidade, Tarefa tarefa)
+    //{
+    //    InitializeComponent();
+    //    Tarefa         = tarefa;
+    //    Oportunidade   = oportunidade;
+    //    BindingContext = Tarefa;
+    //    //FillPage();
+    //}
 
     private async void Btn_SalvarItem(object sender, EventArgs e)
     {

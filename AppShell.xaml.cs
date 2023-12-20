@@ -17,6 +17,7 @@ public partial class AppShell : Shell
         //Routing.RegisterRoute(nameof(PageMinhasOportunidades)  , typeof(PageMinhasOportunidades));
 
         //Registro de Rotas
+        Routing.RegisterRoute(nameof(PageFiltro)                , typeof(PageFiltro));
         Routing.RegisterRoute(nameof(PageProjeto)               , typeof(PageProjeto));
         Routing.RegisterRoute(nameof(PageLoading)               , typeof(PageLoading));
         Routing.RegisterRoute(nameof(PageEsteiraSquad)          , typeof(PageEsteiraSquad));
@@ -25,8 +26,5 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(PageEsteiraSolicitacao)    , typeof(PageEsteiraSolicitacao));
         Routing.RegisterRoute(nameof(PageEsteiraPlanejamento)   , typeof(PageEsteiraPlanejamento));
         Routing.RegisterRoute(nameof(PageEsteiraAcompanhamento) , typeof(PageEsteiraAcompanhamento));
-        //Routing.RegisterRoute(nameof(PageEsteiraGeral)        , typeof(PageEsteiraGeral));
-
-
     }
 }

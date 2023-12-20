@@ -2,6 +2,7 @@ using Business.Inovacao;
 using CentralInovacao.Models;
 using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
+using Microsoft.Maui.Controls.PlatformConfiguration;
 
 namespace CentralInovacao.Pages;
 
@@ -40,9 +41,9 @@ public partial class PageEsteiraBriefing : ContentPage
     protected async override void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
-        VMProject.Project = await objRESTProject.GetProject(objProject.Id, objProject.User);
-        VMProject.StatusActivated = (VMProject.Project.Status > 1) ? 1 : 0;
-        VMProject.StatusDeactivated = (VMProject.Project.Status > 1) ? 0 : 1;
+        VMProject.ObjProject        = await objRESTProject.GetProject(objProject.Id, objProject.User);
+        VMProject.StatusActivated   = (VMProject.ObjProject.Status > 1) ? 1 : 0;
+        VMProject.StatusDeactivated = (VMProject.ObjProject.Status > 1) ? 0 : 1;
     }
 
     private async void Button_Declinar(object sender, EventArgs e)
@@ -50,7 +51,7 @@ public partial class PageEsteiraBriefing : ContentPage
         Button btn = (Button)sender;
 
         btn.IsEnabled = false;
-        await Shell.Current.Navigation.PushAsync(new PageDeclinio(VMProject.Project));
+        await Shell.Current.Navigation.PushAsync(new PageDeclinio(VMProject.ObjProject));
         btn.IsEnabled = true;
     }
 
@@ -59,7 +60,7 @@ public partial class PageEsteiraBriefing : ContentPage
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
 
-        if (await objRESTAnalysis.ActivateProject(VMProject.Project.Id))
+        if (await objRESTAnalysis.ActivateProject(VMProject.ObjProject.Id))
         {
             VMProject.StatusActivated   = 0;
             VMProject.StatusDeactivated = 1;
@@ -74,7 +75,7 @@ public partial class PageEsteiraBriefing : ContentPage
         Button btn    = (Button)sender; 
         btn.IsEnabled = false;
 
-        if (await objRESTProject.SendToStage(VMProject.Project.Id, 3))
+        if (await objRESTProject.SendToStage(VMProject.ObjProject.Id, 3))
             await DisplayAlert("Aviso", "Enviado para Definição de Squad", "Fechar");
         btn.IsEnabled = true;
     }
@@ -89,15 +90,21 @@ public partial class PageEsteiraBriefing : ContentPage
         if (result != null)
         {
             FileInfo f = new FileInfo(result.FullPath);
-
+            
             byte[] imageByte = File.ReadAllBytes(f.FullName);            
-            string file = Convert.ToBase64String(imageByte);           
-
-            VMProject.SalvarImagemProjeto(VMProject.Project, f, file);
+            string file = Convert.ToBase64String(imageByte);
+            
+            if(imageByte.Length <= 100000)
+            {
+                VMProject.SalvarImagemProjeto(VMProject.ObjProject, f, file);
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Aviso", $"Tamanho do arquivo excede os limites (Máx: 100 KB)", "Retornar");
+            }
         }
-
         btn.IsEnabled = true;
-    } //--------------PARCIAL
+    } 
 
     private async void Button_AtualizarAnalise(object sender, EventArgs e)
     {
@@ -106,9 +113,10 @@ public partial class PageEsteiraBriefing : ContentPage
 
         string descricao = _editor1.Text;
 
-        if (await objRESTAnalysis.UpdateAnalysis(VMProject.Project.Id, descricao))
+        if (await objRESTAnalysis.UpdateAnalysis(VMProject.ObjProject.Id, descricao))
             await DisplayAlert("Aviso", "Análise atualizada!", "Fechar");
         btn.IsEnabled = true;
-    }   
+    }
+    
 
 }

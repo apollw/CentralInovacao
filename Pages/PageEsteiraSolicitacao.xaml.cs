@@ -18,7 +18,7 @@ public partial class PageEsteiraSolicitacao : ContentPage
     {
         InitializeComponent();
         BindingContext    = VMProject;
-        VMProject.Project = projeto;
+        VMProject.ObjProject = projeto;
         FillPage();
     }
 
@@ -32,25 +32,25 @@ public partial class PageEsteiraSolicitacao : ContentPage
             {
                 Id   = modelArea.Id,
                 Name = modelArea.Name,
-                IsSelected = VMProject.Project.ListArea.Any(a => a.Id == modelArea.Id)
+                IsSelected = VMProject.ObjProject.ListArea.Any(a => a.Id == modelArea.Id)
             };
             return areaLocal;
         }).ToList();
 
         _CollectionViewAreas.ItemsSource = ListAreaLocal;
 
-        _lblUsuario.Text  = VMProject.Project.LkpUser;
-        _entryTitulo.Text = VMProject.Project.Name;
-        _editor1.Text     = VMProject.Project.DescriptionPositive;
-        _editor2.Text     = VMProject.Project.DescriptionNegative;
+        _lblUsuario.Text  = VMProject.ObjProject.LkpUser;
+        _entryTitulo.Text = VMProject.ObjProject.Name;
+        _editor1.Text     = VMProject.ObjProject.DescriptionPositive;
+        _editor2.Text     = VMProject.ObjProject.DescriptionNegative;
     }
 
-    private async void Btn_EnviarAnalise(object sender, EventArgs e)
+    private async void Btn_EnviarAnalise(object sender, EventArgs e)    
     {
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
         
-        if(await objRESTProject.SendToStage(VMProject.Project.Id, 2))
+        if(await objRESTProject.SendToStage(VMProject.ObjProject.Id, 2))
             await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
 
         btn.IsEnabled = true;        
@@ -61,7 +61,14 @@ public partial class PageEsteiraSolicitacao : ContentPage
         Button btn = (Button)sender;
 
         btn.IsEnabled = false;
-        await Shell.Current.Navigation.PushAsync(new PageClassificar(VMProject.Project));
+        if (VMProject.ObjProject.CanUpdateClassification)
+        {
+            await Shell.Current.Navigation.PushAsync(new PageClassificar(VMProject.ObjProject));
+        }
+        else
+        {
+            await Shell.Current.DisplayAlert("Aviso","Apenas diretores do CEAPE Brasil podem classificar um projeto!","Retornar");
+        }
         btn.IsEnabled = true;
     }
 
@@ -70,12 +77,12 @@ public partial class PageEsteiraSolicitacao : ContentPage
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
 
-        VMProject.Project.User                = Preferences.Get("AuthUserId", 0);
-        VMProject.Project.Name                = _entryTitulo.Text;
-        VMProject.Project.DescriptionPositive = _editor1.Text;
-        VMProject.Project.DescriptionNegative = _editor2.Text;
+        VMProject.ObjProject.User                = Preferences.Get("AuthUserId", 0);
+        VMProject.ObjProject.Name                = _entryTitulo.Text;
+        VMProject.ObjProject.DescriptionPositive = _editor1.Text;
+        VMProject.ObjProject.DescriptionNegative = _editor2.Text;
 
-        VMProject.EditarProjeto(VMProject.Project,ProjectAreasLocal);
+        VMProject.EditarProjeto(VMProject.ObjProject,ProjectAreasLocal);
 
         await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
         await Shell.Current.GoToAsync("..");
@@ -83,7 +90,7 @@ public partial class PageEsteiraSolicitacao : ContentPage
         btn.IsEnabled = true;
     }
 
-    public  void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+    private void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
     {
         var checkBox = sender as CheckBox;
 
