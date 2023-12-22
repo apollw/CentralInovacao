@@ -33,8 +33,8 @@
         
         <Frame Grid.Row="1" Margin="0,0,0,15">
             <CollectionView
-                x:Name          = "_collectionViewSquad"
-                ItemsSource     = "{Binding SquadProject}">
+                x:Name      = "_collectionViewSquad"
+                ItemsSource = "{Binding SquadProject}">
                 <CollectionView.EmptyView>
                     <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
                         <Label
@@ -62,20 +62,44 @@
                                 Text                    = "{Binding LkpFunction}"
                                 TextColor               = "Black"
                                 FontSize                = "14"
-                                HorizontalTextAlignment = "Center"/>
-                            <Label
-                                Grid.Column             = "2"
-                                Text                    = "{Binding LkpStatus}"
-                                TextColor               = "Black"
-                                FontSize                = "14"
-                                HorizontalTextAlignment = "Center"/>
+                                HorizontalTextAlignment = "Center"/>                                                       
+                            <Grid 
+                                Grid.Column       = "2"
+                                ColumnSpacing     = "15"
+                                ColumnDefinitions = "*,*,*" 
+                                HorizontalOptions = "Center">
+                                <Label
+                                    Grid.Column     = "0"
+                                    Text            = "{Binding LkpStatus}"
+                                    TextColor       = "Black"
+                                    FontSize        = "14"/>
+                                <ImageButton
+                                    Grid.Column     = "1"
+                                    Source          = "change.png"
+                                    WidthRequest    = "25"
+                                    HeightRequest   = "25"
+                                    VerticalOptions = "Start"
+                                    Clicked         = "Button_AtualizarUsuarioSquad"/>
+                                <ImageButton
+                                    Grid.Column     = "2"
+                                    Source          = "delete.png"
+                                    WidthRequest    = "25"
+                                    HeightRequest   = "25"
+                                    VerticalOptions = "Start"
+                                    Clicked         = "Button_ExcluirUsuarioSquad"/>
+                            </Grid>                            
                         </Grid>                        
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Frame>
         
-        <Grid ColumnDefinitions="8*,2*" Grid.Row="2" Margin="0,0,0,15">
+        <Grid 
+            Grid.Row          = "2"
+            Margin            = "0,0,0,15"
+            ColumnSpacing     = "15"
+            ColumnDefinitions = "*,*"
+            HorizontalOptions = "End">
             <Button
                 Grid.Column       = "0"
                 Text              = "Adicionar Colaborador"
@@ -84,8 +108,8 @@
                 FontAttributes    = "Bold"
                 BackgroundColor   = "#14d1ca"
                 WidthRequest      = "250"
-                Clicked           = "Btn_AddColaborador"
-                HorizontalOptions = "End"/>
+                Clicked           = "Button_AddColaborador"
+                HorizontalOptions = "Start"/>
             <Button
                 Grid.Column       = "1"
                 Text              = "Enviar para Planejamento"
@@ -96,8 +120,7 @@
                 WidthRequest      =  "250"
                 Clicked           = "Button_EnviarPlanejamento"
                 HorizontalOptions = "End"/>
-        </Grid>
-        
+        </Grid>        
     </Grid>
     
 </ContentPage>

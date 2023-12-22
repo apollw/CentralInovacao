@@ -1,22 +1,18 @@
 using CentralInovacao.Models;
 using CentralInovacao.Repositories;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace CentralInovacao.Pages;
 
 public partial class PageClassificar : ContentPage
 {
-    Project                 objProject            = new Project();
-    RESTProject             objRESTProject        = new RESTProject();
-    RESTResources           objRESTResources      = new RESTResources();
+    Project                 _objProject           = new Project();
     List<ModelGenericLocal> ListaDeClassificacoes = new List<ModelGenericLocal>();
 
     public PageClassificar(Project projeto)
 	{
 		InitializeComponent();
         GetLista();
-        objProject = projeto;
+        _objProject = projeto;
 
         _picker.ItemsSource        = ListaDeClassificacoes;
         _picker.ItemDisplayBinding = new Binding("Description");
@@ -24,19 +20,19 @@ public partial class PageClassificar : ContentPage
 
     public async void GetLista()
     {
-        ListaDeClassificacoes = await objRESTResources.GetListClassifications();
+        ListaDeClassificacoes = await RESTResources.GetListClassifications();
     }
 
-    private async void Btn_Retornar(object sender, EventArgs e)
+    private async void Button_Retornar(object sender, EventArgs e)
     {
         await Shell.Current.Navigation.PopAsync();
     }
 
-    private async void Btn_Classificar(object sender, EventArgs e)
+    private async void Button_Classificar(object sender, EventArgs e)
     {
         if (_picker.SelectedItem is ModelGenericLocal selected)
         {
-            if (await objRESTProject.ClassifyProject(objProject.Id, selected.Id))
+            if (await RESTProject.ClassifyProject(_objProject.Id, selected.Id))
             {
                 await DisplayAlert("Aviso", "Classificação Registrada!", "Retornar");
                 await Shell.Current.Navigation.PopModalAsync();

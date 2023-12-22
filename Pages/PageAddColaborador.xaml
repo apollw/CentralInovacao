@@ -26,6 +26,22 @@
             FontSize          = "18"
             FontAttributes    = "Bold"
             HorizontalOptions = "Center"/>
+
+        <SearchBar
+            x:Name       = "_searchBar"
+            Placeholder  = "Digite um Nome"
+            TextChanged  = "SearchBar_TextChanged"
+            WidthRequest = "350"/>
+
+        <ListView x:Name = "_listView" ItemTapped="OnUserTapped" WidthRequest = "350">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell 
+                        Text="{Binding Name}">                        
+                    </TextCell>
+                </DataTemplate>                
+            </ListView.ItemTemplate>
+        </ListView>
         
         <Button 
             Text            = "Adicionar à Squad"
@@ -34,6 +50,7 @@
             TextColor       = "White"
             FontSize        = "18"
             FontAttributes  = "Bold"
-            Clicked         = "Btn_Add_Colaborador"/>
+            Clicked         = "Button_Add_Colaborador"
+            WidthRequest    = "350"/>
     </StackLayout>
 </ContentPage>

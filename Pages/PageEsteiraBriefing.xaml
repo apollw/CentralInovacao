@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CentralInovacao.Pages.PageEsteiraBriefing"
-             Title="Briefing e Análise">
+<ContentPage xmlns   = "http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class = "CentralInovacao.Pages.PageEsteiraBriefing"
+             Title   = "Briefing e Análise">
 
     <ContentPage.Resources>
         <Style TargetType = "CheckBox">
@@ -24,16 +24,16 @@
                 CornerRadius  = "5"
                 HeightRequest = "50"
                 WidthRequest  = "385">
-                <Entry   
-                    x:Name                = "_entryAnalyst"
-                    Text                  = "{Binding Project.LkpAnalyst}"
-                    IsReadOnly            = "True"
-                    MaxLength             = "50"
-                    FontSize              = "18"
-                    HeightRequest         = "45"
-                    WidthRequest          = "375"
-                    HorizontalOptions     = "Start"
-                    VerticalTextAlignment = "Start"/>
+                    <Entry   
+                        x:Name                = "_entryAnalyst"
+                        Text                  = "{Binding ObjProject.LkpAnalyst}"
+                        IsReadOnly            = "True"
+                        MaxLength             = "50"
+                        FontSize              = "18"
+                        HeightRequest         = "45"
+                        WidthRequest          = "375"
+                        HorizontalOptions     = "Start"
+                        VerticalTextAlignment = "Start"/>
             </Frame>
             <Label   
                 Text              = "Parecer do Analista:"
@@ -45,10 +45,11 @@
                 CornerRadius  = "5"
                 HeightRequest = "175"
                 WidthRequest  = "385">
-                <Editor
+                <VerticalStackLayout>
+                    <Editor
                     x:Name                = "_editor1"
-                    Text                  = "{Binding Project.DescriptionAnalyst}"
-                    MaxLength             = "250"
+                    Text                  = "{Binding ObjProject.DescriptionAnalyst}"
+                    MaxLength             = "300"
                     WidthRequest          = "375"
                     HeightRequest         = "145"
                     FontSize              = "15"
@@ -58,6 +59,8 @@
                     Completed             = "OnEditorCompleted"
                     VerticalOptions       = "Center"
                     VerticalTextAlignment = "Start"/>
+                    <Label x:Name="_lblCaracteresRestantes"/>
+                </VerticalStackLayout>                
             </Frame>
 
             <Grid

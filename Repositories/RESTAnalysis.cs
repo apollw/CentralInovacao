@@ -13,7 +13,7 @@ namespace CentralInovacao.Repositories
     public class RESTAnalysis
     {
         //Atualizar Análise
-        public async Task<bool> UpdateAnalysis(int project_id, string descricao)
+        public async static Task<bool> UpdateAnalysis(int project_id, string descricao)
         {
             var projetoJSON = new JObject(
                 new JProperty("DescriptionAnalyst", descricao)
@@ -29,7 +29,7 @@ namespace CentralInovacao.Repositories
             
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
                 return false;
             }
@@ -37,7 +37,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Ativar Projeto
-        public async Task<bool> ActivateProject(int project_id)
+        public async static Task<bool> ActivateProject(int project_id)
         {
             var projetoJSON = new JObject(
                 new JProperty(" ", " ")
@@ -53,7 +53,7 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
                 return false;
             }
@@ -61,7 +61,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Declinar Projeto
-        public async Task<bool> DeclineProject(int project_id, int decline_reason)
+        public async static Task<bool> DeclineProject(int project_id, int decline_reason)
         {
             var projetoJSON = new JObject(
                 new JProperty(" ", " ")
@@ -75,43 +75,11 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
                 return false;
             }
             return true;
-        }
-
-        //Formatar Mensagem de Erro
-        private string FormatErrorMessage(string rawErrorMessage)
-        {
-            try
-            {
-                // Encontra a posição do início da mensagem JSON
-                int startIndex = rawErrorMessage.IndexOf("{\"Message\":\"");
-
-                // Se encontrar o início da mensagem JSON, extrai apenas a mensagem
-                if (startIndex >= 0)
-                {
-                    // Remove a parte inicial indesejada
-                    rawErrorMessage = rawErrorMessage.Substring(startIndex + "{\"Message\":\"".Length);
-
-                    // Encontra o final da mensagem JSON
-                    int endIndex = rawErrorMessage.IndexOf("\"}");
-
-                    // Se encontrar o final da mensagem JSON, extrai apenas a mensagem
-                    if (endIndex >= 0)
-                    {
-                        rawErrorMessage = rawErrorMessage.Substring(0, endIndex);
-                    }
-                }
-
-                return rawErrorMessage;
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
+        }        
     }
 }

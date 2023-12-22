@@ -29,6 +29,11 @@ public partial class PageNovaOportunidade : ContentPage
     {
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
+
+        int maxLength = 300;
+        int caracteresRestantes = maxLength - newText.Length;
+        _lblCaracteresRestantes1.Text = $"{caracteresRestantes} caracteres restantes";
+
         string myText  = _editor1.Text;
     }
 
@@ -36,6 +41,11 @@ public partial class PageNovaOportunidade : ContentPage
     {
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
+
+        int maxLength = 300;
+        int caracteresRestantes = maxLength - newText.Length;
+        _lblCaracteresRestantes2.Text = $"{caracteresRestantes} caracteres restantes";
+
         string myText  = _editor2.Text;
     }
 

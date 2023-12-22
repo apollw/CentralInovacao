@@ -38,42 +38,46 @@
                     VerticalTextAlignment = "Start"/>
             </Frame>
             <Label   
-                Text              = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil (Máx: 250 caracteres): (*)"
+                Text              = "Descreva um breve resumo de como essa solução pode impactar POSITIVAMENTE o Ceape Brasil (Máx: 300 caracteres): (*)"
                 FontAttributes    = "Bold"
                 Padding           = "5"
                 HorizontalOptions = "Start"/>
             <Frame 
                 BorderColor   = "DarkGray" 
                 CornerRadius  = "5"
-                HeightRequest = "175"
+                HeightRequest = "200"
                 WidthRequest  = "385">
-                <Editor
-                    x:Name                = "_editor1"
-                    MaxLength             = "250"
-                    WidthRequest          = "375"
-                    HeightRequest         = "145"
-                    FontSize              = "15"
-                    Placeholder           = "Insira uma descrição..."
-                    PlaceholderColor      = "LightGray"
-                    HorizontalOptions     = "Start"
-                    TextChanged           = "OnEditorTextChanged1"
-                    Completed             = "OnEditorCompleted"
-                    VerticalOptions       = "Center"
-                    VerticalTextAlignment = "Start"/>
+                <VerticalStackLayout>
+                    <Editor
+                        x:Name                = "_editor1"
+                        MaxLength             = "300"
+                        WidthRequest          = "375"
+                        HeightRequest         = "145"
+                        FontSize              = "15"
+                        Placeholder           = "Insira uma descrição..."
+                        PlaceholderColor      = "LightGray"
+                        HorizontalOptions     = "Start"
+                        TextChanged           = "OnEditorTextChanged1"
+                        Completed             = "OnEditorCompleted"
+                        VerticalOptions       = "Center"
+                        VerticalTextAlignment = "Start"/>
+                    <Label x:Name="_lblCaracteresRestantes1"/>
+                </VerticalStackLayout>                
             </Frame>
             <Label   
-                Text              = "Descreva alguns aspectos NEGATIVOS dessa solução para o Ceape Brasil (Máx: 250 caracteres): (*)"
+                Text              = "Descreva alguns aspectos NEGATIVOS dessa solução para o Ceape Brasil (Máx: 300 caracteres): (*)"
                 FontAttributes    = "Bold"
                 Padding           = "5"
                 HorizontalOptions = "Start"/>
             <Frame 
                 BorderColor   = "DarkGray" 
                 CornerRadius  = "5"
-                HeightRequest = "175"
+                HeightRequest = "200"
                 WidthRequest  = "385">
-                <Editor
+                <VerticalStackLayout>
+                    <Editor
                     x:Name                = "_editor2"
-                    MaxLength             = "250"
+                    MaxLength             = "300"
                     WidthRequest          = "375"
                     HeightRequest         = "145"
                     FontSize              = "15"
@@ -84,15 +88,17 @@
                     Completed             = "OnEditorCompleted"
                     VerticalOptions       = "Center"
                     VerticalTextAlignment = "Start"/>
+                    <Label x:Name="_lblCaracteresRestantes2"/>
+                </VerticalStackLayout>                
             </Frame>
-
+            
             <Label   
                 Text              = "Selecione os setores impactados por essa solução: (*)"
                 FontAttributes    = "Bold"
                 Padding           = "5"
                 HorizontalOptions = "Start"/>          
 
-            <CollectionView x:Name="_CollectionViewAreas" ItemsSource="{Binding ListAreaGeneral}">
+            <CollectionView x:Name="_CollectionViewAreas" ItemsSource="{Binding ListAreaGeneral}" WidthRequest="400">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid ColumnDefinitions="*,*">
@@ -115,7 +121,8 @@
                 FontAttributes  = "Bold"
                 BackgroundColor = "#14d1ca"
                 Clicked         = "Btn_SalvarOportunidade"
-                Margin          = "10"/>
+                Margin          = "10"
+                WidthRequest    = "400"/>
         </StackLayout>   
     </ScrollView>
     

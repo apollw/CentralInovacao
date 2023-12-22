@@ -32,8 +32,6 @@ namespace CentralInovacao.ViewModel
         [ObservableProperty]
         private Project         _objProject;
         [ObservableProperty]
-        private RESTProject     _objRESTProject;
-        [ObservableProperty]
         private List<ModelArea> _listAreaGeneral;
         [ObservableProperty]
         private ObservableCollection<Project> _projectList;
@@ -44,40 +42,36 @@ namespace CentralInovacao.ViewModel
 
         public ViewModelProject()
         {
-            ObjProject     = new Project();
-            ObjRESTProject = new RESTProject();
+            ObjProject = new Project();
         }
 
         public ViewModelProject(Project project)
         {
-            ObjProject     = project;
-            ObjRESTProject = new RESTProject();
+            ObjProject = project;
         }
 
         public async Task<bool> SalvarProjeto(Project project)
         {
-            return await ObjRESTProject.CreateProject(project);
+            return await RESTProject.CreateProject(project);
         }
 
-        public async void EditarProjeto(Project project, List<ModelArea> ProjectAreas)
+        public async Task<bool> EditarProjeto(Project project, List<ModelArea> ProjectAreas)
         {
             project.ListArea = ProjectAreas;
-            await ObjRESTProject.EditProject(project,project.Id,project.User);
+            return await RESTProject.EditProject(project,project.Id,project.User);
         }
 
         public async void GetProjeto(int project_id,int user_id)
         {
-            //Popula o objeto Project da ViewModelProject
-            ObjProject = await ObjRESTProject.GetProject(project_id,user_id);
+            ObjProject = await RESTProject.GetProject(project_id,user_id);
         }
 
         public async void GetListaProjetosGeral()
         {
             List<Project> ListaCarregada = new List<Project>();
 
-            ListaCarregada = await ObjRESTProject.GetListProjects();
+            ListaCarregada = await RESTProject.GetListProjects();
 
-            //Popular a Lista de Projetos do Usuário
             ProjectListGeneral = new ObservableCollection<Project>(ListaCarregada);
         }
 
@@ -94,9 +88,8 @@ namespace CentralInovacao.ViewModel
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
-            ListaCarregada = await ObjRESTProject.GetListProjectsUser(body);
+            ListaCarregada = await RESTProject.GetListProjectsUser(body);
 
-            //Popular a Lista de Projetos do Usuário
             ProjectListGeneral = new ObservableCollection<Project>(ListaCarregada);
         }
 
@@ -104,9 +97,8 @@ namespace CentralInovacao.ViewModel
         {
             List<Project> ListaCarregada = new List<Project>();
 
-            ListaCarregada = await ObjRESTProject.GetListProjectsUser();
+            ListaCarregada = await RESTProject.GetListProjectsUser();
 
-            //Popular a Lista de Projetos do Usuário
             ProjectList = new ObservableCollection<Project>(ListaCarregada);
 
         }
@@ -125,9 +117,8 @@ namespace CentralInovacao.ViewModel
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(projetoJSON);
 
-            ListaCarregada = await ObjRESTProject.GetListProjectsUser(body);
+            ListaCarregada = await RESTProject.GetListProjectsUser(body);
 
-            //Popular a Lista de Projetos do Usuário
             ProjectList = new ObservableCollection<Project>(ListaCarregada);
 
         }
@@ -143,13 +134,10 @@ namespace CentralInovacao.ViewModel
             new JProperty("Document",file)
             );
 
-            //FAZER VERIFICAÇÕES DA EXTENSÃO DO ARQUIVO E TAMBÉM DO TAMANHO
-
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(objJSON);
 
-            //Popular a Lista de Projetos do Usuário
-            await ObjRESTProject.AddProjectImage(project, body);
+            await RESTProject.AddProjectImage(project, body);
         } 
     }
 }

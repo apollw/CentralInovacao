@@ -8,8 +8,6 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraSolicitacao : ContentPage
 {
-    RESTProject      objRESTProject    = new RESTProject();
-    RESTResources    objRESTResources  = new RESTResources();
     List<AreaLocal>  ListAreaLocal     = new List<AreaLocal>();
     List<ModelArea>  ProjectAreasLocal = new List<ModelArea>();
     ViewModelProject VMProject         = new ViewModelProject();
@@ -17,14 +15,14 @@ public partial class PageEsteiraSolicitacao : ContentPage
     public PageEsteiraSolicitacao(Project projeto)
     {
         InitializeComponent();
-        BindingContext    = VMProject;
+        BindingContext       = VMProject;
         VMProject.ObjProject = projeto;
         FillPage();
     }
 
     public async void FillPage()
     {
-        VMProject.ListAreaGeneral = await objRESTResources.GetListAreas();
+        VMProject.ListAreaGeneral = await RESTResources.GetListAreas();
 
         ListAreaLocal = VMProject.ListAreaGeneral.Select(modelArea =>
         {
@@ -50,7 +48,7 @@ public partial class PageEsteiraSolicitacao : ContentPage
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
         
-        if(await objRESTProject.SendToStage(VMProject.ObjProject.Id, 2))
+        if(await RESTProject.SendToStage(VMProject.ObjProject.Id, 2))
             await DisplayAlert("Alerta", "Solicitação Enviada para Análise", "Fechar");
 
         btn.IsEnabled = true;        
@@ -75,18 +73,18 @@ public partial class PageEsteiraSolicitacao : ContentPage
     private async void Btn_SalvarOportunidade(object sender, EventArgs e)
     {
         Button btn    = (Button)sender;
+        
         btn.IsEnabled = false;
-
         VMProject.ObjProject.User                = Preferences.Get("AuthUserId", 0);
         VMProject.ObjProject.Name                = _entryTitulo.Text;
         VMProject.ObjProject.DescriptionPositive = _editor1.Text;
         VMProject.ObjProject.DescriptionNegative = _editor2.Text;
 
-        VMProject.EditarProjeto(VMProject.ObjProject,ProjectAreasLocal);
-
-        await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
-        await Shell.Current.GoToAsync("..");
-
+        if(await VMProject.EditarProjeto(VMProject.ObjProject, ProjectAreasLocal))
+        {
+            await DisplayAlert("Aviso", "Oportunidade Registrada!", "Voltar");
+            await Shell.Current.GoToAsync("..");
+        }
         btn.IsEnabled = true;
     }
 
@@ -113,6 +111,11 @@ public partial class PageEsteiraSolicitacao : ContentPage
     {
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
+
+        int maxLength = 300;
+        int caracteresRestantes = maxLength - newText.Length;
+        _lblCaracteresRestantes1.Text = $"{caracteresRestantes} caracteres restantes";
+
         string myText  = _editor1.Text;
     }
 
@@ -120,6 +123,11 @@ public partial class PageEsteiraSolicitacao : ContentPage
     {
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
+
+        int maxLength = 300;
+        int caracteresRestantes = maxLength - newText.Length;
+        _lblCaracteresRestantes2.Text = $"{caracteresRestantes} caracteres restantes";
+
         string myText  = _editor2.Text;
     }
 

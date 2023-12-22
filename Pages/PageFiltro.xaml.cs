@@ -6,7 +6,6 @@ namespace CentralInovacao.Pages;
 
 public partial class PageFiltro : ContentPage
 {
-    RESTResources           objRESTResources = new RESTResources();
     ViewModelProject        VMProject        = new ViewModelProject();
     List<ModelGenericLocal> ListaStatus      = new List<ModelGenericLocal>();
 
@@ -18,8 +17,8 @@ public partial class PageFiltro : ContentPage
 
     public async void FillPage()
     {
-        ListaStatus               = await objRESTResources.GetListStatus();
-        VMProject.ListAreaGeneral = await objRESTResources.GetListAreas();
+        ListaStatus               = await RESTResources.GetListStatus();
+        VMProject.ListAreaGeneral = await RESTResources.GetListAreas();
 
         _CollectionViewAreas.ItemsSource  = VMProject.ListAreaGeneral;
         _CollectionViewStatus.ItemsSource = ListaStatus;

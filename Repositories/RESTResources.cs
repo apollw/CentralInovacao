@@ -1,18 +1,13 @@
 ﻿using Business.Inovacao;
 using CentralInovacao.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CentralInovacao.Repositories
 {
     public class RESTResources
     {
         //Carregar Lista de Áreas
-        public async Task<List<ModelArea>> GetListAreas()
+        public async static Task<List<ModelArea>> GetListAreas()
         {
             List<ModelArea> ListaAreas = new List<ModelArea>();
 
@@ -34,7 +29,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Usuários
-        public async Task<List<ModelUser>> GetListUsers(string nome)
+        public async static Task<List<ModelUser>> GetListUsers(string nome)
         {
             List<ModelUser> ListaUsuarios = new List<ModelUser>();
 
@@ -57,7 +52,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Status
-        public async Task<List<ModelGenericLocal>> GetListStatus()
+        public async static Task<List<ModelGenericLocal>> GetListStatus()
         {
             List<ModelGenericLocal> ListaStatus = new List<ModelGenericLocal>();
 
@@ -80,7 +75,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Funções
-        public async Task<List<ModelGenericLocal>> GetListFunctions()
+        public async static Task<List<ModelGenericLocal>> GetListFunctions()
         {
             List<ModelGenericLocal> ListaFuncoes = new List<ModelGenericLocal>();
 
@@ -103,7 +98,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Estágios
-        public async Task<List<ModelGenericLocal>> GetListStages()
+        public async static Task<List<ModelGenericLocal>> GetListStages()
         {
             List<ModelGenericLocal> ListaEstagios = new List<ModelGenericLocal>();
 
@@ -126,7 +121,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Classificações
-        public async Task<List<ModelGenericLocal>> GetListClassifications()
+        public async static Task<List<ModelGenericLocal>> GetListClassifications()
         {
             List<ModelGenericLocal> ListaClassificacoes = new List<ModelGenericLocal>();
 
@@ -149,7 +144,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Tipos de Documento
-        public async Task<List<ModelGenericLocal>> GetListDocumentTypes()
+        public async static Task<List<ModelGenericLocal>> GetListDocumentTypes()
         {
             List<ModelGenericLocal> ListaDocumentos= new List<ModelGenericLocal>();
 
@@ -172,7 +167,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Razões de Declínio
-        public async Task<List<ModelGenericLocal>> GetListReasons()
+        public async static Task<List<ModelGenericLocal>> GetListReasons()
         {
             List<ModelGenericLocal> ListaRazoes = new List<ModelGenericLocal>();
 

@@ -28,7 +28,7 @@
             TextColor       = "White"
             FontSize        = "18"
             FontAttributes  = "Bold"
-            Clicked         = "Btn_Classificar"/>
+            Clicked         = "Button_Classificar"/>
         
         <Button 
             Text            = "Retornar"
@@ -36,7 +36,7 @@
             TextColor       = "White"
             FontSize        = "18"
             FontAttributes  = "Bold"
-            Clicked         = "Btn_Retornar"/>
+            Clicked         = "Button_Retornar"/>
 
     </StackLayout>
 

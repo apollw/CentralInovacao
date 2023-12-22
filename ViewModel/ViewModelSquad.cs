@@ -18,17 +18,12 @@ namespace CentralInovacao.ViewModel
         [ObservableProperty]
         private bool          _isRefreshing;
         [ObservableProperty]
-        private RESTSquad     _objRESTSquad;
-        [ObservableProperty]
-        private RESTResources _objRESTResources;
-        [ObservableProperty]
         private List<ModelGenericLocal> _functionList;
         [ObservableProperty]
         private ObservableCollection<ModelUser> _userList;
 
         public ViewModelSquad()
         {
-            ObjRESTResources = new RESTResources();
             FunctionList     = new List<ModelGenericLocal>();
             UserList         = new ObservableCollection<ModelUser>();
         }
@@ -36,13 +31,13 @@ namespace CentralInovacao.ViewModel
         public async void CarregarListaDeUsuarios()
         {
             List<ModelUser> ListaDeUsuarios = new List<ModelUser>();
-            ListaDeUsuarios = await ObjRESTResources.GetListUsers(" ");
+            ListaDeUsuarios = await RESTResources.GetListUsers(" ");
             UserList = new ObservableCollection<ModelUser>(ListaDeUsuarios);
         }
 
         public async void CarregarListaDeFuncoes()
         {
-            FunctionList = await ObjRESTResources.GetListFunctions();
+            FunctionList = await RESTResources.GetListFunctions();
         }
     }
 }

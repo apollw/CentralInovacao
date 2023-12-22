@@ -1,23 +1,14 @@
-﻿using Business.Common;
-using Business.Inovacao;
-using CentralInovacao.Models;
+﻿using CentralInovacao.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CentralInovacao.Repositories
 {
     public class RESTProject
     {   
         //Criar Projeto
-        public async Task<bool> CreateProject(Project project)
+        public async static Task<bool> CreateProject(Project project)
         {
             var projetoJSON = new JObject(
             new JProperty("User", project.User),
@@ -43,7 +34,7 @@ namespace CentralInovacao.Repositories
          
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
 
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
 
@@ -54,7 +45,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Editar Projeto
-        public async Task<bool> EditProject(Project project, int project_id, int user_id)
+        public async static Task<bool> EditProject(Project project, int project_id, int user_id)
         {
             var projetoJSON = new JObject(
             new JProperty("User", project.User),
@@ -81,7 +72,7 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
 
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
 
@@ -91,7 +82,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Classificar Projeto
-        public async Task<bool> ClassifyProject(int project_id, int classification_id)
+        public async static Task<bool> ClassifyProject(int project_id, int classification_id)
         {
             var projetoJSON = new JObject(new JProperty("Id", classification_id));
             int user_id = Preferences.Get("AuthUserId", 0);
@@ -104,7 +95,7 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
 
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
 
@@ -114,7 +105,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Enviar para Análise
-        public async Task<bool> SendToStage(int project_id, int stage)
+        public async static Task<bool> SendToStage(int project_id, int stage)
         {
             int user_id = Preferences.Get("AuthUserId", 0);
             var projetoJSON = new JObject(new JProperty(" ", " "));
@@ -127,7 +118,7 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
 
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
 
@@ -137,7 +128,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Projeto Específico do Usuário
-        public async Task<Project> GetProject(int project_id,int user_id)
+        public async static Task<Project> GetProject(int project_id,int user_id)
         {
             Project Projeto = new Project();
             string _parametros = $"/projects/{project_id}?user={user_id}";
@@ -146,7 +137,7 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
                 return Projeto;
             }
@@ -157,7 +148,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista Geral de Projetos
-        public async Task<List<Project>> GetListProjects()
+        public async static Task<List<Project>> GetListProjects()
         {
             List<Project> ListaProjetos = new List<Project>();
 
@@ -173,7 +164,7 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
                 return ListaProjetos;
             }
@@ -183,7 +174,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Projetos Geral por Filtro de Data
-        public async Task<List<Project>> GetListProjects(string filtro)
+        public async static Task<List<Project>> GetListProjects(string filtro)
         {
             List<Project> ListaProjetos = new List<Project>();
 
@@ -191,7 +182,7 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
                 return ListaProjetos;
             }
@@ -201,7 +192,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Projetos do Usuário
-        public async Task<List<Project>> GetListProjectsUser()
+        public async static Task<List<Project>> GetListProjectsUser()
         {
             List<Project> ListaProjetos = new List<Project>();
 
@@ -220,7 +211,7 @@ namespace CentralInovacao.Repositories
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
                 return ListaProjetos;
             }
@@ -230,7 +221,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Carregar Lista de Projetos do Usuário por Filtro de Data
-        public async Task<List<Project>> GetListProjectsUser(string filtro)
+        public async static Task<List<Project>> GetListProjectsUser(string filtro)
         {
             List<Project> ListaProjetos = new List<Project>();
             
@@ -238,7 +229,7 @@ namespace CentralInovacao.Repositories
             
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
                 return ListaProjetos;
             }
@@ -247,14 +238,15 @@ namespace CentralInovacao.Repositories
             return ListaProjetos;
         }
 
-        public async Task<bool> GetCheckOpenStage(int user_id, int project_id, int stage)
+        //Verificar Estágio do Projeto
+        public async static Task<bool> GetCheckOpenStage(int user_id, int project_id, int stage)
         {
             var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi +
                            $"/projects/{project_id}/check-open-stage/{stage}?user={user_id}");
 
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
 
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
 
@@ -264,7 +256,7 @@ namespace CentralInovacao.Repositories
         }
 
         //Adicionar Capa do Projeto
-        public async Task<bool> AddProjectImage(Project project,string body)
+        public async static Task<bool> AddProjectImage(Project project,string body)
         {
             string _parametros = $"/projects/{project.Id}/add-image?user={project.User}";
             
@@ -272,7 +264,7 @@ namespace CentralInovacao.Repositories
             
             if (!(response.StatusCode == System.Net.HttpStatusCode.OK))
             {
-                string errorMessage = FormatErrorMessage(response.Content);
+                string errorMessage = Utilities.FormatErrorMessage(response.Content);
 
                 await Shell.Current.DisplayAlert("Erro", errorMessage, "Retornar");
 
@@ -280,38 +272,6 @@ namespace CentralInovacao.Repositories
             }
             await Shell.Current.DisplayAlert("Aviso", "Capa do Projeto alterada com Sucesso!", "Fechar");
             return true;
-        }
-
-        //Formatar Mensagem de Erro
-        private string FormatErrorMessage(string rawErrorMessage)
-        {
-            try
-            {
-                // Encontra a posição do início da mensagem JSON
-                int startIndex = rawErrorMessage.IndexOf("{\"Message\":\"");
-
-                // Se encontrar o início da mensagem JSON, extrai apenas a mensagem
-                if (startIndex >= 0)
-                {
-                    // Remove a parte inicial indesejada
-                    rawErrorMessage = rawErrorMessage.Substring(startIndex + "{\"Message\":\"".Length);
-
-                    // Encontra o final da mensagem JSON
-                    int endIndex = rawErrorMessage.IndexOf("\"}");
-
-                    // Se encontrar o final da mensagem JSON, extrai apenas a mensagem
-                    if (endIndex >= 0)
-                    {
-                        rawErrorMessage = rawErrorMessage.Substring(0, endIndex);
-                    }
-                }
-
-                return rawErrorMessage;
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
         }
     }
 }

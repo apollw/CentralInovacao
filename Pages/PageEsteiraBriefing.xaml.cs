@@ -8,10 +8,8 @@ namespace CentralInovacao.Pages;
 
 public partial class PageEsteiraBriefing : ContentPage
 {
-    Project          objProject      = new Project();
-    RESTProject      objRESTProject  = new RESTProject();
-    RESTAnalysis     objRESTAnalysis = new RESTAnalysis();
-    ViewModelProject VMProject       = new ViewModelProject();
+    Project          objProject = new Project();
+    ViewModelProject VMProject  = new ViewModelProject();
 
     public PageEsteiraBriefing(Project projeto)
     {
@@ -24,13 +22,12 @@ public partial class PageEsteiraBriefing : ContentPage
     {
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
-        string myText  = _editor1.Text;
-    }
 
-    private void OnEditorTextChanged2(object sender, TextChangedEventArgs e)
-    {
-        string oldText = e.OldTextValue;
-        string newText = e.NewTextValue;
+        int maxLength = 100;
+        int caracteresRestantes = maxLength - newText.Length;
+        _lblCaracteresRestantes.Text = $"{caracteresRestantes} caracteres restantes";
+
+        string myText  = _editor1.Text;
     }
 
     private void OnEditorCompleted(object sender, EventArgs e)
@@ -38,12 +35,17 @@ public partial class PageEsteiraBriefing : ContentPage
         string text = ((Editor)sender).Text;
     }
 
-    protected async override void OnNavigatedTo(NavigatedToEventArgs args)
+    private async void LoadPage()
     {
-        base.OnNavigatedTo(args);
-        VMProject.ObjProject        = await objRESTProject.GetProject(objProject.Id, objProject.User);
+        VMProject.ObjProject        = await RESTProject.GetProject(objProject.Id, objProject.User);
         VMProject.StatusActivated   = (VMProject.ObjProject.Status > 1) ? 1 : 0;
         VMProject.StatusDeactivated = (VMProject.ObjProject.Status > 1) ? 0 : 1;
+    }
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+        LoadPage();        
     }
 
     private async void Button_Declinar(object sender, EventArgs e)
@@ -53,14 +55,14 @@ public partial class PageEsteiraBriefing : ContentPage
         btn.IsEnabled = false;
         await Shell.Current.Navigation.PushAsync(new PageDeclinio(VMProject.ObjProject));
         btn.IsEnabled = true;
-    }
+    }    
 
     private async void Button_Ativar(object sender, EventArgs e)
     {
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
 
-        if (await objRESTAnalysis.ActivateProject(VMProject.ObjProject.Id))
+        if (await RESTAnalysis.ActivateProject(VMProject.ObjProject.Id))
         {
             VMProject.StatusActivated   = 0;
             VMProject.StatusDeactivated = 1;
@@ -75,7 +77,7 @@ public partial class PageEsteiraBriefing : ContentPage
         Button btn    = (Button)sender; 
         btn.IsEnabled = false;
 
-        if (await objRESTProject.SendToStage(VMProject.ObjProject.Id, 3))
+        if (await RESTProject.SendToStage(VMProject.ObjProject.Id, 3))
             await DisplayAlert("Aviso", "Enviado para Definição de Squad", "Fechar");
         btn.IsEnabled = true;
     }
@@ -113,10 +115,9 @@ public partial class PageEsteiraBriefing : ContentPage
 
         string descricao = _editor1.Text;
 
-        if (await objRESTAnalysis.UpdateAnalysis(VMProject.ObjProject.Id, descricao))
+        if (await RESTAnalysis.UpdateAnalysis(VMProject.ObjProject.Id, descricao))
             await DisplayAlert("Aviso", "Análise atualizada!", "Fechar");
         btn.IsEnabled = true;
-    }
-    
+    }    
 
 }
