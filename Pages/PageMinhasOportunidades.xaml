@@ -25,23 +25,31 @@
             <!--<RefreshView
                 Grid.Row        = "0"
                 Grid.ColumnSpan = "2">-->
+
+            <!--VerticalOptions                       = "FillAndExpand"
+            RemainingItemsThreshold               = "1"
+            RemainingItemsThresholdReachedCommand = "{Binding GetNextDataCommand}"-->
             
             <CollectionView
-                    x:Name          = "_collectionViewOportunidades"
-                    Grid.Row        = "0"
-                    Grid.ColumnSpan = "2"
-                    HorizontalOptions="Center"
-                    ItemsSource     = "{Binding ProjectList}">
+                x:Name            = "_collectionViewOportunidades"
+                Grid.Row          = "0"
+                Grid.ColumnSpan   = "2"
+                HorizontalOptions = "Center"
+                ItemsSource       = "{Binding ProjectList}">
                     <CollectionView.EmptyView>
                         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                            <Grid RowDefinitions="*,*" VerticalOptions="CenterAndExpand">
                             <Label
+                                Grid.Row          = "0"
                                 Text              = "Nenhuma Oportunidade Registrada"
                                 HorizontalOptions = "Center"/>
                             <Image
+                                Grid.Row          = "1"
                                 Source            = "empty_list.png"
                                 WidthRequest      = "100" 
                                 HeightRequest     = "100"
                                 HorizontalOptions = "Center"/>
+                            </Grid>                            
                         </StackLayout>
                     </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>

@@ -73,7 +73,7 @@
                         Grid.ColumnSpan = "3"
                         x:Name          = "_collectionView1"
                         BackgroundColor = "White"
-                        ItemsSource     = "{Binding ListaDeTarefasBacklog}">
+                        ItemsSource     = "{Binding TaskListGeneral}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Border 
@@ -91,7 +91,7 @@
                                     </Border.GestureRecognizers>
                                 <StackLayout>
                                     <Label 
-                                        Text              = "{Binding Titulo}"
+                                        Text              = "{Binding Title}"
                                         FontSize          = "15"
                                         FontAttributes    = "Bold"
                                         HorizontalOptions = "Center"/>
@@ -100,7 +100,7 @@
                                         FontSize          = "12"
                                         HorizontalOptions = "Start"/>
                                     <Label 
-                                        Text              = "{Binding Data,StringFormat='Data de Registro - {0}'}"
+                                        Text              = "{Binding Date,StringFormat='Data de Registro - {0}'}"
                                         FontSize          = "12"
                                         HorizontalOptions = "Start"/>
                                     <!--Text              = "{Binding Analista,StringFormat='Responsável - {0}'}"-->

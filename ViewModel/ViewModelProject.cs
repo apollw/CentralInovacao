@@ -1,53 +1,82 @@
 ﻿using Business.Inovacao;
-using CentralInovacao.MiddlewareApi;
 using CentralInovacao.Models;
 using CentralInovacao.Repositories;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.ApplicationModel.Communication;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Formats.Asn1;
-using System.IO;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace CentralInovacao.ViewModel
 {
     public partial class ViewModelProject : ObservableObject
     {
+        private int TamanhoDaPagina = 4;
+        public MvvmHelpers.ObservableRangeCollection<Project>
+        ProjetosDoUsuario { get; set; } = 
+        new MvvmHelpers.ObservableRangeCollection<Project>();
+
+        [ObservableProperty]
+        private bool            _isBusy;
         [ObservableProperty]
         private bool            _isRefreshing;
+        [ObservableProperty]
+        private int             _batchSize;
+        [ObservableProperty]
+        private int             _currentProjectIndex;
         [ObservableProperty]
         private int             _statusActivated;
         [ObservableProperty]
         private int             _statusDeactivated;
         [ObservableProperty]
         private Project         _objProject;
+
+        //Listas Gerais
         [ObservableProperty]
-        private List<ModelArea> _listAreaGeneral;
+        private List<ModelArea>                   _listAreaGeneral;
         [ObservableProperty]
-        private ObservableCollection<Project> _projectList;
+        private ObservableCollection<Squad>       _squadProject;
         [ObservableProperty]
-        private ObservableCollection<Project> _projectListGeneral;
+        private ObservableCollection<Project>     _projectList;
         [ObservableProperty]
-        private ObservableCollection<Squad>   _squadProject;
+        private ObservableCollection<Project>     _projectListGeneral;
+
+        //Lista de Tarefas
+        [ObservableProperty]
+        private ObservableCollection<ProjectTask> _taskListBacklog;
+        [ObservableProperty]
+        private ObservableCollection<ProjectTask> _taskListOngoing;
+        [ObservableProperty]
+        private ObservableCollection<ProjectTask> _taskListFinished;
+        [ObservableProperty]
+        private ObservableCollection<ProjectTask> _taskListGeneral;
 
         public ViewModelProject()
         {
             ObjProject = new Project();
+            GetListaProjetosUsuario();
         }
 
         public ViewModelProject(Project project)
         {
             ObjProject = project;
+        }
+
+        [RelayCommand]
+        public void GetNextData()
+        {
+            if (ProjetosDoUsuario.Count > 0)
+            {
+                ProjetosDoUsuario.AddRange(
+                    ProjectList.
+                    Skip(ProjetosDoUsuario.Count).
+                    Take(TamanhoDaPagina)
+                );
+            }
+            else
+            {
+                GetListaProjetosUsuario();
+            }
         }
 
         public async Task<bool> SalvarProjeto(Project project)
@@ -69,9 +98,7 @@ namespace CentralInovacao.ViewModel
         public async void GetListaProjetosGeral()
         {
             List<Project> ListaCarregada = new List<Project>();
-
-            ListaCarregada = await RESTProject.GetListProjects();
-
+            ListaCarregada     = await RESTProject.GetListProjects();
             ProjectListGeneral = new ObservableCollection<Project>(ListaCarregada);
         }
 
@@ -86,21 +113,25 @@ namespace CentralInovacao.ViewModel
             );
 
             //Serializa o objeto JSON
-            var body = JsonConvert.SerializeObject(projetoJSON);
-
-            ListaCarregada = await RESTProject.GetListProjectsUser(body);
-
+            var body           = JsonConvert.SerializeObject(projetoJSON);
+            ListaCarregada     = await RESTProject.GetListProjectsUser(body);
             ProjectListGeneral = new ObservableCollection<Project>(ListaCarregada);
+        }
+
+        public async void GetListaProjetosUsuarioNEW()
+        {
+            List<Project> ListaCarregada = new List<Project>();
+            ListaCarregada = await RESTProject.GetListProjectsUser();
+            ProjectList = new ObservableCollection<Project>(ListaCarregada);
+
+            ProjetosDoUsuario.AddRange(ProjectList.Take(TamanhoDaPagina));
         }
 
         public async void GetListaProjetosUsuario()
         {
             List<Project> ListaCarregada = new List<Project>();
-
             ListaCarregada = await RESTProject.GetListProjectsUser();
-
-            ProjectList = new ObservableCollection<Project>(ListaCarregada);
-
+            ProjectList    = new ObservableCollection<Project>(ListaCarregada);
         }
 
         public async void GetListaProjetosUsuarioFiltroPorData(DateTime DateIni, DateTime DateEnd)
@@ -115,11 +146,9 @@ namespace CentralInovacao.ViewModel
             );
 
             //Serializa o objeto JSON
-            var body = JsonConvert.SerializeObject(projetoJSON);
-
+            var body       = JsonConvert.SerializeObject(projetoJSON);
             ListaCarregada = await RESTProject.GetListProjectsUser(body);
-
-            ProjectList = new ObservableCollection<Project>(ListaCarregada);
+            ProjectList    = new ObservableCollection<Project>(ListaCarregada);
 
         }
 
@@ -136,7 +165,6 @@ namespace CentralInovacao.ViewModel
 
             //Serializa o objeto JSON
             var body = JsonConvert.SerializeObject(objJSON);
-
             await RESTProject.AddProjectImage(project, body);
         } 
     }

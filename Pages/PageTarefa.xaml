@@ -43,7 +43,7 @@
             HeightRequest = "200"
             WidthRequest  = "400">
             <Editor  
-                x:Name                = "_editorDescricao"
+                x:Name                = "_tarefaDescricao"
                 MaxLength             = "250"
                 WidthRequest          = "395"
                 HeightRequest         = "195"

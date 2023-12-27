@@ -1,6 +1,5 @@
 using CentralInovacao.Models;
 using CentralInovacao.ViewModel;
-using Microsoft.Maui.Controls;
 
 namespace CentralInovacao.Pages;
 
@@ -12,11 +11,15 @@ public partial class PageProjetosGerais : ContentPage
     {
         InitializeComponent();
         BindingContext = VMProject;
+    }
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
         VMProject.GetListaProjetosGeral();
     }
 
-    //IMPLEMENTAR PARA BUSCAR PROJETOS DE DIFERENTES USUÁRIOS
-    private void Btn_AbrirEsteira(object sender, EventArgs e)         
+    private async void Btn_AbrirEsteira(object sender, EventArgs e)         
     {
         Button btn = (Button)sender;
 
@@ -29,9 +32,8 @@ public partial class PageProjetosGerais : ContentPage
                 activityIndicator.IsVisible = true;
                 btn.IsEnabled = false;
 
-                //await Navigation.PushAsync(new PageEsteiraGeral(project));
-                //VMProject.GetProjeto(project.Id, project.User);
-                //await Navigation.PushAsync(new PageEsteiraGeral(VMProject.Project));
+                VMProject.GetProjeto(project.Id, project.User);
+                await Navigation.PushAsync(new PageEsteiraGeral(VMProject.ObjProject));
 
                 //Reativa o botão após o fim da tarefa
                 activityIndicator.IsRunning = false;
@@ -54,6 +56,5 @@ public partial class PageProjetosGerais : ContentPage
     {
         VMProject.GetListaProjetosGeral();
     }
-
 }
 

@@ -13,7 +13,7 @@
     </ContentPage.Resources>
 
     <ScrollView Margin="10">
-        <StackLayout Spacing = "3">            
+        <StackLayout Spacing="3">            
             <Label
                 x:Name         = "_lblUsuario"
                 FontAttributes = "Bold"
@@ -24,7 +24,8 @@
                     FontAttributes        = "Bold"
                     VerticalTextAlignment = "Center"/>
                 <Label 
-                    Text                  = "{Binding ObjProject.Classification}"
+                    Text                  = "{Binding ObjProject.Classification,
+                                              StringFormat = '{0:F2}'}"
                     FontAttributes        = "Bold"
                     VerticalTextAlignment = "Center"/>
                 <Image 

@@ -34,14 +34,18 @@
                     ItemsSource       = "{Binding ProjectListGeneral}">
                 <CollectionView.EmptyView>
                     <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                        <Label
+                        <Grid RowDefinitions="*,*" VerticalOptions="CenterAndExpand">
+                            <Label
+                                Grid.Row          = "0"
                                 Text              = "Nenhuma Oportunidade Registrada"
                                 HorizontalOptions = "Center"/>
-                        <Image
+                            <Image
+                                Grid.Row          = "1"
                                 Source            = "empty_list.png"
                                 WidthRequest      = "100" 
                                 HeightRequest     = "100"
                                 HorizontalOptions = "Center"/>
+                        </Grid>
                     </StackLayout>
                 </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>

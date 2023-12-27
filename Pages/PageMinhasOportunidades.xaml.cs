@@ -1,6 +1,5 @@
 using CentralInovacao.Models;
 using CentralInovacao.ViewModel;
-using Microsoft.Maui.Controls;
 
 namespace CentralInovacao.Pages;
 
@@ -14,11 +13,17 @@ public partial class PageMinhasOportunidades : ContentPage
         BindingContext = VMProject;
     }
 
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
-    {
-        base.OnNavigatedTo(args);
-        VMProject.GetListaProjetosUsuario();
-    }
+    //protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    //{
+    //    base.OnNavigatedTo(args);
+    //    VMProject.GetListaProjetosUsuario();
+    //}
+
+    //protected override void OnDisappearing()
+    //{
+    //    base.OnDisappearing();
+    //    VMProject.ProjetosDoUsuario.Clear();
+    //}
 
     private async void Btn_AbrirEsteira(object sender, EventArgs e)
     {
@@ -48,8 +53,6 @@ public partial class PageMinhasOportunidades : ContentPage
         DateTime DateIni = _datePicker1.Date;
         DateTime DateEnd = _datePicker2.Date;
         VMProject.GetListaProjetosUsuarioFiltroPorData(DateIni, DateEnd);
-
-        //await Shell.Current.Navigation.PushAsync(new PageFiltro());
     }
 
     private void Btn_LimparFiltros(object sender, EventArgs e)
@@ -58,9 +61,3 @@ public partial class PageMinhasOportunidades : ContentPage
     }
 
 }
-
-//protected override void OnAppearing()
-//{
-//    base.OnAppearing();
-
-//}

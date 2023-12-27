@@ -23,7 +23,7 @@ public partial class PageEsteiraBriefing : ContentPage
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
 
-        int maxLength = 100;
+        int maxLength = 300;
         int caracteresRestantes = maxLength - newText.Length;
         _lblCaracteresRestantes.Text = $"{caracteresRestantes} caracteres restantes";
 
@@ -96,13 +96,13 @@ public partial class PageEsteiraBriefing : ContentPage
             byte[] imageByte = File.ReadAllBytes(f.FullName);            
             string file = Convert.ToBase64String(imageByte);
             
-            if(imageByte.Length <= 100000)
+            if(imageByte.Length <= 2_000_000)
             {
                 VMProject.SalvarImagemProjeto(VMProject.ObjProject, f, file);
             }
             else
             {
-                await Shell.Current.DisplayAlert("Aviso", $"Tamanho do arquivo excede os limites (Máx: 100 KB)", "Retornar");
+                await Shell.Current.DisplayAlert("Aviso", $"Tamanho do arquivo excede os limites (Máx: 2 MB)", "Retornar");
             }
         }
         btn.IsEnabled = true;

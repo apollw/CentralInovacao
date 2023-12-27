@@ -1,51 +1,52 @@
 using CentralInovacao.Models;
+using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
 
 namespace CentralInovacao.Pages;
 
 public partial class PageTarefa : ContentPage
 {
-    Tarefa          Tarefa       = new Tarefa();
-    //Oportunidade    Oportunidade = new Oportunidade();
-    ViewModelTarefa VMTarefa     = new ViewModelTarefa();
+    ProjectTask      _objProjectTask = new ProjectTask();
+    ViewModelProject VMProject       = new ViewModelProject();
 
-    //public PageTarefa(Oportunidade oportunidade)
-    //{
-    //    InitializeComponent();
-    //    Oportunidade   = oportunidade;
-    //    BindingContext = VMTarefa;
-    //}
+    public PageTarefa(ViewModelProject vmProject)
+    {
+        InitializeComponent();
+        VMProject      = vmProject;
+        BindingContext = VMProject;
+    }
+
     void OnEditorTextChanged(object sender, TextChangedEventArgs e)
     {
         string oldText = e.OldTextValue;
         string newText = e.NewTextValue;
-        string myText  = _editorDescricao.Text;
+        string myText  = _tarefaDescricao.Text;
     }
+
     void OnEditorCompleted(object sender, EventArgs e)
     {
         string text = ((Editor)sender).Text;
     }
+
     private async void Btn_SalvarTarefaBacklog(object sender, EventArgs e)
     {
         Button btn    = (Button)sender;
         btn.IsEnabled = false;
 
-        //Tarefa.IdProjeto = Oportunidade.Id;
-        //Tarefa.IdUsuario = Oportunidade.Usuario;
-        Tarefa.Data      = DateTime.Now;
-        Tarefa.Titulo    = _tarefaTitulo.Text;
-        Tarefa.Status    = 0;
-        Tarefa.Ordem     = 0;
-        Tarefa.Descricao = _editorDescricao.Text;
+        _objProjectTask.Title       = _tarefaTitulo.Text;
+        _objProjectTask.Description = _tarefaDescricao.Text; 
 
-        //VMTarefa.SalvarTarefaBacklog(Oportunidade,Tarefa);
-        //VMTarefa.SalvarTarefaExecucao(Oportunidade, Tarefa);
-        //VMTarefa.SalvarTarefaFinalizadas(Oportunidade, Tarefa);
-
-
-        await DisplayAlert("Aviso", "Tarefa Registrada!", "Voltar");
-        await Navigation.PopAsync();
-
+        if(await RESTPlanning.CreateTask(
+            _tarefaTitulo.Text,
+            _tarefaDescricao.Text,
+            VMProject.ObjProject.Id
+          )
+        )
+        {   //Alteração Local
+            //VMProject.TaskListBacklog.Add(_objProjectTask);
+            await DisplayAlert("Aviso", "Tarefa Registrada!", "Voltar");
+            await Navigation.PopAsync();
+        }
         btn.IsEnabled = true;
     }
 

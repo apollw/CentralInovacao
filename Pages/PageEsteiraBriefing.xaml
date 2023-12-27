@@ -43,7 +43,7 @@
             <Frame 
                 BorderColor   = "DarkGray" 
                 CornerRadius  = "5"
-                HeightRequest = "175"
+                HeightRequest = "200"
                 WidthRequest  = "385">
                 <VerticalStackLayout>
                     <Editor

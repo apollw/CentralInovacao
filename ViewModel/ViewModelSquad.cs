@@ -16,7 +16,7 @@ namespace CentralInovacao.ViewModel
     public partial class ViewModelSquad : ObservableObject
     {
         [ObservableProperty]
-        private bool          _isRefreshing;
+        private bool                    _isRefreshing;
         [ObservableProperty]
         private List<ModelGenericLocal> _functionList;
         [ObservableProperty]

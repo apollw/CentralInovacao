@@ -72,7 +72,6 @@ public partial class PageTestes : ContentPage
     }//-------------IMPLEMENTADO
     private async void OnProfileImageTapped(object sender, EventArgs e)
     {
-        // Abre a galeria para selecionar uma imagem
         var result = await MediaPicker.PickPhotoAsync();
         Project project = new Project();
 
