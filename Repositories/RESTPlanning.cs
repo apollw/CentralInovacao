@@ -1,4 +1,5 @@
-﻿using CentralInovacao.Models;
+﻿using Business.Inovacao;
+using CentralInovacao.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -32,12 +33,12 @@ namespace CentralInovacao.Repositories
             return true;
         }
 
-        //Carregar Lista de Tarefas ---------- TESTAR
-        public async static Task<List<ProjectTask>> GetListProjectTasks(Project project)
+        //Carregar Lista de Tarefas ----------------------------------- TESTAR/CORRIGIR
+        public async static Task<List<ModelProjectTaskGroup>> GetListProjectTasks(Project project)
         {
-            List<ProjectTask> ListaTarefasDoProjeto = new List<ProjectTask>();
-            int    user_id    = Preferences.Get("AuthUserId", 0);
-            string parametros = $"/projects/{project.Id}/tasks?user={user_id}";
+            List<ModelProjectTaskGroup> ListaTarefasDoProjeto = new List<ModelProjectTaskGroup>();
+            int user_id        = Preferences.Get("AuthUserId", 0);
+            string parametros  = $"/projects/{project.Id}/tasks?user={user_id}";
 
             var response = CommonApi.DoGetWithJson(ModelAuthApi.UrlApi + parametros);
 
@@ -48,7 +49,7 @@ namespace CentralInovacao.Repositories
                 return ListaTarefasDoProjeto;
             }
 
-            ListaTarefasDoProjeto = JsonConvert.DeserializeObject<List<ProjectTask>>(response.Content);
+            ListaTarefasDoProjeto = JsonConvert.DeserializeObject<List<ModelProjectTaskGroup>>(response.Content);
             return ListaTarefasDoProjeto;
         }
 

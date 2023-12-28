@@ -24,8 +24,8 @@ namespace CentralInovacao.ViewModel
 
         public ViewModelSquad()
         {
-            FunctionList     = new List<ModelGenericLocal>();
-            UserList         = new ObservableCollection<ModelUser>();
+            FunctionList = new List<ModelGenericLocal>();
+            UserList     = new ObservableCollection<ModelUser>();
         }
         
         public async void CarregarListaDeUsuarios()

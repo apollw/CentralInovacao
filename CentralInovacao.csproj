@@ -132,7 +132,6 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 	  <PackageReference Include="Microcharts.Maui" Version="1.0.0" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-	  <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
 	  <PackageReference Include="RestSharp" Version="106.13.0" />
 	</ItemGroup>
 
@@ -142,6 +141,9 @@
 	  </Reference>
 	  <Reference Include="Business.Inovacao">
 	    <HintPath>..\..\Bin\Business.Inovacao.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Business.Standard">
+	    <HintPath>..\..\Bin\Business.Standard.dll</HintPath>
 	  </Reference>
 	  <Reference Include="DAL">
 	    <HintPath>..\..\Bin\DAL.dll</HintPath>

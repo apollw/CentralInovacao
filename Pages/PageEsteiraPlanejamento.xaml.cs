@@ -1,3 +1,4 @@
+using Business.Inovacao;
 using CentralInovacao.Models;
 using CentralInovacao.Repositories;
 using CentralInovacao.ViewModel;
@@ -19,9 +20,9 @@ public partial class PageEsteiraPlanejamento : ContentPage
 
     private async void LoadPage()
     {
-        List<ProjectTask> ListaDeTarefasGeral = new List<ProjectTask>();
+        List<ModelProjectTaskGroup> ListaDeTarefasGeral = new List<ModelProjectTaskGroup>();
         ListaDeTarefasGeral = await RESTPlanning.GetListProjectTasks(VMProject.ObjProject);
-        VMProject.TaskListGeneral = new ObservableCollection<ProjectTask>(ListaDeTarefasGeral);  
+        //VMProject.TaskListGeneral = new ObservableCollection<List<ModelProjectTaskGroup>>(ListaDeTarefasGeral);  
     }
 
     private async void Btn_AdicionarTarefaBacklog(object sender, EventArgs e)

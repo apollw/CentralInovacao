@@ -8,14 +8,6 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-        //Registrar rotas no XAML e no Code-Behind causa ambiguidade de rotas
-
-        //Routing.RegisterRoute(nameof(PageInicio)               , typeof(PageInicio));
-        //Routing.RegisterRoute(nameof(PagePontuacao)            , typeof(PagePontuacao));
-        //Routing.RegisterRoute(nameof(PageRankingGeral)         , typeof(PageRankingGeral));
-        //Routing.RegisterRoute(nameof(PageMeusProjetos)         , typeof(PageMeusProjetos));
-        //Routing.RegisterRoute(nameof(PageMinhasOportunidades)  , typeof(PageMinhasOportunidades));
-
         //Registro de Rotas
         Routing.RegisterRoute(nameof(PageFiltro)                , typeof(PageFiltro));
         Routing.RegisterRoute(nameof(PageProjeto)               , typeof(PageProjeto));

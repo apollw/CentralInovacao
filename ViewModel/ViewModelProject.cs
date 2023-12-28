@@ -11,25 +11,16 @@ namespace CentralInovacao.ViewModel
 {
     public partial class ViewModelProject : ObservableObject
     {
-        private int TamanhoDaPagina = 4;
-        public MvvmHelpers.ObservableRangeCollection<Project>
-        ProjetosDoUsuario { get; set; } = 
-        new MvvmHelpers.ObservableRangeCollection<Project>();
-
         [ObservableProperty]
-        private bool            _isBusy;
+        private bool    _isBusy;
         [ObservableProperty]
-        private bool            _isRefreshing;
+        private bool    _isRefreshing;
         [ObservableProperty]
-        private int             _batchSize;
+        private int     _statusActivated;
         [ObservableProperty]
-        private int             _currentProjectIndex;
+        private int     _statusDeactivated;
         [ObservableProperty]
-        private int             _statusActivated;
-        [ObservableProperty]
-        private int             _statusDeactivated;
-        [ObservableProperty]
-        private Project         _objProject;
+        private Project _objProject;
 
         //Listas Gerais
         [ObservableProperty]
@@ -60,23 +51,6 @@ namespace CentralInovacao.ViewModel
         public ViewModelProject(Project project)
         {
             ObjProject = project;
-        }
-
-        [RelayCommand]
-        public void GetNextData()
-        {
-            if (ProjetosDoUsuario.Count > 0)
-            {
-                ProjetosDoUsuario.AddRange(
-                    ProjectList.
-                    Skip(ProjetosDoUsuario.Count).
-                    Take(TamanhoDaPagina)
-                );
-            }
-            else
-            {
-                GetListaProjetosUsuario();
-            }
         }
 
         public async Task<bool> SalvarProjeto(Project project)
@@ -116,15 +90,6 @@ namespace CentralInovacao.ViewModel
             var body           = JsonConvert.SerializeObject(projetoJSON);
             ListaCarregada     = await RESTProject.GetListProjectsUser(body);
             ProjectListGeneral = new ObservableCollection<Project>(ListaCarregada);
-        }
-
-        public async void GetListaProjetosUsuarioNEW()
-        {
-            List<Project> ListaCarregada = new List<Project>();
-            ListaCarregada = await RESTProject.GetListProjectsUser();
-            ProjectList = new ObservableCollection<Project>(ListaCarregada);
-
-            ProjetosDoUsuario.AddRange(ProjectList.Take(TamanhoDaPagina));
         }
 
         public async void GetListaProjetosUsuario()
